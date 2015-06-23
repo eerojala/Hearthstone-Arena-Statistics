@@ -1,0 +1,8 @@
+domain\Outcome.class
+domain\DeckClass.class
+logic\XMLParser.class
+logic\DeckHandler.class
+domain\RewardCard.class
+domain\ArenaDeck.class
+arenastatistics\arenastatistics\Main.class
+domain\Match.class
