@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Matches>
+    <Match>
+        <PlayerClass>Druid</PlayerClass>
+        <OpponentClass>Mage</OpponentClass>
+        <OpponentName>Dennis</OpponentName>
+        <Outcome>Win</Outcome>
+        <WentFirst>Yes</WentFirst>
+        <DeckNumber>1</DeckNumber>
+        <MatchNumber>2</MatchNumber>
+    </Match>
+    <Match>
+        <PlayerClass>Rogue</PlayerClass>
+        <OpponentClass>Hunter</OpponentClass>
+        <OpponentName>UNKNOWN</OpponentName>
+        <Outcome>Loss</Outcome>
+        <WentFirst>No</WentFirst>
+        <DeckNumber>2</DeckNumber>
+        <MatchNumber>1</MatchNumber>
+    </Match>
+    <Match>
+        <PlayerClass>Warrior</PlayerClass>
+        <OpponentClass>Shaman</OpponentClass>
+        <OpponentName>The Innkeeper</OpponentName>
+        <Outcome>Disconnect</Outcome>
+        <WentFirst>Yes</WentFirst>
+        <DeckNumber>3</DeckNumber>
+        <MatchNumber>5</MatchNumber>
+    </Match>
+</Matches>

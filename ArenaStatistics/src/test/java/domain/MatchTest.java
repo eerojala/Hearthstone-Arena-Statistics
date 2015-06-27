@@ -16,7 +16,7 @@ public class MatchTest {
     public MatchTest() {
         deck = new ArenaDeck(DeckClass.WARLOCK, 1);
         match1 = new Match(deck.getPlayerClass(), DeckClass.SHAMAN, "Test1", Outcome.WIN,
-                deck.getDeckNumber(), 1);
+                true, deck.getDeckNumber(), 1);
     }
 
     @BeforeClass
@@ -43,21 +43,21 @@ public class MatchTest {
     @Test
     public void equals_returns_false_if_deck_is_different() {
         match2 = new Match(DeckClass.WARLOCK, DeckClass.SHAMAN, "Test1", Outcome.WIN,
-                2, 1);
+                true, 2, 1);
         assertEquals(false, match1.equals(match2));
     }
 
     @Test
     public void equals_returns_false_if_different_match_number() {
         match2 = new Match(deck.getPlayerClass(), DeckClass.SHAMAN, "Test1", Outcome.WIN,
-                1, 2);
+                true, 1, 2);
         assertEquals(false, match1.equals(match2));
     }
 
     @Test
     public void equals_returns_true_if_same() {
         match2 = new Match(deck.getPlayerClass(), DeckClass.SHAMAN, "Test1", Outcome.WIN,
-                1, 1);
+                true, 1, 1);
         assertEquals(true, match1.equals(match2));
     }
 }

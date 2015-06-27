@@ -3,17 +3,18 @@ package logic;
 import domain.DeckClass;
 import domain.Match;
 import domain.Outcome;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 
-public class XMLParser {
+public class XmlParser {
     
     private final List<DeckClass> classList;
     private final List<Match> matches;
 
-    public XMLParser() {
+    public XmlParser(String fileName) {
         matches = new ArrayList();
         classList = new ArrayList();
         classList.add(DeckClass.DRUID);
@@ -25,16 +26,15 @@ public class XMLParser {
         classList.add(DeckClass.SHAMAN);
         classList.add(DeckClass.WARLOCK);
         classList.add(DeckClass.WARRIOR);
-        parseXmlFile();
+        parseXmlFile(fileName);
         
     }
 
-    private void parseXmlFile() {
+    private void parseXmlFile(String fileName) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            parseDocument(db.parse("Matches.xml"));
-            
+            parseDocument(db.parse(new File(fileName)));                       
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class XMLParser {
 
     private void parseDocument(Document dom) {
         Element docEle = dom.getDocumentElement();
-        NodeList nl = docEle.getElementsByTagName("Employee");
+        NodeList nl = docEle.getElementsByTagName("Match");
         if (nl != null && nl.getLength() > 0) {
             for (int i = 0; i < nl.getLength(); i++) {
                 Element el = (Element) nl.item(i);
@@ -58,18 +58,19 @@ public class XMLParser {
         DeckClass opponentClass = getDeckClassValue(matchEl, "OpponentClass");
         String opponentName = getTextValue(matchEl, "OpponentName");
         Outcome outcome = getOutcomeValue(matchEl, "Outcome");
+        boolean wentFirst = getBooleanValue(matchEl, "WentFirst");
         int deckNumber = getIntValue(matchEl, "DeckNumber");
         int matchNumber = getIntValue(matchEl, "MatchNumber");
         return new Match(playerClass, opponentClass, opponentName, outcome,
-                deckNumber, matchNumber);
+                wentFirst, deckNumber, matchNumber);
     }
 
     private String getTextValue(Element ele, String tagName) {
         String textVal = null;
-        NodeList nl = ele.getElementsByTagName(tagName);
-        if (nl != null && nl.getLength() > 0) {
-            Element el = (Element) nl.item(0);
-            textVal = el.getFirstChild().getNodeValue();
+        NodeList nodeList = ele.getElementsByTagName(tagName);
+        if (nodeList != null && nodeList.getLength() > 0) {
+            Element element = (Element) nodeList.item(0);
+            textVal = element.getFirstChild().getNodeValue();
         }
         return textVal;
     }
@@ -101,6 +102,10 @@ public class XMLParser {
         } else {
             return Outcome.DISCONNECT;
         }
+    }
+    
+    private boolean getBooleanValue(Element ele, String tagName) {
+        return getTextValue(ele, tagName).equals("Yes");
     }
 
     public List<Match> getMatches() {

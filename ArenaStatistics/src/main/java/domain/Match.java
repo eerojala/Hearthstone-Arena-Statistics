@@ -6,15 +6,17 @@ public class Match {
     private final DeckClass opponentClass;
     private final String opponentName;
     private final Outcome outcome;
+    private final boolean wentFirst;
     private final int deckNumber;
     private final int matchNumber;
 
     public Match(DeckClass playerClass, DeckClass opponentClass, String opponentName,
-            Outcome outcome, int deckNumber, int matchNumber) {
+            Outcome outcome, boolean wentFirst, int deckNumber, int matchNumber) {
         this.playerClass = playerClass;
         this.opponentClass = opponentClass;
         this.opponentName = opponentName;
         this.outcome = outcome;
+        this.wentFirst = wentFirst;
         this.deckNumber = deckNumber;
         this.matchNumber = matchNumber;
     }
@@ -41,6 +43,10 @@ public class Match {
 
     public Outcome getOutcome() {
         return outcome;
+    }
+
+    public boolean wentFirst() {
+        return wentFirst;
     }
 
     @Override

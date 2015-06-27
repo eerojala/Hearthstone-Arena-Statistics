@@ -37,11 +37,11 @@ public class DeckHandlerTest {
         handler = new DeckHandler();
         handler.setDeck(new ArenaDeck(DeckClass.DRUID, 1));
         match1 = new Match(DeckClass.DRUID, DeckClass.MAGE, "test1", Outcome.WIN,
-                handler.getDeckNumber(), 1);
+                true, handler.getDeckNumber(), 1);
         match2 = new Match(DeckClass.DRUID, DeckClass.PALADIN, "test2", Outcome.LOSS,
-                handler.getDeckNumber(), 2);
+                false, handler.getDeckNumber(), 2);
         match3 = new Match(DeckClass.DRUID, DeckClass.HUNTER, "test3", Outcome.DISCONNECT,
-                handler.getDeckNumber(), 3);
+                false, handler.getDeckNumber(), 3);
         card = RewardCard.COMMON;
         handler.addMatch(match1);
         handler.addMatch(match2);
