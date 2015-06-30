@@ -1,22 +1,31 @@
 package logic;
 
+import domain.ArenaDeck;
 import domain.DeckClass;
 import domain.Match;
 import domain.Outcome;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 
 public class XmlParser {
-    
+
     private final List<DeckClass> classList;
     private final List<Match> matches;
+    private final HashMap<Integer, ArenaDeck> decks;
 
     public XmlParser(String fileName) {
         matches = new ArrayList();
+        decks = new HashMap();
         classList = new ArrayList();
+        initializeClassList();
+        parseXmlFile(fileName);
+    }
+
+    private void initializeClassList() {
         classList.add(DeckClass.DRUID);
         classList.add(DeckClass.HUNTER);
         classList.add(DeckClass.MAGE);
@@ -26,20 +35,17 @@ public class XmlParser {
         classList.add(DeckClass.SHAMAN);
         classList.add(DeckClass.WARLOCK);
         classList.add(DeckClass.WARRIOR);
-        parseXmlFile(fileName);
-        
     }
 
     private void parseXmlFile(String fileName) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            parseDocument(db.parse(new File(fileName)));                       
+            parseDocument(db.parse(new File(fileName)));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
 
     private void parseDocument(Document dom) {
         Element docEle = dom.getDocumentElement();
@@ -47,13 +53,12 @@ public class XmlParser {
         if (nl != null && nl.getLength() > 0) {
             for (int i = 0; i < nl.getLength(); i++) {
                 Element el = (Element) nl.item(i);
-                Match m = getMatch(el);
-                matches.add(m);
+                createMatch(el);
             }
         }
     }
 
-    private Match getMatch(Element matchEl) {
+    private void createMatch(Element matchEl) {
         DeckClass playerClass = getDeckClassValue(matchEl, "PlayerClass");
         DeckClass opponentClass = getDeckClassValue(matchEl, "OpponentClass");
         String opponentName = getTextValue(matchEl, "OpponentName");
@@ -61,8 +66,24 @@ public class XmlParser {
         boolean wentFirst = getBooleanValue(matchEl, "WentFirst");
         int deckNumber = getIntValue(matchEl, "DeckNumber");
         int matchNumber = getIntValue(matchEl, "MatchNumber");
-        return new Match(playerClass, opponentClass, opponentName, outcome,
+        Match match = new Match(playerClass, opponentClass, opponentName, outcome,
                 wentFirst, deckNumber, matchNumber);
+        matches.add(match);
+        addMatchToDeck(match);
+    }
+
+    private void addMatchToDeck(Match match) {
+        int deckNumber = match.getDeckNumber();
+        ArenaDeck deck;
+        DeckHandler handler = new DeckHandler();
+        if (decks.keySet().contains(match.getDeckNumber())) {
+            deck = decks.get(deckNumber);
+        } else {
+            deck = new ArenaDeck(match.getPlayerClass(), deckNumber);
+            decks.put(deckNumber, deck);
+        }
+        handler.setDeck(deck);
+        handler.addMatch(match);
     }
 
     private String getTextValue(Element ele, String tagName) {
@@ -103,7 +124,7 @@ public class XmlParser {
             return Outcome.DISCONNECT;
         }
     }
-    
+
     private boolean getBooleanValue(Element ele, String tagName) {
         return getTextValue(ele, tagName).equals("Yes");
     }
@@ -111,6 +132,9 @@ public class XmlParser {
     public List<Match> getMatches() {
         return matches;
     }
-    
-    
+
+    public HashMap<Integer, ArenaDeck> getDecks() {
+        return decks;
+    }
+
 }
