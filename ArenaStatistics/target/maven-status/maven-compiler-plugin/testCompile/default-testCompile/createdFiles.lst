@@ -1,4 +1,7 @@
-logic\DeckHandlerTest.class
-domain\ArenaDeckTest.class
+Xml\DeckParserTest.class
+domain\CardTest.class
+domain\OutcomeTest.class
+Xml\MatchParserTest.class
+domain\DeckTest.class
 domain\MatchTest.class
-logic\XmlParserTest.class
+logic\DeckHandlerTest.class

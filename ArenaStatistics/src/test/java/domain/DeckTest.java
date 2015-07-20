@@ -10,12 +10,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class ArenaDeckTest {
-    ArenaDeck deck1;
-    ArenaDeck deck2;
+public class DeckTest {
+    Deck deck1;
+    Deck deck2;
     
-    public ArenaDeckTest() {
-        deck1 = new ArenaDeck(DeckClass.WARRIOR, 1);
+    public DeckTest() {
+        deck1 = new Deck(DeckClass.WARRIOR, 1);
     }
     
     @BeforeClass
@@ -41,13 +41,13 @@ public class ArenaDeckTest {
     
     @Test
     public void equals_returns_false_if_wrong_deck_number() {
-        deck2 = new ArenaDeck(DeckClass.WARRIOR, 2);
+        deck2 = new Deck(DeckClass.WARRIOR, 2);
         assertEquals(false, deck1.equals(deck2));
     }
     
     @Test
     public void equals_returns_true_if_same() {
-        deck2 = new ArenaDeck(DeckClass.PRIEST, 1);
+        deck2 = new Deck(DeckClass.PRIEST, 1);
         assertEquals(true, deck1.equals(deck2));
     }
     

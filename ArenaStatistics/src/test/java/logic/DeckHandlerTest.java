@@ -1,8 +1,8 @@
 package logic;
 
-import domain.ArenaDeck;
+import domain.Deck;
 import domain.DeckClass;
-import domain.RewardCard;
+import domain.Card;
 import domain.Match;
 import domain.Outcome;
 import org.junit.After;
@@ -18,7 +18,7 @@ public class DeckHandlerTest {
     Match match1;
     Match match2;
     Match match3;
-    RewardCard card;
+    Card card;
     int temp;
 
     public DeckHandlerTest() {
@@ -35,14 +35,14 @@ public class DeckHandlerTest {
     @Before
     public void setUp() {
         handler = new DeckHandler();
-        handler.setDeck(new ArenaDeck(DeckClass.DRUID, 1));
+        handler.setDeck(new Deck(DeckClass.DRUID, 1));
         match1 = new Match(DeckClass.DRUID, DeckClass.MAGE, "test1", Outcome.WIN,
                 true, handler.getDeckNumber(), 1);
         match2 = new Match(DeckClass.DRUID, DeckClass.PALADIN, "test2", Outcome.LOSS,
                 false, handler.getDeckNumber(), 2);
         match3 = new Match(DeckClass.DRUID, DeckClass.HUNTER, "test3", Outcome.DISCONNECT,
                 false, handler.getDeckNumber(), 3);
-        card = RewardCard.COMMON;
+        card = Card.COMMON;
         handler.addMatch(match1);
         handler.addMatch(match2);
     }

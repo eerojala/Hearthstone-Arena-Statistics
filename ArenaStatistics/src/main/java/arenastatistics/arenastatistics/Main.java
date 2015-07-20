@@ -1,15 +1,28 @@
 package arenastatistics.arenastatistics;
 
-import domain.*;
-import java.util.HashMap;
-import logic.XmlParser;
+import Xml.DocumentBuilder;
+import Xml.MatchParser;
+import Xml.MatchWriter;
+import domain.DeckClass;
+import domain.Match;
+import domain.Outcome;
+import org.jdom.Document;
 
 public class Main {
 
     public static void main(String[] args) {
-        XmlParser parser = new XmlParser("src/main/resources/ParseTest.xml");
-        HashMap<Integer, ArenaDeck> map = parser.getDecks();
-        System.out.println("");     
+//        MatchWriter writer = new MatchWriter("src/main/resources/MatchWriteTest.xml");
+//        Match match1 = new Match(DeckClass.WARLOCK, DeckClass.PALADIN, "Dennis",
+//                Outcome.DISCONNECT, true, 1, 1);
+//        Document doc = DocumentBuilder.buildDocument("src/main/resources/MatchWriteTest.xml");
+//        writer.addContent(doc, match1);
+////        writer.removeLatest(doc);
+////        writer.removeAll(doc);
+////        writer.remove(doc, "1.1");
+////        MatchParser parser = new MatchParser(doc);
+////        Match match = parser.getMatches().get(0);
+         MatchParser parser = new MatchParser("src/main/resources/MatchParseTest.xml");
+        
     }
 
 }

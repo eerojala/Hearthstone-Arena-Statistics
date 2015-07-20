@@ -3,19 +3,19 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArenaDeck {
+public class Deck {
 
     private final DeckClass playerClass;
     private List<Match> matches;
-    private List<RewardCard> cards;
+    private List<Card> cards;
     private final int deckNumber;
     private int wins;
     private int losses;
     private int gold;
     private int dust;
-    private int extra_packs;
+    private int extraPacks;
 
-    public ArenaDeck(DeckClass playerClass, int deckNumber) {
+    public Deck(DeckClass playerClass, int deckNumber) {
         this.playerClass = playerClass;
         this.deckNumber = deckNumber;
         matches = new ArrayList();
@@ -24,7 +24,7 @@ public class ArenaDeck {
         losses = 0;
         gold = 0;
         dust = 0;
-        extra_packs = 0;
+        extraPacks = 0;
     }
 
     public int getDeckNumber() {
@@ -47,7 +47,7 @@ public class ArenaDeck {
         return wins;
     }
 
-    public List<RewardCard> getRewardCards() {
+    public List<Card> getRewardCards() {
         return cards;
     }
 
@@ -56,7 +56,7 @@ public class ArenaDeck {
     }
 
     public int getExtraPacks() {
-        return extra_packs;
+        return extraPacks;
     }
 
     public int getGold() {
@@ -67,20 +67,16 @@ public class ArenaDeck {
         this.dust = dust;
     }
 
-    public void setExtraPacks(int extra_packs) {
-        this.extra_packs = extra_packs;
+    public void setExtraPacks(int extraPacks) {
+        this.extraPacks = extraPacks;
     }
 
     public void setGold(int gold) {
         this.gold = gold;
     }
 
-    public void setCards(List<RewardCard> cards) {
+    public void setCards(List<Card> cards) {
         this.cards = cards;
-    }
-
-    public void setExtra_packs(int extra_packs) {
-        this.extra_packs = extra_packs;
     }
 
     public void setLosses(int losses) {
@@ -101,7 +97,7 @@ public class ArenaDeck {
             return false;
         }
         
-        ArenaDeck deck = (ArenaDeck) obj;
+        Deck deck = (Deck) obj;
         
         return this.deckNumber == deck.getDeckNumber();
     }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class DeckHandler {
 
-    private ArenaDeck deck;
+    private Deck deck;
 
     public DeckHandler() {
 
@@ -47,11 +47,11 @@ public class DeckHandler {
         }
     }
 
-    public void addCard(RewardCard card) {
+    public void addCard(Card card) {
         deck.getRewardCards().add(card);
     }
 
-    public RewardCard removeCard(int i) {
+    public Card removeCard(int i) {
         try {
             return deck.getRewardCards().remove(i);
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class DeckHandler {
         }
     }
 
-    public void setDeck(ArenaDeck deck) {
+    public void setDeck(Deck deck) {
         this.deck = deck;
     }
     
@@ -75,7 +75,7 @@ public class DeckHandler {
         deck.setExtraPacks(x);
     }
 
-    public ArenaDeck getDeck() {
+    public Deck getDeck() {
         return deck;
     }
 

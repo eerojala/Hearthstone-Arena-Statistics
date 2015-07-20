@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Decks>
+    <Deck id="1">
+        <PlayerClass>Warlock</PlayerClass>
+        <Gold>200</Gold>
+        <Dust>30</Dust>
+        <ExtraPacks>1</ExtraPacks>
+        <Cards>
+            <Card1>Epic</Card1>
+            <Card2>Golden Common</Card2>
+            <Card3>Rare</Card3>
+            <Card4>Golden Legendary</Card4>
+        </Cards>       
+    </Deck>
+    <Deck id="3">
+        <PlayerClass>Shaman</PlayerClass>
+        <Gold>0</Gold>
+        <Dust>0</Dust>
+        <ExtraPacks>0</ExtraPacks>
+        <Cards></Cards>
+    </Deck>
+    <Deck id="7">
+        <PlayerClass>Mage</PlayerClass>
+        <Gold>300</Gold>
+        <Dust>0</Dust>
+        <ExtraPacks>0</ExtraPacks>
+        <Cards>
+            <Card1>Legendary</Card1>
+            <Card2>Common</Card2>
+            <Card3>Golden Epic</Card3>
+            <Card4>Golden Rare</Card4>
+        </Cards>
+    </Deck>
+</Decks>

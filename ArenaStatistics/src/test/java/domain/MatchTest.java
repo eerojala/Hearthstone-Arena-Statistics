@@ -9,12 +9,12 @@ import static org.junit.Assert.*;
 
 public class MatchTest {
 
-    ArenaDeck deck;
+    Deck deck;
     Match match1;
     Match match2;
 
     public MatchTest() {
-        deck = new ArenaDeck(DeckClass.WARLOCK, 1);
+        deck = new Deck(DeckClass.WARLOCK, 1);
         match1 = new Match(deck.getPlayerClass(), DeckClass.SHAMAN, "Test1", Outcome.WIN,
                 true, deck.getDeckNumber(), 1);
     }
