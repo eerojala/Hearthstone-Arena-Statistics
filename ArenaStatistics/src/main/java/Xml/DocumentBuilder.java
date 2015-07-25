@@ -16,7 +16,7 @@ public class DocumentBuilder {
         }
     }
     
-    public static Document createNewDocument(String rootName) {
+    public static Document createDocument(String rootName) {
         Element root = new Element(rootName);
         Document doc = new Document(root);
         doc.setRootElement(root);

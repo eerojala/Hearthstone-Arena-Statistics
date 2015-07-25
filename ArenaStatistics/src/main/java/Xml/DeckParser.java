@@ -14,13 +14,11 @@ public class DeckParser extends XmlParser {
     public DeckParser(String fileName) {
         super(fileName, "Deck");
         decks = new ArrayList();
-        addValuesToList();
     }
     
     public DeckParser(Document doc) {
         super(doc, "Deck");
         decks = new ArrayList();
-        addValuesToList();
     }
 
     @Override
@@ -56,7 +54,8 @@ public class DeckParser extends XmlParser {
         return cards;
     }
 
-    public List<Deck> getDecks() {
+    @Override
+    public List<Deck> getObjects() {
         return decks;
     }
 

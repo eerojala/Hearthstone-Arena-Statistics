@@ -34,7 +34,7 @@ public class DeckWriter extends XmlWriter{
         Element cardsElement = new Element("Cards");
         List<Card> cards = deck.getRewardCards();
         for (int i = 0; i < cards.size(); i++) {
-            Element cardElement = new Element("Card" + i + 1);
+            Element cardElement = new Element("Card" + (i + 1));
             cardElement.setText(cards.get(i).getType());
             cardsElement.addContent(cardElement);
         }

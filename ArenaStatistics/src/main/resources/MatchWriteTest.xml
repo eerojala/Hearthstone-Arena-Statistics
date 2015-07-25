@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Matches>
-  <Match id="1.1">
-    <PlayerClass>Warlock</PlayerClass>
-    <OpponentClass>Paladin</OpponentClass>
-    <OpponentName>Dennis</OpponentName>
-    <Outcome>Disconnect</Outcome>
-    <WentFirst>true</WentFirst>
-  </Match>
-</Matches>
+<Matches />
 

@@ -1,7 +1,10 @@
+Xml\MatchWriterTest.class
 Xml\DeckParserTest.class
-domain\CardTest.class
+Xml\DeckWriterTest.class
 domain\OutcomeTest.class
+domain\CardTest.class
 Xml\MatchParserTest.class
-domain\DeckTest.class
 domain\MatchTest.class
+domain\DeckTest.class
 logic\DeckHandlerTest.class
+Xml\DocumentBuilderTest.class

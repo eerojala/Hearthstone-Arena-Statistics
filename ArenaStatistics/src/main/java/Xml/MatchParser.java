@@ -14,14 +14,12 @@ public class MatchParser extends XmlParser {
     public MatchParser(String fileName) {
         super(fileName, "Match");
         matches = new ArrayList();
-        addValuesToList();
     }
     
     
     public MatchParser(Document doc) {
         super(doc, "Match");
         matches = new ArrayList();
-        addValuesToList();
     }
 
     @Override
@@ -45,7 +43,8 @@ public class MatchParser extends XmlParser {
                 wentFirst, deckNumber, matchNumber);
     }
 
-    public List<Match> getMatches() {
+    @Override
+    public List<Match> getObjects() {
         return matches;
     }
 

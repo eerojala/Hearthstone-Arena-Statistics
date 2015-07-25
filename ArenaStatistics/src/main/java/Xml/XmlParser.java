@@ -21,7 +21,7 @@ public abstract class XmlParser {
             } else if (tagName.equals("Deck")) {
                 rootName = "Decks";
             }
-            document = DocumentBuilder.createNewDocument(rootName);
+            document = DocumentBuilder.createDocument(rootName);
         }
         initChildList(tagName);
     }
@@ -69,5 +69,7 @@ public abstract class XmlParser {
     public Document getDocument() {
         return document;
     }
+    
+    public abstract List getObjects();
 
 }
