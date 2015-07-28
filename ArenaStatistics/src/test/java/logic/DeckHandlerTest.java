@@ -36,11 +36,11 @@ public class DeckHandlerTest {
     public void setUp() {
         handler = new DeckHandler();
         handler.setDeck(new Deck(DeckClass.DRUID, 1));
-        match1 = new Match(DeckClass.DRUID, DeckClass.MAGE, "test1", Outcome.WIN,
+        match1 = new Match(DeckClass.MAGE, "test1", Outcome.WIN,
                 true, handler.getDeckNumber(), 1);
-        match2 = new Match(DeckClass.DRUID, DeckClass.PALADIN, "test2", Outcome.LOSS,
+        match2 = new Match(DeckClass.PALADIN, "test2", Outcome.LOSS,
                 false, handler.getDeckNumber(), 2);
-        match3 = new Match(DeckClass.DRUID, DeckClass.HUNTER, "test3", Outcome.DISCONNECT,
+        match3 = new Match(DeckClass.HUNTER, "test3", Outcome.DISCONNECT,
                 false, handler.getDeckNumber(), 3);
         card = Card.COMMON;
         handler.addMatch(match1);
@@ -55,6 +55,12 @@ public class DeckHandlerTest {
     public void addMatch_adds_to_list() {
         handler.addMatch(match3);
         assertEquals(match3, handler.getLatestMatch());
+    }
+    
+    @Test
+    public void addMatch_sets_deck_to_match() {
+        handler.addMatch(match1);
+        assertEquals(handler.getDeck(), match1.getDeck());
     }
 
     @Test

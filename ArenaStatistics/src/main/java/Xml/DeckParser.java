@@ -1,6 +1,5 @@
 package Xml;
 
-import Xml.XmlParser;
 import domain.*;
 import java.util.ArrayList;
 import java.util.List;

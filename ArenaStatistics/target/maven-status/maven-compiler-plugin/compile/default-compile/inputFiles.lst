@@ -10,5 +10,6 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\Xml\XmlWri
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\Xml\DeckParser.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\arenastatistics\arenastatistics\Main.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\Xml\DeckWriter.java
-C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\Xml\MatchWriter.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\DeckHandler.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\Xml\MatchWriter.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\MatchAssigner.java

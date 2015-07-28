@@ -17,7 +17,6 @@ public class MatchWriter extends XmlWriter{
         Match match = (Match) obj;
         Element element = new Element("Match");
         element.setAttribute(new Attribute("id", match.getDeckNumber() + "." + match.getMatchNumber()));
-        element.addContent(new Element("PlayerClass").setText(match.getPlayerClass().getName()));
         element.addContent(new Element("OpponentClass").setText(match.getOpponentClass().getName()));
         element.addContent(new Element("OpponentName").setText(match.getOpponentName()));
         element.addContent(new Element("Outcome").setText(match.getOutcome().getName()));

@@ -1,24 +1,28 @@
 package domain;
 
-public class Match {
+public class Match implements Comparable<Match> {
 
-    private final DeckClass playerClass;
+    private DeckClass playerClass;
     private final DeckClass opponentClass;
     private final String opponentName;
     private final Outcome outcome;
     private final boolean wentFirst;
     private final int deckNumber;
     private final int matchNumber;
+    private Deck deck;
 
-    public Match(DeckClass playerClass, DeckClass opponentClass, String opponentName,
+    public Match(DeckClass opponentClass, String opponentName,
             Outcome outcome, boolean wentFirst, int deckNumber, int matchNumber) {
-        this.playerClass = playerClass;
         this.opponentClass = opponentClass;
         this.opponentName = opponentName;
         this.outcome = outcome;
         this.wentFirst = wentFirst;
         this.deckNumber = deckNumber;
         this.matchNumber = matchNumber;
+    }
+
+    public Deck getDeck() {
+        return deck;
     }
 
     public int getDeckNumber() {
@@ -49,6 +53,14 @@ public class Match {
         return wentFirst;
     }
 
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
+    public void setPlayerClass(DeckClass playerClass) {
+        this.playerClass = playerClass;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null || obj.getClass() != this.getClass()) {
@@ -57,11 +69,19 @@ public class Match {
 
         Match match = (Match) obj;
 
-        if (this.deckNumber == match.getDeckNumber() && 
-                this.matchNumber == match.getMatchNumber()) {
+        if (this.deckNumber == match.getDeckNumber()
+                && this.matchNumber == match.getMatchNumber()) {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(Match o) {
+        if (this.deckNumber == o.getDeckNumber()) {
+            return this.matchNumber - o.getMatchNumber();
+        }
+        return this.deckNumber - o.getDeckNumber();
     }
 
 }

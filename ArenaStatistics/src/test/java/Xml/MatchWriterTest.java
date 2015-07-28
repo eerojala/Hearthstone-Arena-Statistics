@@ -22,21 +22,24 @@ public class MatchWriterTest {
     Match match3;
     Match match4;
     Match match5;
+    Match match6;
+    Match match7;
+    Match match8;
+    Match match9;
     String filePath;
 
     public MatchWriterTest() {
         filePath = "src/main/resources/MatchWriteTest.xml";
         writer = new MatchWriter(filePath);
-        match1 = new Match(DeckClass.WARLOCK, DeckClass.PALADIN, "Dennis",
-                Outcome.DISCONNECT, true, 1, 1);
-        match2 = new Match(DeckClass.PRIEST, DeckClass.ROGUE, "UNKNOWN",
-                Outcome.WIN, false, 2, 1);
-        match3 = new Match(DeckClass.WARRIOR, DeckClass.HUNTER, "öööö",
-                Outcome.LOSS, true, 3, 1);
-        match4 = new Match(DeckClass.SHAMAN, DeckClass.DRUID, "weweq",
-                Outcome.DISCONNECT, false, 4, 1);
-        match5 = new Match(DeckClass.MAGE, DeckClass.HUNTER, "",
-                Outcome.WIN, true, 5, 1);
+        match1 = new Match(DeckClass.PALADIN, "Dennis", Outcome.DISCONNECT, true, 1, 1);
+        match2 = new Match(DeckClass.ROGUE, "UNKNOWN", Outcome.WIN, false, 2, 1);
+        match3 = new Match(DeckClass.HUNTER, "öööö", Outcome.LOSS, true, 3, 1);
+        match4 = new Match(DeckClass.DRUID, "weweq", Outcome.DISCONNECT, false, 4, 1);
+        match5 = new Match(DeckClass.WARRIOR, "", Outcome.WIN, true, 5, 1);
+        match6 = new Match(DeckClass.SHAMAN, "", Outcome.LOSS, false, 6, 1);
+        match7 = new Match(DeckClass.MAGE, "fafasdf", Outcome.DISCONNECT, true, 7, 1);
+        match8 = new Match(DeckClass.WARLOCK, "fr3fseew3", Outcome.WIN, false, 8, 1);
+        match9 = new Match(DeckClass.PRIEST, "332424", Outcome.LOSS, true, 9, 1);
     }
 
     @BeforeClass
@@ -59,37 +62,23 @@ public class MatchWriterTest {
     }
 
     @Test
-    public void addContent_adds_a_match1() {
+    public void addContent_adds_a_match() {
         parseDocument();
         match = parser.getObjects().get(0);
         assertEquals(match, match1);
     }
 
     @Test
-    public void addContent_adds_a_match2() {
-        parseDocument();
-        match = parser.getObjects().get(1);
-        assertEquals(match, match2);
-    }
-
-    @Test
-    public void addContent_adds_a_match3() {
-        parseDocument();
-        match = parser.getObjects().get(2);
-        assertEquals(match, match3);
-    }
-
-    @Test
     public void addContent_adds_all_matches() {
         parseDocument();
-        assertEquals(5, parser.getObjects().size());
+        assertEquals(9, parser.getObjects().size());
     }
 
     @Test
     public void removeLatest_removes_latest_match() {
         writer.removeLatest(doc);
         parseDocument();
-        assertFalse(parser.getObjects().contains(match5));
+        assertFalse(parser.getObjects().contains(match9));
     }
 
     @Test
@@ -107,41 +96,6 @@ public class MatchWriterTest {
     }
 
     @Test
-    public void written_match_has_correct_player_class1() {
-        parseDocument();
-        match = parser.getObjects().get(0);
-        assertEquals(DeckClass.WARLOCK, match.getPlayerClass());
-    }
-
-    @Test
-    public void written_match_has_correct_player_class2() {
-        parseDocument();
-        match = parser.getObjects().get(1);
-        assertEquals(DeckClass.PRIEST, match.getPlayerClass());
-    }
-
-    @Test
-    public void written_match_has_correct_player_class3() {
-        parseDocument();
-        match = parser.getObjects().get(2);
-        assertEquals(DeckClass.WARRIOR, match.getPlayerClass());
-    }
-
-    @Test
-    public void written_match_has_correct_player_class4() {
-        parseDocument();
-        match = parser.getObjects().get(3);
-        assertEquals(DeckClass.SHAMAN, match.getPlayerClass());
-    }
-
-    @Test
-    public void written_match_has_correct_player_class5() {
-        parseDocument();
-        match = parser.getObjects().get(4);
-        assertEquals(DeckClass.MAGE, match.getPlayerClass());
-    }
-
-    @Test
     public void written_match_has_correct_opponent_class1() {
         parseDocument();
         match = parser.getObjects().get(0);
@@ -154,7 +108,8 @@ public class MatchWriterTest {
         match = parser.getObjects().get(1);
         assertEquals(DeckClass.ROGUE, match.getOpponentClass());
     }
-    
+
+    @Test
     public void written_match_has_correct_opponent_class3() {
         parseDocument();
         match = parser.getObjects().get(2);
@@ -166,6 +121,40 @@ public class MatchWriterTest {
         parseDocument();
         match = parser.getObjects().get(3);
         assertEquals(DeckClass.DRUID, match.getOpponentClass());
+    }
+
+    @Test
+    public void written_match_has_correct_opponent_class5() {
+        parseDocument();
+        match = parser.getObjects().get(4);
+        assertEquals(DeckClass.WARRIOR, match.getOpponentClass());
+    }
+
+    @Test
+    public void written_match_has_correct_opponent_class6() {
+        parseDocument();
+        match = parser.getObjects().get(5);
+        assertEquals(DeckClass.SHAMAN, match.getOpponentClass());
+    }
+
+    @Test
+    public void written_match_has_correct_opponent_class7() {
+        parseDocument();
+        match = parser.getObjects().get(6);
+        assertEquals(DeckClass.MAGE, match.getOpponentClass());
+    }
+    
+    public void written_match_has_correct_opponent_class8() {
+        parseDocument();
+        match = parser.getObjects().get(7);
+        assertEquals(DeckClass.WARLOCK, match.getOpponentClass());
+    }
+
+    @Test
+    public void written_match_has_correct_opponent_class9() {
+        parseDocument();
+        match = parser.getObjects().get(8);
+        assertEquals(DeckClass.PRIEST, match.getOpponentClass());
     }
 
     @Test
@@ -230,6 +219,10 @@ public class MatchWriterTest {
         writer.addContent(doc, match3);
         writer.addContent(doc, match4);
         writer.addContent(doc, match5);
+        writer.addContent(doc, match6);
+        writer.addContent(doc, match7);
+        writer.addContent(doc, match8);
+        writer.addContent(doc, match9);
     }
 
     private void parseDocument() {

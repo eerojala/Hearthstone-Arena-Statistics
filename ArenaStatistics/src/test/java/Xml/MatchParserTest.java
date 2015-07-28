@@ -16,7 +16,11 @@ public class MatchParserTest {
     Match match3;
     Match match4;
     Match match5;
-
+    Match match6;
+    Match match7;
+    Match match8;
+    Match match9;
+    
     public MatchParserTest() {
         parser = new MatchParser("src/main/resources/MatchParseTest.xml");
         parser.addValuesToList();
@@ -25,6 +29,11 @@ public class MatchParserTest {
         match3 = parser.getObjects().get(2);
         match4 = parser.getObjects().get(3);
         match5 = parser.getObjects().get(4);
+        match6 = parser.getObjects().get(5);
+        match7 = parser.getObjects().get(6);
+        match8 = parser.getObjects().get(7);
+        match9 = parser.getObjects().get(8);
+       
     }
 
     @BeforeClass
@@ -51,27 +60,7 @@ public class MatchParserTest {
     
     @Test
     public void parses_all_matches() {
-        assertEquals(5, parser.getObjects().size());
-    }
-
-    @Test
-    public void match_has_correct_player_class1() {
-        assertEquals(DeckClass.DRUID, match1.getPlayerClass());
-    }
-    
-    @Test
-    public void match_has_correct_player_class2() {
-        assertEquals(DeckClass.ROGUE, match2.getPlayerClass());
-    }
-    
-    @Test
-    public void match_has_correct_player_class3() {
-        assertEquals(DeckClass.PALADIN, match3.getPlayerClass());
-    }
-    
-    @Test
-    public void match_has_correct_player_class4() {
-        assertEquals(DeckClass.WARRIOR, match4.getPlayerClass());
+        assertEquals(9, parser.getObjects().size());
     }
 
     @Test
@@ -93,15 +82,40 @@ public class MatchParserTest {
     public void match_has_correct_opponent_class4() {
         assertEquals(DeckClass.PRIEST, match4.getOpponentClass());
     }
-    
+
     @Test
     public void match_has_correct_opponent_class5() {
         assertEquals(DeckClass.WARLOCK, match5.getOpponentClass());
     }
+    
+    @Test
+    public void match_has_correct_opponent_class6() {
+        assertEquals(DeckClass.PALADIN, match6.getOpponentClass());
+    }
+    
+    @Test
+    public void match_has_correct_opponent_class7() {
+        assertEquals(DeckClass.WARRIOR, match7.getOpponentClass());
+    }
+    
+    @Test
+    public void match_has_correct_opponent_class8() {
+        assertEquals(DeckClass.DRUID, match8.getOpponentClass());
+    }
+    
+    @Test
+    public void match_has_correct_opponent_class9() {
+        assertEquals(DeckClass.ROGUE, match9.getOpponentClass());
+    }
 
     @Test
-    public void match_has_correct_opponent_name() {
+    public void match_has_correct_opponent_name1() {
         assertEquals("Dennis", match1.getOpponentName());
+    }
+   
+    @Test
+    public void match_has_correct_opponent_name2() {
+        assertEquals("", match6.getOpponentName());
     }
 
     @Test

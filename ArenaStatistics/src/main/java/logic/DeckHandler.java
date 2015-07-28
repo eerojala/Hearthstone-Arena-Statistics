@@ -12,6 +12,7 @@ public class DeckHandler {
     }
 
     public boolean addMatch(Match match) {
+        match.setDeck(deck);
         deck.getMatches().add(match);
         increaseWinOrLossCount(match);
         return isFinished();

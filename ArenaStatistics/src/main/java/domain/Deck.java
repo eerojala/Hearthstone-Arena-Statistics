@@ -3,7 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Deck {
+public class Deck implements Comparable<Deck>{
 
     private final DeckClass playerClass;
     private List<Match> matches;
@@ -100,6 +100,11 @@ public class Deck {
         Deck deck = (Deck) obj;
         
         return this.deckNumber == deck.getDeckNumber();
+    }
+
+    @Override
+    public int compareTo(Deck o) {
+        return this.deckNumber - o.getDeckNumber();
     }
     
     

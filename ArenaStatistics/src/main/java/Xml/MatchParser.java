@@ -31,7 +31,6 @@ public class MatchParser extends XmlParser {
     }
 
     private Match createMatch(Element node) {
-        DeckClass playerClass = getDeckClassValue(node, "PlayerClass");
         DeckClass opponentClass = getDeckClassValue(node, "OpponentClass");
         String opponentName = getStringValue(node, "OpponentName");
         Outcome outcome = getOutcomeValue(node, "Outcome");
@@ -39,7 +38,7 @@ public class MatchParser extends XmlParser {
         String id = getId(node);
         int deckNumber = Integer.parseInt(id.split("\\.")[0]);
         int matchNumber = Integer.parseInt(id.split("\\.")[1]);      
-        return new Match(playerClass, opponentClass, opponentName, outcome,
+        return new Match(opponentClass, opponentName, outcome,
                 wentFirst, deckNumber, matchNumber);
     }
 

@@ -1,6 +1,7 @@
 domain\Outcome.class
 Xml\MatchWriter.class
 logic\DeckHandler.class
+logic\MatchAssigner.class
 Xml\XmlParser.class
 Xml\DeckParser.class
 arenastatistics\arenastatistics\Main.class

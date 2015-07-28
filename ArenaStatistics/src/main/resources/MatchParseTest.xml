@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Matches>
     <Match id="1.2">
-        <PlayerClass>Druid</PlayerClass>
         <OpponentClass>Mage</OpponentClass>
         <OpponentName>Dennis</OpponentName>
         <Outcome>Win</Outcome>
         <WentFirst>True</WentFirst>
     </Match>
     <Match id="3.1">
-        <PlayerClass>Rogue</PlayerClass>
         <OpponentClass>Hunter</OpponentClass>
         <OpponentName>öäå</OpponentName>
         <Outcome>Loss</Outcome>
         <WentFirst>False</WentFirst>
     </Match>
     <Match id="4.2">
-        <PlayerClass>Paladin</PlayerClass>
         <OpponentClass>Shaman</OpponentClass>
         <OpponentName>UNKNOWN</OpponentName>
         <Outcome>Disconnect</Outcome>
         <WentFirst>True</WentFirst>
     </Match>
     <Match id="5.1">
-        <PlayerClass>Warrior</PlayerClass>
         <OpponentClass>Priest</OpponentClass>
         <OpponentName>FEASFSD</OpponentName>
         <Outcome>Win</Outcome>
         <WentFirst>False</WentFirst>
     </Match>
     <Match id="5.2">
-        <PlayerClass>Warrior</PlayerClass>
         <OpponentClass>Warlock</OpponentClass>
         <OpponentName>eewewrw</OpponentName>
         <Outcome>Loss</Outcome>
         <WentFirst>True</WentFirst>
+    </Match>
+    <Match id="5.3">
+        <OpponentClass>Paladin</OpponentClass>
+        <OpponentName></OpponentName>
+        <Outcome>Disconnect</Outcome>
+        <WentFirst>False</WentFirst>
+    </Match>
+    <Match id="6.1">
+        <OpponentClass>Warrior</OpponentClass>
+        <OpponentName></OpponentName>
+        <Outcome>Disconnect</Outcome>
+        <WentFirst>False</WentFirst>
+    </Match>
+    <Match id="6.2">
+        <OpponentClass>Druid</OpponentClass>
+        <OpponentName>ewrewewd</OpponentName>
+        <Outcome>Win</Outcome>
+        <WentFirst>True</WentFirst>
+    </Match>
+    <Match id="6.3">
+        <OpponentClass>Rogue</OpponentClass>
+        <OpponentName>wdqe32232</OpponentName>
+        <Outcome>Loss</Outcome>
+        <WentFirst>False</WentFirst>
     </Match>
 </Matches>

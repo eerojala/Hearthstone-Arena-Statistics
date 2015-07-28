@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.031" errors="0" skipped="0" tests="28" name="logic.DeckHandlerTest">
+<testsuite failures="0" time="0.016" errors="0" skipped="0" tests="29" name="logic.DeckHandlerTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_55\jre\bin"/>
@@ -63,32 +63,33 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.001" classname="logic.DeckHandlerTest" name="getLatestMatch_returns_null_if_no_matches"/>
-  <testcase time="0.001" classname="logic.DeckHandlerTest" name="addMatch_counts_disconnect_as_loss"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="getLatestMatch_returns_null_if_no_matches"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_counts_disconnect_as_loss"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeCard_returns_null_if_no_card_at_index"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_doesnt_increase_win_count_if_loss"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_returns_null_if_no_match_at_index"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_counts_disconnect_as_loss"/>
-  <testcase time="0.001" classname="logic.DeckHandlerTest" name="removeLatestMatch_removes_match_from_list"/>
-  <testcase time="0.004" classname="logic.DeckHandlerTest" name="addMatch_doesnt_increase_loss_count_if_win"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="removeLatestMatch_removes_match_from_list"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_doesnt_increase_loss_count_if_win"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_doesnt_decrease_loss_count_if_not_loss"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_returns_true_if_3_losses"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_decreases_loss_count"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="getLatestMatch_returns_latest_added"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_decreases_win_count"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_adds_to_list"/>
-  <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_increases_loss_count"/>
-  <testcase time="0.002" classname="logic.DeckHandlerTest" name="addCard_adds_card_to_list"/>
-  <testcase time="0.001" classname="logic.DeckHandlerTest" name="removeMatch_doesnt_decrease_win_count_if_not_win"/>
+  <testcase time="0.016" classname="logic.DeckHandlerTest" name="addMatch_increases_loss_count"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="addCard_adds_card_to_list"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_doesnt_decrease_win_count_if_not_win"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_returns_match_at_index"/>
-  <testcase time="0.001" classname="logic.DeckHandlerTest" name="removeMatch_doesnt_count_disconnect_as_win"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_doesnt_count_disconnect_as_win"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_returns_true_if_12_wins"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_returns_false_if_not_finished"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeMatch_removes_match_from_list"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeLatestMatch_returns_null_if_no_matches"/>
-  <testcase time="0.001" classname="logic.DeckHandlerTest" name="removeCard_removes_card_from_list"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="removeCard_removes_card_from_list"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_sets_deck_to_match"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeCard_returns_card_at_index"/>
-  <testcase time="0.001" classname="logic.DeckHandlerTest" name="addMatch_doesnt_count_disconnect_as_win"/>
+  <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_doesnt_count_disconnect_as_win"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="removeLatestMatch_returns_latest_match"/>
   <testcase time="0" classname="logic.DeckHandlerTest" name="addMatch_increases_win_count"/>
 </testsuite>
