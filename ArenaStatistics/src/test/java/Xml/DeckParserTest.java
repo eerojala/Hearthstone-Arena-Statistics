@@ -60,7 +60,7 @@ public class DeckParserTest {
     
     @Test
     public void deck_has_correct_player_class() {
-        assertEquals(DeckClass.WARLOCK, deck1.getPlayerClass());
+        assertEquals(DeckClass.WARLOCK, deck1.getDeckClass());
     }
     
     @Test

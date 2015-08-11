@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Deck implements Comparable<Deck>{
 
-    private final DeckClass playerClass;
+    private final DeckClass deckClass;
     private List<Match> matches;
     private List<Card> cards;
     private final int deckNumber;
@@ -16,7 +16,7 @@ public class Deck implements Comparable<Deck>{
     private int extraPacks;
 
     public Deck(DeckClass playerClass, int deckNumber) {
-        this.playerClass = playerClass;
+        this.deckClass = playerClass;
         this.deckNumber = deckNumber;
         matches = new ArrayList();
         cards = new ArrayList();
@@ -39,8 +39,8 @@ public class Deck implements Comparable<Deck>{
         return matches;
     }
 
-    public DeckClass getPlayerClass() {
-        return playerClass;
+    public DeckClass getDeckClass() {
+        return deckClass;
     }
 
     public int getWins() {
@@ -106,7 +106,9 @@ public class Deck implements Comparable<Deck>{
     public int compareTo(Deck o) {
         return this.deckNumber - o.getDeckNumber();
     }
-    
-    
 
+    @Override
+    public String toString() {
+        return "Class: " + this.deckClass + ", Number: " + this.deckNumber;
+    }
 }

@@ -13,6 +13,7 @@ public class DeckHandler {
 
     public boolean addMatch(Match match) {
         match.setDeck(deck);
+        match.setPlayerDeckClass(deck.getDeckClass());
         deck.getMatches().add(match);
         increaseWinOrLossCount(match);
         return isFinished();
@@ -81,7 +82,7 @@ public class DeckHandler {
     }
 
     public DeckClass getDeckClass() {
-        return deck.getPlayerClass();
+        return deck.getDeckClass();
     }
 
     public Match getLatestMatch() {

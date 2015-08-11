@@ -1,4 +1,3 @@
-
 package Xml;
 
 import domain.Card;
@@ -8,8 +7,7 @@ import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
 
-
-public class DeckWriter extends XmlWriter{
+public class DeckWriter extends XmlWriter {
 
     public DeckWriter(String filePath) {
         super(filePath, "Decks", "Deck");
@@ -17,19 +15,22 @@ public class DeckWriter extends XmlWriter{
 
     @Override
     public void addContent(Document doc, Object obj) {
-        Deck deck = (Deck) obj;
-        Element element = new Element("Deck");
-        element.addContent(new Element("DeckNumber").setText("" + deck.getDeckNumber()));
-        element.setAttribute(new Attribute("id", "" +deck.getDeckNumber()));
-        element.addContent(new Element("PlayerClass").setText(deck.getPlayerClass().getName()));
-        element.addContent(new Element("Gold").setText("" + deck.getGold()));
-        element.addContent(new Element("Dust").setText("" + deck.getDust()));
-        element.addContent(new Element("ExtraPacks").setText("" + deck.getExtraPacks()));
-        addCards(element, deck);
-        doc.getRootElement().addContent(element);
-        addToFile(doc);
+        try {
+            Deck deck = (Deck) obj;
+            Element element = new Element("Deck");
+            element.addContent(new Element("DeckNumber").setText("" + deck.getDeckNumber()));
+            element.setAttribute(new Attribute("id", "" + deck.getDeckNumber()));
+            element.addContent(new Element("PlayerClass").setText(deck.getDeckClass().getName()));
+            element.addContent(new Element("Gold").setText("" + deck.getGold()));
+            element.addContent(new Element("Dust").setText("" + deck.getDust()));
+            element.addContent(new Element("ExtraPacks").setText("" + deck.getExtraPacks()));
+            addCards(element, deck);
+            doc.getRootElement().addContent(element);
+            addToFile(doc);
+        } catch (Exception e) {
+        }
     }
-    
+
     private void addCards(Element element, Deck deck) {
         Element cardsElement = new Element("Cards");
         List<Card> cards = deck.getRewardCards();
@@ -40,5 +41,5 @@ public class DeckWriter extends XmlWriter{
         }
         element.addContent(cardsElement);
     }
-    
+
 }

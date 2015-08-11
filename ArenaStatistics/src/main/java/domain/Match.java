@@ -2,8 +2,8 @@ package domain;
 
 public class Match implements Comparable<Match> {
 
-    private DeckClass playerClass;
-    private final DeckClass opponentClass;
+    private DeckClass playerDeckClass;
+    private final DeckClass opponentDeckClass;
     private final String opponentName;
     private final Outcome outcome;
     private final boolean wentFirst;
@@ -13,7 +13,7 @@ public class Match implements Comparable<Match> {
 
     public Match(DeckClass opponentClass, String opponentName,
             Outcome outcome, boolean wentFirst, int deckNumber, int matchNumber) {
-        this.opponentClass = opponentClass;
+        this.opponentDeckClass = opponentClass;
         this.opponentName = opponentName;
         this.outcome = outcome;
         this.wentFirst = wentFirst;
@@ -33,16 +33,16 @@ public class Match implements Comparable<Match> {
         return matchNumber;
     }
 
-    public DeckClass getOpponentClass() {
-        return opponentClass;
+    public DeckClass getOpponentDeckClass() {
+        return opponentDeckClass;
     }
 
     public String getOpponentName() {
         return opponentName;
     }
 
-    public DeckClass getPlayerClass() {
-        return playerClass;
+    public DeckClass getPlayerDeckClass() {
+        return playerDeckClass;
     }
 
     public Outcome getOutcome() {
@@ -57,8 +57,8 @@ public class Match implements Comparable<Match> {
         this.deck = deck;
     }
 
-    public void setPlayerClass(DeckClass playerClass) {
-        this.playerClass = playerClass;
+    public void setPlayerDeckClass(DeckClass playerDeckClass) {
+        this.playerDeckClass = playerDeckClass;
     }
 
     @Override
@@ -84,4 +84,10 @@ public class Match implements Comparable<Match> {
         return this.deckNumber - o.getDeckNumber();
     }
 
+    @Override
+    public String toString() {
+        return "Deck#: " + this.deckNumber + ", Match#: " + this.matchNumber;
+    }
+
+    
 }

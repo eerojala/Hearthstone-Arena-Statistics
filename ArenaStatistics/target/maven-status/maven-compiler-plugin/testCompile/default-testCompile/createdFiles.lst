@@ -1,10 +1,15 @@
 Xml\MatchWriterTest.class
-Xml\DeckParserTest.class
+logic\MatchArchiverTest.class
 Xml\DeckWriterTest.class
-domain\OutcomeTest.class
 domain\CardTest.class
 Xml\MatchParserTest.class
 domain\MatchTest.class
+logic\MatchAssignerTest.class
+domain\DeckClassPairTest.class
+logic\MatchStatisticsKeeperTest.class
+Xml\DeckParserTest.class
+logic\DeckArchiverTest.class
+domain\OutcomeTest.class
 domain\DeckTest.class
 logic\DeckHandlerTest.class
 Xml\DocumentBuilderTest.class

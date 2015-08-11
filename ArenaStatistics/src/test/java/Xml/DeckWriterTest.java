@@ -141,55 +141,55 @@ public class DeckWriterTest {
     @Test
     public void written_deck_has_correct_player_class1() {
         deck = decks.get(0);
-        assertEquals(DeckClass.DRUID, deck.getPlayerClass());
+        assertEquals(DeckClass.DRUID, deck.getDeckClass());
     }
 
     @Test
     public void written_deck_has_correct_player_class2() {
         deck = decks.get(1);
-        assertEquals(DeckClass.PALADIN, deck.getPlayerClass());
+        assertEquals(DeckClass.PALADIN, deck.getDeckClass());
     }
 
     @Test
     public void written_deck_has_correct_player_class3() {
         deck = decks.get(2);
-        assertEquals(DeckClass.WARRIOR, deck.getPlayerClass());
+        assertEquals(DeckClass.WARRIOR, deck.getDeckClass());
     }
 
     @Test
     public void written_deck_has_correct_player_class4() {
         deck = decks.get(3);
-        assertEquals(DeckClass.WARLOCK, deck.getPlayerClass());
+        assertEquals(DeckClass.WARLOCK, deck.getDeckClass());
     }
 
     @Test
     public void written_deck_has_correct_player_class5() {
         deck = decks.get(4);
-        assertEquals(DeckClass.HUNTER, deck.getPlayerClass());
+        assertEquals(DeckClass.HUNTER, deck.getDeckClass());
     }
 
     @Test
     public void written_deck_has_correct_player_class6() {
         deck = decks.get(5);
-        assertEquals(DeckClass.MAGE, deck.getPlayerClass());
+        assertEquals(DeckClass.MAGE, deck.getDeckClass());
     }
 
     @Test
     public void written_deck_has_correct_player_class7() {
         deck = decks.get(6);
-        assertEquals(DeckClass.ROGUE, deck.getPlayerClass());
+        assertEquals(DeckClass.ROGUE, deck.getDeckClass());
     }
 
     @Test
     public void written_deck_has_correct_player_class8() {
         deck = decks.get(7);
-        assertEquals(DeckClass.PRIEST, deck.getPlayerClass());
+        assertEquals(DeckClass.PRIEST, deck.getDeckClass());
     }
     
     @Test
     public void written_deck_has_correct_player_class9() {
         deck = decks.get(8);
-        assertEquals(DeckClass.SHAMAN, deck.getPlayerClass());
+        assertEquals(DeckClass.SHAMAN, deck.getDeckClass());
     }
 
     @Test
