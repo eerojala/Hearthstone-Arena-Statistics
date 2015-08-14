@@ -4,6 +4,7 @@ package domain;
 public enum Outcome {
     WIN("Win"),
     LOSS("Loss"),
+    TIE("Tie"),
     DISCONNECT("Disconnect");
     
     private final String name;
@@ -21,6 +22,8 @@ public enum Outcome {
             return Outcome.WIN;
         } else if (text.equals(Outcome.LOSS.getName())) {
             return Outcome.LOSS;
+        } else if (text.equals(Outcome.TIE.getName())) {
+            return Outcome.TIE;
         } else if (text.equals(Outcome.DISCONNECT.getName())) {
             return Outcome.DISCONNECT;
         }

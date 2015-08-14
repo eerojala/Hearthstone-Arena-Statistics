@@ -35,7 +35,7 @@ public class MatchWriterTest {
         match1 = new Match(DeckClass.PALADIN, "Dennis", Outcome.DISCONNECT, true, 1, 1);
         match2 = new Match(DeckClass.ROGUE, "UNKNOWN", Outcome.WIN, false, 2, 1);
         match3 = new Match(DeckClass.HUNTER, "öööö", Outcome.LOSS, true, 3, 1);
-        match4 = new Match(DeckClass.DRUID, "weweq", Outcome.DISCONNECT, false, 4, 1);
+        match4 = new Match(DeckClass.DRUID, "weweq", Outcome.TIE, false, 4, 1);
         match5 = new Match(DeckClass.WARRIOR, "", Outcome.WIN, true, 5, 1);
         match6 = new Match(DeckClass.SHAMAN, "", Outcome.LOSS, false, 6, 1);
         match7 = new Match(DeckClass.MAGE, "fafasdf", Outcome.DISCONNECT, true, 7, 1);
@@ -205,6 +205,13 @@ public class MatchWriterTest {
         parseDocument();
         match = parser.getObjects().get(2);
         assertEquals(Outcome.LOSS, match.getOutcome());
+    }
+    
+    @Test
+    public void written_match_has_correct_outcome4() {
+        parseDocument();
+        match = parser.getObjects().get(3);
+        assertEquals(Outcome.TIE, match.getOutcome());
     }
     
     @Test

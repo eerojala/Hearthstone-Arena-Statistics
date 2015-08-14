@@ -2,7 +2,7 @@ package domain;
 
 import java.util.HashMap;
 import java.util.Map;
-import util.DeckClassList;
+import util.Mapper;
 
 public class MatchStatistics {
 
@@ -67,69 +67,39 @@ public class MatchStatistics {
     }
 
     private void mapZeroesToDeckClassIntegerMaps() {
-        mapZeroesToADeckClassIntegerMap(lossesAsClass1st);
-        mapZeroesToADeckClassIntegerMap(lossesAsClass2nd);
-        mapZeroesToADeckClassIntegerMap(lossesVSClass1st);
-        mapZeroesToADeckClassIntegerMap(lossesVSClass2nd);
-        mapZeroesToADeckClassIntegerMap(matchesAsClass1st);
-        mapZeroesToADeckClassIntegerMap(matchesAsClass2nd);
-        mapZeroesToADeckClassIntegerMap(matchesVSClass1st);
-        mapZeroesToADeckClassIntegerMap(matchesVSClass2nd);
-        mapZeroesToADeckClassIntegerMap(winsAsClass1st);
-        mapZeroesToADeckClassIntegerMap(winsAsClass2nd);
-        mapZeroesToADeckClassIntegerMap(winsVSClass1st);
-        mapZeroesToADeckClassIntegerMap(winsVSClass2nd);
-    }
-
-    private void mapZeroesToADeckClassIntegerMap(Map<DeckClass, Integer> map) {
-        for (DeckClass deckClass : DeckClassList.getDeckClassList()) {
-            map.put(deckClass, 0);
-        }
+        Mapper.mapZeroesToADeckClassIntegerMap(lossesAsClass1st);
+        Mapper.mapZeroesToADeckClassIntegerMap(lossesAsClass2nd);
+        Mapper.mapZeroesToADeckClassIntegerMap(lossesVSClass1st);
+        Mapper.mapZeroesToADeckClassIntegerMap(lossesVSClass2nd);
+        Mapper.mapZeroesToADeckClassIntegerMap(matchesAsClass1st);
+        Mapper.mapZeroesToADeckClassIntegerMap(matchesAsClass2nd);
+        Mapper.mapZeroesToADeckClassIntegerMap(matchesVSClass1st);
+        Mapper.mapZeroesToADeckClassIntegerMap(matchesVSClass2nd);
+        Mapper.mapZeroesToADeckClassIntegerMap(winsAsClass1st);
+        Mapper.mapZeroesToADeckClassIntegerMap(winsAsClass2nd);
+        Mapper.mapZeroesToADeckClassIntegerMap(winsVSClass1st);
+        Mapper.mapZeroesToADeckClassIntegerMap(winsVSClass2nd);
     }
 
     private void mapZeroesToDeckClassPairIntegerMaps() {
-        mapZeroesToADeckClassPairIntegerMap(lossesInClassVSClass1st);
-        mapZeroesToADeckClassPairIntegerMap(lossesInClassVSClass2nd);
-        mapZeroesToADeckClassPairIntegerMap(matchesInClassVSClass1st);
-        mapZeroesToADeckClassPairIntegerMap(matchesInClassVSClass2nd);
-        mapZeroesToADeckClassPairIntegerMap(winsInClassVSClass1st);
-        mapZeroesToADeckClassPairIntegerMap(winsInClassVSClass2nd);
+        Mapper.mapZeroesToADeckClassPairIntegerMap(lossesInClassVSClass1st);
+        Mapper.mapZeroesToADeckClassPairIntegerMap(lossesInClassVSClass2nd);
+        Mapper.mapZeroesToADeckClassPairIntegerMap(matchesInClassVSClass1st);
+        Mapper.mapZeroesToADeckClassPairIntegerMap(matchesInClassVSClass2nd);
+        Mapper.mapZeroesToADeckClassPairIntegerMap(winsInClassVSClass1st);
+        Mapper.mapZeroesToADeckClassPairIntegerMap(winsInClassVSClass2nd);
     }
 
-    private void mapZeroesToADeckClassPairIntegerMap(Map<DeckClassPair, Integer> map) {
-        for (DeckClass deckClass1 : DeckClassList.getDeckClassList()) {
-            for (DeckClass deckClass2 : DeckClassList.getDeckClassList()) {
-                DeckClassPair dcp = new DeckClassPair(deckClass1, deckClass2);
-                map.put(dcp, 0);
-            }
-        }
-    }
-    
     private void mapZeroesToDeckClassDoubleMaps() {
-        mapZeroesToADeckClassDoubleMap(winPerAsClass1st);
-        mapZeroesToADeckClassDoubleMap(winPerAsClass2nd);
-        mapZeroesToADeckClassDoubleMap(winPerVSClass1st);
-        mapZeroesToADeckClassDoubleMap(winPerVSClass2nd);
+        Mapper.mapZeroesToADeckClassDoubleMap(winPerAsClass1st);
+        Mapper.mapZeroesToADeckClassDoubleMap(winPerAsClass2nd);
+        Mapper.mapZeroesToADeckClassDoubleMap(winPerVSClass1st);
+        Mapper.mapZeroesToADeckClassDoubleMap(winPerVSClass2nd);
     }
-    
-    private void mapZeroesToADeckClassDoubleMap(Map<DeckClass, Double> map) {
-        for (DeckClass deckClass : DeckClassList.getDeckClassList()) {
-            map.put(deckClass, 0.0);
-        }
-    }
-    
+
     private void mapZeroesToDeckClassPairDoubleMaps() {
-        mapZeroesToADeckClassPairDoubleMap(winPerClassVSClass1st);
-        mapZeroesToADeckClassPairDoubleMap(winPerClassVSClass2nd);
-    }
-    
-    private void mapZeroesToADeckClassPairDoubleMap(Map<DeckClassPair, Double> map) {
-        for (DeckClass deckClass1 : DeckClassList.getDeckClassList()) {
-            for (DeckClass deckClass2 : DeckClassList.getDeckClassList()) {
-                DeckClassPair dcp = new DeckClassPair(deckClass1, deckClass2);
-                map.put(dcp, 0.0);
-            }
-        }
+        Mapper.mapZeroesToADeckClassPairDoubleMap(winPerClassVSClass1st);
+        Mapper.mapZeroesToADeckClassPairDoubleMap(winPerClassVSClass2nd);
     }
 
     public Map<DeckClass, Integer> getMatchesAsClass1st() {

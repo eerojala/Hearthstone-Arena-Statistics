@@ -33,7 +33,7 @@
     <Match id="5.3">
         <OpponentClass>Paladin</OpponentClass>
         <OpponentName></OpponentName>
-        <Outcome>Disconnect</Outcome>
+        <Outcome>Tie</Outcome>
         <WentFirst>False</WentFirst>
     </Match>
     <Match id="6.1">

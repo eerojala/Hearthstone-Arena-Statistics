@@ -109,6 +109,13 @@ public class Deck implements Comparable<Deck>{
 
     @Override
     public String toString() {
-        return "Class: " + this.deckClass + ", Number: " + this.deckNumber;
+        return "Class: " + deckClass + ", Number: " + deckNumber;
     }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
+    
+    
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.032" errors="0" skipped="0" tests="42" name="logic.MatchArchiverTest">
+<testsuite failures="0" time="0.03" errors="0" skipped="0" tests="43" name="logic.MatchArchiverTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_55\jre\bin"/>
@@ -63,10 +63,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0" classname="logic.MatchArchiverTest" name="added_match_can_be_found_by_opponent_class"/>
+  <testcase time="0.003" classname="logic.MatchArchiverTest" name="added_match_can_be_found_by_opponent_class"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_player_class_returns_null_if_no_matches_found"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="added_match_can_be_found_by_ID"/>
-  <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_class_have_matches_correctly1"/>
+  <testcase time="0.001" classname="logic.MatchArchiverTest" name="matches_by_opponent_class_have_matches_correctly1"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_class_have_matches_correctly2"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_class_have_matches_correctly3"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_class_have_matches_correctly4"/>
@@ -78,27 +78,28 @@
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_ID_have_matches_correctly1"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_ID_have_matches_correctly2"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_ID_have_matches_correctly3"/>
-  <testcase time="0.016" classname="logic.MatchArchiverTest" name="matches_by_ID_have_matches_correctly4"/>
-  <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly1"/>
+  <testcase time="0.001" classname="logic.MatchArchiverTest" name="matches_by_ID_have_matches_correctly4"/>
+  <testcase time="0.001" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly1"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly2"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly3"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly4"/>
-  <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly5"/>
+  <testcase time="0.001" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly5"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly6"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly7"/>
+  <testcase time="0.001" classname="logic.MatchArchiverTest" name="matches_by_outcome_have_matches_correctly8"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="added_match_can_be_found_by_opponent"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_ID_returns_null_if_no_matches_found"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="added_match_can_be_found_by_player_class"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_have_matches_correctly1"/>
-  <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_have_matches_correctly2"/>
+  <testcase time="0.001" classname="logic.MatchArchiverTest" name="matches_by_opponent_have_matches_correctly2"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_have_matches_correctly3"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_have_matches_correctly4"/>
-  <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_have_matches_correctly5"/>
+  <testcase time="0.001" classname="logic.MatchArchiverTest" name="matches_by_opponent_have_matches_correctly5"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_have_matches_correctly6"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_returns_null_if_no_matches_found"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_outcome_returns_null_if_no_matches_found"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_opponent_class_returns_null_if_no_matches_found"/>
-  <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_player_class_have_matches_correctly1"/>
+  <testcase time="0.001" classname="logic.MatchArchiverTest" name="matches_by_player_class_have_matches_correctly1"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_player_class_have_matches_correctly2"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_player_class_have_matches_correctly3"/>
   <testcase time="0" classname="logic.MatchArchiverTest" name="matches_by_player_class_have_matches_correctly4"/>

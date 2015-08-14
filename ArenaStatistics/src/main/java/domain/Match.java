@@ -86,8 +86,11 @@ public class Match implements Comparable<Match> {
 
     @Override
     public String toString() {
-        return "Deck#: " + this.deckNumber + ", Match#: " + this.matchNumber;
+        return "Deck#: " + deckNumber + ", Match#: " + matchNumber;
     }
 
-    
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
 }

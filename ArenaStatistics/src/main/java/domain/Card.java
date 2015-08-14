@@ -5,23 +5,29 @@ import java.util.List;
 
 public enum Card {
 
-    COMMON("Common"),
-    RARE("Rare"),
-    EPIC("Epic"),
-    LEGENDARY("Legendary"),
-    COMMON_GOLD("Golden Common"),
-    RARE_GOLD("Golden Rare"),
-    EPIC_GOLD("Golden Epic"),
-    LEGENDARY_GOLD("Golden Legendary");
+    COMMON("Common", false),
+    RARE("Rare", false),
+    EPIC("Epic", false),
+    LEGENDARY("Legendary", false),
+    COMMON_GOLD("Golden Common", true),
+    RARE_GOLD("Golden Rare", true),
+    EPIC_GOLD("Golden Epic", true),
+    LEGENDARY_GOLD("Golden Legendary", true);
 
     private final String type;
+    private final boolean golden;
 
-    private Card(String xmlAbb) {
-        this.type = xmlAbb;
+    private Card(String type, boolean golden) {
+        this.type = type;
+        this.golden = golden;
     }
 
     public String getType() {
         return type;
+    }
+
+    public boolean isGolden() {
+        return golden;
     }
 
     public static Card parseCard(String text) {

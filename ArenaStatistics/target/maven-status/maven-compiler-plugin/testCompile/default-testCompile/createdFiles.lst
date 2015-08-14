@@ -1,6 +1,8 @@
 Xml\MatchWriterTest.class
+domain\MatchStatisticsTest.class
 logic\MatchArchiverTest.class
 Xml\DeckWriterTest.class
+domain\DeckStatisticsTest.class
 domain\CardTest.class
 Xml\MatchParserTest.class
 domain\MatchTest.class

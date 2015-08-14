@@ -22,7 +22,7 @@ public class DeckHandler {
     private void increaseWinOrLossCount(Match match) {
         if (match.getOutcome() == Outcome.WIN) {
             deck.setWins(deck.getWins() + 1);
-        } else {
+        } else if (match.getOutcome() != Outcome.TIE) {
             deck.setLosses(deck.getLosses() + 1);
         }
     }
@@ -44,7 +44,7 @@ public class DeckHandler {
     private void decreaseWinOrLossCount(Match match) {
         if (match.getOutcome() == Outcome.WIN) {
             deck.setWins(deck.getWins() - 1);
-        } else {
+        } else if (match.getOutcome() != Outcome.TIE) {
             deck.setLosses(deck.getLosses() - 1);
         }
     }
@@ -64,7 +64,7 @@ public class DeckHandler {
     public void setDeck(Deck deck) {
         this.deck = deck;
     }
-    
+
     public void setGold(int x) {
         deck.setGold(x);
     }
@@ -104,7 +104,7 @@ public class DeckHandler {
     public int getDeckNumber() {
         return deck.getDeckNumber();
     }
-    
+
     public List<Match> getMatches() {
         return deck.getMatches();
     }

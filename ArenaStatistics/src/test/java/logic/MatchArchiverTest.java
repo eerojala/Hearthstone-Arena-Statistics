@@ -45,7 +45,7 @@ public class MatchArchiverTest {
         deck2 = new Deck(DeckClass.SHAMAN, 2);
         handler.setDeck(deck2);
         match3 = new Match(DeckClass.WARRIOR, "", Outcome.DISCONNECT, true, 2, 1);
-        match4 = new Match(DeckClass.WARLOCK, "", Outcome.WIN, false, 2, 2);
+        match4 = new Match(DeckClass.WARLOCK, "", Outcome.TIE, false, 2, 2);
         handler.addMatch(match3);
         handler.addMatch(match4);
     }
@@ -241,12 +241,12 @@ public class MatchArchiverTest {
     
     @Test
     public void matches_by_outcome_have_matches_correctly4() {
-        assertTrue(archiver.getMatchesByOutcome(Outcome.WIN).contains(match4));
+        assertTrue(archiver.getMatchesByOutcome(Outcome.WIN).contains(match1));
     }
     
     @Test
     public void matches_by_outcome_have_matches_correctly5() {
-        assertEquals(2, archiver.getMatchesByOutcome(Outcome.WIN).size());
+        assertEquals(1, archiver.getMatchesByOutcome(Outcome.WIN).size());
     }
     
     @Test
@@ -256,7 +256,13 @@ public class MatchArchiverTest {
     
     @Test
     public void matches_by_outcome_have_matches_correctly7() {
-        assertEquals(1, archiver.getMatchesByOutcome(Outcome.DISCONNECT).size());
+        archiver.addMatchToArchive(match5);
+        assertEquals(2, archiver.getMatchesByOutcome(Outcome.DISCONNECT).size());
+    }
+    
+    @Test
+    public void matches_by_outcome_have_matches_correctly8() {
+        assertEquals(1, archiver.getMatchesByOutcome(Outcome.TIE).size());
     }
     
     @Test

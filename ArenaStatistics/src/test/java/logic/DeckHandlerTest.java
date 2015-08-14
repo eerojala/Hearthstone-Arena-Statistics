@@ -18,6 +18,7 @@ public class DeckHandlerTest {
     Match match1;
     Match match2;
     Match match3;
+    Match match4;
     Card card;
     int temp;
 
@@ -36,12 +37,10 @@ public class DeckHandlerTest {
     public void setUp() {
         handler = new DeckHandler();
         handler.setDeck(new Deck(DeckClass.DRUID, 1));
-        match1 = new Match(DeckClass.MAGE, "test1", Outcome.WIN,
-                true, handler.getDeckNumber(), 1);
-        match2 = new Match(DeckClass.PALADIN, "test2", Outcome.LOSS,
-                false, handler.getDeckNumber(), 2);
-        match3 = new Match(DeckClass.HUNTER, "test3", Outcome.DISCONNECT,
-                false, handler.getDeckNumber(), 3);
+        match1 = new Match(DeckClass.MAGE, "test1", Outcome.WIN, true, handler.getDeckNumber(), 1);
+        match2 = new Match(DeckClass.PALADIN, "test2", Outcome.LOSS, false, handler.getDeckNumber(), 2);
+        match3 = new Match(DeckClass.HUNTER, "test3", Outcome.DISCONNECT, false, handler.getDeckNumber(), 3);
+        match4 = new Match(DeckClass.ROGUE, "test3", Outcome.TIE, false, handler.getDeckNumber(), 4);
         card = Card.COMMON;
         handler.addMatch(match1);
         handler.addMatch(match2);
@@ -108,6 +107,20 @@ public class DeckHandlerTest {
     public void addMatch_doesnt_count_disconnect_as_win() {
         temp = handler.getDeck().getWins();
         handler.addMatch(match3);
+        assertEquals(temp, handler.getDeck().getWins());
+    }
+    
+    @Test
+    public void addMatch_doesnt_count_tie_as_loss() {
+        temp = handler.getDeck().getLosses();
+        handler.addMatch(match4);
+        assertEquals(temp, handler.getDeck().getLosses());
+    }
+    
+    @Test
+    public void addMatch_doesnt_count_tie_as_win() {
+        temp = handler.getDeck().getWins();
+        handler.addMatch(match4);
         assertEquals(temp, handler.getDeck().getWins());
     }
 
@@ -189,7 +202,22 @@ public class DeckHandlerTest {
         handler.removeMatch(2);
         assertEquals(temp, handler.getDeck().getWins());
     }
-
+    
+    @Test
+    public void removeMatch_doesnt_count_tie_as_loss() {
+        handler.addMatch(match4);
+        temp = handler.getDeck().getLosses();
+        handler.removeMatch(2);
+        assertEquals(temp, handler.getDeck().getLosses());
+    }
+    
+    @Test
+    public void removeMatch_doesnt_count_tie_as_win() {
+        handler.addMatch(match4);
+        temp = handler.getDeck().getWins();
+        handler.removeMatch(2);
+        assertEquals(temp, handler.getDeck().getWins());
+    }
     @Test
     public void removeLatestMatch_removes_match_from_list() {
         handler.removeLatestMatch();

@@ -9,6 +9,8 @@ import domain.Outcome;
 import java.util.List;
 import java.util.Map;
 import util.DeckClassList;
+import util.Mapper;
+import util.StatisticsHelper;
 
 public class MatchStatisticsKeeper {
 
@@ -45,72 +47,33 @@ public class MatchStatisticsKeeper {
     }
 
     private void increaseIntegerIn1stMatchMaps(Match match) {
-        increaseIntegerInDeckClassIntegerMap(statistics.getMatchesAsClass1st(), match.getPlayerDeckClass());
-        increaseIntegerInDeckClassIntegerMap(statistics.getMatchesVSClass1st(), match.getOpponentDeckClass());
-        increaseIntegerInDeckClassPairIntegerMap(match, statistics.getMatchesInClassVSClass1st());
-    }
-
-    private void increaseIntegerInDeckClassIntegerMap(Map<DeckClass, Integer> map, DeckClass deckClass) {
-        map.put(deckClass, map.get(deckClass) + 1);
-    }
-
-    private void increaseIntegerInDeckClassPairIntegerMap(Match match, Map<DeckClassPair, Integer> map) {
-        DeckClassPair dcp = new DeckClassPair(match.getPlayerDeckClass(), match.getOpponentDeckClass());
-        map.put(dcp, map.get(dcp) + 1);
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getMatchesAsClass1st(), match.getPlayerDeckClass());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getMatchesVSClass1st(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDeckClassPairIntegerMap(match, statistics.getMatchesInClassVSClass1st());
     }
 
     private void addMatchThatWent1stAndWon(Match match) {
-        increaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass1st(), match.getPlayerDeckClass());
-        increaseIntegerInDeckClassIntegerMap(statistics.getWinsVSClass1st(), match.getOpponentDeckClass());
-        increaseIntegerInDeckClassPairIntegerMap(match, statistics.getWinsInClassVSClass1st());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass1st(), match.getPlayerDeckClass());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getWinsVSClass1st(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDeckClassPairIntegerMap(match, statistics.getWinsInClassVSClass1st());
     }
 
     private void addMatchThatWent1stAndLost(Match match) {
-        increaseIntegerInDeckClassIntegerMap(statistics.getLossesAsClass1st(), match.getPlayerDeckClass());
-        increaseIntegerInDeckClassIntegerMap(statistics.getLossesVSClass1st(), match.getOpponentDeckClass());
-        increaseIntegerInDeckClassPairIntegerMap(match, statistics.getLossesInClassVSClass1st());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getLossesAsClass1st(), match.getPlayerDeckClass());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getLossesVSClass1st(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDeckClassPairIntegerMap(match, statistics.getLossesInClassVSClass1st());
     }
 
     private void updateWinPercentageIn1stMatchMaps(Match match) {
-        updateWinPercentageInDeckClassDoubleMap(statistics.getWinPerAsClass1st(),
+        Mapper.updateWinPercentageInDeckClassDoubleMap(statistics.getWinPerAsClass1st(),
                 statistics.getMatchesAsClass1st(), statistics.getWinsAsClass1st(),
                 statistics.getLossesAsClass1st(), match.getPlayerDeckClass());
-        updateWinPercentageInDeckClassDoubleMap(statistics.getWinPerVSClass1st(),
+        Mapper.updateWinPercentageInDeckClassDoubleMap(statistics.getWinPerVSClass1st(),
                 statistics.getMatchesVSClass1st(), statistics.getWinsVSClass1st(),
                 statistics.getLossesVSClass1st(), match.getOpponentDeckClass());
-        updateWinPercentageInDeckClassPairDoubleMap(match, statistics.getWinPerClassVSClass1st(),
+        Mapper.updateWinPercentageInDeckClassPairDoubleMap(match, statistics.getWinPerClassVSClass1st(),
                 statistics.getMatchesInClassVSClass1st(), statistics.getWinsInClassVSClass1st(),
                 statistics.getLossesInClassVSClass1st());
-    }
-
-    private void updateWinPercentageInDeckClassDoubleMap(Map<DeckClass, Double> doublemap,
-            Map<DeckClass, Integer> matchmap, Map<DeckClass, Integer> winmap,
-            Map<DeckClass, Integer> lossmap, DeckClass deckClass) {
-        int matches = matchmap.get(deckClass);
-        int wins = winmap.get(deckClass);
-        int losses = lossmap.get(deckClass);
-        int disconnects = matches - wins - losses;
-        Double winPer = getWinPercentage(matches, wins, losses, disconnects);
-        doublemap.put(deckClass, winPer);
-    }
-
-    private double getWinPercentage(int matches, int wins, int losses, int disconnects) {
-        if ((double) wins / (matches - disconnects) >= 0) {
-            return (double) wins / (matches - disconnects);
-        }
-        return 0;
-    }
-
-    private void updateWinPercentageInDeckClassPairDoubleMap(Match match,
-            Map<DeckClassPair, Double> doublemap, Map<DeckClassPair, Integer> matchmap,
-            Map<DeckClassPair, Integer> winmap, Map<DeckClassPair, Integer> lossmap) {
-        DeckClassPair dcp = new DeckClassPair(match.getPlayerDeckClass(), match.getOpponentDeckClass());
-        int matches = matchmap.get(dcp);
-        int wins = winmap.get(dcp);
-        int losses = lossmap.get(dcp);
-        int disconnects = matches - wins - losses;
-        Double winPer = getWinPercentage(matches, wins, losses, disconnects);
-        doublemap.put(dcp, winPer);
     }
 
     private void addMatchThatWent2nd(Match match) {
@@ -124,29 +87,29 @@ public class MatchStatisticsKeeper {
     }
 
     private void addMatchTo2ndMatchMaps(Match match) {
-        increaseIntegerInDeckClassIntegerMap(statistics.getMatchesAsClass2nd(), match.getPlayerDeckClass());
-        increaseIntegerInDeckClassIntegerMap(statistics.getMatchesVSClass2nd(), match.getOpponentDeckClass());
-        increaseIntegerInDeckClassPairIntegerMap(match, statistics.getMatchesInClassVSClass2nd());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getMatchesAsClass2nd(), match.getPlayerDeckClass());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getMatchesVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDeckClassPairIntegerMap(match, statistics.getMatchesInClassVSClass2nd());
     }
 
     private void addMatchThatWent2ndAndWon(Match match) {
-        increaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass2nd(), match.getPlayerDeckClass());
-        increaseIntegerInDeckClassIntegerMap(statistics.getWinsVSClass2nd(), match.getOpponentDeckClass());
-        increaseIntegerInDeckClassPairIntegerMap(match, statistics.getWinsInClassVSClass2nd());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass2nd(), match.getPlayerDeckClass());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getWinsVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDeckClassPairIntegerMap(match, statistics.getWinsInClassVSClass2nd());
     }
 
     private void addMatchThatWent2ndAndLost(Match match) {
-        increaseIntegerInDeckClassIntegerMap(statistics.getLossesAsClass2nd(), match.getPlayerDeckClass());
-        increaseIntegerInDeckClassIntegerMap(statistics.getLossesVSClass2nd(), match.getOpponentDeckClass());
-        increaseIntegerInDeckClassPairIntegerMap(match, statistics.getLossesInClassVSClass2nd());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getLossesAsClass2nd(), match.getPlayerDeckClass());
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getLossesVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDeckClassPairIntegerMap(match, statistics.getLossesInClassVSClass2nd());
     }
 
     private void updateWinPercentageIn2ndMatchMaps(Match match) {
-        updateWinPercentageInDeckClassDoubleMap(statistics.getWinPerAsClass2nd(), statistics.getMatchesAsClass2nd(),
+        Mapper.updateWinPercentageInDeckClassDoubleMap(statistics.getWinPerAsClass2nd(), statistics.getMatchesAsClass2nd(),
                 statistics.getWinsAsClass2nd(), statistics.getLossesAsClass2nd(), match.getPlayerDeckClass());
-        updateWinPercentageInDeckClassDoubleMap(statistics.getWinPerVSClass2nd(), statistics.getMatchesVSClass2nd(),
+        Mapper.updateWinPercentageInDeckClassDoubleMap(statistics.getWinPerVSClass2nd(), statistics.getMatchesVSClass2nd(),
                 statistics.getWinsVSClass2nd(), statistics.getLossesVSClass2nd(), match.getOpponentDeckClass());
-        updateWinPercentageInDeckClassPairDoubleMap(match, statistics.getWinPerClassVSClass2nd(),
+        Mapper.updateWinPercentageInDeckClassPairDoubleMap(match, statistics.getWinPerClassVSClass2nd(),
                 statistics.getMatchesInClassVSClass2nd(), statistics.getWinsInClassVSClass2nd(),
                 statistics.getLossesInClassVSClass2nd());
     }
@@ -362,40 +325,21 @@ public class MatchStatisticsKeeper {
     }
 
     private void removeMatchFrom1stMatchMaps(Match match) {
-        decreaseIntegerInDeckClassIntegerMap(statistics.getMatchesAsClass1st(), match.getPlayerDeckClass());
-        decreaseIntegerInDeckClassIntegerMap(statistics.getMatchesVSClass1st(), match.getOpponentDeckClass());
-        decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getMatchesInClassVSClass1st());
-    }
-
-    private void decreaseIntegerInDeckClassIntegerMap(Map<DeckClass, Integer> map, DeckClass deckClass) {
-        Integer integer = decreaseInteger(map.get(deckClass));
-        map.put(deckClass, integer);
-    }
-
-    private Integer decreaseInteger(Integer integer) {
-        if (integer == null || integer <= 0) {
-            return 0;
-        } else {
-            return integer - 1;
-        }
-    }
-
-    private void decreaseIntegerInDeckClassPairIntegerMap(Match match, Map<DeckClassPair, Integer> map) {
-        DeckClassPair dcp = new DeckClassPair(match.getPlayerDeckClass(), match.getOpponentDeckClass());
-        Integer integer = decreaseInteger(map.get(dcp));
-        map.put(dcp, integer);
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getMatchesAsClass1st(), match.getPlayerDeckClass());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getMatchesVSClass1st(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getMatchesInClassVSClass1st());
     }
 
     private void removeMatchThatWent1stAndWon(Match match) {
-        decreaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass1st(), match.getPlayerDeckClass());
-        decreaseIntegerInDeckClassIntegerMap(statistics.getWinsVSClass1st(), match.getOpponentDeckClass());
-        decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getWinsInClassVSClass1st());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass1st(), match.getPlayerDeckClass());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getWinsVSClass1st(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getWinsInClassVSClass1st());
     }
 
     private void removeMatchThatWent1stAndLost(Match match) {
-        decreaseIntegerInDeckClassIntegerMap(statistics.getLossesAsClass1st(), match.getPlayerDeckClass());
-        decreaseIntegerInDeckClassIntegerMap(statistics.getLossesVSClass1st(), match.getOpponentDeckClass());
-        decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getLossesInClassVSClass1st());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getLossesAsClass1st(), match.getPlayerDeckClass());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getLossesVSClass1st(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getLossesInClassVSClass1st());
     }
 
     private void removeMatchThatWent2nd(Match match) {
@@ -409,21 +353,21 @@ public class MatchStatisticsKeeper {
     }
 
     private void removeMatchFrom2ndMatchMaps(Match match) {
-        decreaseIntegerInDeckClassIntegerMap(statistics.getMatchesAsClass2nd(), match.getPlayerDeckClass());
-        decreaseIntegerInDeckClassIntegerMap(statistics.getMatchesVSClass2nd(), match.getOpponentDeckClass());
-        decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getMatchesInClassVSClass2nd());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getMatchesAsClass2nd(), match.getPlayerDeckClass());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getMatchesVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getMatchesInClassVSClass2nd());
     }
 
     private void removeMatchThatWent2ndAndWon(Match match) {
-        decreaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass2nd(), match.getPlayerDeckClass());
-        decreaseIntegerInDeckClassIntegerMap(statistics.getWinsVSClass2nd(), match.getOpponentDeckClass());
-        decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getWinsInClassVSClass2nd());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass2nd(), match.getPlayerDeckClass());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getWinsVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getWinsInClassVSClass2nd());
     }
 
     private void removeMatchThatWent2ndAndLost(Match match) {
-        decreaseIntegerInDeckClassIntegerMap(statistics.getLossesAsClass2nd(), match.getPlayerDeckClass());
-        decreaseIntegerInDeckClassIntegerMap(statistics.getLossesVSClass2nd(), match.getOpponentDeckClass());
-        decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getLossesInClassVSClass2nd());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getLossesAsClass2nd(), match.getPlayerDeckClass());
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getLossesVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDeckClassPairIntegerMap(match, statistics.getLossesInClassVSClass2nd());
     }
 
     public MatchStatistics getStatistics() {
@@ -513,7 +457,7 @@ public class MatchStatisticsKeeper {
         int wins = getWinsAsClassTotal(dc);
         int losses = getLossesAsClassTotal(dc);
         int disconnects = matches - wins - losses;
-        return getWinPercentage(matches, wins, losses, disconnects);
+        return StatisticsHelper.getWinPercentage(matches, wins, losses, disconnects);
     }
 
     public double getWinPerVSClassTotal(DeckClass dc) {
@@ -521,7 +465,7 @@ public class MatchStatisticsKeeper {
         int wins = getWinsVSClassTotal(dc);
         int losses = getLossesVSClassTotal(dc);
         int disconnects = matches - wins - losses;
-        return getWinPercentage(matches, wins, losses, disconnects);
+        return StatisticsHelper.getWinPercentage(matches, wins, losses, disconnects);
     }
 
     public double getWinPerInClassVSClassTotal(DeckClassPair dcp) {
@@ -529,7 +473,7 @@ public class MatchStatisticsKeeper {
         int wins = getWinsInClassVSClassTotal(dcp);
         int losses = getLossesInClassVSClassTotal(dcp);
         int disconnects = matches - wins - losses;
-        double winPer = getWinPercentage(matches, wins, losses, disconnects);
+        double winPer = StatisticsHelper.getWinPercentage(matches, wins, losses, disconnects);
         return winPer;
     }
 
@@ -583,7 +527,7 @@ public class MatchStatisticsKeeper {
         int wins = getTotalWins();
         int losses = getTotalLosses();
         int disconnects = matches - wins - losses;
-        return getWinPercentage(matches, wins, losses, disconnects);
+        return StatisticsHelper.getWinPercentage(matches, wins, losses, disconnects);
     }
     
     public double getTotalLossPer() {

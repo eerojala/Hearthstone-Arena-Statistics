@@ -132,6 +132,11 @@ public class MatchParserTest {
     public void match_has_correct_outcome3() {
         assertEquals(Outcome.DISCONNECT, match3.getOutcome());
     }
+    
+    @Test
+    public void match_has_correct_outcome4() {
+        assertEquals(Outcome.TIE, match6.getOutcome());
+    }
 
     @Test
     public void match_has_correct_wentFirst_boolean1() {

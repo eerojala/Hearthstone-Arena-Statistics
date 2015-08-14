@@ -1,11 +1,9 @@
 package Xml;
 
 import domain.*;
-import java.io.File;
 import java.util.List;
 import org.jdom.Document;
 import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
 
 public abstract class XmlParser {
 
