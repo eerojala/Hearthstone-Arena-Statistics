@@ -150,11 +150,11 @@ public class MatchStatisticsTest {
     
     @Test
     public void winPer_in_class_vs_class_1st_has_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcpDoubleMaps(statistics.getWinPerClassVSClass1st()));
+        assertTrue(TestForLoop.zeroesInDcpDoubleMap(statistics.getWinPerClassVSClass1st()));
     }
     
     @Test
     public void winPer_in_class_vs_class_2nd_has_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcpDoubleMaps(statistics.getWinPerClassVSClass2nd()));
+        assertTrue(TestForLoop.zeroesInDcpDoubleMap(statistics.getWinPerClassVSClass2nd()));
     }
 }

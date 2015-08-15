@@ -7,6 +7,7 @@ domain\CardTest.class
 Xml\MatchParserTest.class
 domain\MatchTest.class
 logic\MatchAssignerTest.class
+logic\DeckStatisticsKeeperTest.class
 domain\DeckClassPairTest.class
 logic\MatchStatisticsKeeperTest.class
 Xml\DeckParserTest.class

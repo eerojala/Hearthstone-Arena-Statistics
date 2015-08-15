@@ -6,6 +6,7 @@ import java.util.*;
 import logic.*;
 import org.jdom.*;
 import util.DeckClassList;
+import util.TestForLoop;
 
 public class Main {
 
@@ -66,8 +67,7 @@ public class Main {
         prVSwarr = new DeckClassPair(DeckClass.PRIEST, DeckClass.WARRIOR);
         sVSr = new DeckClassPair(DeckClass.SHAMAN, DeckClass.ROGUE);
         rVSs = new DeckClassPair(DeckClass.ROGUE, DeckClass.SHAMAN);
-        keeper.removeMatchFromStatistics(match1);
-        keeper.getWinPerInClassVSClassTotal(sVSm);
+        TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesAsClass1st(), DeckClass.SHAMAN, DeckClass.PRIEST);
     }
 
 }

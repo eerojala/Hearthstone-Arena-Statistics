@@ -105,7 +105,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void matches_as_class_going_1st_are_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap2ClassExceptions(keeper.getStatistics().getMatchesAsClass1st(), DeckClass.SHAMAN, DeckClass.PRIEST);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesAsClass1st(), DeckClass.SHAMAN, DeckClass.PRIEST);
         assertTrue(bool);
     }
 
@@ -121,7 +121,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void matches_as_class_going_2nd_are_correct3() {
-        bool = TestForLoop.zeroesInDcIntegerMap2ClassExceptions(keeper.getStatistics().getMatchesAsClass2nd(), DeckClass.PRIEST, DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesAsClass2nd(), DeckClass.PRIEST, DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -142,7 +142,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void matches_vs_class_going_1st_is_correct4() {
-        bool = TestForLoop.zeroesInDcIntegerMap4ClassExceptions(keeper.getStatistics().getMatchesVSClass1st(), DeckClass.MAGE,
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesVSClass1st(), DeckClass.MAGE,
                 DeckClass.PALADIN, DeckClass.ROGUE, DeckClass.WARLOCK);
         assertTrue(bool);
     }
@@ -164,7 +164,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void matches_vs_class_going_2nd_is_correct4() {
-        bool = TestForLoop.zeroesInDcIntegerMap3ClassExceptions(keeper.getStatistics().getMatchesVSClass2nd(), DeckClass.MAGE,
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesVSClass2nd(), DeckClass.MAGE,
                 DeckClass.DRUID, DeckClass.WARRIOR);
         assertTrue(bool);
     }
@@ -176,7 +176,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_as_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap1ClassException(keeper.getStatistics().getWinsAsClass1st(), DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -187,7 +187,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_as_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap1ClassException(keeper.getStatistics().getWinsAsClass2nd(), DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsAsClass2nd(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -198,7 +198,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_as_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap1ClassException(keeper.getStatistics().getLossesAsClass1st(), DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getLossesAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -214,7 +214,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_as_class_going_2nd_is_correct3() {
-        bool = TestForLoop.zeroesInDcIntegerMap2ClassExceptions(keeper.getStatistics().getLossesAsClass2nd(), DeckClass.SHAMAN, DeckClass.PRIEST);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getLossesAsClass2nd(), DeckClass.SHAMAN, DeckClass.PRIEST);
         assertTrue(bool);
     }
 
@@ -225,7 +225,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap1ClassException(keeper.getStatistics().getWinsVSClass1st(), DeckClass.MAGE);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsVSClass1st(), DeckClass.MAGE);
         assertTrue(bool);
     }
 
@@ -236,7 +236,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_vs_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap1ClassException(keeper.getStatistics().getWinsVSClass2nd(), DeckClass.DRUID);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsVSClass2nd(), DeckClass.DRUID);
         assertTrue(bool);
     }
 
@@ -247,7 +247,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap1ClassException(keeper.getStatistics().getLossesVSClass1st(), DeckClass.PALADIN);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getLossesVSClass1st(), DeckClass.PALADIN);
         assertTrue(bool);
     }
 
@@ -263,7 +263,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_vs_class_going_2nd_is_correct3() {
-        bool = TestForLoop.zeroesInDcIntegerMap2ClassExceptions(keeper.getStatistics().getLossesVSClass2nd(), DeckClass.MAGE, DeckClass.WARRIOR);
+        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getLossesVSClass2nd(), DeckClass.MAGE, DeckClass.WARRIOR);
         assertTrue(bool);
     }
 
@@ -304,7 +304,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_in_class_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcpIntegerMap1DcpException(keeper.getStatistics().getWinsInClassVSClass1st(), sVSm);
+        bool = TestForLoop.zeroesInDcpIntegerMap(keeper.getStatistics().getWinsInClassVSClass1st(), sVSm);
         assertTrue(bool);
     }
 
@@ -315,7 +315,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_in_class_vs_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcpIntegerMap1DcpException(keeper.getStatistics().getWinsInClassVSClass2nd(), sVSd);
+        bool = TestForLoop.zeroesInDcpIntegerMap(keeper.getStatistics().getWinsInClassVSClass2nd(), sVSd);
         assertTrue(bool);
     }
 
@@ -326,7 +326,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_in_class_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcpIntegerMap1DcpException(keeper.getStatistics().getLossesInClassVSClass1st(), sVSpa);
+        bool = TestForLoop.zeroesInDcpIntegerMap(keeper.getStatistics().getLossesInClassVSClass1st(), sVSpa);
         assertTrue(bool);
     }
 
@@ -342,7 +342,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_in_class_vs_class_going_2nd_is_correct3() {
-        bool = TestForLoop.zeroesInDcpIntegerMap2DcpExceptions(keeper.getStatistics().getLossesInClassVSClass2nd(),
+        bool = TestForLoop.zeroesInDcpIntegerMap(keeper.getStatistics().getLossesInClassVSClass2nd(),
                 sVSm, prVSwarr);
         assertTrue(bool);
     }
@@ -354,7 +354,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_as_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcDoubleMap1ClassException(keeper.getStatistics().getWinPerAsClass1st(), DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -365,7 +365,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_as_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcDoubleMap1ClassException(keeper.getStatistics().getWinPerAsClass2nd(), DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerAsClass2nd(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -376,7 +376,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcDoubleMap1ClassException(keeper.getStatistics().getWinPerVSClass1st(), DeckClass.MAGE);
+        bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass1st(), DeckClass.MAGE);
         assertTrue(bool);
     }
 
@@ -387,7 +387,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_vs_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcDoubleMap1ClassException(keeper.getStatistics().getWinPerVSClass2nd(), DeckClass.DRUID);
+        bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass2nd(), DeckClass.DRUID);
     }
 
     @Test
@@ -397,7 +397,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_class_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcpDoubleMap1DcpException(keeper.getStatistics().getWinPerClassVSClass1st(), sVSm);
+        bool = TestForLoop.zeroesInDcpDoubleMap(keeper.getStatistics().getWinPerClassVSClass1st(), sVSm);
         assertTrue(bool);
     }
 
@@ -409,7 +409,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_class_vs_class_going_second_is_correct2() {
-        bool = TestForLoop.zeroesInDcpDoubleMap1DcpException(keeper.getStatistics().getWinPerClassVSClass2nd(), sVSd);
+        bool = TestForLoop.zeroesInDcpDoubleMap(keeper.getStatistics().getWinPerClassVSClass2nd(), sVSd);
         assertTrue(bool);
     }
 

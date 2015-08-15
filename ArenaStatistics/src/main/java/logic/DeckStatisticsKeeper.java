@@ -25,23 +25,17 @@ public class DeckStatisticsKeeper {
     public void addDeck(Deck deck) {
         DeckClass dc = deck.getDeckClass();
         Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getDecksByClass(), dc);
-        increaseWinsByClass(deck);
+        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getWinsByClass(), dc, deck.getWins());
         increaseIntegersInIntegerIntegerMaps(deck);
         updateDoubleMaps(deck);
-    }
-
-    private void increaseWinsByClass(Deck deck) {
-        for (int i = 0; i < deck.getWins(); i++) {
-            Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getWinsByClass(), deck.getDeckClass());
-        }
     }
 
     private void increaseIntegersInIntegerIntegerMaps(Deck deck) {
         int wins = deck.getWins();
         Mapper.increaseIntegerInIntegerIntegerMap(statistics.getDecksByWins(), wins);
-        Mapper.increaseIntegerInIntegerIntegerMap(statistics.getDustByWins(), wins);
-        Mapper.increaseIntegerInIntegerIntegerMap(statistics.getGoldByWins(), wins);
-        Mapper.increaseIntegerInIntegerIntegerMap(statistics.getExtraPacksByWins(), wins);
+        Mapper.increaseIntegerInIntegerIntegerMap(statistics.getDustByWins(), wins, deck.getDust());
+        Mapper.increaseIntegerInIntegerIntegerMap(statistics.getGoldByWins(), wins, deck.getGold());
+        Mapper.increaseIntegerInIntegerIntegerMap(statistics.getExtraPacksByWins(), wins, deck.getExtraPacks());
         increaseIntegerInCardMaps(deck, wins);
     }
     
@@ -215,33 +209,31 @@ public class DeckStatisticsKeeper {
     public void removeDeck(Deck deck) {
         DeckClass dc = deck.getDeckClass();
         Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getDecksByClass(), dc);
-        decreaseWinsByClass(deck);
+        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getWinsByClass(), dc, deck.getWins());
         decreaseIntegersInIntegerIntegerMaps(deck);
         updateDoubleMaps(deck);
     }
     
-    private void decreaseWinsByClass(Deck deck) {
-        for (int i = 0; i <deck.getWins(); i++) {
-            Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getWinsByClass(), deck.getDeckClass());
-        }
-    }
-    
     private void decreaseIntegersInIntegerIntegerMaps(Deck deck) {
         int wins = deck.getWins();
-        Mapper.decreaseIntegerInIntegerIntegerMaps(statistics.getDecksByWins(), wins);
-        Mapper.decreaseIntegerInIntegerIntegerMaps(statistics.getDustByWins(), wins);
-        Mapper.decreaseIntegerInIntegerIntegerMaps(statistics.getGoldByWins(), wins);
-        Mapper.decreaseIntegerInIntegerIntegerMaps(statistics.getExtraPacksByWins(), wins);
+        Mapper.decreaseIntegerInIntegerIntegerMap(statistics.getDecksByWins(), wins);
+        Mapper.decreaseIntegerInIntegerIntegerMap(statistics.getDustByWins(), wins, deck.getDust());
+        Mapper.decreaseIntegerInIntegerIntegerMap(statistics.getGoldByWins(), deck.getGold());
+        Mapper.decreaseIntegerInIntegerIntegerMap(statistics.getExtraPacksByWins(), deck.getExtraPacks());
         decreaseIntegersInCardMaps(deck, wins);
     }
     
     private void decreaseIntegersInCardMaps(Deck deck, int wins) {
         for (Card card : deck.getRewardCards()) {
             if (card.isGolden()) {
-                Mapper.decreaseIntegerInIntegerIntegerMaps(statistics.getGoldCardsByWins(), wins);
+                Mapper.decreaseIntegerInIntegerIntegerMap(statistics.getGoldCardsByWins(), wins);
             } else {
-                Mapper.decreaseIntegerInIntegerIntegerMaps(statistics.getCardsByWins(), wins);
+                Mapper.decreaseIntegerInIntegerIntegerMap(statistics.getCardsByWins(), wins);
             }
         }
+    }
+    
+    public void reset() {
+        statistics = new DeckStatistics();
     }
 }

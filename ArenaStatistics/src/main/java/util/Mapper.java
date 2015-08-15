@@ -39,19 +39,19 @@ public class Mapper {
     }
     
     public static void mapZeroesToIntegerIntegerMap(Map<Integer, Integer> map) {
-        for (int i = 1; i <= 12; i++) {
+        for (int i = 0; i <= 12; i++) {
             map.put(i, 0);
         }
     }
     
     public static void mapZeroesToIntegerDoubleMap(Map<Integer,Double> map) {
-        for (int i = 1; i <= 12; i++) {
+        for (int i = 0; i <= 12; i++) {
             map.put(i, 0.0);
         }
     }
     
-    public static void increaseIntegerInDeckClassIntegerMap(Map<DeckClass, Integer> map, DeckClass deckClass) {
-        map.put(deckClass, map.get(deckClass) + 1);
+    public static void increaseIntegerInDeckClassIntegerMap(Map<DeckClass, Integer> map, DeckClass dc) {
+        increaseIntegerInDeckClassIntegerMap(map, dc, 1);
     }
     
     public static void increaseIntegerInDeckClassPairIntegerMap(Match match, Map<DeckClassPair, Integer> map) {
@@ -82,9 +82,8 @@ public class Mapper {
         doublemap.put(dcp, winPer);
     }
     
-    public static void decreaseIntegerInDeckClassIntegerMap(Map<DeckClass, Integer> map, DeckClass deckClass) {
-        Integer integer = decreaseInteger(map.get(deckClass));
-        map.put(deckClass, integer);
+    public static void decreaseIntegerInDeckClassIntegerMap(Map<DeckClass, Integer> map, DeckClass dc) {
+        decreaseIntegerInDeckClassIntegerMap(map, dc, 1);
     }
     
     private static int decreaseInteger(Integer integer) {
@@ -102,7 +101,7 @@ public class Mapper {
     }
     
     public static void increaseIntegerInIntegerIntegerMap(Map<Integer, Integer> map, int key) {
-        map.put(key, map.get(key) + 1);
+        increaseIntegerInIntegerIntegerMap(map, key, 1);
     }
     
     public static void updateAverageInDeckClassDoubleMap(Map<DeckClass, Double> map, 
@@ -115,7 +114,34 @@ public class Mapper {
         map.put(key, StatisticsHelper.getAverage(int1, int2));
     }
     
-    public static void decreaseIntegerInIntegerIntegerMaps(Map<Integer, Integer> map, int key) {
-        map.put(key, map.get(key) - 1);
+    public static void decreaseIntegerInIntegerIntegerMap(Map<Integer, Integer> map, int key) {
+        decreaseIntegerInIntegerIntegerMap(map, key, 1);
     }
+    
+    public static void increaseIntegerInIntegerIntegerMap(Map<Integer, Integer> map, int key, int x) {
+        map.put(key, map.get(key) + x);
+    }
+    
+    public static void decreaseIntegerInIntegerIntegerMap(Map<Integer, Integer> map, int key, int x) {
+        int value = map.get(key) - x;
+        if (value < 0) {
+            value = 0;
+        }
+        map.put(key, value);
+    }
+    
+    public static void increaseIntegerInDeckClassIntegerMap(Map<DeckClass, Integer> map, DeckClass key, int x) {
+        map.put(key, map.get(key) + x);
+    }
+    
+    public static void decreaseIntegerInDeckClassIntegerMap(Map<DeckClass, Integer> map , DeckClass key, int x) {
+        int value = map.get(key) - x;
+        if (value < 0) {
+            value = 0;
+        }
+        map.put(key, value);
+    }
+    
+    
+    
 }
