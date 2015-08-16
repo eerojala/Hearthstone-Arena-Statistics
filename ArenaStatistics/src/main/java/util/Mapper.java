@@ -4,19 +4,22 @@ package util;
 import domain.DeckClass;
 import domain.DeckClassPair;
 import domain.Match;
+import java.util.List;
 import java.util.Map;
 
 
 public class Mapper {
+    private static List<DeckClass> dclist = DeckClass.getDeckClassList();
+    
     public static void mapZeroesToADeckClassIntegerMap(Map<DeckClass, Integer> map) {
-        for (DeckClass deckClass : DeckClassList.getDeckClassList()) {
+        for (DeckClass deckClass : dclist) {
             map.put(deckClass, 0);
         }
     }
     
     public static void mapZeroesToADeckClassPairIntegerMap(Map<DeckClassPair, Integer> map) {
-        for (DeckClass deckClass1 : DeckClassList.getDeckClassList()) {
-            for (DeckClass deckClass2 : DeckClassList.getDeckClassList()) {
+        for (DeckClass deckClass1 : dclist) {
+            for (DeckClass deckClass2 : dclist) {
                 DeckClassPair dcp = new DeckClassPair(deckClass1, deckClass2);
                 map.put(dcp, 0);
             }
@@ -24,14 +27,14 @@ public class Mapper {
     }
     
     public static  void mapZeroesToADeckClassDoubleMap(Map<DeckClass, Double> map) {
-        for (DeckClass deckClass : DeckClassList.getDeckClassList()) {
+        for (DeckClass deckClass : dclist) {
             map.put(deckClass, 0.0);
         }
     }
     
     public static void mapZeroesToADeckClassPairDoubleMap(Map<DeckClassPair, Double> map) {
-        for (DeckClass deckClass1 : DeckClassList.getDeckClassList()) {
-            for (DeckClass deckClass2 : DeckClassList.getDeckClassList()) {
+        for (DeckClass deckClass1 : dclist) {
+            for (DeckClass deckClass2 : dclist) {
                 DeckClassPair dcp = new DeckClassPair(deckClass1, deckClass2);
                 map.put(dcp, 0.0);
             }
@@ -112,7 +115,7 @@ public class Mapper {
     public static void updateAverageInIntegerDoubleMap(Map<Integer, Double> map,
             int key, int int1, int int2) {
         map.put(key, StatisticsHelper.getAverage(int1, int2));
-    }
+        }
     
     public static void decreaseIntegerInIntegerIntegerMap(Map<Integer, Integer> map, int key) {
         decreaseIntegerInIntegerIntegerMap(map, key, 1);

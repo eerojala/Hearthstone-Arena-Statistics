@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class TestForLoop {
 
-    private static final List<DeckClass> dclist = DeckClassList.getDeckClassList();
+    private static final List<DeckClass> dclist = DeckClass.getDeckClassList();
 
     public static boolean zeroesInDcIntegerMap(Map<DeckClass, Integer> map, DeckClass... exceptions) {
         for (DeckClass dc : dclist) {

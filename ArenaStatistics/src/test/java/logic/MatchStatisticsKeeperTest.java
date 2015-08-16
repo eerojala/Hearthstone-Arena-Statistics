@@ -7,14 +7,12 @@ import domain.Match;
 import domain.Outcome;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.DeckClassList;
 import util.TestForLoop;
 
 public class MatchStatisticsKeeperTest {
@@ -85,7 +83,7 @@ public class MatchStatisticsKeeperTest {
         list.add(deck1);
         list.add(deck2);
         keeper.addMatches(list);
-        dclist = DeckClassList.getDeckClassList();
+        dclist = DeckClass.getDeckClassList();
         sVSm = new DeckClassPair(DeckClass.SHAMAN, DeckClass.MAGE);
         sVSd = new DeckClassPair(DeckClass.SHAMAN, DeckClass.DRUID);
         sVSpa = new DeckClassPair(DeckClass.SHAMAN, DeckClass.PALADIN);

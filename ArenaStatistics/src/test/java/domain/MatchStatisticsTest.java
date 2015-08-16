@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.DeckClassList;
 import util.TestForLoop;
 
 public class MatchStatisticsTest {
@@ -31,7 +30,7 @@ public class MatchStatisticsTest {
     @Before
     public void setUp() {
         statistics = new MatchStatistics();
-        dclist = DeckClassList.getDeckClassList();
+        dclist = DeckClass.getDeckClassList();
     }
 
     @After

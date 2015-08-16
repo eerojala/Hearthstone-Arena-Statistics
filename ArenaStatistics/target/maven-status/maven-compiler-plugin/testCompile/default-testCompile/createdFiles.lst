@@ -14,5 +14,6 @@ Xml\DeckParserTest.class
 logic\DeckArchiverTest.class
 domain\OutcomeTest.class
 domain\DeckTest.class
+util\MapperTest.class
 logic\DeckHandlerTest.class
 Xml\DocumentBuilderTest.class

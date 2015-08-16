@@ -1,7 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
-import util.DeckClassList;
 
 public enum DeckClass {
 
@@ -26,13 +26,27 @@ public enum DeckClass {
     }
 
     public static DeckClass parseDeckClass(String text) {
-        List<DeckClass> list = DeckClassList.getDeckClassList();
+        List<DeckClass> list = getDeckClassList();
         for (DeckClass deckClass : list) {
             if (text.equals(deckClass.getName())) {
                 return deckClass;
             }
         }
         return null;
+    }
+    
+    public static List<DeckClass> getDeckClassList() {
+        List<DeckClass> list = new ArrayList();
+        list.add(DeckClass.DRUID);
+        list.add(DeckClass.HUNTER);
+        list.add(DeckClass.MAGE);
+        list.add(DeckClass.PALADIN);
+        list.add(DeckClass.PRIEST);
+        list.add(DeckClass.ROGUE);
+        list.add(DeckClass.SHAMAN);
+        list.add(DeckClass.WARLOCK);
+        list.add(DeckClass.WARRIOR);
+        return list;
     }
 
     @Override

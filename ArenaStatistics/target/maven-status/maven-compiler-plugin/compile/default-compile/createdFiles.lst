@@ -7,7 +7,6 @@ arenastatistics\arenastatistics\Main.class
 domain\MatchArchive.class
 domain\DeckArchive.class
 Xml\DeckWriter.class
-util\DeckClassList.class
 domain\Card.class
 domain\DeckClassPair.class
 logic\MatchStatisticsKeeper.class

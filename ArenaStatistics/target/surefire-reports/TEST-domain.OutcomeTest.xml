@@ -65,6 +65,6 @@
   </properties>
   <testcase time="0" classname="domain.OutcomeTest" name="parseOutcome1"/>
   <testcase time="0" classname="domain.OutcomeTest" name="parseOutcome2"/>
-  <testcase time="0" classname="domain.OutcomeTest" name="parseOutcome3"/>
+  <testcase time="0.001" classname="domain.OutcomeTest" name="parseOutcome3"/>
   <testcase time="0" classname="domain.OutcomeTest" name="parseOutcome4"/>
 </testsuite>

@@ -10,7 +10,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.DeckClassList;
 
 public class DeckArchiverTest {
 
@@ -20,7 +19,7 @@ public class DeckArchiverTest {
     Deck deck3;
     Deck deck4;
     boolean bool;
-    List<DeckClass> clist;
+    List<DeckClass> dclist;
 
     public DeckArchiverTest() {
     }
@@ -47,7 +46,7 @@ public class DeckArchiverTest {
         list.add(deck3);
         archiver = new DeckArchiver(list);
         deck4 = new Deck(DeckClass.SHAMAN, 4);
-        clist = DeckClassList.getDeckClassList();
+        dclist = DeckClass.getDeckClassList();
     }
 
     @After
@@ -87,7 +86,7 @@ public class DeckArchiverTest {
     @Test
     public void decks_by_class_have_decks_correctly7() {
         bool = true;
-        for (DeckClass deckClass : clist) {
+        for (DeckClass deckClass : dclist) {
             if (archiver.getDecksByClass(deckClass) != null && (deckClass != DeckClass.DRUID
                     || deckClass != DeckClass.HUNTER || deckClass != DeckClass.WARLOCK)) {
                 bool = false;

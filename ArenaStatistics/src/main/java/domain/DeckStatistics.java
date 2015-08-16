@@ -6,15 +6,15 @@ import util.Mapper;
 
 public class DeckStatistics {
 
-    private final Map<DeckClass, Integer> decksByClass;
-    private final Map<DeckClass, Integer> winsByClass;
+    private final Map<DeckClass, Integer> decksAsClass;
+    private final Map<DeckClass, Integer> winsAsClass;
     private final Map<Integer, Integer> decksByWins;
     private final Map<Integer, Integer> dustByWins;
     private final Map<Integer, Integer> goldByWins;
     private final Map<Integer, Integer> extraPacksByWins;
     private final Map<Integer, Integer> cardsByWins;
     private final Map<Integer, Integer> goldCardsByWins;
-    private final Map<DeckClass, Double> avgWinsByClass;
+    private final Map<DeckClass, Double> avgWinsAsClass;
     private final Map<DeckClass, Double> playPerAsClass;
     private final Map<Integer, Double> avgDustByWins;
     private final Map<Integer, Double> avgGoldByWins;
@@ -23,15 +23,15 @@ public class DeckStatistics {
     private final Map<Integer, Double> avgGoldCardsByWins;
 
     public DeckStatistics() {
-        decksByClass = new HashMap();
-        winsByClass = new HashMap();
+        decksAsClass = new HashMap();
+        winsAsClass = new HashMap();
         decksByWins = new HashMap();
         dustByWins = new HashMap();
         goldByWins = new HashMap();
         extraPacksByWins = new HashMap();
         cardsByWins = new HashMap();
         goldCardsByWins = new HashMap();
-        avgWinsByClass = new HashMap();
+        avgWinsAsClass = new HashMap();
         playPerAsClass = new HashMap();
         avgDustByWins = new HashMap();
         avgGoldByWins = new HashMap();
@@ -42,9 +42,9 @@ public class DeckStatistics {
     }
 
     private void mapZeroesToValues() {
-        Mapper.mapZeroesToADeckClassIntegerMap(decksByClass);
-        Mapper.mapZeroesToADeckClassIntegerMap(winsByClass);
-        Mapper.mapZeroesToADeckClassDoubleMap(avgWinsByClass);
+        Mapper.mapZeroesToADeckClassIntegerMap(decksAsClass);
+        Mapper.mapZeroesToADeckClassIntegerMap(winsAsClass);
+        Mapper.mapZeroesToADeckClassDoubleMap(avgWinsAsClass);
         Mapper.mapZeroesToADeckClassDoubleMap(playPerAsClass);
         mapZeroesToIntegerIntegerMaps();
         mapZeroesToIntegerDoubleMaps();
@@ -79,12 +79,12 @@ public class DeckStatistics {
         return avgGoldByWins;
     }
 
-    public Map<DeckClass, Double> getAvgWinsByClass() {
-        return avgWinsByClass;
+    public Map<DeckClass, Double> getAvgWinsAsClass() {
+        return avgWinsAsClass;
     }
 
-    public Map<DeckClass, Integer> getDecksByClass() {
-        return decksByClass;
+    public Map<DeckClass, Integer> getDecksAsClass() {
+        return decksAsClass;
     }
 
     public Map<Integer, Integer> getDecksByWins() {
@@ -123,8 +123,8 @@ public class DeckStatistics {
         return goldCardsByWins;
     }
 
-    public Map<DeckClass, Integer> getWinsByClass() {
-        return winsByClass;
+    public Map<DeckClass, Integer> getWinsAsClass() {
+        return winsAsClass;
     }
     
 }

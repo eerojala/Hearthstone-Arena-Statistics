@@ -8,7 +8,6 @@ import domain.MatchStatistics;
 import domain.Outcome;
 import java.util.List;
 import java.util.Map;
-import util.DeckClassList;
 import util.Mapper;
 import util.StatisticsHelper;
 
@@ -500,7 +499,7 @@ public class MatchStatisticsKeeper {
 
     public int getTotalMatches() {
         int total = 0;
-        for (DeckClass dc : DeckClassList.getDeckClassList()) {
+        for (DeckClass dc : DeckClass.getDeckClassList()) {
             total += getMatchesAsClassTotal(dc);
         }
         return total;
@@ -508,7 +507,7 @@ public class MatchStatisticsKeeper {
 
     public int getTotalWins() {
         int total = 0;
-        for (DeckClass dc : DeckClassList.getDeckClassList()) {
+        for (DeckClass dc : DeckClass.getDeckClassList()) {
             total += getWinsAsClassTotal(dc);
         }
         return total;
@@ -516,7 +515,7 @@ public class MatchStatisticsKeeper {
 
     public int getTotalLosses() {
         int total = 0;
-        for (DeckClass dc : DeckClassList.getDeckClassList()) {
+        for (DeckClass dc : DeckClass.getDeckClassList()) {
             total += getLossesAsClassTotal(dc);
         }
         return total;

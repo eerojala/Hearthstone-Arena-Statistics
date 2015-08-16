@@ -35,12 +35,12 @@ public class DeckStatisticsTest {
 
     @Test
     public void decks_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntegerMap(statistics.getDecksByClass()));
+        assertTrue(TestForLoop.zeroesInDcIntegerMap(statistics.getDecksAsClass()));
     }
     
     @Test
     public void wins_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntegerMap(statistics.getWinsByClass()));
+        assertTrue(TestForLoop.zeroesInDcIntegerMap(statistics.getWinsAsClass()));
     }
     
     @Test
@@ -75,7 +75,7 @@ public class DeckStatisticsTest {
     
     @Test
     public void average_wins_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(statistics.getAvgWinsByClass()));
+        assertTrue(TestForLoop.zeroesInDcDoubleMap(statistics.getAvgWinsAsClass()));
     }
     
     @Test
