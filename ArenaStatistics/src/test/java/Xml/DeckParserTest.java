@@ -24,10 +24,10 @@ public class DeckParserTest {
     
     public DeckParserTest() {
         parser = new DeckParser("src/main/resources/DeckParseTest.xml");
-        parser.addValuesToList();
-        deck1 = parser.getObjects().get(0);
-        deck2 = parser.getObjects().get(1);
-        deck3 = parser.getObjects().get(2);
+        parser.addValues();
+        deck1 = parser.getDecks().get(0);
+        deck2 = parser.getDecks().get(1);
+        deck3 = parser.getDecks().get(2);
         cards1 = deck1.getRewardCards();
         cards2 = deck3.getRewardCards();
     }
@@ -50,7 +50,7 @@ public class DeckParserTest {
     
     @Test
     public void parses_all_decks() {
-        assertEquals(3, parser.getObjects().size());
+        assertEquals(3, parser.getDecks().size());
     }
     
     @Test

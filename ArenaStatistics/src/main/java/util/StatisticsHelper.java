@@ -1,20 +1,17 @@
-
 package util;
 
-import java.util.Map;
-
-
 public class StatisticsHelper {
-    public static double getWinPercentage(int matches, int wins, int losses, int disconnects) {
-        double winPer = (double) wins / (matches - disconnects);
+
+    public static double getWinPercentage(int matches, int wins) {
+        double winPer = (double) wins / matches;
         if (winPer >= 0) {
             return winPer;
         }
         return 0;
     }
-    
-    public static double getAverage(int int1, int int2) {
-        double avg = (double) int1 / int2;
+
+    public static double getAverage(int numerator, int divisor) {
+        double avg = (double) numerator / divisor;
         if (avg >= 0) {
             return avg;
         }

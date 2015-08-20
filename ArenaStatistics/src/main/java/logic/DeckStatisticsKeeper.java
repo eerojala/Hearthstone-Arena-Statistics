@@ -63,7 +63,7 @@ public class DeckStatisticsKeeper {
     }
 
     private void updatePlayPerAsClass() {
-        for (DeckClass dc : DeckClass.getDeckClassList()) {
+        for (DeckClass dc : DeckClass.values()) {
             int totalDecksAsClass = getDecksAsClass(dc);
             Mapper.updateAverageInDeckClassDoubleMap(statistics.getPlayPerAsClass(),
                     dc, totalDecksAsClass, totalDecks());
@@ -87,7 +87,7 @@ public class DeckStatisticsKeeper {
 
     private int totalDecks() {
         int total = 0;
-        for (DeckClass dc : DeckClass.getDeckClassList()) {
+        for (DeckClass dc : DeckClass.values()) {
             total += getDecksAsClass(dc);
         }
         return total;
@@ -246,7 +246,7 @@ public class DeckStatisticsKeeper {
 
     public int getTotalDeckAmount() {
         int total = 0;
-        for (DeckClass dc : DeckClass.getDeckClassList()) {
+        for (DeckClass dc : DeckClass.values()) {
             total += getDecksAsClass(dc);
         }
         return total;
@@ -254,7 +254,7 @@ public class DeckStatisticsKeeper {
 
     public double getAverageWins() {
         int wins = 0;
-        for (DeckClass dc : DeckClass.getDeckClassList()) {
+        for (DeckClass dc : DeckClass.values()) {
             wins += getWinsAsClass(dc);
         }
         return StatisticsHelper.getAverage(wins, getTotalDeckAmount());

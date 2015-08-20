@@ -108,7 +108,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void decks_by_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getDecksAsClass(), dcExceptions));
+        assertTrue(TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getDecksAsClass(), dcExceptions));
     }
 
     @Test
@@ -128,7 +128,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void wins_by_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsAsClass(), dcExceptions));
+        assertTrue(TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass(), dcExceptions));
     }
 
     @Test
@@ -148,7 +148,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void decks_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(keeper.getStatistics().getDecksByWins(), intExceptions));
+        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getDecksByWins(), intExceptions));
     }
 
     @Test
@@ -168,7 +168,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void dust_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(keeper.getStatistics().getDustByWins(), intExceptions));
+        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getDustByWins(), intExceptions));
     }
 
     @Test
@@ -188,7 +188,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void gold_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(keeper.getStatistics().getGoldByWins(), intExceptions));
+        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getGoldByWins(), intExceptions));
     }
 
     @Test
@@ -198,7 +198,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void extra_packs_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(keeper.getStatistics().getExtraPacksByWins(), 12));
+        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getExtraPacksByWins(), 12));
     }
 
     @Test
@@ -208,7 +208,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void cards_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(keeper.getStatistics().getCardsByWins(), 4));
+        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getCardsByWins(), 4));
     }
 
     @Test
@@ -218,7 +218,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void gold_cards_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(keeper.getStatistics().getGoldCardsByWins(), 4));
+        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getGoldCardsByWins(), 4));
     }
 
     @Test
@@ -288,7 +288,7 @@ public class DeckStatisticsKeeperTest {
 
     @Test
     public void average_dust_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(keeper.getStatistics().getAvgDustByWins(), intExceptions));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgDustByWins(), intExceptions));
     }
     
     @Test
@@ -308,7 +308,7 @@ public class DeckStatisticsKeeperTest {
     
     @Test
     public void average_gold_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(keeper.getStatistics().getAvgGoldByWins(), intExceptions));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgGoldByWins(), intExceptions));
     }
     
     @Test
@@ -318,7 +318,7 @@ public class DeckStatisticsKeeperTest {
     
     @Test
     public void average_extra_packs_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(keeper.getStatistics().getAvgExtraPacksByWins(), 12));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgExtraPacksByWins(), 12));
     }
     
     @Test
@@ -328,7 +328,7 @@ public class DeckStatisticsKeeperTest {
     
     @Test
     public void average_cards_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(keeper.getStatistics().getAvgCardsByWins(), 4));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgCardsByWins(), 4));
     }
     
     @Test
@@ -338,7 +338,7 @@ public class DeckStatisticsKeeperTest {
     
     @Test
     public void average_gold_cards_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(keeper.getStatistics().getAvgGoldCardsByWins(), 4));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgGoldCardsByWins(), 4));
     }
     
     @Test

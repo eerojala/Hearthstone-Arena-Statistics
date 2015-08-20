@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class DeckWriterTest {
 
     XmlWriter writer;
-    XmlParser parser;
+    DeckParser parser;
     Deck deck;
     Deck deck1;
     Deck deck2;
@@ -96,7 +96,7 @@ public class DeckWriterTest {
         doc = DocumentBuilder.buildDocument(filepath);
         addAll();
         parse();
-        decks = parser.getObjects();
+        decks = parser.getDecks();
     }
 
     private void addAll() {
@@ -113,7 +113,7 @@ public class DeckWriterTest {
 
     private void parse() {
         parser = new DeckParser(doc);
-        parser.addValuesToList();
+        parser.addValues();
     }
 
     @After

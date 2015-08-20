@@ -23,16 +23,16 @@ public class MatchParserTest {
     
     public MatchParserTest() {
         parser = new MatchParser("src/main/resources/MatchParseTest.xml");
-        parser.addValuesToList();
-        match1 = parser.getObjects().get(0);
-        match2 = parser.getObjects().get(1);
-        match3 = parser.getObjects().get(2);
-        match4 = parser.getObjects().get(3);
-        match5 = parser.getObjects().get(4);
-        match6 = parser.getObjects().get(5);
-        match7 = parser.getObjects().get(6);
-        match8 = parser.getObjects().get(7);
-        match9 = parser.getObjects().get(8);
+        parser.addValues();
+        match1 = parser.getMatches().get(0);
+        match2 = parser.getMatches().get(1);
+        match3 = parser.getMatches().get(2);
+        match4 = parser.getMatches().get(3);
+        match5 = parser.getMatches().get(4);
+        match6 = parser.getMatches().get(5);
+        match7 = parser.getMatches().get(6);
+        match8 = parser.getMatches().get(7);
+        match9 = parser.getMatches().get(8);
        
     }
 
@@ -55,12 +55,12 @@ public class MatchParserTest {
     @Test
     public void childlist_is_empty_if_invalid_filepath() {
         XmlParser parser = new MatchParser("sdasfafs");
-        assertEquals(0, parser.childList.size());
+        assertEquals(0, parser.childlist.size());
     }
     
     @Test
     public void parses_all_matches() {
-        assertEquals(9, parser.getObjects().size());
+        assertEquals(9, parser.getMatches().size());
     }
 
     @Test

@@ -11,21 +11,20 @@ public class MatchParser extends XmlParser {
 
     private final List<Match> matches;
 
-    public MatchParser(String fileName) {
-        super(fileName, "Match");
+    public MatchParser(String filepath) {
+        super(filepath, "Match", "Matches");
         matches = new ArrayList();
     }
-    
-    
+     
     public MatchParser(Document doc) {
         super(doc, "Match");
         matches = new ArrayList();
     }
 
     @Override
-    protected void addValuesToList() {
-        for (int i = 0; i < childList.size(); i++) {
-            Element node = (Element) childList.get(i);
+    public void addValues() {
+        for (int i = 0; i < childlist.size(); i++) {
+            Element node = (Element) childlist.get(i);
             matches.add(createMatch(node));
         }
     }
@@ -35,15 +34,14 @@ public class MatchParser extends XmlParser {
         String opponentName = getStringValue(node, "OpponentName");
         Outcome outcome = getOutcomeValue(node, "Outcome");
         boolean wentFirst = getBooleanValue(node, "WentFirst");
-        String id = getId(node);
+        String id = getID(node);
         int deckNumber = Integer.parseInt(id.split("\\.")[0]);
         int matchNumber = Integer.parseInt(id.split("\\.")[1]);      
         return new Match(opponentClass, opponentName, outcome,
                 wentFirst, deckNumber, matchNumber);
     }
 
-    @Override
-    public List<Match> getObjects() {
+    public List<Match> getMatches() {
         return matches;
     }
 

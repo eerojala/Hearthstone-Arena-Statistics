@@ -2,15 +2,14 @@ package util;
 
 import domain.DeckClass;
 import domain.DeckClassPair;
-import java.util.List;
 import java.util.Map;
 
 public class TestForLoop {
 
-    private static final List<DeckClass> dclist = DeckClass.getDeckClassList();
+    private static final DeckClass[] dcArray = DeckClass.values();
 
-    public static boolean zeroesInDcIntegerMap(Map<DeckClass, Integer> map, DeckClass... exceptions) {
-        for (DeckClass dc : dclist) {
+    public static boolean zeroesInDcIntMap(Map<DeckClass, Integer> map, DeckClass... exceptions) {
+        for (DeckClass dc : dcArray) {
             if (map.get(dc) != 0 && !objectIsAnException(dc, (Object[]) exceptions)) {
                 return false;
             }
@@ -27,9 +26,9 @@ public class TestForLoop {
         return false;
     }
 
-    public static boolean zeroesInDcpIntegerMap(Map<DeckClassPair, Integer> map, DeckClassPair... exceptions) {
-        for (DeckClass dc1 : dclist) {
-            for (DeckClass dc2 : dclist) {
+    public static boolean zeroesInDcpIntMap(Map<DeckClassPair, Integer> map, DeckClassPair... exceptions) {
+        for (DeckClass dc1 : dcArray) {
+            for (DeckClass dc2 : dcArray) {
                 DeckClassPair dcp = new DeckClassPair(dc1, dc2);
                 if (map.get(dcp) != 0 && !objectIsAnException(dcp, (Object[]) exceptions)) {
                     return false;
@@ -40,7 +39,7 @@ public class TestForLoop {
     }
 
     public static boolean zeroesInDcDoubleMap(Map<DeckClass, Double> map, DeckClass... exceptions) {
-        for (DeckClass dc : dclist) {
+        for (DeckClass dc : dcArray) {
             if (map.get(dc) != 0 && !objectIsAnException(dc, (Object[]) exceptions)) {
                 return false;
             }
@@ -49,8 +48,8 @@ public class TestForLoop {
     }
 
     public static boolean zeroesInDcpDoubleMap(Map<DeckClassPair, Double> map, DeckClassPair... exceptions) {
-        for (DeckClass dc1 : dclist) {
-            for (DeckClass dc2 : dclist) {
+        for (DeckClass dc1 : dcArray) {
+            for (DeckClass dc2 : dcArray) {
                 DeckClassPair dcp = new DeckClassPair(dc1, dc2);
                 if (map.get(dcp) != 0 && !objectIsAnException(dcp, (Object[]) exceptions)) {
                     return false;
@@ -60,7 +59,7 @@ public class TestForLoop {
         return true;
     }
 
-    public static boolean zeroesInIntegerIntegerMap(Map<Integer, Integer> map, int... exceptions) {
+    public static boolean zeroesInIntIntMap(Map<Integer, Integer> map, int... exceptions) {
         for (int i = 0; i <= 12; i++) {
             if (map.get(i) != 0 && !integerIsAnException(i, exceptions)) {
                 return false;
@@ -78,7 +77,7 @@ public class TestForLoop {
         return false;
     }
 
-    public static boolean zeroesInIntegerDoubleMap(Map<Integer, Double> map, int... exceptions) {
+    public static boolean zeroesInIntDoubleMap(Map<Integer, Double> map, int... exceptions) {
         for (int i = 0; i <= 12; i++) {
             if (map.get(i) != 0 && !integerIsAnException(i, exceptions)) {
                 return false;

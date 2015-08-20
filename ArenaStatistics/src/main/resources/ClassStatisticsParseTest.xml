@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Classes>
+    <Class id="Druid">
+        <MatchesAsClass1st>48</MatchesAsClass1st>
+        <MatchesAsClass2nd>60</MatchesAsClass2nd>
+        <MatchesVSClass1st>8</MatchesVSClass1st>
+        <MatchesVSClass2nd>10</MatchesVSClass2nd>
+        <WinsAsClass1st>12</WinsAsClass1st>
+        <WinsAsClass2nd>36</WinsAsClass2nd>
+        <WinsVSClass1st>6</WinsVSClass1st>
+        <WinsVSClass2nd>1</WinsVSClass2nd>
+        <LossesAsClass1st>36</LossesAsClass1st>
+        <LossesAsClass2nd>24</LossesAsClass2nd>
+        <LossesVSClass1st>2</LossesVSClass1st>
+        <LossesVSClass2nd>9</LossesVSClass2nd>
+    </Class>
+    <Class id="Warlock">
+        <MatchesAsClass1st>10</MatchesAsClass1st>
+        <MatchesAsClass2nd>12</MatchesAsClass2nd>
+        <MatchesVSClass1st>30</MatchesVSClass1st>
+        <MatchesVSClass2nd>14</MatchesVSClass2nd>
+        <WinsAsClass1st>2</WinsAsClass1st>
+        <WinsAsClass2nd>5</WinsAsClass2nd>
+        <WinsVSClass1st>20</WinsVSClass1st>
+        <WinsVSClass2nd>9</WinsVSClass2nd>
+        <LossesAsClass1st>6</LossesAsClass1st>
+        <LossesAsClass2nd>3</LossesAsClass2nd>
+        <LossesVSClass1st>8</LossesVSClass1st>
+        <LossesVSClass2nd>0</LossesVSClass2nd>
+    </Class>
+</Classes>

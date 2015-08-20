@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.016" errors="0" skipped="0" tests="15" name="domain.DeckStatisticsTest">
+<testsuite failures="0" time="0.012" errors="0" skipped="0" tests="15" name="domain.DeckStatisticsTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_55\jre\bin"/>
@@ -63,19 +63,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.003" classname="domain.DeckStatisticsTest" name="average_gold_card_by_wins_have_zeroes_at_start"/>
+  <testcase time="0.001" classname="domain.DeckStatisticsTest" name="average_gold_card_by_wins_have_zeroes_at_start"/>
   <testcase time="0" classname="domain.DeckStatisticsTest" name="average_gold_by_wins_have_zeroes_at_start"/>
-  <testcase time="0.001" classname="domain.DeckStatisticsTest" name="gold_cards_by_wins_have_zeroes_at_start"/>
-  <testcase time="0.001" classname="domain.DeckStatisticsTest" name="wins_by_class_have_zeroes_at_start"/>
+  <testcase time="0.002" classname="domain.DeckStatisticsTest" name="gold_cards_by_wins_have_zeroes_at_start"/>
+  <testcase time="0" classname="domain.DeckStatisticsTest" name="wins_by_class_have_zeroes_at_start"/>
   <testcase time="0" classname="domain.DeckStatisticsTest" name="cards_by_wins_have_zeroes_at_start"/>
   <testcase time="0" classname="domain.DeckStatisticsTest" name="average_dust_by_wins_have_zeroes_at_start"/>
   <testcase time="0.001" classname="domain.DeckStatisticsTest" name="percentage_played_as_class_out_of_all_decks_have_zeroes_at_start"/>
   <testcase time="0" classname="domain.DeckStatisticsTest" name="average_wins_by_class_have_zeroes_at_start"/>
-  <testcase time="0" classname="domain.DeckStatisticsTest" name="decks_by_class_have_zeroes_at_start"/>
-  <testcase time="0.001" classname="domain.DeckStatisticsTest" name="average_cards_by_wins_have_zeroes_at_start"/>
-  <testcase time="0.001" classname="domain.DeckStatisticsTest" name="gold_by_wins_have_zeroes_at_start"/>
-  <testcase time="0.001" classname="domain.DeckStatisticsTest" name="extra_packs_by_wins_have_zeroes_at_start"/>
+  <testcase time="0.001" classname="domain.DeckStatisticsTest" name="decks_by_class_have_zeroes_at_start"/>
+  <testcase time="0" classname="domain.DeckStatisticsTest" name="average_cards_by_wins_have_zeroes_at_start"/>
+  <testcase time="0" classname="domain.DeckStatisticsTest" name="gold_by_wins_have_zeroes_at_start"/>
+  <testcase time="0" classname="domain.DeckStatisticsTest" name="extra_packs_by_wins_have_zeroes_at_start"/>
   <testcase time="0.001" classname="domain.DeckStatisticsTest" name="average_extra_packs_by_wins_have_zeroes_at_start"/>
-  <testcase time="0.001" classname="domain.DeckStatisticsTest" name="dust_by_wins_have_zeroes_at_start"/>
+  <testcase time="0" classname="domain.DeckStatisticsTest" name="dust_by_wins_have_zeroes_at_start"/>
   <testcase time="0.001" classname="domain.DeckStatisticsTest" name="decks_by_wins_have_zeroes_at_start"/>
 </testsuite>

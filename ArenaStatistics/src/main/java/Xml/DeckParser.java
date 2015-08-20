@@ -11,7 +11,7 @@ public class DeckParser extends XmlParser {
     private List<Deck> decks;
 
     public DeckParser(String fileName) {
-        super(fileName, "Deck");
+        super(fileName, "Deck", "Decks");
         decks = new ArrayList();
     }
     
@@ -21,15 +21,15 @@ public class DeckParser extends XmlParser {
     }
 
     @Override
-    public void addValuesToList() {
-        for (int i = 0; i < childList.size(); i++) {
-            Element node = (Element) childList.get(i);
+    public void addValues() {
+        for (int i = 0; i < childlist.size(); i++) {
+            Element node = (Element) childlist.get(i);
             decks.add(createDeck(node));
         }
     }
 
     private Deck createDeck(Element node) {
-        int deckNumber = Integer.parseInt(getId(node));
+        int deckNumber = Integer.parseInt(getID(node));
         DeckClass playerClass = getDeckClassValue(node, "PlayerClass");
         Deck deck = new Deck(playerClass, deckNumber);
         deck.setGold(getIntegerValue(node, "Gold"));
@@ -53,8 +53,7 @@ public class DeckParser extends XmlParser {
         return cards;
     }
 
-    @Override
-    public List<Deck> getObjects() {
+    public List<Deck> getDecks() {
         return decks;
     }
 

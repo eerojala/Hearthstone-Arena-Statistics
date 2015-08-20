@@ -9,15 +9,15 @@ import org.jdom.Element;
 
 public class MatchWriter extends XmlWriter {
 
-    public MatchWriter(String filePath) {
-        super(filePath, "Matches", "Match");
+    public MatchWriter(String filepath) {
+        super(filepath, "Matches", "Match");
     }
 
     @Override
     public void addContent(Document doc, Object obj) {
         try {
             Match match = (Match) obj;
-            Element element = new Element("Match");
+            Element element = new Element(childName);
             element.setAttribute(new Attribute("id", match.getDeckNumber() + "." + match.getMatchNumber()));
             element.addContent(new Element("OpponentClass").setText(match.getOpponentDeckClass().getName()));
             element.addContent(new Element("OpponentName").setText(match.getOpponentName()));
@@ -26,7 +26,7 @@ public class MatchWriter extends XmlWriter {
             doc.getRootElement().addContent(element);
             addToFile(doc);
         } catch (Exception e) {
-            
+            System.out.println("Writing match to file failed");
         }
     }
 

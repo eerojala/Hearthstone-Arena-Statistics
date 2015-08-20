@@ -9,12 +9,12 @@ import org.jdom.output.XMLOutputter;
 
 public abstract class XmlWriter {
 
-    protected String filePath;
-    protected String rootName;
-    protected String childName;
+    protected final String filepath;
+    protected final String rootName;
+    protected final String childName;
 
-    public XmlWriter(String filePath, String rootName, String childName) {
-        this.filePath = filePath;
+    public XmlWriter(String filepath, String rootName, String childName) {
+        this.filepath = filepath;
         this.rootName = rootName;
         this.childName = childName;
     }
@@ -34,8 +34,7 @@ public abstract class XmlWriter {
     
     public void remove(Document doc, String id) {
         List<Element> children = doc.getRootElement().getChildren();
-        Element removeThis = null;
-        
+        Element removeThis = null;       
         for (Element child : children) {
             if (child.getAttributeValue("id").equals(id)) {
                 removeThis = child;
@@ -50,23 +49,14 @@ public abstract class XmlWriter {
         XMLOutputter output = new XMLOutputter();
         output.setFormat(Format.getPrettyFormat());
         try {
-            output.output(doc, new FileWriter(filePath));
+            output.output(doc, new FileWriter(filepath));
         } catch (Exception e) {
             System.out.println("Writing to file failed");
         }
-    }
+    }  
 
-    public void setChildName(String childName) {
-        this.childName = childName;
+    public String getRootName() {
+        return rootName;
     }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
-    public void setRootName(String rootName) {
-        this.rootName = rootName;
-    }
-
-  
+    
 }

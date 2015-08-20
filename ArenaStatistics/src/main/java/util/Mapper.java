@@ -9,17 +9,17 @@ import java.util.Map;
 
 
 public class Mapper {
-    private static List<DeckClass> dclist = DeckClass.getDeckClassList();
+    private static DeckClass[] dcArray = DeckClass.values();
     
     public static void mapZeroesToADeckClassIntegerMap(Map<DeckClass, Integer> map) {
-        for (DeckClass deckClass : dclist) {
+        for (DeckClass deckClass : dcArray) {
             map.put(deckClass, 0);
         }
     }
     
     public static void mapZeroesToADeckClassPairIntegerMap(Map<DeckClassPair, Integer> map) {
-        for (DeckClass deckClass1 : dclist) {
-            for (DeckClass deckClass2 : dclist) {
+        for (DeckClass deckClass1 : dcArray) {
+            for (DeckClass deckClass2 : dcArray) {
                 DeckClassPair dcp = new DeckClassPair(deckClass1, deckClass2);
                 map.put(dcp, 0);
             }
@@ -27,14 +27,14 @@ public class Mapper {
     }
     
     public static  void mapZeroesToADeckClassDoubleMap(Map<DeckClass, Double> map) {
-        for (DeckClass deckClass : dclist) {
+        for (DeckClass deckClass : dcArray) {
             map.put(deckClass, 0.0);
         }
     }
     
     public static void mapZeroesToADeckClassPairDoubleMap(Map<DeckClassPair, Double> map) {
-        for (DeckClass deckClass1 : dclist) {
-            for (DeckClass deckClass2 : dclist) {
+        for (DeckClass deckClass1 : dcArray) {
+            for (DeckClass deckClass2 : dcArray) {
                 DeckClassPair dcp = new DeckClassPair(deckClass1, deckClass2);
                 map.put(dcp, 0.0);
             }
@@ -57,31 +57,27 @@ public class Mapper {
         increaseIntegerInDeckClassIntegerMap(map, dc, 1);
     }
     
-    public static void increaseIntegerInDeckClassPairIntegerMap(Match match, Map<DeckClassPair, Integer> map) {
-        DeckClassPair dcp = new DeckClassPair(match.getPlayerDeckClass(), match.getOpponentDeckClass());
+    public static void increaseIntegerInDeckClassPairIntegerMap(Map<DeckClassPair, Integer> map, DeckClassPair dcp) {
         map.put(dcp, map.get(dcp) + 1);
     }
     
     public static void updateWinPercentageInDeckClassDoubleMap(Map<DeckClass, Double> doublemap,
             Map<DeckClass, Integer> matchmap, Map<DeckClass, Integer> winmap,
             Map<DeckClass, Integer> lossmap, DeckClass deckClass) {
-        int matches = matchmap.get(deckClass);
         int wins = winmap.get(deckClass);
         int losses = lossmap.get(deckClass);
-        int disconnects = matches - wins - losses;
-        Double winPer = StatisticsHelper.getWinPercentage(matches, wins, losses, disconnects);
+        int validMatches = wins + losses;
+        Double winPer = StatisticsHelper.getWinPercentage(validMatches, wins);
         doublemap.put(deckClass, winPer);
     }
     
-    public static void updateWinPercentageInDeckClassPairDoubleMap(Match match,
-            Map<DeckClassPair, Double> doublemap, Map<DeckClassPair, Integer> matchmap,
-            Map<DeckClassPair, Integer> winmap, Map<DeckClassPair, Integer> lossmap) {
-        DeckClassPair dcp = new DeckClassPair(match.getPlayerDeckClass(), match.getOpponentDeckClass());
-        int matches = matchmap.get(dcp);
+    public static void updateWinPercentageInDeckClassPairDoubleMap(Map<DeckClassPair, Double> doublemap,
+            Map<DeckClassPair, Integer> matchmap, Map<DeckClassPair, Integer> winmap, 
+            Map<DeckClassPair, Integer> lossmap, DeckClassPair dcp) {
         int wins = winmap.get(dcp);
         int losses = lossmap.get(dcp);
-        int disconnects = matches - wins - losses;
-        Double winPer = StatisticsHelper.getWinPercentage(matches, wins, losses, disconnects);
+        int validMatches = wins + losses;
+        Double winPer = StatisticsHelper.getWinPercentage(validMatches, wins);
         doublemap.put(dcp, winPer);
     }
     
@@ -97,10 +93,8 @@ public class Mapper {
         }
     }
     
-    public static void decreaseIntegerInDeckClassPairIntegerMap(Match match, Map<DeckClassPair, Integer> map) {
-        DeckClassPair dcp = new DeckClassPair(match.getPlayerDeckClass(), match.getOpponentDeckClass());
-        Integer integer = decreaseInteger(map.get(dcp));
-        map.put(dcp, integer);
+    public static void decreaseIntegerInDeckClassPairIntegerMap(Map<DeckClassPair, Integer> map, DeckClassPair dcp) {
+        map.put(dcp, decreaseInteger(map.get(dcp)));
     }
     
     public static void increaseIntegerInIntegerIntegerMap(Map<Integer, Integer> map, int key) {
@@ -108,13 +102,13 @@ public class Mapper {
     }
     
     public static void updateAverageInDeckClassDoubleMap(Map<DeckClass, Double> map, 
-            DeckClass dc, int int1, int int2) {
-        map.put(dc, StatisticsHelper.getAverage(int1, int2));
+            DeckClass dc, int numerator, int divisor) {
+        map.put(dc, StatisticsHelper.getAverage(numerator, divisor));
     }
     
     public static void updateAverageInIntegerDoubleMap(Map<Integer, Double> map,
-            int key, int int1, int int2) {
-        map.put(key, StatisticsHelper.getAverage(int1, int2));
+            int key, int numerator, int divisor) {
+        map.put(key, StatisticsHelper.getAverage(numerator, divisor));
         }
     
     public static void decreaseIntegerInIntegerIntegerMap(Map<Integer, Integer> map, int key) {

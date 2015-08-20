@@ -1,6 +1,9 @@
 
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DeckClassPair {
     private final DeckClass playerDeckClass;
     private final DeckClass opponentDeckClass;
@@ -36,7 +39,7 @@ public class DeckClassPair {
 
     @Override
     public String toString() {
-        return playerDeckClass + " VS " + opponentDeckClass;
+        return playerDeckClass + "VS" + opponentDeckClass;
     }
 
     @Override
@@ -44,4 +47,22 @@ public class DeckClassPair {
         return toString().hashCode();
     }
     
+    public static DeckClassPair parseDeckClassPair(String string) {
+        for (DeckClassPair dcp : getDeckClassPairList()) {
+            if (string.equals(dcp.toString())) {
+                return dcp;
+            }
+        }
+        return null;
+    }
+    
+     public static List<DeckClassPair> getDeckClassPairList() {
+        List<DeckClassPair> list = new ArrayList();
+        for (DeckClass dc1 : DeckClass.values()) {
+            for (DeckClass dc2 : DeckClass.values()) {
+                list.add(new DeckClassPair(dc1, dc2));
+            }
+        }
+        return list;
+    }
 }

@@ -7,38 +7,32 @@ import org.jdom.Element;
 
 public abstract class XmlParser {
 
-    protected List childList;
+    protected List<Element> childlist;
     protected Document document;
 
-    public XmlParser(String filePath, String tagName) {
-        document = DocumentBuilder.buildDocument(filePath);
+    public XmlParser(String filepath, String tagName, String rootName) {
+        document = DocumentBuilder.buildDocument(filepath);
         if (document == null) {
-            String rootName = "";
-            if (tagName.equals("Match")) {
-                rootName = "Matches";
-            } else if (tagName.equals("Deck")) {
-                rootName = "Decks";
-            }
             document = DocumentBuilder.createDocument(rootName);
         }
         initChildList(tagName);
     }
     
-    public XmlParser(Document doc, String tagName) {
+    public XmlParser(Document doc, String childname) {
         document = doc;
-        initChildList(tagName);
+        initChildList(childname);
     }
 
     private void initChildList(String tagName) {     
         try {
             Element rootNode = document.getRootElement();
-            childList = rootNode.getChildren(tagName);
+            childlist = rootNode.getChildren(tagName);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    protected abstract void addValuesToList();
+    public abstract void addValues();
 
     protected String getStringValue(Element node, String tagName) {
         return node.getChildText(tagName);
@@ -60,14 +54,15 @@ public abstract class XmlParser {
         return DeckClass.parseDeckClass(getStringValue(node, tagName));
     }
     
-    protected String getId(Element node) {
+    protected DeckClassPair getDeckClassPairValue(Element node, String tagName) {
+        return DeckClassPair.parseDeckClassPair(getStringValue(node, tagName));
+    }
+    
+    protected String getID(Element node) {
         return node.getAttributeValue("id");
     }
 
     public Document getDocument() {
         return document;
     }
-    
-    public abstract List getObjects();
-
 }

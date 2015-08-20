@@ -2,7 +2,6 @@ package logic;
 
 import domain.Deck;
 import domain.DeckClass;
-import domain.DeckClassPair;
 import domain.Match;
 import domain.Outcome;
 import java.util.ArrayList;
@@ -15,17 +14,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import util.TestForLoop;
 
-public class MatchStatisticsKeeperTest {
+public class ClassStatisticsKeeperTest {
 
-    MatchStatisticsKeeper keeper;
+    ClassStatisticsKeeper keeper;
     boolean bool;
-    List<DeckClass> dclist;
-    DeckClassPair sVSm;
-    DeckClassPair sVSd;
-    DeckClassPair sVSpa;
-    DeckClassPair prVSwarr;
-    DeckClassPair sVSr;
-    DeckClassPair rVSs;
     Match match1;
     Match match2;
     Match match3;
@@ -38,7 +30,7 @@ public class MatchStatisticsKeeperTest {
     Match match10;
     Match match11;
 
-    public MatchStatisticsKeeperTest() {
+    public ClassStatisticsKeeperTest() {
     }
 
     @BeforeClass
@@ -51,7 +43,7 @@ public class MatchStatisticsKeeperTest {
 
     @Before
     public void setUp() {
-        keeper = new MatchStatisticsKeeper();
+        keeper = new ClassStatisticsKeeper();
         Deck deck1 = new Deck(DeckClass.SHAMAN, 1);
         DeckHandler handler = new DeckHandler();
         handler.setDeck(deck1);
@@ -82,14 +74,15 @@ public class MatchStatisticsKeeperTest {
         List<Deck> list = new ArrayList();
         list.add(deck1);
         list.add(deck2);
-        keeper.addMatches(list);
-        dclist = DeckClass.getDeckClassList();
-        sVSm = new DeckClassPair(DeckClass.SHAMAN, DeckClass.MAGE);
-        sVSd = new DeckClassPair(DeckClass.SHAMAN, DeckClass.DRUID);
-        sVSpa = new DeckClassPair(DeckClass.SHAMAN, DeckClass.PALADIN);
-        prVSwarr = new DeckClassPair(DeckClass.PRIEST, DeckClass.WARRIOR);
-        sVSr = new DeckClassPair(DeckClass.SHAMAN, DeckClass.ROGUE);
-        rVSs = new DeckClassPair(DeckClass.ROGUE, DeckClass.SHAMAN);
+        addMatches(list);
+    }
+    
+    private void addMatches(List<Deck> list) {
+        for (Deck deck : list) {
+            for (Match match : deck.getMatches()) {
+                keeper.addMatch(match);
+            }
+        }
     }
 
     @After
@@ -103,7 +96,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void matches_as_class_going_1st_are_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesAsClass1st(), DeckClass.SHAMAN, DeckClass.PRIEST);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getMatchesAsClass1st(), DeckClass.SHAMAN, DeckClass.PRIEST);
         assertTrue(bool);
     }
 
@@ -119,7 +112,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void matches_as_class_going_2nd_are_correct3() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesAsClass2nd(), DeckClass.PRIEST, DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getMatchesAsClass2nd(), DeckClass.PRIEST, DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -140,7 +133,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void matches_vs_class_going_1st_is_correct4() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesVSClass1st(), DeckClass.MAGE,
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getMatchesVSClass1st(), DeckClass.MAGE,
                 DeckClass.PALADIN, DeckClass.ROGUE, DeckClass.WARLOCK);
         assertTrue(bool);
     }
@@ -162,7 +155,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void matches_vs_class_going_2nd_is_correct4() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getMatchesVSClass2nd(), DeckClass.MAGE,
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getMatchesVSClass2nd(), DeckClass.MAGE,
                 DeckClass.DRUID, DeckClass.WARRIOR);
         assertTrue(bool);
     }
@@ -174,7 +167,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_as_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsAsClass1st(), DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -185,7 +178,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_as_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsAsClass2nd(), DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass2nd(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -196,7 +189,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_as_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getLossesAsClass1st(), DeckClass.SHAMAN);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getLossesAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -212,7 +205,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_as_class_going_2nd_is_correct3() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getLossesAsClass2nd(), DeckClass.SHAMAN, DeckClass.PRIEST);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getLossesAsClass2nd(), DeckClass.SHAMAN, DeckClass.PRIEST);
         assertTrue(bool);
     }
 
@@ -223,7 +216,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsVSClass1st(), DeckClass.MAGE);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsVSClass1st(), DeckClass.MAGE);
         assertTrue(bool);
     }
 
@@ -234,7 +227,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void wins_vs_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getWinsVSClass2nd(), DeckClass.DRUID);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsVSClass2nd(), DeckClass.DRUID);
         assertTrue(bool);
     }
 
@@ -245,7 +238,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getLossesVSClass1st(), DeckClass.PALADIN);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getLossesVSClass1st(), DeckClass.PALADIN);
         assertTrue(bool);
     }
 
@@ -261,87 +254,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void losses_vs_class_going_2nd_is_correct3() {
-        bool = TestForLoop.zeroesInDcIntegerMap(keeper.getStatistics().getLossesVSClass2nd(), DeckClass.MAGE, DeckClass.WARRIOR);
-        assertTrue(bool);
-    }
-
-    @Test
-    public void matches_in_class_vs_class_going_1st_is_correct1() {
-        assertEquals(2, keeper.getMatchesInClassVSClass1st(sVSm));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_going_1st_is_correct2() {
-        assertEquals(2, keeper.getMatchesInClassVSClass1st(sVSpa));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_going_1st_is_correct3() {
-        assertEquals(1, keeper.getMatchesInClassVSClass1st(sVSr));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_going_2nd_is_correct1() {
-        assertEquals(2, keeper.getMatchesInClassVSClass2nd(sVSm));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_going_2nd_is_correct2() {
-        assertEquals(2, keeper.getMatchesInClassVSClass2nd(sVSd));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_going_2nd_is_correct3() {
-        assertEquals(1, keeper.getMatchesInClassVSClass2nd(prVSwarr));
-    }
-
-    @Test
-    public void wins_in_class_vs_class_going_1st_is_correct1() {
-        assertEquals(2, keeper.getWinsInClassVSClass1st(sVSm));
-    }
-
-    @Test
-    public void wins_in_class_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcpIntegerMap(keeper.getStatistics().getWinsInClassVSClass1st(), sVSm);
-        assertTrue(bool);
-    }
-
-    @Test
-    public void wins_in_class_vs_class_going_2nd_is_correct1() {
-        assertEquals(2, keeper.getWinsInClassVSClass2nd(sVSd));
-    }
-
-    @Test
-    public void wins_in_class_vs_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcpIntegerMap(keeper.getStatistics().getWinsInClassVSClass2nd(), sVSd);
-        assertTrue(bool);
-    }
-
-    @Test
-    public void losses_in_class_vs_class_going_1st_is_correct1() {
-        assertEquals(2, keeper.getLossesInClassVSClass1st(sVSpa));
-    }
-
-    @Test
-    public void losses_in_class_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcpIntegerMap(keeper.getStatistics().getLossesInClassVSClass1st(), sVSpa);
-        assertTrue(bool);
-    }
-
-    @Test
-    public void losses_in_class_vs_class_going_2nd_is_correct1() {
-        assertEquals(2, keeper.getLossesInClassVSClass2nd(sVSm));
-    }
-
-    @Test
-    public void losses_in_class_vs_class_going_2nd_is_correct2() {
-        assertEquals(1, keeper.getLossesInClassVSClass2nd(prVSwarr));
-    }
-
-    @Test
-    public void losses_in_class_vs_class_going_2nd_is_correct3() {
-        bool = TestForLoop.zeroesInDcpIntegerMap(keeper.getStatistics().getLossesInClassVSClass2nd(),
-                sVSm, prVSwarr);
+        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getLossesVSClass2nd(), DeckClass.MAGE, DeckClass.WARRIOR);
         assertTrue(bool);
     }
 
@@ -386,29 +299,6 @@ public class MatchStatisticsKeeperTest {
     @Test
     public void win_percentage_vs_class_going_2nd_is_correct2() {
         bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass2nd(), DeckClass.DRUID);
-    }
-
-    @Test
-    public void win_percentage_class_vs_class_going_1st_is_correct1() {
-        assertEquals(1, keeper.getWinPerClassVSClass1st(sVSm), 0.0001);
-    }
-
-    @Test
-    public void win_percentage_class_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcpDoubleMap(keeper.getStatistics().getWinPerClassVSClass1st(), sVSm);
-        assertTrue(bool);
-    }
-
-
-    @Test
-    public void win_percentage_class_vs_class_going_second_is_correct1() {
-        assertEquals(1, keeper.getWinPerClassVSClass2nd(sVSd), 0.00001);
-    }
-
-    @Test
-    public void win_percentage_class_vs_class_going_second_is_correct2() {
-        bool = TestForLoop.zeroesInDcpDoubleMap(keeper.getStatistics().getWinPerClassVSClass2nd(), sVSd);
-        assertTrue(bool);
     }
 
     @Test
@@ -457,36 +347,6 @@ public class MatchStatisticsKeeperTest {
     }
 
     @Test
-    public void matches_in_class_vs_class_total_is_correct1() {
-        assertEquals(4, keeper.getMatchesInClassVSClassTotal(sVSm));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_total_is_correct2() {
-        assertEquals(2, keeper.getMatchesInClassVSClassTotal(sVSd));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_total_is_correct3() {
-        assertEquals(2, keeper.getMatchesInClassVSClassTotal(sVSpa));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_total_is_correct4() {
-        assertEquals(1, keeper.getMatchesInClassVSClassTotal(sVSr));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_total_is_correct5() {
-        assertEquals(1, keeper.getMatchesInClassVSClassTotal(prVSwarr));
-    }
-
-    @Test
-    public void matches_in_class_vs_class_total_is_correct6() {
-        assertEquals(0, keeper.getMatchesInClassVSClassTotal(rVSs));
-    }
-
-    @Test
     public void wins_as_class_total_is_correct1() {
         assertEquals(4, keeper.getWinsAsClassTotal(DeckClass.SHAMAN));
     }
@@ -509,21 +369,6 @@ public class MatchStatisticsKeeperTest {
     @Test
     public void wins_vs_class_total_is_correct3() {
         assertEquals(0, keeper.getWinsVSClassTotal(DeckClass.ROGUE));
-    }
-
-    @Test
-    public void wins_in_class_vs_class_total_is_correct1() {
-        assertEquals(2, keeper.getWinsInClassVSClassTotal(sVSm));
-    }
-
-    @Test
-    public void wins_in_class_vs_class_total_is_correct2() {
-        assertEquals(2, keeper.getWinsInClassVSClassTotal(sVSd));
-    }
-
-    @Test
-    public void wins_in_class_vs_class_total_is_correct3() {
-        assertEquals(0, keeper.getWinsInClassVSClassTotal(prVSwarr));
     }
 
     @Test
@@ -559,26 +404,6 @@ public class MatchStatisticsKeeperTest {
     @Test
     public void losses_vs_class_total_is_correct4() {
         assertEquals(0, keeper.getLossesVSClassTotal(DeckClass.ROGUE));
-    }
-
-    @Test
-    public void losses_in_class_vs_class_is_correct1() {
-        assertEquals(2, keeper.getLossesInClassVSClassTotal(sVSm));
-    }
-
-    @Test
-    public void losses_in_class_vs_class_is_correct2() {
-        assertEquals(2, keeper.getLossesInClassVSClassTotal(sVSpa));
-    }
-
-    @Test
-    public void losses_in_class_vs_class_is_correct3() {
-        assertEquals(1, keeper.getLossesInClassVSClassTotal(prVSwarr));
-    }
-
-    @Test
-    public void losses_in_class_vs_class_is_correct4() {
-        assertEquals(0, keeper.getLossesInClassVSClassTotal(rVSs));
     }
 
     @Test
@@ -637,36 +462,6 @@ public class MatchStatisticsKeeperTest {
     }
 
     @Test
-    public void loss_percentage_in_class_vs_class_1st_is_correct1() {
-        assertEquals(1, keeper.getLossPerInClassVSClass1st(sVSpa), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_1st_is_correct2() {
-        assertEquals(0, keeper.getLossPerInClassVSClass1st(sVSr), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_1st_is_correct3() {
-        assertEquals(0, keeper.getLossPerInClassVSClass1st(rVSs), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_2nd_is_correct1() {
-        assertEquals(1, keeper.getLossPerInClassVSClass2nd(sVSm), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_2nd_is_correct2() {
-        assertEquals(1, keeper.getLossPerInClassVSClass2nd(prVSwarr), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_2nd_is_correct3() {
-        assertEquals(0, keeper.getLossPerInClassVSClass2nd(sVSpa), 0.0001);
-    }
-
-    @Test
     public void win_percentage_as_class_total_is_correct1() {
         assertEquals(0.5, keeper.getWinPerAsClassTotal(DeckClass.SHAMAN), 0.0001);
     }
@@ -709,36 +504,6 @@ public class MatchStatisticsKeeperTest {
     @Test
     public void win_percentage_vs_class_total_is_correct6() {
         assertEquals(0, keeper.getWinPerVSClassTotal(DeckClass.WARLOCK), 0.00001);
-    }
-
-    @Test
-    public void win_percentage_in_class_vs_class_total_is_correct1() {
-        assertEquals(0.5, keeper.getWinPerInClassVSClassTotal(sVSm), 0.0001);
-    }
-
-    @Test
-    public void win_percentage_in_class_vs_class_total_is_correct2() {
-        assertEquals(1, keeper.getWinPerInClassVSClassTotal(sVSd), 0.00001);
-    }
-
-    @Test
-    public void win_percentage_in_class_vs_class_total_is_correct3() {
-        assertEquals(0, keeper.getWinPerInClassVSClassTotal(sVSpa), 0.0001);
-    }
-
-    @Test
-    public void win_percentage_in_class_vs_class_total_is_correct4() {
-        assertEquals(0, keeper.getWinPerInClassVSClassTotal(sVSr), 0.0001);
-    }
-
-    @Test
-    public void win_percentage_in_class_vs_class_total_is_correct5() {
-        assertEquals(0, keeper.getWinPerInClassVSClassTotal(prVSwarr), 0.00001);
-    }
-
-    @Test
-    public void win_percentage_in_class_vs_class_total_is_correct6() {
-        assertEquals(0, keeper.getWinPerInClassVSClassTotal(rVSs), 0.00001);
     }
 
     @Test
@@ -787,36 +552,6 @@ public class MatchStatisticsKeeperTest {
     }
 
     @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct1() {
-        assertEquals(0.5, keeper.getLossPerInClassVSClassTotal(sVSm), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct2() {
-        assertEquals(0, keeper.getLossPerInClassVSClassTotal(sVSd), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct3() {
-        assertEquals(1, keeper.getLossPerInClassVSClassTotal(sVSpa), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct4() {
-        assertEquals(0, keeper.getLossPerInClassVSClassTotal(sVSr), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct5() {
-        assertEquals(1, keeper.getLossPerInClassVSClassTotal(prVSwarr), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct6() {
-        assertEquals(0, keeper.getLossPerInClassVSClassTotal(rVSs), 0.00001);
-    }
-
-    @Test
     public void total_matches_is_correct() {
         assertEquals(11, keeper.getTotalMatches());
     }
@@ -850,140 +585,98 @@ public class MatchStatisticsKeeperTest {
         handler.setDeck(deck);
         handler.addMatch(match);
         List<Deck> list = new ArrayList();
-        keeper.addMatches(list);
+        addMatches(list);
         assertEquals(0, keeper.getTotalLossPer(), 0.00001);
     }
 
     @Test
     public void remove_match_removes_match_from_matches_as_class_1st() {
-        keeper.removeMatchFromStatistics(match1);
+        keeper.removeMatch(match1);
         assertEquals(4, keeper.getMatchesAsClass1st(DeckClass.SHAMAN));
     }
 
     @Test
     public void remove_match_removes_match_from_matches_as_class_2nd() {
-        keeper.removeMatchFromStatistics(match2);
+        keeper.removeMatch(match2);
         assertEquals(3, keeper.getMatchesAsClass2nd(DeckClass.SHAMAN));
     }
 
     @Test
     public void remove_match_removes_match_from_matches_vs_class_1st() {
-        keeper.removeMatchFromStatistics(match1);
+        keeper.removeMatch(match1);
         assertEquals(1, keeper.getMatchesVSClass1st(DeckClass.MAGE));
     }
 
     @Test
     public void remove_match_removes_match_from_matches_vs_class_2nd() {
-        keeper.removeMatchFromStatistics(match3);
+        keeper.removeMatch(match3);
         assertEquals(1, keeper.getMatchesVSClass2nd(DeckClass.DRUID));
     }
 
     @Test
     public void remove_match_removes_match_from_wins_as_class_1st() {
-        keeper.removeMatchFromStatistics(match1);
+        keeper.removeMatch(match1);
         assertEquals(1, keeper.getWinsAsClass1st(DeckClass.SHAMAN));
     }
 
     @Test
     public void remove_match_removes_match_from_wins_as_class_2nd() {
-        keeper.removeMatchFromStatistics(match3);
+        keeper.removeMatch(match3);
         assertEquals(1, keeper.getWinsAsClass2nd(DeckClass.SHAMAN));
     }
 
     @Test
     public void remove_match_removes_match_from_wins_vs_class_1st() {
-        keeper.removeMatchFromStatistics(match1);
+        keeper.removeMatch(match1);
         assertEquals(1, keeper.getWinsVSClass1st(DeckClass.MAGE));
     }
 
     @Test
     public void remove_match_removes_match_from_wins_vs_class_2nd() {
-        keeper.removeMatchFromStatistics(match3);
+        keeper.removeMatch(match3);
         assertEquals(1, keeper.getWinsVSClass2nd(DeckClass.DRUID));
     }
 
     @Test
     public void remove_match_removes_match_from_losses_as_class_1st() {
-        keeper.removeMatchFromStatistics(match4);
+        keeper.removeMatch(match4);
         assertEquals(1, keeper.getLossesAsClass1st(DeckClass.SHAMAN));
     }
 
     @Test
     public void remove_match_removes_match_from_losses_as_class_2nd() {
-        keeper.removeMatchFromStatistics(match2);
+        keeper.removeMatch(match2);
         assertEquals(1, keeper.getLossesAsClass2nd(DeckClass.SHAMAN));
     }
 
     @Test
     public void remove_match_removes_match_from_losses_vs_class_1st() {
-        keeper.removeMatchFromStatistics(match4);
+        keeper.removeMatch(match4);
         assertEquals(1, keeper.getLossesVSClass1st(DeckClass.PALADIN));
     }
 
     @Test
     public void remove_match_removes_match_from_losses_vs_class_2nd() {
-        keeper.removeMatchFromStatistics(match2);
+        keeper.removeMatch(match2);
         assertEquals(1, keeper.getLossesVSClass2nd(DeckClass.MAGE));
     }
 
     @Test
-    public void remove_match_removes_match_from_matches_in_class_vs_class_1st() {
-        keeper.removeMatchFromStatistics(match1);
-        assertEquals(1, keeper.getMatchesInClassVSClass1st(sVSm));
-    }
-
-    @Test
-    public void remove_match_removes_match_from_matches_in_class_vs_class_2nd() {
-        keeper.removeMatchFromStatistics(match10);
-        assertEquals(0, keeper.getMatchesInClassVSClass2nd(prVSwarr));
-    }
-
-    @Test
-    public void remove_match_removes_match_from_wins_in_class_vs_class_1st() {
-        keeper.removeMatchFromStatistics(match1);
-        assertEquals(1, keeper.getWinsInClassVSClass1st(sVSm));
-    }
-
-    @Test
-    public void remove_match_removes_match_from_wins_in_class_vs_class_2nd() {
-        keeper.removeMatchFromStatistics(match3);
-        assertEquals(1, keeper.getWinsInClassVSClass2nd(sVSd));
-    }
-
-    @Test
-    public void remove_match_removes_match_from_losses_in_class_vs_class_1st() {
-        keeper.removeMatchFromStatistics(match4);
-        assertEquals(1, keeper.getLossesInClassVSClass1st(sVSpa));
-    }
-
-    @Test
-    public void remove_match_removes_match_from_losses_in_class_vs_class_2nd() {
-        keeper.removeMatchFromStatistics(match2);
-        assertEquals(1, keeper.getLossesInClassVSClass2nd(sVSm));
-    }
-
-    @Test
     public void remove_match_affects_win_percentage_as_class_1st() {
-        keeper.removeMatchFromStatistics(match1);
+        keeper.removeMatch(match1);
         assertEquals(0.33, keeper.getWinPerAsClass1st(DeckClass.SHAMAN), 0.01);
     }
 
     @Test
     public void remove_match_affects_win_percentage_as_class_2nd() {
-        keeper.removeMatchFromStatistics(match3);
+        keeper.removeMatch(match3);
         assertEquals(0.33, keeper.getWinPerAsClass2nd(DeckClass.SHAMAN), 0.01);
     }
 
     @Test
     public void remove_match_affects_win_percentage_vs_class_total() {
-        keeper.removeMatchFromStatistics(match1);
+        keeper.removeMatch(match1);
         assertEquals(0.33, keeper.getWinPerVSClassTotal(DeckClass.MAGE), 0.01);
-    }
-
-    @Test
-    public void remove_match_affects_win_percentage_in_class_vs_class_total() {
-        keeper.removeMatchFromStatistics(match1);
-        assertEquals(0.33, keeper.getWinPerInClassVSClassTotal(sVSm), 0.01);
     }
 
     @Test
@@ -996,18 +689,6 @@ public class MatchStatisticsKeeperTest {
     public void set_losses_as_class_2nd_works_correctly() {
         keeper.setLossesAsClass2nd(DeckClass.DRUID, 200);
         assertEquals(200, keeper.getLossesAsClass2nd(DeckClass.DRUID));
-    }
-
-    @Test
-    public void set_losses_in_class_vs_class_1st_works_correctly() {
-        keeper.setLossesInClassVSClass1st(sVSm, 1000);
-        assertEquals(1000, keeper.getLossesInClassVSClass1st(sVSm));
-    }
-
-    @Test
-    public void set_losses_in_class_vs_class_2nd_works_correctly() {
-        keeper.setLossesInClassVSClass2nd(sVSm, 15);
-        assertEquals(15, keeper.getLossesInClassVSClass2nd(sVSm));
     }
 
     @Test
@@ -1035,18 +716,6 @@ public class MatchStatisticsKeeperTest {
     }
 
     @Test
-    public void set_matches_in_class_vs_class_1st_works_correctly() {
-        keeper.setMatchesInClassVSClass1st(sVSm, 40);
-        assertEquals(40, keeper.getMatchesInClassVSClass1st(sVSm));
-    }
-
-    @Test
-    public void set_matches_in_class_vs_class_2nd_works_correctly() {
-        keeper.setMatchesInClassVSClass2nd(sVSm, 444);
-        assertEquals(444, keeper.getMatchesInClassVSClass2nd(sVSm));
-    }
-
-    @Test
     public void set_matches_vs_class_1st_works_correctly() {
         keeper.setMatchesVSClass1st(DeckClass.DRUID, 123);
         assertEquals(123, keeper.getMatchesVSClass1st(DeckClass.DRUID));
@@ -1068,18 +737,6 @@ public class MatchStatisticsKeeperTest {
     public void set_win_per_as_class_2nd_works_correctly() {
         keeper.setWinPerAsClass2nd(DeckClass.DRUID, 66.66);
         assertEquals(66.66, keeper.getWinPerAsClass2nd(DeckClass.DRUID), 0.0);
-    }
-
-    @Test
-    public void set_win_per_class_vs_class_1st_works_correctly() {
-        keeper.setWinPerClassVSClass1st(sVSm, 500);
-        assertEquals(500, keeper.getWinPerClassVSClass1st(sVSm), 0.0);
-    }
-
-    @Test
-    public void set_win_per_class_vs_class_2nd_works_correctly() {
-        keeper.setWinPerClassVSClass2nd(sVSm, 99.9);
-        assertEquals(99.9, keeper.getWinPerClassVSClass2nd(sVSm), 0.0);
     }
 
     @Test
@@ -1107,18 +764,6 @@ public class MatchStatisticsKeeperTest {
     }
 
     @Test
-    public void set_wins_in_class_vs_class_1st_works_correctly() {
-        keeper.setWinsInClassVSClass1st(sVSm, 33);
-        assertEquals(33, keeper.getWinsInClassVSClass1st(sVSm));
-    }
-
-    @Test
-    public void set_wins_in_class_vs_class_2nd_works_correctly() {
-        keeper.setWinsInClassVSClass2nd(sVSm, 99);
-        assertEquals(99, keeper.getWinsInClassVSClass2nd(sVSm));
-    }
-
-    @Test
     public void set_wins_vs_class_1st_works_correctly() {
         keeper.setWinsVSClass1st(DeckClass.DRUID, 1134);
         assertEquals(1134, keeper.getWinsVSClass1st(DeckClass.DRUID));
@@ -1128,5 +773,41 @@ public class MatchStatisticsKeeperTest {
     public void set_wins_vs_class_2nd_works_correctly() {
         keeper.setWinsVSClass2nd(DeckClass.DRUID, 1234);
         assertEquals(1234, keeper.getWinsVSClass2nd(DeckClass.DRUID));
+    }
+    
+    @Test
+    public void updateWinPercentageIn1stMatchMaps_works_correctly1() {
+        keeper.setMatchesAsClass1st(DeckClass.DRUID, 5);
+        keeper.setWinsAsClass1st(DeckClass.DRUID, 3);
+        keeper.setLossesAsClass1st(DeckClass.DRUID, 1);
+        keeper.updateWinPercentageIn1stMatchMaps(DeckClass.DRUID, DeckClass.WARLOCK);
+        assertEquals(0.75, keeper.getWinPerAsClass1st(DeckClass.DRUID), 0);
+    }
+    
+    @Test
+    public void updateWinPercentageIn1stMatchMaps_works_correctly2() {
+        keeper.setMatchesVSClass1st(DeckClass.DRUID, 8);
+        keeper.setWinsVSClass1st(DeckClass.DRUID, 2);
+        keeper.setLossesVSClass1st(DeckClass.DRUID, 6);
+        keeper.updateWinPercentageIn1stMatchMaps(DeckClass.WARLOCK, DeckClass.DRUID);
+        assertEquals(0.25, keeper.getWinPerVSClass1st(DeckClass.DRUID), 0);
+    }
+    
+    @Test
+    public void updateWinPercentageIn2ndMatchMaps_works_correctly1() {
+        keeper.setMatchesAsClass2nd(DeckClass.DRUID, 100);
+        keeper.setWinsAsClass2nd(DeckClass.DRUID, 99);
+        keeper.setLossesAsClass2nd(DeckClass.DRUID, 1);
+        keeper.updateWinPercentageIn2ndMatchMaps(DeckClass.DRUID, DeckClass.WARLOCK);
+        assertEquals(0.99, keeper.getWinPerAsClass2nd(DeckClass.DRUID), 0);
+    }
+    
+    @Test
+    public void updateWinPercentageIn2ndMatchMaps_works_correctly2() {
+        keeper.setMatchesVSClass2nd(DeckClass.DRUID, 12);
+        keeper.setWinsVSClass2nd(DeckClass.DRUID, 6);
+        keeper.setLossesVSClass2nd(DeckClass.DRUID, 4);
+        keeper.updateWinPercentageIn2ndMatchMaps(DeckClass.WARLOCK, DeckClass.DRUID);
+        assertEquals(0.6, keeper.getWinPerVSClass2nd(DeckClass.DRUID), 0);
     }
 }

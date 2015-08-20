@@ -9,8 +9,8 @@ import org.jdom.Element;
 
 public class DeckWriter extends XmlWriter {
 
-    public DeckWriter(String filePath) {
-        super(filePath, "Decks", "Deck");
+    public DeckWriter(String filepath) {
+        super(filepath, "Decks", "Deck");
     }
 
     @Override

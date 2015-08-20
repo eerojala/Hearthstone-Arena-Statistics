@@ -35,42 +35,42 @@ public class DeckStatisticsTest {
 
     @Test
     public void decks_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntegerMap(statistics.getDecksAsClass()));
+        assertTrue(TestForLoop.zeroesInDcIntMap(statistics.getDecksAsClass()));
     }
     
     @Test
     public void wins_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntegerMap(statistics.getWinsAsClass()));
+        assertTrue(TestForLoop.zeroesInDcIntMap(statistics.getWinsAsClass()));
     }
     
     @Test
     public void decks_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(statistics.getDecksByWins()));
+        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getDecksByWins()));
     }
     
     @Test
     public void dust_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(statistics.getDustByWins()));
+        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getDustByWins()));
     }
     
     @Test
     public void gold_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(statistics.getGoldByWins()));
+        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getGoldByWins()));
     }
     
     @Test
     public void extra_packs_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(statistics.getExtraPacksByWins()));
+        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getExtraPacksByWins()));
     }
     
     @Test
     public void cards_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(statistics.getCardsByWins()));
+        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getCardsByWins()));
     }
     
     @Test
     public void gold_cards_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerIntegerMap(statistics.getGoldCardsByWins()));
+        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getGoldCardsByWins()));
     }
     
     @Test
@@ -85,26 +85,26 @@ public class DeckStatisticsTest {
     
     @Test
     public void average_dust_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(statistics.getAvgDustByWins()));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgDustByWins()));
     }
     
     @Test
     public void average_gold_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(statistics.getAvgGoldByWins()));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgGoldByWins()));
     }
     
     @Test
     public void average_extra_packs_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(statistics.getAvgExtraPacksByWins()));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgExtraPacksByWins()));
     }
     
     @Test
     public void average_cards_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(statistics.getAvgCardsByWins()));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgCardsByWins()));
     }
     
     @Test
     public void average_gold_card_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntegerDoubleMap(statistics.getAvgGoldCardsByWins()));
+        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgGoldCardsByWins()));
     }
 }

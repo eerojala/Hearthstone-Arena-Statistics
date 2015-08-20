@@ -18,8 +18,8 @@ public class DeckArchiverTest {
     Deck deck2;
     Deck deck3;
     Deck deck4;
+    DeckClass[] dcArray;
     boolean bool;
-    List<DeckClass> dclist;
 
     public DeckArchiverTest() {
     }
@@ -46,7 +46,7 @@ public class DeckArchiverTest {
         list.add(deck3);
         archiver = new DeckArchiver(list);
         deck4 = new Deck(DeckClass.SHAMAN, 4);
-        dclist = DeckClass.getDeckClassList();
+        dcArray = DeckClass.values();
     }
 
     @After
@@ -86,7 +86,7 @@ public class DeckArchiverTest {
     @Test
     public void decks_by_class_have_decks_correctly7() {
         bool = true;
-        for (DeckClass deckClass : dclist) {
+        for (DeckClass deckClass : dcArray) {
             if (archiver.getDecksByClass(deckClass) != null && (deckClass != DeckClass.DRUID
                     || deckClass != DeckClass.HUNTER || deckClass != DeckClass.WARLOCK)) {
                 bool = false;

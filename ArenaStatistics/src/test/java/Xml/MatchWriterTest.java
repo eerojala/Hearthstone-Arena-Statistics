@@ -66,35 +66,35 @@ public class MatchWriterTest {
     @Test
     public void addContent_adds_a_match() {
         parseDocument();
-        match = parser.getObjects().get(0);
+        match = parser.getMatches().get(0);
         assertEquals(match, match1);
     }
 
     @Test
     public void addContent_adds_all_matches() {
         parseDocument();
-        assertEquals(10, parser.getObjects().size());
+        assertEquals(10, parser.getMatches().size());
     }
 
     @Test
     public void removeLatest_removes_latest_match() {
         writer.removeLatest(doc);
         parseDocument();
-        assertFalse(parser.getObjects().contains(match10));
+        assertFalse(parser.getMatches().contains(match10));
     }
 
     @Test
     public void removeAll_removes_every_match() {
         writer.removeAll(doc);
         parseDocument();
-        assertTrue(parser.getObjects().isEmpty());
+        assertTrue(parser.getMatches().isEmpty());
     }
 
     @Test
     public void remove_removes_correct_match() {
         writer.remove(doc, "3.1");
         parseDocument();
-        assertTrue(!parser.getObjects().contains(match3));
+        assertTrue(!parser.getMatches().contains(match3));
     }
     
     @Test
@@ -102,8 +102,8 @@ public class MatchWriterTest {
         writer.removeMatchesFromASpecificDeck(doc, 5);
         boolean bool = true;
         parseDocument();
-        for (int i = 0; i < parser.getObjects().size(); i++) {
-            if (parser.getObjects().get(i).getDeckNumber() == 5) {
+        for (int i = 0; i < parser.getMatches().size(); i++) {
+            if (parser.getMatches().get(i).getDeckNumber() == 5) {
                 bool = false;
             }
         }
@@ -113,125 +113,125 @@ public class MatchWriterTest {
     @Test
     public void written_match_has_correct_opponent_class1() {
         parseDocument();
-        match = parser.getObjects().get(0);
+        match = parser.getMatches().get(0);
         assertEquals(DeckClass.PALADIN, match.getOpponentDeckClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class2() {
         parseDocument();
-        match = parser.getObjects().get(1);
+        match = parser.getMatches().get(1);
         assertEquals(DeckClass.ROGUE, match.getOpponentDeckClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class3() {
         parseDocument();
-        match = parser.getObjects().get(2);
+        match = parser.getMatches().get(2);
         assertEquals(DeckClass.HUNTER, match.getOpponentDeckClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class4() {
         parseDocument();
-        match = parser.getObjects().get(3);
+        match = parser.getMatches().get(3);
         assertEquals(DeckClass.DRUID, match.getOpponentDeckClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class5() {
         parseDocument();
-        match = parser.getObjects().get(4);
+        match = parser.getMatches().get(4);
         assertEquals(DeckClass.WARRIOR, match.getOpponentDeckClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class6() {
         parseDocument();
-        match = parser.getObjects().get(5);
+        match = parser.getMatches().get(5);
         assertEquals(DeckClass.SHAMAN, match.getOpponentDeckClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class7() {
         parseDocument();
-        match = parser.getObjects().get(6);
+        match = parser.getMatches().get(6);
         assertEquals(DeckClass.MAGE, match.getOpponentDeckClass());
     }
     
     public void written_match_has_correct_opponent_class8() {
         parseDocument();
-        match = parser.getObjects().get(7);
+        match = parser.getMatches().get(7);
         assertEquals(DeckClass.WARLOCK, match.getOpponentDeckClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class9() {
         parseDocument();
-        match = parser.getObjects().get(8);
+        match = parser.getMatches().get(8);
         assertEquals(DeckClass.PRIEST, match.getOpponentDeckClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_name1() {
         parseDocument();
-        match = parser.getObjects().get(2);
+        match = parser.getMatches().get(2);
         assertEquals("öööö", match.getOpponentName());
     }
     
     @Test
     public void written_match_has_correct_opponent_name2() {
         parseDocument();
-        match = parser.getObjects().get(4);
+        match = parser.getMatches().get(4);
         assertTrue(match.getOpponentName().isEmpty());
     }
 
     @Test
     public void written_match_has_correct_outcome1() {
         parseDocument();
-        match = parser.getObjects().get(0);
+        match = parser.getMatches().get(0);
         assertEquals(Outcome.DISCONNECT, match.getOutcome());
     }
     
     @Test
     public void written_match_has_correct_outcome2() {
         parseDocument();
-        match = parser.getObjects().get(1);
+        match = parser.getMatches().get(1);
         assertEquals(Outcome.WIN, match.getOutcome());
     }
     
     @Test
     public void written_match_has_correct_outcome3() {
         parseDocument();
-        match = parser.getObjects().get(2);
+        match = parser.getMatches().get(2);
         assertEquals(Outcome.LOSS, match.getOutcome());
     }
     
     @Test
     public void written_match_has_correct_outcome4() {
         parseDocument();
-        match = parser.getObjects().get(3);
+        match = parser.getMatches().get(3);
         assertEquals(Outcome.TIE, match.getOutcome());
     }
     
     @Test
     public void written_match_has_correct_wentFirst_boolean() {
         parseDocument();
-        match = parser.getObjects().get(1);
+        match = parser.getMatches().get(1);
         assertFalse(match.wentFirst());
     }
 
     @Test
     public void written_match_has_correct_deck_number() {
         parseDocument();
-        match = parser.getObjects().get(2);
+        match = parser.getMatches().get(2);
         assertEquals(3, match.getDeckNumber());
     }
 
     @Test
     public void written_match_has_correct_match_number() {
         parseDocument();
-        match = parser.getObjects().get(0);
+        match = parser.getMatches().get(0);
         assertEquals(1, match.getMatchNumber());
     }
 
@@ -250,7 +250,7 @@ public class MatchWriterTest {
 
     private void parseDocument() {
         parser = new MatchParser(doc);
-        parser.addValuesToList();
+        parser.addValues();
     }
 
 }

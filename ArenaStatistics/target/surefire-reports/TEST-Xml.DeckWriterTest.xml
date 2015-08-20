@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.286" errors="0" skipped="0" tests="25" name="Xml.DeckWriterTest">
+<testsuite failures="0" time="0.337" errors="0" skipped="0" tests="25" name="Xml.DeckWriterTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_55\jre\bin"/>
@@ -63,29 +63,29 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.016" classname="Xml.DeckWriterTest" name="written_deck_has_correct_gold_amount"/>
-  <testcase time="0.019" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_1"/>
-  <testcase time="0.017" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_2"/>
-  <testcase time="0.016" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_3"/>
-  <testcase time="0.013" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_4"/>
-  <testcase time="0.011" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_5"/>
+  <testcase time="0.027" classname="Xml.DeckWriterTest" name="written_deck_has_correct_gold_amount"/>
+  <testcase time="0.021" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_1"/>
+  <testcase time="0.03" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_2"/>
+  <testcase time="0.021" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_3"/>
+  <testcase time="0.015" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_4"/>
+  <testcase time="0.01" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_5"/>
   <testcase time="0.008" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_6"/>
-  <testcase time="0.013" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_7"/>
+  <testcase time="0.01" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_7"/>
   <testcase time="0.01" classname="Xml.DeckWriterTest" name="written_deck_has_correct_cards_8"/>
-  <testcase time="0.009" classname="Xml.DeckWriterTest" name="addContent_adds_all_decks"/>
-  <testcase time="0.01" classname="Xml.DeckWriterTest" name="written_deck_has_correct_deck_number"/>
-  <testcase time="0.009" classname="Xml.DeckWriterTest" name="written_deck_has_correct_dust_amount"/>
-  <testcase time="0.008" classname="Xml.DeckWriterTest" name="written_deck_has_correct_amount_of_cards"/>
-  <testcase time="0.009" classname="Xml.DeckWriterTest" name="addContent_adds_a_deck1"/>
+  <testcase time="0.012" classname="Xml.DeckWriterTest" name="addContent_adds_all_decks"/>
+  <testcase time="0.012" classname="Xml.DeckWriterTest" name="written_deck_has_correct_deck_number"/>
+  <testcase time="0.01" classname="Xml.DeckWriterTest" name="written_deck_has_correct_dust_amount"/>
+  <testcase time="0.01" classname="Xml.DeckWriterTest" name="written_deck_has_correct_amount_of_cards"/>
+  <testcase time="0.008" classname="Xml.DeckWriterTest" name="addContent_adds_a_deck1"/>
   <testcase time="0.008" classname="Xml.DeckWriterTest" name="addContent_adds_a_deck2"/>
   <testcase time="0.012" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class1"/>
-  <testcase time="0.01" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class2"/>
-  <testcase time="0.028" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class3"/>
-  <testcase time="0.009" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class4"/>
+  <testcase time="0.013" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class2"/>
+  <testcase time="0.014" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class3"/>
+  <testcase time="0.011" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class4"/>
   <testcase time="0.007" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class5"/>
   <testcase time="0.007" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class6"/>
   <testcase time="0.008" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class7"/>
-  <testcase time="0.007" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class8"/>
-  <testcase time="0.01" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class9"/>
-  <testcase time="0.009" classname="Xml.DeckWriterTest" name="written_deck_has_correct_extra_pack_amount"/>
+  <testcase time="0.009" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class8"/>
+  <testcase time="0.018" classname="Xml.DeckWriterTest" name="written_deck_has_correct_player_class9"/>
+  <testcase time="0.017" classname="Xml.DeckWriterTest" name="written_deck_has_correct_extra_pack_amount"/>
 </testsuite>
