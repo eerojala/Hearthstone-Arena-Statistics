@@ -66,10 +66,10 @@
   <testcase time="0" classname="util.MapperTest" name="mapZeroesToADeckClassPairIntegerMap_maps_zeroes_to_values"/>
   <testcase time="0" classname="util.MapperTest" name="decreaseIntegerInIntegerIntegerMap_decreases_integer_by_one"/>
   <testcase time="0" classname="util.MapperTest" name="mapZeroesToADeckClassIntegerMap_values_are_zeroes"/>
-  <testcase time="0" classname="util.MapperTest" name="updateAverageInIntegerDoubleMap_works_correctly"/>
+  <testcase time="0.001" classname="util.MapperTest" name="updateAverageInIntegerDoubleMap_works_correctly"/>
   <testcase time="0" classname="util.MapperTest" name="mapZeroesToIntegerDoubleMap_maps_zeroes_to_values"/>
-  <testcase time="0.001" classname="util.MapperTest" name="decreaseIntegerInDeckClassIntegerMap_decreases_integer_by_x"/>
-  <testcase time="0" classname="util.MapperTest" name="mapZeroesToADeckClassPairIntegerMap_has_correct_keyset_size"/>
+  <testcase time="0" classname="util.MapperTest" name="decreaseIntegerInDeckClassIntegerMap_decreases_integer_by_x"/>
+  <testcase time="0.001" classname="util.MapperTest" name="mapZeroesToADeckClassPairIntegerMap_has_correct_keyset_size"/>
   <testcase time="0" classname="util.MapperTest" name="mapZeroesToADeckClassIntegerMap_has_correct_keyset_size"/>
   <testcase time="0" classname="util.MapperTest" name="decreaseIntegerInDeckClassIntegerMap_decreases_integer_by_one"/>
   <testcase time="0.001" classname="util.MapperTest" name="increaseIntegerInDeckClassPairIntegerMap_increases_value_by_one"/>
@@ -78,16 +78,16 @@
   <testcase time="0" classname="util.MapperTest" name="updateWinPercentageInDeckClassPairDoubleMap_works_correctly"/>
   <testcase time="0" classname="util.MapperTest" name="mapZeroesToIntegerIntegerMap_has_correct_keyset_size"/>
   <testcase time="0" classname="util.MapperTest" name="mapZeroesToIntegerDoubleMap_has_correct_keyset_size"/>
-  <testcase time="0" classname="util.MapperTest" name="mapZeroesToADeckClassDoubleMap_has_correct_keyset_size"/>
+  <testcase time="0.001" classname="util.MapperTest" name="mapZeroesToADeckClassDoubleMap_has_correct_keyset_size"/>
   <testcase time="0" classname="util.MapperTest" name="increaseIntegerInDeckClassIntegerMap_increases_value_by_x_amount"/>
-  <testcase time="0" classname="util.MapperTest" name="decreaseIntegerInIntegerIntegerMap_decreases_integer_by_x_amount"/>
+  <testcase time="0.001" classname="util.MapperTest" name="decreaseIntegerInIntegerIntegerMap_decreases_integer_by_x_amount"/>
   <testcase time="0" classname="util.MapperTest" name="mapZeroesToADeckClassPairDoubleMap_maps_zeroes_to_values"/>
   <testcase time="0" classname="util.MapperTest" name="mapZeroesToADeckClassPairDoubleMap_has_correct_keyset_size"/>
   <testcase time="0" classname="util.MapperTest" name="decreaseIntegerInDeckClassPairIntegerMap_does_not_decrease_integer_below_zero"/>
   <testcase time="0" classname="util.MapperTest" name="increaseIntegerInDeckClassIntegerMap_increases_value_by_one"/>
   <testcase time="0" classname="util.MapperTest" name="decreaseIntegerInDeckClassPairIntegerMap_decreases_integer_by_one"/>
-  <testcase time="0" classname="util.MapperTest" name="increaseIntegerInIntegerIntegerMap_increases_integer_by_one"/>
-  <testcase time="0.001" classname="util.MapperTest" name="updateWinPercentageInDeckClassDoubleMap_works_correctly"/>
+  <testcase time="0.001" classname="util.MapperTest" name="increaseIntegerInIntegerIntegerMap_increases_integer_by_one"/>
+  <testcase time="0" classname="util.MapperTest" name="updateWinPercentageInDeckClassDoubleMap_works_correctly"/>
   <testcase time="0" classname="util.MapperTest" name="increaseIntegerInIntegerIntegerMap_increases_integer_by_x_amount"/>
   <testcase time="0" classname="util.MapperTest" name="decreaseIntegerInIntegerIntegerMap_doesnt_decrease_integer_below_zero"/>
   <testcase time="0" classname="util.MapperTest" name="updateAverageInDeckClassDoubleMap_works_correctly"/>

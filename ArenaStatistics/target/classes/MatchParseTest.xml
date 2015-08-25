@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Matches>
-    <Match id="1.2">
+<Match id="1.2">
         <OpponentClass>Mage</OpponentClass>
         <OpponentName>Dennis</OpponentName>
         <Outcome>Win</Outcome>

@@ -14,7 +14,7 @@ public class DeckWriter extends XmlWriter {
     }
 
     @Override
-    public void addContent(Document doc, Object obj) {
+    public void writeContent(Document doc, Object obj) {
         try {
             Deck deck = (Deck) obj;
             Element element = new Element("Deck");

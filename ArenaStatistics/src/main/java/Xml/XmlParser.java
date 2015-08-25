@@ -38,7 +38,7 @@ public abstract class XmlParser {
         return node.getChildText(tagName);
     }
 
-    protected int getIntegerValue(Element node, String tagName) {
+    protected int getIntValue(Element node, String tagName) {
         return Integer.parseInt(getStringValue(node, tagName));
     }
 
@@ -64,5 +64,9 @@ public abstract class XmlParser {
 
     public Document getDocument() {
         return document;
+    }
+
+    public List<Element> getChildlist() {
+        return childlist;
     }
 }

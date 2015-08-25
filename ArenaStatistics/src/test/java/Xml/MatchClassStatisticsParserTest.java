@@ -1,7 +1,7 @@
 package Xml;
 
 import domain.DeckClass;
-import logic.ClassStatisticsKeeper;
+import logic.MatchClassStatisticsKeeper;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,12 +9,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ClassStatisticsParserTest {
-    ClassStatisticsParser parser;
-    ClassStatisticsKeeper keeper;
+public class MatchClassStatisticsParserTest {
+    MatchClassStatisticsParser parser;
+    MatchClassStatisticsKeeper keeper;
     
-    public ClassStatisticsParserTest() {
-        parser = new ClassStatisticsParser("src/main/resources/ClassStatisticsParseTest.xml");
+    public MatchClassStatisticsParserTest() {
+        parser = new MatchClassStatisticsParser("src/main/resources/ClassStatisticsParseTest.xml");
         parser.addValues();
         keeper = parser.getKeeper();
     }

@@ -19,7 +19,7 @@ public abstract class XmlWriter {
         this.childName = childName;
     }
 
-    public abstract void addContent(Document doc, Object obj);
+    public abstract void writeContent(Document doc, Object obj);
 
     public void removeLatest(Document doc) {
         List children = doc.getRootElement().getChildren(childName);

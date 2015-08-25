@@ -7,11 +7,11 @@ import domain.Outcome;
 import util.Mapper;
 import util.StatisticsHelper;
 
-public class ClassStatisticsKeeper extends MatchStatisticsKeeper{
+public class MatchClassStatisticsKeeper extends MatchStatisticsKeeper{
 
     private ClassStatistics statistics;
 
-    public ClassStatisticsKeeper() {
+    public MatchClassStatisticsKeeper() {
         statistics = new ClassStatistics();
     }
     

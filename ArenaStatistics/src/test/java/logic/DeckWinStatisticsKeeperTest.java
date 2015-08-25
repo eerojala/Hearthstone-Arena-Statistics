@@ -13,18 +13,17 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import util.TestForLoop;
 
-public class DeckStatisticsKeeperTest {
+public class DeckWinStatisticsKeeperTest {
 
-    DeckStatisticsKeeper keeper;
+    DeckWinStatisticsKeeper keeper;
     Deck deck1;
     Deck deck2;
     Deck deck3;
     Deck deck4;
     Deck deck5;
     int[] intExceptions;
-    DeckClass[] dcExceptions;
 
-    public DeckStatisticsKeeperTest() {
+    public DeckWinStatisticsKeeperTest() {
         deck1 = new Deck(DeckClass.DRUID, 1);
         deck1.setDust(200);
         deck1.setGold(200);
@@ -51,10 +50,6 @@ public class DeckStatisticsKeeperTest {
         intExceptions[0] = 12;
         intExceptions[1] = 4;
         intExceptions[2] = 7;
-        dcExceptions = new DeckClass[3];
-        dcExceptions[0] = DeckClass.DRUID;
-        dcExceptions[1] = DeckClass.MAGE;
-        dcExceptions[2] = DeckClass.SHAMAN;
     }
 
     private void deckCards() {
@@ -83,52 +78,12 @@ public class DeckStatisticsKeeperTest {
         dlist.add(deck3);
         dlist.add(deck4);
         dlist.add(deck5);
-        keeper = new DeckStatisticsKeeper();
+        keeper = new DeckWinStatisticsKeeper();
         keeper.addDecks(dlist);
     }
 
     @After
     public void tearDown() {
-    }
-
-    @Test
-    public void decks_by_class_has_correct_values1() {
-        assertEquals(2, keeper.getDecksAsClass(DeckClass.DRUID));
-    }
-
-    @Test
-    public void decks_by_class_has_correct_values2() {
-        assertEquals(2, keeper.getDecksAsClass(DeckClass.MAGE));
-    }
-
-    @Test
-    public void decks_by_class_has_correct_values3() {
-        assertEquals(1, keeper.getDecksAsClass(DeckClass.SHAMAN));
-    }
-
-    @Test
-    public void decks_by_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getDecksAsClass(), dcExceptions));
-    }
-
-    @Test
-    public void wins_by_class_has_correct_values1() {
-        assertEquals(16, keeper.getWinsAsClass(DeckClass.DRUID));
-    }
-
-    @Test
-    public void wins_by_class_has_correct_values2() {
-        assertEquals(19, keeper.getWinsAsClass(DeckClass.MAGE));
-    }
-
-    @Test
-    public void wins_by_class_has_correct_values3() {
-        assertEquals(4, keeper.getWinsAsClass(DeckClass.SHAMAN));
-    }
-
-    @Test
-    public void wins_by_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass(), dcExceptions));
     }
 
     @Test
@@ -220,55 +175,10 @@ public class DeckStatisticsKeeperTest {
     public void gold_cards_by_wins_has_correct_values2() {
         assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getGoldCardsByWins(), 4));
     }
-
-    @Test
-    public void average_wins_by_class_has_correct_values1() {
-        assertEquals(8.0, keeper.getAverageWinsAsClass(DeckClass.DRUID), 0.0);
-    }
-
-    @Test
-    public void average_wins_by_class_has_correct_values2() {
-        assertEquals(9.5, keeper.getAverageWinsAsClass(DeckClass.MAGE), 0.0);
-    }
-
-    @Test
-    public void average_wins_by_class_has_correct_values3() {
-        assertEquals(4, keeper.getAverageWinsAsClass(DeckClass.SHAMAN), 0.0);
-    }
-
-    @Test
-    public void average_wins_by_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getAvgWinsAsClass(), dcExceptions));
-    }
-
-    @Test
-    public void play_percentage_as_class_has_correct_values1() {
-        assertEquals(0.4, keeper.getPlayPercentageAsClass(DeckClass.DRUID), 0.0);
-    }
-
-    @Test
-    public void play_percentage_as_class_has_correct_values2() {
-        assertEquals(0.4, keeper.getPlayPercentageAsClass(DeckClass.MAGE), 0.0);
-    }
-
-    @Test
-    public void play_percentage_as_class_has_correct_values3() {
-        assertEquals(0.2, keeper.getPlayPercentageAsClass(DeckClass.SHAMAN), 0.0);
-    }
-
-    @Test
-    public void play_percentage_as_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getPlayPerAsClass(), dcExceptions));
-    }
     
     @Test
     public void getTotalDeckAmount_works_correctly() {
         assertEquals(5, keeper.getTotalDeckAmount());
-    }
-    
-    @Test
-    public void getAverageWins_works_correctly() {
-        assertEquals(7.8, keeper.getAverageWins(), 0.0);
     }
 
     @Test
@@ -347,20 +257,18 @@ public class DeckStatisticsKeeperTest {
     }
     
     @Test
-    public void average_wins_works_correctly() {
-        assertEquals(7.8, keeper.getAverageWins(), 0);
+    public void percentageOutOfAllDecks_works_correctly1() {
+        assertEquals(0.4, keeper.percentageOutOfAllDecks(12), 0);
     }
     
     @Test
-    public void remove_deck_affects_decks_by_class() {
-        keeper.removeDeck(deck1);
-        assertEquals(1, keeper.getDecksAsClass(DeckClass.DRUID));
+    public void percentageOutOfAllDecks_works_correctly2() {
+        assertEquals(0.4, keeper.percentageOutOfAllDecks(4), 0);
     }
     
     @Test
-    public void remove_deck_affects_wins_by_class() {
-        keeper.removeDeck(deck2);
-        assertEquals(7, keeper.getWinsAsClass(DeckClass.MAGE));
+    public void percentageOutOfAllDecks_works_correctly3() {
+        assertEquals(0.2, keeper.percentageOutOfAllDecks(7), 0);
     }
     
     @Test
@@ -400,18 +308,6 @@ public class DeckStatisticsKeeperTest {
     }
     
     @Test
-    public void remove_deck_affects_average_wins_by_class() {
-        keeper.removeDeck(deck5);
-        assertEquals(12, keeper.getAverageWinsAsClass(DeckClass.MAGE), 0.0);
-    }
-    
-    @Test
-    public void remove_deck_affects_play_percentage_as_class() {
-        keeper.removeDeck(deck1);
-        assertEquals(0.25, keeper.getPlayPercentageAsClass(DeckClass.DRUID), 0.0);
-    }
-    
-    @Test
     public void remove_deck_affects_average_dust_by_wins() {
         keeper.removeDeck(deck2);
         assertEquals(200, keeper.getAverageDustByWins(12), 0);
@@ -440,18 +336,6 @@ public class DeckStatisticsKeeperTest {
     public void remove_deck_affects_average_gold_cards_by_wins() {
         keeper.removeDeck(deck4);
         assertEquals(0, keeper.getAverageGoldCardsByWins(4), 0);
-    }
-    
-    @Test
-    public void set_decks_as_class_works_correctly() {
-        keeper.setDecksAsClass(DeckClass.MAGE, 132);
-        assertEquals(132, keeper.getDecksAsClass(DeckClass.MAGE));
-    }
-          
-    @Test
-    public void set_wins_as_class_works_correctly() {
-        keeper.setWinsAsClass(DeckClass.MAGE, 444);
-        assertEquals(444, keeper.getWinsAsClass(DeckClass.MAGE));
     }
     
     @Test
@@ -488,18 +372,6 @@ public class DeckStatisticsKeeperTest {
     public void set_gold_cards_by_wins_works_correctly() {
         keeper.setGoldCardsByWins(1, 399);
         assertEquals(399, keeper.getGoldCardsByWins(1));
-    }
-    
-    @Test
-    public void set_average_wins_as_class_works_correctly() {
-        keeper.setAverageWinsAsClass(DeckClass.MAGE, 4);
-        assertEquals(4, keeper.getAverageWinsAsClass(DeckClass.MAGE), 0);
-    }
-    
-    @Test
-    public void set_play_percentage_as_class_works_correctly() {
-        keeper.setPlayPercentageAsClass(DeckClass.MAGE, 33.3);
-        assertEquals(33.3, keeper.getPlayPercentageAsClass(DeckClass.MAGE), 0);
     }
     
     @Test

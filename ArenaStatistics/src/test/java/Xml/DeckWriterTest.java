@@ -100,15 +100,15 @@ public class DeckWriterTest {
     }
 
     private void addAll() {
-        writer.addContent(doc, deck1);
-        writer.addContent(doc, deck2);
-        writer.addContent(doc, deck3);
-        writer.addContent(doc, deck4);
-        writer.addContent(doc, deck5);
-        writer.addContent(doc, deck6);
-        writer.addContent(doc, deck7);
-        writer.addContent(doc, deck8);
-        writer.addContent(doc, deck9);
+        writer.writeContent(doc, deck1);
+        writer.writeContent(doc, deck2);
+        writer.writeContent(doc, deck3);
+        writer.writeContent(doc, deck4);
+        writer.writeContent(doc, deck5);
+        writer.writeContent(doc, deck6);
+        writer.writeContent(doc, deck7);
+        writer.writeContent(doc, deck8);
+        writer.writeContent(doc, deck9);
     }
 
     private void parse() {

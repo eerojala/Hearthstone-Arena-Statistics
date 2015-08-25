@@ -5,13 +5,13 @@ import logic.MatchStatisticsKeeper;
 import org.jdom.Document;
 import org.jdom.Element;
 
-public abstract class MatchStatisticsParser extends XmlParser{
+public abstract class StatisticsParser extends XmlParser{
 
-    public MatchStatisticsParser(String filepath, String childname, String rootname) {
+    public StatisticsParser(String filepath, String childname, String rootname) {
         super(filepath, childname, rootname);
     }
 
-    public MatchStatisticsParser(Document doc, String childname) {
+    public StatisticsParser(Document doc, String childname) {
         super(doc, childname);
     }
 

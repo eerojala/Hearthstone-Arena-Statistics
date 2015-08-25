@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Classes>
+    <Class id="Mage">
+        <AmountOfDecks>5</AmountOfDecks>
+        <Wins>37</Wins>
+    </Class>  
+    <Class id="Warrior">
+        <AmountOfDecks>2</AmountOfDecks>
+        <Wins>19</Wins>
+    </Class>
+</Classes>

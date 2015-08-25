@@ -11,14 +11,21 @@ import util.TestForLoop;
 public class Main {
 
     public static void main(String[] args) {
-        ClassVSClassStatisticsParser parser;
-        ClassVSClassStatisticsKeeper keeper;
-        DeckClassPair rVSpr;
-        DeckClassPair paVSwarr;
-        parser = new ClassVSClassStatisticsParser("src/main/resources/ClassVSClassStatisticsParseTest.xml");
-        parser.addValues();
-        keeper = parser.getKeeper();
-        rVSpr = new DeckClassPair(DeckClass.ROGUE, DeckClass.PRIEST);
-        paVSwarr = new DeckClassPair(DeckClass.PALADIN, DeckClass.WARRIOR);
+        StatisticsWriter writer;
+        DeckWinStatisticsKeeper keeper1;
+        DeckWinStatisticsKeeper keeper2;
+        DeckWinStatisticsParser parser;
+        String filepath;
+        Document doc;
+        filepath = "src/main/resources/DeckWinStatisticsWriteTest.xml";
+        writer = new DeckWinStatisticsWriter(filepath);
+        doc = DocumentBuilder.buildDocument(filepath);
+        keeper1 = new DeckWinStatisticsKeeper();
+        keeper1.setDecksByWins(1, 7);
+        keeper1.setDustByWins(1, 60);
+        keeper1.setGoldByWins(1, 100);
+        keeper1.setExtraPacksByWins(1, 0);
+        keeper1.setRegularCardsByWins(1, 2);
+        keeper1.setGoldCardsByWins(1, 1);
     }
 }

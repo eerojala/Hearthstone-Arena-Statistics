@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WinAmounts>
+    <WinAmount id="0">
+        <AmountOfDecks>4</AmountOfDecks>
+        <Dust>70</Dust>
+        <Gold>35</Gold>
+        <ExtraPacks>0</ExtraPacks>
+        <RegularCards>2</RegularCards>
+        <GoldCards>1</GoldCards>
+    </WinAmount>
+    <WinAmount id="12">
+        <AmountOfDecks>3</AmountOfDecks>
+        <Dust>90</Dust>
+        <Gold>640</Gold>
+        <ExtraPacks>1</ExtraPacks>
+        <RegularCards>3</RegularCards>
+        <GoldCards>2</GoldCards>
+    </WinAmount>
+</WinAmounts>

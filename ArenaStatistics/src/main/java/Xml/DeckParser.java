@@ -32,9 +32,9 @@ public class DeckParser extends XmlParser {
         int deckNumber = Integer.parseInt(getID(node));
         DeckClass playerClass = getDeckClassValue(node, "PlayerClass");
         Deck deck = new Deck(playerClass, deckNumber);
-        deck.setGold(getIntegerValue(node, "Gold"));
-        deck.setDust(getIntegerValue(node, "Dust"));
-        deck.setExtraPacks(getIntegerValue(node, "ExtraPacks"));
+        deck.setGold(getIntValue(node, "Gold"));
+        deck.setDust(getIntValue(node, "Dust"));
+        deck.setExtraPacks(getIntValue(node, "ExtraPacks"));
         deck.setCards(getCards(node));
         return deck;
     }

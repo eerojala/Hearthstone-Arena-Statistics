@@ -14,7 +14,7 @@ public class MatchWriter extends XmlWriter {
     }
 
     @Override
-    public void addContent(Document doc, Object obj) {
+    public void writeContent(Document doc, Object obj) {
         try {
             Match match = (Match) obj;
             Element element = new Element(childName);

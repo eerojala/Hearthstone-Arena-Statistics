@@ -10,10 +10,10 @@ import static org.junit.Assert.*;
 import util.TestForLoop;
 
 
-public class DeckStatisticsTest {
-    DeckStatistics statistics;
+public class DeckWinStatisticsTest {
+    DeckWinStatistics statistics;
     
-    public DeckStatisticsTest() {
+    public DeckWinStatisticsTest() {
     }
     
     @BeforeClass
@@ -26,21 +26,11 @@ public class DeckStatisticsTest {
     
     @Before
     public void setUp() {
-        statistics = new DeckStatistics();
+        statistics = new DeckWinStatistics();
     }
     
     @After
     public void tearDown() {
-    }
-
-    @Test
-    public void decks_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntMap(statistics.getDecksAsClass()));
-    }
-    
-    @Test
-    public void wins_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntMap(statistics.getWinsAsClass()));
     }
     
     @Test
@@ -71,16 +61,6 @@ public class DeckStatisticsTest {
     @Test
     public void gold_cards_by_wins_have_zeroes_at_start() {
         assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getGoldCardsByWins()));
-    }
-    
-    @Test
-    public void average_wins_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(statistics.getAvgWinsAsClass()));
-    }
-    
-    @Test
-    public void percentage_played_as_class_out_of_all_decks_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(statistics.getPlayPerAsClass()));
     }
     
     @Test

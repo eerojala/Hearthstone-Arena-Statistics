@@ -236,16 +236,16 @@ public class MatchWriterTest {
     }
 
     private void addAll() {
-        writer.addContent(doc, match1);
-        writer.addContent(doc, match2);
-        writer.addContent(doc, match3);
-        writer.addContent(doc, match4);
-        writer.addContent(doc, match5);
-        writer.addContent(doc, match6);
-        writer.addContent(doc, match7);
-        writer.addContent(doc, match8);
-        writer.addContent(doc, match9);
-        writer.addContent(doc, match10);
+        writer.writeContent(doc, match1);
+        writer.writeContent(doc, match2);
+        writer.writeContent(doc, match3);
+        writer.writeContent(doc, match4);
+        writer.writeContent(doc, match5);
+        writer.writeContent(doc, match6);
+        writer.writeContent(doc, match7);
+        writer.writeContent(doc, match8);
+        writer.writeContent(doc, match9);
+        writer.writeContent(doc, match10);
     }
 
     private void parseDocument() {

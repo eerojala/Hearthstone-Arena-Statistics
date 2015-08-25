@@ -16,7 +16,7 @@ import util.TestForLoop;
 
 public class ClassStatisticsKeeperTest {
 
-    ClassStatisticsKeeper keeper;
+    MatchClassStatisticsKeeper keeper;
     boolean bool;
     Match match1;
     Match match2;
@@ -43,7 +43,7 @@ public class ClassStatisticsKeeperTest {
 
     @Before
     public void setUp() {
-        keeper = new ClassStatisticsKeeper();
+        keeper = new MatchClassStatisticsKeeper();
         Deck deck1 = new Deck(DeckClass.SHAMAN, 1);
         DeckHandler handler = new DeckHandler();
         handler.setDeck(deck1);
