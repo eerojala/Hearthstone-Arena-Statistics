@@ -28,23 +28,23 @@ public class DeckParser extends XmlParser {
         }
     }
 
-    private Deck createDeck(Element node) {
-        int deckNumber = Integer.parseInt(getID(node));
-        DeckClass playerClass = getDeckClassValue(node, "PlayerClass");
+    private Deck createDeck(Element element) {
+        int deckNumber = Integer.parseInt(getID(element));
+        DeckClass playerClass = getDeckClassValue(element, "PlayerClass");
         Deck deck = new Deck(playerClass, deckNumber);
-        deck.setGold(getIntValue(node, "Gold"));
-        deck.setDust(getIntValue(node, "Dust"));
-        deck.setExtraPacks(getIntValue(node, "ExtraPacks"));
-        deck.setCards(getCards(node));
+        deck.setGold(getIntValue(element, "Gold"));
+        deck.setDust(getIntValue(element, "Dust"));
+        deck.setExtraPacks(getIntValue(element, "ExtraPacks"));
+        deck.setCards(getCards(element));
         return deck;
     }
 
-    private List<Card> getCards(Element node) {
+    private List<Card> getCards(Element element) {
         List<Card> cards = new ArrayList();
         int i = 1;
         while (true) {
             try {
-                cards.add(Card.parseCard(node.getChild("Cards").getChild("Card" + i).getText()));
+                cards.add(Card.parseCard(element.getChild("Cards").getChild("Card" + i).getText()));
                 i++;
             } catch (Exception e) {
                 break;

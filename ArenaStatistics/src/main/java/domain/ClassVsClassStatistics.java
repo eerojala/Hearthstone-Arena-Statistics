@@ -33,17 +33,17 @@ public class ClassVsClassStatistics {
     }
     
     private void mapZeroesToDeckClassPairIntegerMaps() {
-        Mapper.mapZeroesToADeckClassPairIntegerMap(lossesInClassVSClass1st);
-        Mapper.mapZeroesToADeckClassPairIntegerMap(lossesInClassVSClass2nd);
-        Mapper.mapZeroesToADeckClassPairIntegerMap(matchesInClassVSClass1st);
-        Mapper.mapZeroesToADeckClassPairIntegerMap(matchesInClassVSClass2nd);
-        Mapper.mapZeroesToADeckClassPairIntegerMap(winsInClassVSClass1st);
-        Mapper.mapZeroesToADeckClassPairIntegerMap(winsInClassVSClass2nd);
+        Mapper.mapZeroesToDcpIntMap(lossesInClassVSClass1st);
+        Mapper.mapZeroesToDcpIntMap(lossesInClassVSClass2nd);
+        Mapper.mapZeroesToDcpIntMap(matchesInClassVSClass1st);
+        Mapper.mapZeroesToDcpIntMap(matchesInClassVSClass2nd);
+        Mapper.mapZeroesToDcpIntMap(winsInClassVSClass1st);
+        Mapper.mapZeroesToDcpIntMap(winsInClassVSClass2nd);
     }
     
     private void mapZeroesToDeckClassPairDoubleMaps() {
-        Mapper.mapZeroesToADeckClassPairDoubleMap(winPerClassVSClass1st);
-        Mapper.mapZeroesToADeckClassPairDoubleMap(winPerClassVSClass2nd);
+        Mapper.mapZeroesToDcpDoubleMap(winPerClassVSClass1st);
+        Mapper.mapZeroesToDcpDoubleMap(winPerClassVSClass2nd);
     }
 
     public Map<DeckClassPair, Integer> getLossesInClassVSClass1st() {

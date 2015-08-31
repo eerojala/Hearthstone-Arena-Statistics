@@ -1,5 +1,6 @@
 package Xml;
 
+import util.DocumentBuilder;
 import domain.DeckClass;
 import domain.DeckClassPair;
 import logic.ClassVSClassStatisticsKeeper;

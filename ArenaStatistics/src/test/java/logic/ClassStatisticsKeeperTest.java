@@ -16,7 +16,7 @@ import util.TestForLoop;
 
 public class ClassStatisticsKeeperTest {
 
-    MatchClassStatisticsKeeper keeper;
+    ClassStatisticsKeeper keeper;
     boolean bool;
     Match match1;
     Match match2;
@@ -43,7 +43,7 @@ public class ClassStatisticsKeeperTest {
 
     @Before
     public void setUp() {
-        keeper = new MatchClassStatisticsKeeper();
+        keeper = new ClassStatisticsKeeper();
         Deck deck1 = new Deck(DeckClass.SHAMAN, 1);
         DeckHandler handler = new DeckHandler();
         handler.setDeck(deck1);
@@ -407,61 +407,6 @@ public class ClassStatisticsKeeperTest {
     }
 
     @Test
-    public void loss_percentage_as_class_1st_is_correct1() {
-        assertEquals(0.5, keeper.getLossPerAsClass1st(DeckClass.SHAMAN), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_as_class_1st_is_correct2() {
-        assertEquals(0, keeper.getLossPerAsClass1st(DeckClass.PRIEST), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_as_class_2nd_is_correct1() {
-        assertEquals(0.5, keeper.getLossPerAsClass2nd(DeckClass.SHAMAN), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_as_class_2nd_is_correct2() {
-        assertEquals(1, keeper.getLossPerAsClass2nd(DeckClass.PRIEST), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_as_class_2nd_is_correct3() {
-        assertEquals(0, keeper.getLossPerAsClass2nd(DeckClass.WARLOCK), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_1st_is_correct1() {
-        assertEquals(1, keeper.getLossPerVSClass1st(DeckClass.PALADIN), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_1st_is_correct2() {
-        assertEquals(0, keeper.getLossPerVSClass1st(DeckClass.ROGUE), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_1st_is_correct3() {
-        assertEquals(0, keeper.getLossPerVSClass1st(DeckClass.WARLOCK), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_2nd_is_correct1() {
-        assertEquals(1, keeper.getLossPerVSClass2nd(DeckClass.MAGE), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_2nd_is_correct2() {
-        assertEquals(1, keeper.getLossPerVSClass2nd(DeckClass.WARRIOR), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_2nd_is_correct3() {
-        assertEquals(0, keeper.getLossPerVSClass2nd(DeckClass.WARLOCK), 0.00001);
-    }
-
-    @Test
     public void win_percentage_as_class_total_is_correct1() {
         assertEquals(0.5, keeper.getWinPerAsClassTotal(DeckClass.SHAMAN), 0.0001);
     }
@@ -507,51 +452,6 @@ public class ClassStatisticsKeeperTest {
     }
 
     @Test
-    public void loss_percentage_as_class_total_is_correct1() {
-        assertEquals(0.5, keeper.getLossPerAsClassTotal(DeckClass.SHAMAN), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_as_class_total_is_correct2() {
-        assertEquals(1, keeper.getLossPerAsClassTotal(DeckClass.PRIEST), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_as_class_total_is_correct3() {
-        assertEquals(0, keeper.getLossPerAsClassTotal(DeckClass.WARLOCK), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_total_is_correct1() {
-        assertEquals(0.5, keeper.getLossPerVSClassTotal(DeckClass.MAGE), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_total_is_correct2() {
-        assertEquals(0, keeper.getLossPerVSClassTotal(DeckClass.DRUID), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_total_is_correct3() {
-        assertEquals(1, keeper.getLossPerVSClassTotal(DeckClass.PALADIN), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_total_is_correct4() {
-        assertEquals(0, keeper.getLossPerVSClassTotal(DeckClass.ROGUE), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_total_is_correct5() {
-        assertEquals(1, keeper.getLossPerVSClassTotal(DeckClass.WARRIOR), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_vs_class_total_is_correct6() {
-        assertEquals(0, keeper.getLossPerVSClassTotal(DeckClass.WARLOCK), 0.0001);
-    }
-
-    @Test
     public void total_matches_is_correct() {
         assertEquals(11, keeper.getTotalMatches());
     }
@@ -569,24 +469,6 @@ public class ClassStatisticsKeeperTest {
     @Test
     public void total_win_percent_is_correct() {
         assertEquals(0.44, keeper.getTotalWinPer(), 0.01);
-    }
-
-    @Test
-    public void total_loss_percent_is_correct() {
-        assertEquals(0.55, keeper.getTotalLossPer(), 0.01);
-    }
-
-    @Test
-    public void total_loss_percent_is_zero_when_only_disconnects() {
-        keeper.reset();
-        Match match = new Match(DeckClass.WARLOCK, "", Outcome.DISCONNECT, true, 1, 1);
-        Deck deck = new Deck(DeckClass.WARRIOR, 1);
-        DeckHandler handler = new DeckHandler();
-        handler.setDeck(deck);
-        handler.addMatch(match);
-        List<Deck> list = new ArrayList();
-        addMatches(list);
-        assertEquals(0, keeper.getTotalLossPer(), 0.00001);
     }
 
     @Test

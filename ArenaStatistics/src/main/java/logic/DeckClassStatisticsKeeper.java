@@ -3,6 +3,7 @@ package logic;
 import domain.Deck;
 import domain.DeckClass;
 import domain.DeckClassStatistics;
+import java.util.Map;
 import util.Mapper;
 import util.StatisticsHelper;
 
@@ -17,15 +18,15 @@ public class DeckClassStatisticsKeeper extends DeckStatisticsKeeper {
     @Override
     public void addDeck(Deck deck) {
         DeckClass dc = deck.getDeckClass();
-        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getDecksAsClass(), dc);
-        Mapper.increaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass(), dc, deck.getWins());
+        int wins = deck.getWins();
+        Mapper.increaseIntegerInDcIntIntMapMap(statistics.getDecksWithXWinsAsClass(), dc, wins);
         updateDoubleMaps(deck.getDeckClass());
     }
 
     
     public void updateDoubleMaps(DeckClass dc) {
         int totalDecksAsClass = getDecksAsClass(dc);
-        Mapper.updateAverageInDeckClassDoubleMap(statistics.getAvgWinsAsClass(),
+        Mapper.updateAverageInDcDoubleMap(statistics.getAvgWinsAsClass(),
                 dc, getWinsAsClass(dc), totalDecksAsClass);
         updatePlayPerAsClass();
     }
@@ -33,25 +34,15 @@ public class DeckClassStatisticsKeeper extends DeckStatisticsKeeper {
     private void updatePlayPerAsClass() {
         for (DeckClass dc : DeckClass.values()) {
             int totalDecksAsClass = getDecksAsClass(dc);
-            Mapper.updateAverageInDeckClassDoubleMap(statistics.getPlayPerAsClass(),
-                    dc, totalDecksAsClass, totalDecks());
+            Mapper.updateAverageInDcDoubleMap(statistics.getPlayPerAsClass(),
+                    dc, totalDecksAsClass, getTotalDeckAmount());
         }
     }
-
-    private int totalDecks() {
-        int total = 0;
-        for (DeckClass dc : DeckClass.values()) {
-            total += getDecksAsClass(dc);
-        }
-        return total;
-    }
-
-    public void setDecksAsClass(DeckClass dc, int amount) {
-        statistics.getDecksAsClass().put(dc, amount);
-    }
-
-    public void setWinsAsClass(DeckClass dc, int amount) {
-        statistics.getWinsAsClass().put(dc, amount);
+    
+    public void setDecksAsClassWithXWins(DeckClass dc, int wins, int amount) {
+        Map<Integer,Integer> map = statistics.getDecksWithXWinsAsClass().get(dc);
+        map.put(wins, amount);
+        statistics.getDecksWithXWinsAsClass().put(dc, map);
     }
 
     public DeckClassStatistics getStatistics() {
@@ -67,11 +58,23 @@ public class DeckClassStatisticsKeeper extends DeckStatisticsKeeper {
     }
 
     public int getDecksAsClass(DeckClass dc) {
-        return statistics.getDecksAsClass().get(dc);
+        int decks = 0;
+        for (int i = 0; i < 13; i++) {
+            decks += statistics.getDecksWithXWinsAsClass().get(dc).get(i);
+        }
+        return decks;
     }
 
     public int getWinsAsClass(DeckClass dc) {
-        return statistics.getWinsAsClass().get(dc);
+        int wins = 0;
+        for (int i = 0; i < 13; i++) {
+            wins += statistics.getDecksWithXWinsAsClass().get(dc).get(i) * i;
+        }
+        return wins;
+    }
+    
+    public int getDecksAsClassWithXWins(DeckClass dc, int wins) {
+        return statistics.getDecksWithXWinsAsClass().get(dc).get(wins);
     }
 
     public double getAverageWinsAsClass(DeckClass dc) {
@@ -85,8 +88,8 @@ public class DeckClassStatisticsKeeper extends DeckStatisticsKeeper {
     @Override
     public void removeDeck(Deck deck) {
         DeckClass dc = deck.getDeckClass();
-        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getDecksAsClass(), dc);
-        Mapper.decreaseIntegerInDeckClassIntegerMap(statistics.getWinsAsClass(), dc, deck.getWins());
+        int wins = deck.getWins();
+        Mapper.decreaseIntegerInDcIntIntMapMap(statistics.getDecksWithXWinsAsClass(), dc, wins);
         updateDoubleMaps(deck.getDeckClass());
     }
 
@@ -110,5 +113,14 @@ public class DeckClassStatisticsKeeper extends DeckStatisticsKeeper {
     @Override
     public void reset() {
         statistics = new DeckClassStatistics();
+    }
+    
+    @Override
+    public int getDecksByWins(int wins) {
+        int decks = 0;
+        for (DeckClass dc: DeckClass.values()) {
+            decks += getDecksAsClassWithXWins(dc, wins);
+        }
+        return decks;
     }
 }

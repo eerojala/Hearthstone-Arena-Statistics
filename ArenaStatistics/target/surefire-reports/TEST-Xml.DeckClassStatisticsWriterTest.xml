@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.071" errors="0" skipped="0" tests="13" name="Xml.DeckClassStatisticsWriterTest">
+<testsuite failures="0" time="0.156" errors="0" skipped="0" tests="19" name="Xml.DeckClassStatisticsWriterTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_55\jre\bin"/>
@@ -63,17 +63,23 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.001" classname="Xml.DeckClassStatisticsWriterTest" name="update_specific_does_nothing_if_wrong_classes_are_given"/>
-  <testcase time="0.002" classname="Xml.DeckClassStatisticsWriterTest" name="update_specific_doesnt_affect_others"/>
-  <testcase time="0.001" classname="Xml.DeckClassStatisticsWriterTest" name="update_specific_doesnt_duplicate_specific"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="update_specific_does_nothing_if_wrong_classes_are_given"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="update_specific_doesnt_affect_others"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="update_specific_doesnt_duplicate_specific"/>
   <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="decks_as_class_is_correct1"/>
   <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="decks_as_class_is_correct2"/>
   <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="average_wins_as_class_is_correct1"/>
   <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="average_wins_as_class_is_correct2"/>
-  <testcase time="0.001" classname="Xml.DeckClassStatisticsWriterTest" name="play_percentage_as_class_is_correct1"/>
+  <testcase time="0.016" classname="Xml.DeckClassStatisticsWriterTest" name="play_percentage_as_class_is_correct1"/>
   <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="play_percentage_as_class_is_correct2"/>
-  <testcase time="0.001" classname="Xml.DeckClassStatisticsWriterTest" name="update_specific_works_correctly"/>
+  <testcase time="0.016" classname="Xml.DeckClassStatisticsWriterTest" name="update_specific_works_correctly"/>
   <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="wins_as_class_is_correct1"/>
   <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="wins_as_class_is_correct2"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct1"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct2"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct3"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct4"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct5"/>
+  <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct6"/>
   <testcase time="0" classname="Xml.DeckClassStatisticsWriterTest" name="amount_of_classes_is_correct"/>
 </testsuite>

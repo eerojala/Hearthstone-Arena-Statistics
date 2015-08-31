@@ -30,16 +30,6 @@ public class DeckClassStatisticsTest {
     @After
     public void tearDown() {
     }
-
-    @Test
-    public void decks_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntMap(statistics.getDecksAsClass()));
-    }
-    
-    @Test
-    public void wins_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntMap(statistics.getWinsAsClass()));
-    }
     
     @Test
     public void average_wins_by_class_have_zeroes_at_start() {
@@ -49,5 +39,10 @@ public class DeckClassStatisticsTest {
     @Test
     public void percentage_played_as_class_out_of_all_decks_have_zeroes_at_start() {
         assertTrue(TestForLoop.zeroesInDcDoubleMap(statistics.getPlayPerAsClass()));
+    }
+    
+    @Test
+    public void decks_with_x_wins_as_class_have_zeroes_at_start() {
+        assertTrue(TestForLoop.zeroesInDcIntIntMapMap(statistics.getDecksWithXWinsAsClass()));
     }
 }

@@ -4,45 +4,46 @@ import Xml.XmlParser;
 import domain.*;
 import java.util.ArrayList;
 import java.util.List;
+import logic.MatchArchiver;
 import org.jdom.Document;
 import org.jdom.Element;
 
 public class MatchParser extends XmlParser {
 
-    private final List<Match> matches;
+    private final MatchArchiver archiver;
 
     public MatchParser(String filepath) {
         super(filepath, "Match", "Matches");
-        matches = new ArrayList();
+        archiver = new MatchArchiver();
     }
-     
+
     public MatchParser(Document doc) {
         super(doc, "Match");
-        matches = new ArrayList();
+        archiver = new MatchArchiver();
     }
 
     @Override
     public void addValues() {
         for (int i = 0; i < childlist.size(); i++) {
-            Element node = (Element) childlist.get(i);
-            matches.add(createMatch(node));
+            Element element = (Element) childlist.get(i);
+            archiver.addMatch(createMatch(element));
         }
     }
 
-    private Match createMatch(Element node) {
-        DeckClass opponentClass = getDeckClassValue(node, "OpponentClass");
-        String opponentName = getStringValue(node, "OpponentName");
-        Outcome outcome = getOutcomeValue(node, "Outcome");
-        boolean wentFirst = getBooleanValue(node, "WentFirst");
-        String id = getID(node);
+    private Match createMatch(Element element) {
+        DeckClass playerClass = getDeckClassValue(element, "PlayerClass");
+        DeckClass opponentClass = getDeckClassValue(element, "OpponentClass");
+        String opponentName = getStringValue(element, "OpponentName");
+        Outcome outcome = getOutcomeValue(element, "Outcome");
+        boolean wentFirst = getBooleanValue(element, "WentFirst");
+        String id = getID(element);
         int deckNumber = Integer.parseInt(id.split("\\.")[0]);
-        int matchNumber = Integer.parseInt(id.split("\\.")[1]);      
-        return new Match(opponentClass, opponentName, outcome,
+        int matchNumber = Integer.parseInt(id.split("\\.")[1]);
+        return new Match(playerClass, opponentClass, opponentName, outcome,
                 wentFirst, deckNumber, matchNumber);
     }
-
-    public List<Match> getMatches() {
-        return matches;
+    
+    public MatchArchiver getArchiver() {
+        return archiver;
     }
-
 }

@@ -49,25 +49,25 @@ public class ClassStatistics {
     }
 
     private void mapZeroesToDeckClassIntegerMaps() {
-        Mapper.mapZeroesToADeckClassIntegerMap(lossesAsClass1st);
-        Mapper.mapZeroesToADeckClassIntegerMap(lossesAsClass2nd);
-        Mapper.mapZeroesToADeckClassIntegerMap(lossesVSClass1st);
-        Mapper.mapZeroesToADeckClassIntegerMap(lossesVSClass2nd);
-        Mapper.mapZeroesToADeckClassIntegerMap(matchesAsClass1st);
-        Mapper.mapZeroesToADeckClassIntegerMap(matchesAsClass2nd);
-        Mapper.mapZeroesToADeckClassIntegerMap(matchesVSClass1st);
-        Mapper.mapZeroesToADeckClassIntegerMap(matchesVSClass2nd);
-        Mapper.mapZeroesToADeckClassIntegerMap(winsAsClass1st);
-        Mapper.mapZeroesToADeckClassIntegerMap(winsAsClass2nd);
-        Mapper.mapZeroesToADeckClassIntegerMap(winsVSClass1st);
-        Mapper.mapZeroesToADeckClassIntegerMap(winsVSClass2nd);
+        Mapper.mapZeroesToDcIntMap(lossesAsClass1st);
+        Mapper.mapZeroesToDcIntMap(lossesAsClass2nd);
+        Mapper.mapZeroesToDcIntMap(lossesVSClass1st);
+        Mapper.mapZeroesToDcIntMap(lossesVSClass2nd);
+        Mapper.mapZeroesToDcIntMap(matchesAsClass1st);
+        Mapper.mapZeroesToDcIntMap(matchesAsClass2nd);
+        Mapper.mapZeroesToDcIntMap(matchesVSClass1st);
+        Mapper.mapZeroesToDcIntMap(matchesVSClass2nd);
+        Mapper.mapZeroesToDcIntMap(winsAsClass1st);
+        Mapper.mapZeroesToDcIntMap(winsAsClass2nd);
+        Mapper.mapZeroesToDcIntMap(winsVSClass1st);
+        Mapper.mapZeroesToDcIntMap(winsVSClass2nd);
     }
 
     private void mapZeroesToDeckClassDoubleMaps() {
-        Mapper.mapZeroesToADeckClassDoubleMap(winPerAsClass1st);
-        Mapper.mapZeroesToADeckClassDoubleMap(winPerAsClass2nd);
-        Mapper.mapZeroesToADeckClassDoubleMap(winPerVSClass1st);
-        Mapper.mapZeroesToADeckClassDoubleMap(winPerVSClass2nd);
+        Mapper.mapZeroesToDcDoubleMap(winPerAsClass1st);
+        Mapper.mapZeroesToDcDoubleMap(winPerAsClass2nd);
+        Mapper.mapZeroesToDcDoubleMap(winPerVSClass1st);
+        Mapper.mapZeroesToDcDoubleMap(winPerVSClass2nd);
     }
 
     public Map<DeckClass, Integer> getLossesAsClass1st() {

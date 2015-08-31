@@ -1,6 +1,10 @@
 package Xml;
 
 import domain.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,29 +15,23 @@ import static org.junit.Assert.*;
 public class MatchParserTest {
 
     MatchParser parser;
-    Match match1;
-    Match match2;
-    Match match3;
-    Match match4;
-    Match match5;
-    Match match6;
-    Match match7;
-    Match match8;
-    Match match9;
-    
+    List<Match> matches;
+
     public MatchParserTest() {
         parser = new MatchParser("src/main/resources/MatchParseTest.xml");
         parser.addValues();
-        match1 = parser.getMatches().get(0);
-        match2 = parser.getMatches().get(1);
-        match3 = parser.getMatches().get(2);
-        match4 = parser.getMatches().get(3);
-        match5 = parser.getMatches().get(4);
-        match6 = parser.getMatches().get(5);
-        match7 = parser.getMatches().get(6);
-        match8 = parser.getMatches().get(7);
-        match9 = parser.getMatches().get(8);
-       
+        addMatches();
+    }
+
+    private void addMatches() {
+        matches = new ArrayList();
+        Map<String, List<Match>> map = parser.getArchiver().getArchive().getMatchesByOpponent();
+        for (String name : map.keySet()) {
+            for (Match match : map.get(name)) {
+                matches.add(match);
+            }
+        }
+        Collections.sort(matches);
     }
 
     @BeforeClass
@@ -57,104 +55,114 @@ public class MatchParserTest {
         XmlParser parser = new MatchParser("sdasfafs");
         assertEquals(0, parser.childlist.size());
     }
-    
+
     @Test
     public void parses_all_matches() {
-        assertEquals(9, parser.getMatches().size());
+        assertEquals(9, matches.size());
+    }
+    
+    @Test
+    public void match_has_correct_player_class1() {
+        assertEquals(DeckClass.HUNTER, matches.get(0).getPlayerDeckClass());
+    }
+    
+    @Test
+    public void match_has_correct_player_class2() {
+        assertEquals(DeckClass.ROGUE, matches.get(1).getPlayerDeckClass());
     }
 
     @Test
     public void match_has_correct_opponent_class1() {
-        assertEquals(DeckClass.MAGE, match1.getOpponentDeckClass());
+        assertEquals(DeckClass.MAGE, matches.get(0).getOpponentDeckClass());
     }
-    
+
     @Test
     public void match_has_correct_opponent_class2() {
-        assertEquals(DeckClass.HUNTER, match2.getOpponentDeckClass());
+        assertEquals(DeckClass.HUNTER, matches.get(1).getOpponentDeckClass());
     }
-    
+
     @Test
     public void match_has_correct_opponent_class3() {
-        assertEquals(DeckClass.SHAMAN, match3.getOpponentDeckClass());
+        assertEquals(DeckClass.SHAMAN, matches.get(2).getOpponentDeckClass());
     }
-    
+
     @Test
     public void match_has_correct_opponent_class4() {
-        assertEquals(DeckClass.PRIEST, match4.getOpponentDeckClass());
+        assertEquals(DeckClass.PRIEST, matches.get(3).getOpponentDeckClass());
     }
 
     @Test
     public void match_has_correct_opponent_class5() {
-        assertEquals(DeckClass.WARLOCK, match5.getOpponentDeckClass());
+        assertEquals(DeckClass.WARLOCK, matches.get(4).getOpponentDeckClass());
     }
-    
+
     @Test
     public void match_has_correct_opponent_class6() {
-        assertEquals(DeckClass.PALADIN, match6.getOpponentDeckClass());
+        assertEquals(DeckClass.PALADIN, matches.get(5).getOpponentDeckClass());
     }
-    
+
     @Test
     public void match_has_correct_opponent_class7() {
-        assertEquals(DeckClass.WARRIOR, match7.getOpponentDeckClass());
+        assertEquals(DeckClass.WARRIOR, matches.get(6).getOpponentDeckClass());
     }
-    
+
     @Test
     public void match_has_correct_opponent_class8() {
-        assertEquals(DeckClass.DRUID, match8.getOpponentDeckClass());
+        assertEquals(DeckClass.DRUID, matches.get(7).getOpponentDeckClass());
     }
-    
+
     @Test
     public void match_has_correct_opponent_class9() {
-        assertEquals(DeckClass.ROGUE, match9.getOpponentDeckClass());
+        assertEquals(DeckClass.ROGUE, matches.get(8).getOpponentDeckClass());
     }
 
     @Test
     public void match_has_correct_opponent_name1() {
-        assertEquals("Dennis", match1.getOpponentName());
+        assertEquals("Dennis", matches.get(0).getOpponentName());
     }
-   
+
     @Test
     public void match_has_correct_opponent_name2() {
-        assertEquals("", match6.getOpponentName());
+        assertEquals("", matches.get(5).getOpponentName());
     }
 
     @Test
     public void match_has_correct_outcome1() {
-        assertEquals(Outcome.WIN, match1.getOutcome());
+        assertEquals(Outcome.WIN, matches.get(0).getOutcome());
     }
 
     @Test
     public void match_has_correct_outcome2() {
-        assertEquals(Outcome.LOSS, match2.getOutcome());
+        assertEquals(Outcome.LOSS, matches.get(1).getOutcome());
     }
 
     @Test
     public void match_has_correct_outcome3() {
-        assertEquals(Outcome.DISCONNECT, match3.getOutcome());
+        assertEquals(Outcome.DISCONNECT, matches.get(2).getOutcome());
     }
-    
+
     @Test
     public void match_has_correct_outcome4() {
-        assertEquals(Outcome.TIE, match6.getOutcome());
+        assertEquals(Outcome.TIE, matches.get(5).getOutcome());
     }
 
     @Test
     public void match_has_correct_wentFirst_boolean1() {
-        assertEquals(true, match1.wentFirst());
+        assertEquals(true, matches.get(0).wentFirst());
     }
 
     @Test
     public void match_has_correct_wentFirst_boolean2() {
-        assertEquals(false, match2.wentFirst());
+        assertEquals(false, matches.get(1).wentFirst());
     }
 
     @Test
     public void match_has_correct_deck_number() {
-        assertEquals(1, match1.getDeckNumber());
+        assertEquals(1, matches.get(0).getDeckNumber());
     }
 
     @Test
     public void match_has_correct_match_number() {
-        assertEquals(2, match1.getMatchNumber());
+        assertEquals(2, matches.get(0).getMatchNumber());
     }
 }

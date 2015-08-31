@@ -23,9 +23,14 @@ public class DeckClassStatisticsParser extends StatisticsParser{
     @Override
     protected void setStatistics(Element element) {
         DeckClass dc = DeckClass.parseDeckClass(getID(element));
-        keeper.setDecksAsClass(dc, getIntValue(element, "AmountOfDecks"));
-        keeper.setWinsAsClass(dc, getIntValue(element, "Wins"));
+        setDecksAsClassWithXWins(element, dc);
         keeper.updateDoubleMaps(dc);
+    }
+    
+    private void setDecksAsClassWithXWins(Element element, DeckClass dc) {
+        for (int i = 0; i < 13; i++) {
+            keeper.setDecksAsClassWithXWins(dc, i, getIntValue(element.getChild("Decks"), "Wins"+i));
+        }
     }
 
     public DeckClassStatisticsKeeper getKeeper() {

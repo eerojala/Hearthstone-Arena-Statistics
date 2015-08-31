@@ -60,7 +60,7 @@ public class TestForLoop {
     }
 
     public static boolean zeroesInIntIntMap(Map<Integer, Integer> map, int... exceptions) {
-        for (int i = 0; i <= 12; i++) {
+        for (int i = 0; i < 13; i++) {
             if (map.get(i) != 0 && !integerIsAnException(i, exceptions)) {
                 return false;
             }
@@ -78,8 +78,17 @@ public class TestForLoop {
     }
 
     public static boolean zeroesInIntDoubleMap(Map<Integer, Double> map, int... exceptions) {
-        for (int i = 0; i <= 12; i++) {
+        for (int i = 0; i < 13; i++) {
             if (map.get(i) != 0 && !integerIsAnException(i, exceptions)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static boolean zeroesInDcIntIntMapMap(Map<DeckClass, Map<Integer, Integer>> map) {
+        for (DeckClass dc : DeckClass.values()) {
+            if (!zeroesInIntIntMap(map.get(dc))) {
                 return false;
             }
         }

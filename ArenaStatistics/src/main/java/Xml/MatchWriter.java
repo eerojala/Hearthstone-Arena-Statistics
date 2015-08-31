@@ -19,6 +19,7 @@ public class MatchWriter extends XmlWriter {
             Match match = (Match) obj;
             Element element = new Element(childName);
             element.setAttribute(new Attribute("id", match.getDeckNumber() + "." + match.getMatchNumber()));
+            element.addContent(new Element("PlayerClass").setText(match.getPlayerDeckClass().getName()));
             element.addContent(new Element("OpponentClass").setText(match.getOpponentDeckClass().getName()));
             element.addContent(new Element("OpponentName").setText(match.getOpponentName()));
             element.addContent(new Element("Outcome").setText(match.getOutcome().getName()));
@@ -30,23 +31,23 @@ public class MatchWriter extends XmlWriter {
         }
     }
 
-    public void removeMatchesFromASpecificDeck(Document doc, int deckNumber) {
-        List<Element> children = doc.getRootElement().getChildren();
-        List<Element> removeThese = new ArrayList();
-        for (Element child : children) {
-            String temp = "" + child.getAttributeValue("id").charAt(0);
-            if (temp.equals("" + deckNumber)) {
-                removeThese.add(child);
-            }
-        }
-        removeMatches(doc.getRootElement(), removeThese);
-        addToFile(doc);
-    }
+//    public void removeMatchesFromASpecificDeck(Document doc, int deckNumber) {
+//        List<Element> children = doc.getRootElement().getChildren();
+//        List<Element> removeThese = new ArrayList();
+//        for (Element child : children) {
+//            String temp = "" + child.getAttributeValue("id").charAt(0);
+//            if (temp.equals("" + deckNumber)) {
+//                removeThese.add(child);
+//            }
+//        }
+//        removeMatches(doc.getRootElement(), removeThese);
+//        addToFile(doc);
+//    }
 
-    private void removeMatches(Element root, List<Element> removeThese) {
-        for (Element child : removeThese) {
-            root.removeContent(child);
-        }
-    }
+//    private void removeMatches(Element root, List<Element> removeThese) {
+//        for (Element child : removeThese) {
+//            root.removeContent(child);
+//        }
+//    }
 
 }

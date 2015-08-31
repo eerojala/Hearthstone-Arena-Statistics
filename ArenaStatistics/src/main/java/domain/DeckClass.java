@@ -2,36 +2,35 @@ package domain;
 
 public enum DeckClass {
 
-    DRUID("Druid", "Druid1.jpg", ""),
-    HUNTER("Hunter", "Hunter1.jpg", "Hunter2.jpg"),
-    MAGE("Mage", "Mage1.jpg", "Mage2.jpg"),
-    PALADIN("Paladin", "Mage1.jpg", ""),
-    PRIEST("Priest", "Priest1.jpg", ""),
-    ROGUE("Rogue", "Rogue1.jpg", ""),
-    SHAMAN("Shaman", "Shaman1.jpg", ""),
-    WARLOCK("Warlock", "Warlock1.jpg", ""),
-    WARRIOR("Warrior", "Warrior1.jpg", "Warrior2.jpg");
+    DRUID("Druid", "Druid1.png", ""),
+    HUNTER("Hunter", "Hunter1.png", "Hunter2.png"),
+    MAGE("Mage", "Mage1.png", "Mage2.png"),
+    PALADIN("Paladin", "Paladin1.png", ""),
+    PRIEST("Priest", "Priest1.png", ""),
+    ROGUE("Rogue", "Rogue1.png", ""),
+    SHAMAN("Shaman", "Shaman1.png", ""),
+    WARLOCK("Warlock", "Warlock1.png", ""),
+    WARRIOR("Warrior", "Warrior1.png", "Warrior2.png");
 
     private final String name;
-    private final String portraitFilepath;
-    private final String altPortraitFilePath;
-
+    private final String portraitFilename;
+    private final String alPortraitFilename;
     private DeckClass(String name, String portraitFilepath, String altPortraitFilePath) {
         this.name = name;
-        this.portraitFilepath = portraitFilepath;
-        this.altPortraitFilePath = altPortraitFilePath;
+        this.portraitFilename = portraitFilepath;
+        this.alPortraitFilename = altPortraitFilePath;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getPortraitFilepath() {
-        return portraitFilepath;
+    public String getPortraitFilename() {
+        return portraitFilename;
     }
 
-    public String getAltPortraitFilePath() {
-        return altPortraitFilePath;
+    public String getAlPortraitFilename() {
+        return alPortraitFilename;
     }
     
     public static DeckClass parseDeckClass(String text) {;

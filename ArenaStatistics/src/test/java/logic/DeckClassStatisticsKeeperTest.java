@@ -80,28 +80,18 @@ public class DeckClassStatisticsKeeperTest {
     }
 
     @Test
-    public void decks_by_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getDecksAsClass(), dcExceptions));
-    }
-
-    @Test
-    public void wins_by_class_has_correct_values1() {
+    public void wins_as_class_has_correct_values1() {
         assertEquals(16, keeper.getWinsAsClass(DeckClass.DRUID));
     }
 
     @Test
-    public void wins_by_class_has_correct_values2() {
+    public void wins_as_class_has_correct_values2() {
         assertEquals(19, keeper.getWinsAsClass(DeckClass.MAGE));
     }
 
     @Test
-    public void wins_by_class_has_correct_values3() {
+    public void wins_as_class_has_correct_values3() {
         assertEquals(4, keeper.getWinsAsClass(DeckClass.SHAMAN));
-    }
-
-    @Test
-    public void wins_by_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass(), dcExceptions));
     }
     
     @Test
@@ -169,18 +159,6 @@ public class DeckClassStatisticsKeeperTest {
     }
     
     @Test
-    public void set_decks_as_class_works_correctly() {
-        keeper.setDecksAsClass(DeckClass.MAGE, 132);
-        assertEquals(132, keeper.getDecksAsClass(DeckClass.MAGE));
-    }
-          
-    @Test
-    public void set_wins_as_class_works_correctly() {
-        keeper.setWinsAsClass(DeckClass.MAGE, 444);
-        assertEquals(444, keeper.getWinsAsClass(DeckClass.MAGE));
-    }
-    
-    @Test
     public void set_average_wins_as_class_works_correctly() {
         keeper.setAverageWinsAsClass(DeckClass.MAGE, 4);
         assertEquals(4, keeper.getAverageWinsAsClass(DeckClass.MAGE), 0);
@@ -200,5 +178,41 @@ public class DeckClassStatisticsKeeperTest {
     @Test
     public void getTotalDeckAmount_works_correctly() {
         assertEquals(5, keeper.getTotalDeckAmount());
+    }
+    
+    @Test
+    public void getDecksAsClassWithXWins_works_correctly1() {
+        assertEquals(1, keeper.getDecksAsClassWithXWins(DeckClass.MAGE, 12));
+    }
+    
+    @Test
+    public void getDecksAsClassWithXWins_works_correctly2() {
+        assertEquals(1, keeper.getDecksAsClassWithXWins(DeckClass.MAGE, 7));
+    }
+    
+    @Test
+    public void getDecksAsClassWithXWins_works_correctly3() {
+        assertEquals(0, keeper.getDecksAsClassWithXWins(DeckClass.MAGE, 0));
+    }
+    
+    @Test
+    public void setDecksAsClassWithXWins_works_correctly() {
+        keeper.setDecksAsClassWithXWins(DeckClass.MAGE, 3, 1000);
+        assertEquals(1000, keeper.getDecksAsClassWithXWins(DeckClass.MAGE, 3));
+    }
+    
+    @Test
+    public void getDecksByWins_works_correctly1() {
+        assertEquals(2, keeper.getDecksByWins(12));
+    }
+    
+    @Test
+    public void getDecksByWins_works_correctly2() {
+        assertEquals(2, keeper.getDecksByWins(4));
+    }
+    
+    @Test
+    public void getDecksByWins_works_correctly3() {
+        assertEquals(1, keeper.getDecksByWins(7));
     }
 }

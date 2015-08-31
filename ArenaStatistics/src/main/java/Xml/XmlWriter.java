@@ -28,7 +28,7 @@ public abstract class XmlWriter {
     }
     
     public void removeAll(Document doc) {
-        doc.getRootElement().removeChildren(childName);
+        doc.getRootElement().removeContent();
         addToFile(doc);
     }
     

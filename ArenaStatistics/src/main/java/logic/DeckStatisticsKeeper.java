@@ -14,5 +14,6 @@ public abstract class DeckStatisticsKeeper {
     public abstract void addDeck(Deck deck);
     public abstract void removeDeck(Deck deck);
     public abstract int getTotalDeckAmount();
+    public abstract int getDecksByWins(int wins);
     public abstract void reset();
 }

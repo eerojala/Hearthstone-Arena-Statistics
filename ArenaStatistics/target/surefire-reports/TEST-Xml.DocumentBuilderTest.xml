@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.007" errors="0" skipped="0" tests="4" name="Xml.DocumentBuilderTest">
+<testsuite failures="0" time="0" errors="0" skipped="0" tests="4" name="Xml.DocumentBuilderTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_55\jre\bin"/>
@@ -64,7 +64,7 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase time="0" classname="Xml.DocumentBuilderTest" name="createDocument_returns_a_document_with_correct_root_name"/>
-  <testcase time="0.003" classname="Xml.DocumentBuilderTest" name="buildDocument_returns_a_document_if_correct_filepath"/>
-  <testcase time="0.004" classname="Xml.DocumentBuilderTest" name="buildDocument_returns_null_if_invalid_filepath"/>
+  <testcase time="0" classname="Xml.DocumentBuilderTest" name="buildDocument_returns_a_document_if_correct_filepath"/>
+  <testcase time="0" classname="Xml.DocumentBuilderTest" name="buildDocument_returns_null_if_invalid_filepath"/>
   <testcase time="0" classname="Xml.DocumentBuilderTest" name="createDocument_returns_a_document"/>
 </testsuite>

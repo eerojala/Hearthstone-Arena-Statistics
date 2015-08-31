@@ -1,5 +1,6 @@
 package Xml;
 
+import util.DocumentBuilder;
 import domain.*;
 import java.util.List;
 import org.jdom.Document;

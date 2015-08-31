@@ -1,5 +1,6 @@
 package Xml;
 
+import util.DocumentBuilder;
 import domain.DeckClass;
 import logic.DeckClassStatisticsKeeper;
 import org.jdom.Document;
@@ -50,13 +51,15 @@ public class DeckClassStatisticsWriterTest {
     }
 
     private void setClass1(DeckClass dc) {
-        keeper1.setDecksAsClass(dc, 5);
-        keeper1.setWinsAsClass(dc, 27);
+        keeper1.setDecksAsClassWithXWins(dc, 5, 3);
+        keeper1.setDecksAsClassWithXWins(dc, 6, 2);
     }
 
     private void setClass2(DeckClass dc) {
-        keeper1.setDecksAsClass(dc, 6);
-        keeper1.setWinsAsClass(dc, 31);
+        keeper1.setDecksAsClassWithXWins(dc, 2, 3);
+        keeper1.setDecksAsClassWithXWins(dc, 5, 2);
+        keeper1.setDecksAsClassWithXWins(dc, 1, 4);
+        keeper1.setDecksAsClassWithXWins(dc, 11, 1);
     }
 
     @BeforeClass
@@ -88,7 +91,7 @@ public class DeckClassStatisticsWriterTest {
 
     @Test
     public void decks_as_class_is_correct2() {
-        assertEquals(6, keeper1.getDecksAsClass(hunter));
+        assertEquals(10, keeper1.getDecksAsClass(hunter));
     }
 
     @Test
@@ -108,32 +111,62 @@ public class DeckClassStatisticsWriterTest {
 
     @Test
     public void average_wins_as_class_is_correct2() {
-        assertEquals(5.166, keeper1.getAverageWinsAsClass(hunter), 0.001);
+        assertEquals(3.1, keeper1.getAverageWinsAsClass(hunter), 0);
     }
 
     @Test
     public void play_percentage_as_class_is_correct1() {
-        assertEquals(0.454, keeper1.getPlayPercentageAsClass(priest), 0.001);
+        assertEquals(0.33, keeper1.getPlayPercentageAsClass(priest), 0.01);
     }
 
     @Test
     public void play_percentage_as_class_is_correct2() {
-        assertEquals(0.545, keeper1.getPlayPercentageAsClass(hunter), 0.001);
+        assertEquals(0.66, keeper1.getPlayPercentageAsClass(hunter), 0.01);
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct1() {
+        assertEquals(3, keeper1.getDecksAsClassWithXWins(priest, 5));
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct2() {
+        assertEquals(2, keeper1.getDecksAsClassWithXWins(priest, 6));
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct3() {
+        assertEquals(3, keeper1.getDecksAsClassWithXWins(hunter, 2));
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct4() {
+        assertEquals(2, keeper1.getDecksAsClassWithXWins(hunter, 5));
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct5() {
+        assertEquals(4, keeper1.getDecksAsClassWithXWins(hunter, 1));
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct6() {
+        assertEquals(1, keeper1.getDecksAsClassWithXWins(hunter, 11));
     }
 
     @Test
     public void update_specific_works_correctly() {
-        keeper1.setDecksAsClass(priest, 1);
+        keeper1.setDecksAsClassWithXWins(priest, 1, 100);
         writer.updateSpecific(doc, priest, keeper1);
         parseToKeeper2();
-        assertEquals(1, keeper2.getDecksAsClass(priest));
+        assertEquals(100, keeper2.getDecksAsClassWithXWins(priest, 1));
     }
     
     @Test
     public void update_specific_doesnt_affect_others() {
         writer.updateSpecific(doc, priest, keeper1);
         parseToKeeper2();
-        assertEquals(6, keeper2.getDecksAsClass(hunter));
+        assertEquals(10, keeper2.getDecksAsClass(hunter));
     }
     
     @Test
@@ -145,9 +178,9 @@ public class DeckClassStatisticsWriterTest {
     
     @Test
     public void update_specific_does_nothing_if_wrong_classes_are_given() {
-        keeper1.setDecksAsClass(priest, 1);
+        keeper1.setDecksAsClassWithXWins(priest, 5, 1111);
         writer.updateSpecific(doc, doc, keeper1);
         parseToKeeper2();
-        assertEquals(5, keeper2.getDecksAsClass(priest));
+        assertEquals(3, keeper2.getDecksAsClassWithXWins(priest, 5));
     }
 }

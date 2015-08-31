@@ -53,7 +53,7 @@ public class DeckClassStatisticsParserTest {
     
     @Test
     public void wins_as_class_is_correct1() {
-        assertEquals(37, keeper.getWinsAsClass(mage));
+        assertEquals(33, keeper.getWinsAsClass(mage));
     }
     
     @Test
@@ -63,7 +63,7 @@ public class DeckClassStatisticsParserTest {
     
     @Test
     public void average_wins_as_class_is_correct1() {
-        assertEquals(7.4, keeper.getAverageWinsAsClass(mage), 0);
+        assertEquals(6.6, keeper.getAverageWinsAsClass(mage), 0);
     }
     
     @Test
@@ -80,4 +80,24 @@ public class DeckClassStatisticsParserTest {
     public void play_percentage_as_class_is_correct2() {
         assertEquals(0.285, keeper.getPlayPercentageAsClass(warrior), 0.001);
     }    
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct1() {
+        assertEquals(4, keeper.getDecksAsClassWithXWins(mage, 6));
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct2() {
+        assertEquals(1, keeper.getDecksAsClassWithXWins(mage, 9));
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct3() {
+        assertEquals(1, keeper.getDecksAsClassWithXWins(warrior, 9));
+    }
+    
+    @Test
+    public void decks_as_class_with_x_wins_is_correct4() {
+        assertEquals(1, keeper.getDecksAsClassWithXWins(warrior, 10));
+    }
 }

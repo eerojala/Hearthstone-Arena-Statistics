@@ -20,6 +20,17 @@ public class Match implements Comparable<Match> {
         this.deckNumber = deckNumber;
         this.matchNumber = matchNumber;
     }
+    
+    public Match(DeckClass playerClass, DeckClass opponentClass, String opponentName,
+            Outcome outcome, boolean wentFirst, int deckNumber, int matchNumber) {
+        playerDeckClass = playerClass;
+        opponentDeckClass = opponentClass;
+        this.opponentName = opponentName;
+        this.outcome = outcome;
+        this.wentFirst = wentFirst;
+        this.deckNumber = deckNumber;
+        this.matchNumber = matchNumber;
+    }
 
     public Deck getDeck() {
         return deck;

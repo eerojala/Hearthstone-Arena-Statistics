@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Classes>
     <Class id="Mage">
-        <AmountOfDecks>5</AmountOfDecks>
-        <Wins>37</Wins>
+        <Decks>
+            <Wins0>0</Wins0>
+            <Wins1>0</Wins1>
+            <Wins2>0</Wins2>
+            <Wins3>0</Wins3>
+            <Wins4>0</Wins4>
+            <Wins5>0</Wins5>
+            <Wins6>4</Wins6>
+            <Wins7>0</Wins7>
+            <Wins8>0</Wins8>
+            <Wins9>1</Wins9>
+            <Wins10>0</Wins10>
+            <Wins11>0</Wins11>
+            <Wins12>0</Wins12>
+        </Decks>
     </Class>  
     <Class id="Warrior">
-        <AmountOfDecks>2</AmountOfDecks>
-        <Wins>19</Wins>
+        <Decks>
+            <Wins0>0</Wins0>
+            <Wins1>0</Wins1>
+            <Wins2>0</Wins2>
+            <Wins3>0</Wins3>
+            <Wins4>0</Wins4>
+            <Wins5>0</Wins5>
+            <Wins6>0</Wins6>
+            <Wins7>0</Wins7>
+            <Wins8>0</Wins8>
+            <Wins9>1</Wins9>
+            <Wins10>1</Wins10>
+            <Wins11>0</Wins11>
+            <Wins12>0</Wins12>
+        </Decks>
     </Class>
 </Classes>

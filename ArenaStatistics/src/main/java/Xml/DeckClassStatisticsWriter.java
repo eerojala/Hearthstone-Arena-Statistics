@@ -27,10 +27,19 @@ public class DeckClassStatisticsWriter extends StatisticsWriter {
     private void writeClassToDocument(Document doc, DeckClass dc, DeckClassStatisticsKeeper keeper) {
         Element element = new Element(childName);
         element.setAttribute(new Attribute("id", dc.toString()));
-        element.addContent(new Element("AmountOfDecks").setText("" + keeper.getDecksAsClass(dc)));
-        element.addContent(new Element("Wins").setText("" + keeper.getWinsAsClass(dc)));
+        writeWinsToDocument(element, dc, keeper);
         doc.getRootElement().addContent(element);
         addToFile(doc);
+    }
+    
+    private void writeWinsToDocument(Element element, DeckClass dc, DeckClassStatisticsKeeper keeper) {
+        Element winsElement = new Element("Decks");
+        for (int i = 0; i < 13; i++) {
+            Element winElement = new Element("Wins"+i);
+            winElement.setText("" + keeper.getDecksAsClassWithXWins(dc, i));
+            winsElement.addContent(winElement);
+        }
+        element.addContent(winsElement);
     }
 
     @Override

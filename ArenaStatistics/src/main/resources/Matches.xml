@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Matches>
-    <Match>
-        <PlayerClass>Druid</PlayerClass>
-        <OpponentClass>Mage</OpponentClass>
-        <OpponentName>Dennis</OpponentName>
-        <Outcome>Win</Outcome>
-        <WentFirst>Yes</WentFirst>
-        <DeckNumber>1</DeckNumber>
-        <MatchNumber>1</MatchNumber>
-    </Match>
+
 </Matches>

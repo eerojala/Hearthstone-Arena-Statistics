@@ -1,5 +1,6 @@
 package Xml;
 
+import util.DocumentBuilder;
 import java.io.File;
 import junit.framework.Assert;
 import org.jdom.Document;
