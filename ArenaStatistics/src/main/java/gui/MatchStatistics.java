@@ -7,8 +7,9 @@ import logic.ClassStatisticsKeeper;
 import logic.ClassVSClassStatisticsKeeper;
 import util.PortraitSetter;
 
-public class MatchStatistics extends StatisticsWithPortrait{
+public class MatchStatistics implements StatisticsGUI, GUIWithPortrait{
 
+    private MainGUI gui;
     private JComboBox class1Chooser;
     private JComboBox class2Chooser;
     private JRadioButton mainPortraitChooser;
@@ -42,7 +43,7 @@ public class MatchStatistics extends StatisticsWithPortrait{
     private ClassVSClassStatisticsKeeper ccsk;
 
     public MatchStatistics(MainGUI gui) {
-        super(gui);
+        this.gui = gui;
         setObjects();
     }
 
@@ -114,7 +115,7 @@ public class MatchStatistics extends StatisticsWithPortrait{
     }
 
     @Override
-    protected void updatePortraitChoosers() {
+    public void updatePortraitChoosers() {
         PortraitSetter.updatePortraitChoosers(mainPortraitChooser, altPortraitChooser, (DeckClass) class1Chooser.getSelectedItem());
     }
 
@@ -191,5 +192,12 @@ public class MatchStatistics extends StatisticsWithPortrait{
         matchesVSClass2Value.setText("" + ccsk.getMatchesInClassVSClassTotal(dcp));
         winsVSClass2Value.setText("" + ccsk.getWinsInClassVSClassTotal(dcp));
         winPerVSClass2Value.setText("" + ccsk.getWinPerInClassVSClassTotal(dcp));
+    }
+    
+    @Override
+    public void updateVisuals() {
+        updatePortrait();
+        updatePortraitChoosers();
+        updateStats();
     }
 }

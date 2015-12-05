@@ -19,8 +19,8 @@ public class MatchWriter extends XmlWriter {
             Match match = (Match) obj;
             Element element = new Element(childName);
             element.setAttribute(new Attribute("id", match.getDeckNumber() + "." + match.getMatchNumber()));
-            element.addContent(new Element("PlayerClass").setText(match.getPlayerDeckClass().getName()));
-            element.addContent(new Element("OpponentClass").setText(match.getOpponentDeckClass().getName()));
+            element.addContent(new Element("PlayerClass").setText(match.getPlayerClass().getName()));
+            element.addContent(new Element("OpponentClass").setText(match.getOpponentClass().getName()));
             element.addContent(new Element("OpponentName").setText(match.getOpponentName()));
             element.addContent(new Element("Outcome").setText(match.getOutcome().getName()));
             element.addContent(new Element("WentFirst").setText("" + match.wentFirst()));
@@ -30,6 +30,7 @@ public class MatchWriter extends XmlWriter {
             System.out.println("Writing match to file failed");
         }
     }
+    
 
 //    public void removeMatchesFromASpecificDeck(Document doc, int deckNumber) {
 //        List<Element> children = doc.getRootElement().getChildren();

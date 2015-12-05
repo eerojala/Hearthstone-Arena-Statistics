@@ -37,12 +37,12 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
     }
 
     private void parseData() {
-//        updateFeed("Parsing decks");
-//        decks = StartUp.getDecks("src/main/resources/Decks.xml");
+        updateFeed("Parsing decks");
+        currentDeck = StartUp.getCurrentDeck("src/main/resources/Decks.xml");
         updateFeed("Parsing matches");
         archiver = StartUp.getMatchArchiver("src/main/resources/Matches.xml");
 //        updateFeed("Assigning matches to decks and vice versa");
-//        StartUp.assignMatchesToDecks(decks, matches);
+        StartUp.assignMatchesToDeck(currentDeck, matches);
         updateFeed("Parsing match statistics");
         ClassStatisticsKeeper = StartUp.getClassStatistics("src/main/resources/ClassStatistics.xml");
         classVSClassStatisticsKeeper = StartUp.getClassVSClassStatistics("src/main/resources/ClassVSClassStatistics.xml");
@@ -74,9 +74,10 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
         return deckWinStatisticsKeeper;
     }
 
-//    public List<Deck> getDecks() {
-//        return decks;
-//    }
+    public MatchArchiver getArchiver() {
+        return archiver;
+    }  
+    
 //
 //    public List<Match> getMatches() {
 //        return matches;
@@ -159,12 +160,13 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         dispose();
         MainGUI mainGUI = new MainGUI();
-//        mainGUI.setMatches(matches);
-//        mainGUI.setDecks(decks);
+        mainGUI.setMatches(matches);
         mainGUI.setClassStatisticsKeeper(ClassStatisticsKeeper);
         mainGUI.setClassVSClassStatisticsKeeper(classVSClassStatisticsKeeper);
         mainGUI.setDeckClassStatisticsKeeper(deckClassStatisticsKeeper);
         mainGUI.setDeckWinStatisticsKeeper(deckWinStatisticsKeeper);
+        mainGUI.setMatchArchiver(archiver);
+        mainGUI.setCurrentDeck(currentDeck);
         SwingUtilities.invokeLater(mainGUI);
         mainGUI.setVisible(true);
     }//GEN-LAST:event_okButtonActionPerformed
@@ -176,11 +178,12 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JTextArea textFeed;
     // End of variables declaration//GEN-END:variables
-    private List<Deck> decks;
+    private Deck currentDeck;
     private List<Match> matches;
     private ClassStatisticsKeeper ClassStatisticsKeeper;
     private ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
     private DeckClassStatisticsKeeper deckClassStatisticsKeeper;
     private RewardStatisticsKeeper deckWinStatisticsKeeper;
     private MatchArchiver archiver;
+   
 }

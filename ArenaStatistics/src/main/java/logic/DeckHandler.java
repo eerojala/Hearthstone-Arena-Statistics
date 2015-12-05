@@ -7,16 +7,12 @@ public class DeckHandler {
 
     private Deck deck;
 
-    public DeckHandler() {
-
-    }
-
     public boolean addMatch(Match match) {
         match.setDeck(deck);
-        match.setPlayerDeckClass(deck.getDeckClass());
+        match.setPlayerClass(deck.getDeckClass());
         deck.getMatches().add(match);
         increaseWinOrLossCount(match);
-        return isFinished();
+        return deck.isFinished();
     }
 
     private void increaseWinOrLossCount(Match match) {
@@ -27,17 +23,21 @@ public class DeckHandler {
         }
     }
 
-    private boolean isFinished() {
-        return deck.getWins() >= 12 || deck.getLosses() >= 3;
-    }
-
     public Match removeMatch(int i) {
         try {
+            correctMatchNumbers(i);
             Match match = deck.getMatches().remove(i);
             decreaseWinOrLossCount(match);
             return match;
         } catch (Exception e) {
             return null;
+        }
+    }
+    
+    private void correctMatchNumbers(int j) { // j == index of the match which is going to be removed
+        for (int i = j + 1; i < deck.getMatches().size(); i++) {
+            Match match = deck.getMatches().get(i);
+            match.setMatchNumber(match.getMatchNumber() + 1);
         }
     }
 

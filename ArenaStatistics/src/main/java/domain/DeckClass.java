@@ -15,6 +15,7 @@ public enum DeckClass {
     private final String name;
     private final String portraitFilename;
     private final String alPortraitFilename;
+    
     private DeckClass(String name, String portraitFilepath, String altPortraitFilePath) {
         this.name = name;
         this.portraitFilename = portraitFilepath;

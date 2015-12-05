@@ -65,7 +65,7 @@ public class DeckHandlerTest {
     @Test
     public void addMatch_sets_playerClass_to_match() {
         handler.addMatch(match1);
-        assertEquals(handler.getDeckClass(), match1.getPlayerDeckClass());
+        assertEquals(handler.getDeckClass(), match1.getPlayerClass());
     }
 
     @Test

@@ -117,5 +117,11 @@ public class Deck implements Comparable<Deck>{
         return toString().hashCode();
     }
     
+    public boolean isFinished() {
+        return wins > 11 || losses > 2;
+    }
     
+    public String getScore() {
+        return wins + "-" + losses;
+    }
 }

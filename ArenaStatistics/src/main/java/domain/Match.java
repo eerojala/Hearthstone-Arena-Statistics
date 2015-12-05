@@ -2,34 +2,34 @@ package domain;
 
 public class Match implements Comparable<Match> {
 
-    private DeckClass playerDeckClass;
-    private final DeckClass opponentDeckClass;
-    private final String opponentName;
+    private DeckClass playerClass;
+    private final DeckClass opponentClass;
+    private String opponentName;
     private final Outcome outcome;
     private final boolean wentFirst;
     private final int deckNumber;
-    private final int matchNumber;
+    private int matchNumber;
     private Deck deck;
-
-    public Match(DeckClass opponentClass, String opponentName,
-            Outcome outcome, boolean wentFirst, int deckNumber, int matchNumber) {
-        this.opponentDeckClass = opponentClass;
-        this.opponentName = opponentName;
+    
+    public Match(DeckClass opponentClass, Outcome outcome, boolean wentFirst, 
+            int deckNumber, int matchNumber) {
+        this.opponentClass = opponentClass;
         this.outcome = outcome;
         this.wentFirst = wentFirst;
         this.deckNumber = deckNumber;
         this.matchNumber = matchNumber;
     }
-    
+
+    public Match(DeckClass opponentClass, String opponentName,
+            Outcome outcome, boolean wentFirst, int deckNumber, int matchNumber) {
+        this(opponentClass, outcome, wentFirst, deckNumber, matchNumber);
+        this.opponentName = opponentName;
+    }
+
     public Match(DeckClass playerClass, DeckClass opponentClass, String opponentName,
             Outcome outcome, boolean wentFirst, int deckNumber, int matchNumber) {
-        playerDeckClass = playerClass;
-        opponentDeckClass = opponentClass;
-        this.opponentName = opponentName;
-        this.outcome = outcome;
-        this.wentFirst = wentFirst;
-        this.deckNumber = deckNumber;
-        this.matchNumber = matchNumber;
+        this(opponentClass, opponentName, outcome, wentFirst, deckNumber, matchNumber);
+        this.playerClass = playerClass;
     }
 
     public Deck getDeck() {
@@ -44,16 +44,16 @@ public class Match implements Comparable<Match> {
         return matchNumber;
     }
 
-    public DeckClass getOpponentDeckClass() {
-        return opponentDeckClass;
+    public DeckClass getOpponentClass() {
+        return opponentClass;
     }
 
     public String getOpponentName() {
         return opponentName;
     }
 
-    public DeckClass getPlayerDeckClass() {
-        return playerDeckClass;
+    public DeckClass getPlayerClass() {
+        return playerClass;
     }
 
     public Outcome getOutcome() {
@@ -68,8 +68,12 @@ public class Match implements Comparable<Match> {
         this.deck = deck;
     }
 
-    public void setPlayerDeckClass(DeckClass playerDeckClass) {
-        this.playerDeckClass = playerDeckClass;
+    public void setMatchNumber(int matchNumber) {
+        this.matchNumber = matchNumber;
+    }
+
+    public void setPlayerClass(DeckClass playerClass) {
+        this.playerClass = playerClass;
     }
 
     @Override
@@ -97,7 +101,7 @@ public class Match implements Comparable<Match> {
 
     @Override
     public String toString() {
-        return "Deck#: " + deckNumber + ", Match#: " + matchNumber;
+        return "Match #" + matchNumber + ": " + playerClass + " VS " + opponentClass;
     }
 
     @Override

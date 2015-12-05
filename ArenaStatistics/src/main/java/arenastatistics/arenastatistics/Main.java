@@ -16,9 +16,9 @@ import util.TestForLoop;
 public class Main {
 
     public static void main(String[] args) {
-//        StartUpGUI gui = new StartUpGUI();
-//        SwingUtilities.invokeLater(gui);
-//        gui.setVisible(true);
+        StartUpGUI gui = new StartUpGUI();
+        SwingUtilities.invokeLater(gui);
+        gui.setVisible(true);
 //        MatchWriter writer;
 //        MatchParser parser;
 //        Document doc;

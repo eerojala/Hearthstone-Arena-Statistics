@@ -23,22 +23,22 @@ public class ClassStatisticsKeeper extends MatchStatisticsKeeper{
         } else if (match.getOutcome() == Outcome.LOSS) {
             addMatchThatWent1stAndLost(match);
         }
-        updateWinPercentageIn1stMatchMaps(match.getPlayerDeckClass(), match.getOpponentDeckClass());
+        updateWinPercentageIn1stMatchMaps(match.getPlayerClass(), match.getOpponentClass());
     }
 
     private void increaseIntegerIn1stMatchMaps(Match match) {
-        Mapper.increaseIntegerInDcIntMap(statistics.getMatchesAsClass1st(), match.getPlayerDeckClass());
-        Mapper.increaseIntegerInDcIntMap(statistics.getMatchesVSClass1st(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getMatchesAsClass1st(), match.getPlayerClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getMatchesVSClass1st(), match.getOpponentClass());
     }
 
     private void addMatchThatWent1stAndWon(Match match) {
-        Mapper.increaseIntegerInDcIntMap(statistics.getWinsAsClass1st(), match.getPlayerDeckClass());
-        Mapper.increaseIntegerInDcIntMap(statistics.getWinsVSClass1st(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getWinsAsClass1st(), match.getPlayerClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getWinsVSClass1st(), match.getOpponentClass());
     }
 
     private void addMatchThatWent1stAndLost(Match match) {
-        Mapper.increaseIntegerInDcIntMap(statistics.getLossesAsClass1st(), match.getPlayerDeckClass());
-        Mapper.increaseIntegerInDcIntMap(statistics.getLossesVSClass1st(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getLossesAsClass1st(), match.getPlayerClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getLossesVSClass1st(), match.getOpponentClass());
     }
     
     public void updateWinPercentageIn1stMatchMaps(DeckClass playerClass, DeckClass opponentClass) {
@@ -58,22 +58,22 @@ public class ClassStatisticsKeeper extends MatchStatisticsKeeper{
         } else if (match.getOutcome() == Outcome.LOSS) {
             addMatchThatWent2ndAndLost(match);
         }
-        updateWinPercentageIn2ndMatchMaps(match.getPlayerDeckClass(), match.getOpponentDeckClass());
+        updateWinPercentageIn2ndMatchMaps(match.getPlayerClass(), match.getOpponentClass());
     }
 
     private void addMatchTo2ndMatchMaps(Match match) {
-        Mapper.increaseIntegerInDcIntMap(statistics.getMatchesAsClass2nd(), match.getPlayerDeckClass());
-        Mapper.increaseIntegerInDcIntMap(statistics.getMatchesVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getMatchesAsClass2nd(), match.getPlayerClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getMatchesVSClass2nd(), match.getOpponentClass());
     }
 
     private void addMatchThatWent2ndAndWon(Match match) {
-        Mapper.increaseIntegerInDcIntMap(statistics.getWinsAsClass2nd(), match.getPlayerDeckClass());
-        Mapper.increaseIntegerInDcIntMap(statistics.getWinsVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getWinsAsClass2nd(), match.getPlayerClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getWinsVSClass2nd(), match.getOpponentClass());
     }
 
     private void addMatchThatWent2ndAndLost(Match match) {
-        Mapper.increaseIntegerInDcIntMap(statistics.getLossesAsClass2nd(), match.getPlayerDeckClass());
-        Mapper.increaseIntegerInDcIntMap(statistics.getLossesVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getLossesAsClass2nd(), match.getPlayerClass());
+        Mapper.increaseIntegerInDcIntMap(statistics.getLossesVSClass2nd(), match.getOpponentClass());
     }
 
     public void updateWinPercentageIn2ndMatchMaps(DeckClass playerClass, DeckClass opponentClass) {
@@ -219,22 +219,22 @@ public class ClassStatisticsKeeper extends MatchStatisticsKeeper{
         } else if (match.getOutcome() == Outcome.LOSS) {
             removeMatchThatWent1stAndLost(match);
         }
-        updateWinPercentageIn1stMatchMaps(match.getPlayerDeckClass(), match.getOpponentDeckClass());
+        updateWinPercentageIn1stMatchMaps(match.getPlayerClass(), match.getOpponentClass());
     }
 
     private void removeMatchFrom1stMatchMaps(Match match) {
-        Mapper.decreaseIntegerInDcIntMap(statistics.getMatchesAsClass1st(), match.getPlayerDeckClass());
-        Mapper.decreaseIntegerInDcIntMap(statistics.getMatchesVSClass1st(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getMatchesAsClass1st(), match.getPlayerClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getMatchesVSClass1st(), match.getOpponentClass());
     }
 
     private void removeMatchThatWent1stAndWon(Match match) {
-        Mapper.decreaseIntegerInDcIntMap(statistics.getWinsAsClass1st(), match.getPlayerDeckClass());
-        Mapper.decreaseIntegerInDcIntMap(statistics.getWinsVSClass1st(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getWinsAsClass1st(), match.getPlayerClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getWinsVSClass1st(), match.getOpponentClass());
     }
 
     private void removeMatchThatWent1stAndLost(Match match) {
-        Mapper.decreaseIntegerInDcIntMap(statistics.getLossesAsClass1st(), match.getPlayerDeckClass());
-        Mapper.decreaseIntegerInDcIntMap(statistics.getLossesVSClass1st(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getLossesAsClass1st(), match.getPlayerClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getLossesVSClass1st(), match.getOpponentClass());
     }
 
     @Override
@@ -245,22 +245,22 @@ public class ClassStatisticsKeeper extends MatchStatisticsKeeper{
         } else if (match.getOutcome() == Outcome.LOSS) {
             removeMatchThatWent2ndAndLost(match);
         }
-        updateWinPercentageIn2ndMatchMaps(match.getPlayerDeckClass(), match.getOpponentDeckClass());
+        updateWinPercentageIn2ndMatchMaps(match.getPlayerClass(), match.getOpponentClass());
     }
 
     private void removeMatchFrom2ndMatchMaps(Match match) {
-        Mapper.decreaseIntegerInDcIntMap(statistics.getMatchesAsClass2nd(), match.getPlayerDeckClass());
-        Mapper.decreaseIntegerInDcIntMap(statistics.getMatchesVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getMatchesAsClass2nd(), match.getPlayerClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getMatchesVSClass2nd(), match.getOpponentClass());
     }
 
     private void removeMatchThatWent2ndAndWon(Match match) {
-        Mapper.decreaseIntegerInDcIntMap(statistics.getWinsAsClass2nd(), match.getPlayerDeckClass());
-        Mapper.decreaseIntegerInDcIntMap(statistics.getWinsVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getWinsAsClass2nd(), match.getPlayerClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getWinsVSClass2nd(), match.getOpponentClass());
     }
 
     private void removeMatchThatWent2ndAndLost(Match match) {
-        Mapper.decreaseIntegerInDcIntMap(statistics.getLossesAsClass2nd(), match.getPlayerDeckClass());
-        Mapper.decreaseIntegerInDcIntMap(statistics.getLossesVSClass2nd(), match.getOpponentDeckClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getLossesAsClass2nd(), match.getPlayerClass());
+        Mapper.decreaseIntegerInDcIntMap(statistics.getLossesVSClass2nd(), match.getOpponentClass());
     }
 
     public ClassStatistics getStatistics() {

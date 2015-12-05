@@ -5,8 +5,9 @@ import javax.swing.*;
 import logic.DeckClassStatisticsKeeper;
 import util.PortraitSetter;
 
-public class ClassSpecificDeckStatistics extends StatisticsWithPortrait {
+public class ClassSpecificDeckStatistics  implements StatisticsGUI, GUIWithPortrait {
 
+    private MainGUI gui;
     private DeckClassStatisticsKeeper keeper;
     private JComboBox classChooser;
     private JRadioButton mainPortraitChooser;
@@ -31,7 +32,7 @@ public class ClassSpecificDeckStatistics extends StatisticsWithPortrait {
     private JLabel twelveWinDecks;
 
     public ClassSpecificDeckStatistics(MainGUI gui) {
-        super(gui);
+        this.gui = gui;
         setObjects();
     }
 
@@ -69,7 +70,7 @@ public class ClassSpecificDeckStatistics extends StatisticsWithPortrait {
     }
 
     @Override
-    protected void updatePortraitChoosers() {
+    public void updatePortraitChoosers() {
         PortraitSetter.updatePortraitChoosers(mainPortraitChooser, altPortraitChooser, (DeckClass) classChooser.getSelectedItem());
     }
 
@@ -99,4 +100,11 @@ public class ClassSpecificDeckStatistics extends StatisticsWithPortrait {
         elevenWinDecks.setText("" + keeper.getDecksAsClassWithXWins(dc, 11));
         twelveWinDecks.setText("" + keeper.getDecksAsClassWithXWins(dc, 12));
     }
+
+    @Override
+    public void updateVisuals() {
+        updatePortrait();
+        updatePortraitChoosers();
+        updateStats();
+    } 
 }

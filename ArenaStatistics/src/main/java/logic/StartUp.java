@@ -8,10 +8,15 @@ import java.util.List;
 
 public class StartUp {
 
-    public static List<Deck> getDecks(String filepath) {
+    public static Deck getCurrentDeck(String filepath) {
         DeckParser parser = new DeckParser(filepath);
         parser.addValues();
-        return parser.getDecks();
+        List<Deck> decks = parser.getDecks();
+        try {
+            return decks.get(decks.size() - 1);
+        } catch (Exception e) {
+            return null;
+        }      
     }
     
     public static MatchArchiver getMatchArchiver(String filepath) {
@@ -44,7 +49,7 @@ public class StartUp {
         return parser.getKeeper();
     }
 
-    public static void assignMatchesToDecks(List<Deck> decks, List<Match> matches) {
-        MatchAssigner.assignMatches(decks, matches);
+    public static void assignMatchesToDeck(Deck deck, List<Match> matches) {
+        MatchAssigner.assignMatchesToDeck(deck, matches);
     }
 }

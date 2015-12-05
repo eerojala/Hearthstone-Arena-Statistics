@@ -35,13 +35,14 @@ public class MatchArchiver {
 //        String id = "" + match.getDeckNumber() + "." + match.getMatchNumber();
 //        archive.getMatchesByID().put(id, match);
         addMatchToMatchesByOpponent(match);
+        addMatchToMatchesByDeckNumber(match);
 //        addMatchToMapWithDeckClassKey(archive.getMatchesByPlayerDeckClass(), match.getPlayerDeckClass(), match);
 //        addMatchToMapWithDeckClassKey(archive.getMatchesByOpponentDeckClass(), match.getOpponentDeckClass(), match);
 //        addMatchToMatchesByOutcome(match);
     }
     
     private void addMatchToMatchesByOpponent(Match match) {
-        List list;
+        List<Match> list;
         if (archive.getMatchesByOpponent().containsKey(match.getOpponentName())) {
             list = archive.getMatchesByOpponent().get(match.getOpponentName());
         } else {
@@ -49,6 +50,18 @@ public class MatchArchiver {
         }
         list.add(match);
         archive.getMatchesByOpponent().put(match.getOpponentName(), list);
+    }
+    
+    private void addMatchToMatchesByDeckNumber(Match match) {
+        List<Match> list;
+        int deckNumber = match.getDeckNumber();
+        if (archive.getMatchesByDeckNumber().containsKey(deckNumber)) {
+            list = archive.getMatchesByDeckNumber().get(deckNumber);
+        } else {
+            list = new ArrayList();
+        }
+        list.add(match);
+        archive.getMatchesByDeckNumber().put(deckNumber, list);
     }
 
 //    private void addMatchToMapWithDeckClassKey(Map<DeckClass, List<Match>> map,
@@ -93,6 +106,10 @@ public class MatchArchiver {
     
     public List<Match> getMatchesByOpponent(String name) {
         return archive.getMatchesByOpponent().get(name);
+    }
+    
+    public List<Match> getMatchesByDeckNumber(int deckNumber) {
+        return archive.getMatchesByDeckNumber().get(deckNumber);
     }
 
     public MatchArchive getArchive() {

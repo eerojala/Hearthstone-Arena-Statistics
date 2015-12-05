@@ -128,76 +128,76 @@ public class MatchWriterTest {
     public void written_match_has_correct_player_class1() {
         parseDocument();
         match = matches.get(0);
-        assertEquals(DeckClass.DRUID, match.getPlayerDeckClass());
+        assertEquals(DeckClass.DRUID, match.getPlayerClass());
     }
 
     @Test
     public void written_match_has_correct_player_class2() {
         parseDocument();
         match = matches.get(8);
-        assertEquals(DeckClass.PALADIN, match.getPlayerDeckClass());
+        assertEquals(DeckClass.PALADIN, match.getPlayerClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class1() {
         parseDocument();
         match = matches.get(0);
-        assertEquals(DeckClass.PALADIN, match.getOpponentDeckClass());
+        assertEquals(DeckClass.PALADIN, match.getOpponentClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class2() {
         parseDocument();
         match = matches.get(1);
-        assertEquals(DeckClass.ROGUE, match.getOpponentDeckClass());
+        assertEquals(DeckClass.ROGUE, match.getOpponentClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class3() {
         parseDocument();
         match = matches.get(2);
-        assertEquals(DeckClass.HUNTER, match.getOpponentDeckClass());
+        assertEquals(DeckClass.HUNTER, match.getOpponentClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class4() {
         parseDocument();
         match = matches.get(3);
-        assertEquals(DeckClass.DRUID, match.getOpponentDeckClass());
+        assertEquals(DeckClass.DRUID, match.getOpponentClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class5() {
         parseDocument();
         match = matches.get(4);
-        assertEquals(DeckClass.WARRIOR, match.getOpponentDeckClass());
+        assertEquals(DeckClass.WARRIOR, match.getOpponentClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class6() {
         parseDocument();
         match = matches.get(5);
-        assertEquals(DeckClass.SHAMAN, match.getOpponentDeckClass());
+        assertEquals(DeckClass.SHAMAN, match.getOpponentClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class7() {
         parseDocument();
         match = matches.get(6);
-        assertEquals(DeckClass.MAGE, match.getOpponentDeckClass());
+        assertEquals(DeckClass.MAGE, match.getOpponentClass());
     }
 
     public void written_match_has_correct_opponent_class8() {
         parseDocument();
         match = matches.get(7);
-        assertEquals(DeckClass.WARLOCK, match.getOpponentDeckClass());
+        assertEquals(DeckClass.WARLOCK, match.getOpponentClass());
     }
 
     @Test
     public void written_match_has_correct_opponent_class9() {
         parseDocument();
         match = matches.get(8);
-        assertEquals(DeckClass.PRIEST, match.getOpponentDeckClass());
+        assertEquals(DeckClass.PRIEST, match.getOpponentClass());
     }
 
     @Test

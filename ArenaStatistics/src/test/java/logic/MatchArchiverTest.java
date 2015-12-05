@@ -177,6 +177,40 @@ public class MatchArchiverTest {
         assertNull(archiver.getMatchesByOpponent("UNKNOWN"));
     }
     
+    @Test
+    public void matches_by_deck_number_have_matches_correctly1() {
+        assertEquals(2, archiver.getMatchesByDeckNumber(1).size());
+    }
+    
+    @Test
+    public void matches_by_deck_number_have_matches_correctly2() {
+        assertTrue(archiver.getMatchesByDeckNumber(1).contains(match1));
+    }
+    
+    @Test
+    public void matches_by_deck_number_have_matches_correctly3() {
+        assertTrue(archiver.getMatchesByDeckNumber(1).contains(match2));
+    }
+    
+    @Test
+    public void matches_by_deck_number_have_matches_correctly4() {
+        assertEquals(2, archiver.getMatchesByDeckNumber(2).size());
+    }
+    
+    @Test
+    public void matches_by_deck_number_have_matches_correctly5() {
+        assertTrue(archiver.getMatchesByDeckNumber(2).contains(match3));
+    }
+    
+    @Test
+    public void matches_by_deck_number_have_matches_correctly6() {
+        assertTrue(archiver.getMatchesByDeckNumber(2).contains(match4));
+    }
+    
+    @Test
+    public void matches_by_deck_number_returns_null_if_no_matches_found() {
+        assertNull(archiver.getMatchesByDeckNumber(3));
+    }
 //    @Test
 //    public void matches_by_player_class_have_matches_correctly1() {
 //        assertTrue(archiver.getMatchesByPlayerDeckClass(DeckClass.MAGE).contains(match1));

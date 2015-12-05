@@ -7,22 +7,32 @@ import javax.swing.JRadioButton;
 
 public class PortraitSetter {
 
+    public static String filePath = "src/main/resources/portraits/";
+
     public static void setPortrait(JRadioButton mainPortraitChooser, JRadioButton altPortraitChooser,
-            JLabel classPortrait, DeckClass dc) {
-        ImageIcon icon;
-        String filename;
+            JLabel portrait, DeckClass dc) {
         if (mainPortraitChooser.isSelected()) {
-            filename = dc.getPortraitFilename();
+            setMainPortrait(portrait, dc);
         } else {
-            filename = dc.getAlPortraitFilename();
+            setAltPortrait(portrait, dc);
         }
-        icon = new ImageIcon("src/main/resources/portraits/" + filename);
-        classPortrait.setIcon(icon);
+    }
+
+    public static void setMainPortrait(JLabel portrait, DeckClass dc) {
+        setPortrait(portrait, dc.getPortraitFilename());
     }
     
-    public static void updatePortraitChoosers(JRadioButton mainPortraitChooser, 
+    public static void setAltPortrait(JLabel portrait, DeckClass dc) {
+        setPortrait(portrait, dc.getAlPortraitFilename());
+    }
+
+    private static void setPortrait(JLabel portrait, String fileName) {
+        portrait.setIcon(new ImageIcon(filePath + fileName));
+    }
+
+    public static void updatePortraitChoosers(JRadioButton mainPortraitChooser,
             JRadioButton altPortraitChooser, DeckClass dc) {
-    if (dc.getAlPortraitFilename().isEmpty()) {
+        if (dc.getAlPortraitFilename().isEmpty()) {
             altPortraitChooser.setEnabled(false);
             mainPortraitChooser.setSelected(true);
         } else {
