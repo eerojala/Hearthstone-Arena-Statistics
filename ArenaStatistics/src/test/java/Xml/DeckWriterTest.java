@@ -270,4 +270,6 @@ public class DeckWriterTest {
         deck = decks.get(1);
         assertEquals(Card.LEGENDARY_GOLD, deck.getRewardCards().get(3));
     }
+
+
 }

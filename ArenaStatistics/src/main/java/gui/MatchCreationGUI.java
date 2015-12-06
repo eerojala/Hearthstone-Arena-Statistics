@@ -225,6 +225,9 @@ public class MatchCreationGUI extends javax.swing.JFrame implements Runnable{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        Match match = new Match((DeckClass)opponentClass.getSelectedItem(), outcome, going1st, deckNumber, matchNumber);
+       maingui.addNewMatch(match);
+       maingui.setEnabled(true);
+       this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

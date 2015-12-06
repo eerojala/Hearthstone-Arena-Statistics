@@ -1,5 +1,11 @@
 package gui;
 
+import Xml.MatchStatisticsWriter;
+import logic.StatisticsGUI;
+import logic.MatchStatisticsLogic;
+import logic.GeneralDeckStatisticsLogic;
+import logic.CurrentDeckEditorLogic;
+import logic.ClassSpecificDeckStatisticsLogic;
 import domain.Deck;
 import domain.DeckClass;
 import domain.Match;
@@ -24,13 +30,13 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     @Override
     public void run() {
         initComponents();
-        classSpecificDeckStatistics = new ClassSpecificDeckStatistics(this);
+        classSpecificDeckStatistics = new ClassSpecificDeckStatisticsLogic(this);
         classSpecificDeckStatistics.updateVisuals();
-        matchStatistics = new MatchStatistics(this);
+        matchStatistics = new MatchStatisticsLogic(this);
         matchStatistics.updateVisuals();
-        generalDeckStatistics = new GeneralDeckStatistics(this);
+        generalDeckStatistics = new GeneralDeckStatisticsLogic(this);
         generalDeckStatistics.updateStats();
-        currentDeckEditor = new CurrentDeckEditor(this);
+        currentDeckEditor = new CurrentDeckEditorLogic(this);
     }
 
     public void setCurrentDeck(Deck currentDeck) {
@@ -66,6 +72,11 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         this.matches = matches;
         this.currentMatchNumber = matches.get(matches.size() - 1).getMatchNumber() + 1;
     }
+
+    public void setNewMatch(Match newMatch) {
+        this.newMatch = newMatch;
+    }
+
     public JLabel getClassDeckStatisticsPortrait() {
         return classDeckStatisticsPortrait;
     }
@@ -363,19 +374,19 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     public Deck getCurrentDeck() {
         return currentDeck;
     }
-    
+
     public JLabel getCurrentScore() {
         return currentScore;
     }
-    
+
     public JLabel getCurrentDeckPlayerClass() {
         return currentDeckPlayerClass;
     }
-    
+
     public JLabel getCurrentDeckOpponentClass() {
         return currentDeckOpponentClass;
     }
-    
+
     public JLabel getCurrentDeckOutcome() {
         return currentDeckOutcome;
     }
@@ -383,46 +394,67 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     public JLabel getCurrentDeck1stOr2nd() {
         return currentDeck1stOr2nd;
     }
-    
+
     public JLabel getCurrentDeckPortrait() {
         return currentDeckPortrait;
     }
-    
+
     public JRadioButton getCurrentDeckMainPortraitChooser() {
         return currentDeckMainPortraitChooser;
     }
-    
+
     public JRadioButton getCurrentDeckAltPortraitChooser() {
         return currentDeckAltPortraitChooser;
     }
-    
+
     public JComboBox getMatchSelect() {
         return matchSelect;
     }
-    
+
     public JButton getAddMatch() {
         return addMatch;
     }
-    
+
     public JButton getRemoveMatch() {
         return removeMatch;
     }
-    
+
     public JButton getNewDeck() {
         return newDeck;
     }
-    
+
     public JButton getRetireCurrentDeck() {
         return retireCurrentDeck;
     }
-    
+
     public JButton getRemoveCurrentDeck() {
         return removeCurrentDeck;
     }
-    
+
     public JPanel getMatchInfoPanel() {
         return matchInfoPanel;
     }
+
+    public CurrentDeckEditorLogic getCurrentDeckEditor() {
+        return currentDeckEditor;
+    }
+
+    private void updateDeckStatsPortrait() {
+        classSpecificDeckStatistics.updatePortrait();
+    }
+
+    private void updateMatchStatsPortrait() {
+        matchStatistics.updatePortrait();
+    }
+    
+    public void addNewMatch(Match match) {
+    
+    }
+    
+    private void writeData() {
+    
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1913,10 +1945,10 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_matchStatisticsClass1ChooserActionPerformed
 
     private void newDeckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newDeckActionPerformed
-       DeckCreationGUI deckCreationGUI = new DeckCreationGUI(this, currentDeckNumber);
-       SwingUtilities.invokeLater(deckCreationGUI);
-       deckCreationGUI.setVisible(true);
-       this.setEnabled(false);
+        DeckCreationGUI deckCreationGUI = new DeckCreationGUI(this, currentDeckNumber);
+        SwingUtilities.invokeLater(deckCreationGUI);
+        deckCreationGUI.setVisible(true);
+        this.setEnabled(false);
     }//GEN-LAST:event_newDeckActionPerformed
 
     private void addMatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMatchActionPerformed
@@ -1925,14 +1957,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         matchCreationGUI.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_addMatchActionPerformed
-
-    private void updateDeckStatsPortrait() {
-        classSpecificDeckStatistics.updatePortrait();
-    }
-
-    private void updateMatchStatsPortrait() {
-        matchStatistics.updatePortrait();
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2087,11 +2111,13 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
     private DeckClassStatisticsKeeper deckClassStatisticsKeeper;
     private RewardStatisticsKeeper deckWinStatisticsKeeper;
-    private ClassSpecificDeckStatistics classSpecificDeckStatistics;
-    private MatchStatistics matchStatistics;
+    private ClassSpecificDeckStatisticsLogic classSpecificDeckStatistics;
+    private MatchStatisticsLogic matchStatistics;
     private StatisticsGUI generalDeckStatistics;
     private MatchArchiver matchArchiver;
-    private CurrentDeckEditor currentDeckEditor;
+    private CurrentDeckEditorLogic currentDeckEditor;
     private int currentDeckNumber;
     private int currentMatchNumber;
+    private Match newMatch;
+    
 }

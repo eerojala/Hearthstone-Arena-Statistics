@@ -1,7 +1,7 @@
 
 package Xml;
 
-import Xml.DeckParser;
+
 import domain.Deck;
 import domain.DeckClass;
 import domain.Card;

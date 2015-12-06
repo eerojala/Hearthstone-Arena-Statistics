@@ -5,8 +5,8 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\util\Stati
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\DeckClassStatisticsKeeperTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\DeckWriterTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\DeckClassStatisticsParserTest.java
-C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\ClassStatisticsParserTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\ClassStatisticsKeeperTest.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\MatchStatisticsWriterTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\MatchWriterTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\RewardStatisticsTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\RewardStatisticsKeeperTest.java
@@ -19,7 +19,6 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\Deck
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\MatchAssignerTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\DeckClassStatisticsWriterTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\MatchArchiverTest.java
-C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\ClassStatisticsWriterTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\ClassStatisticsTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\MatchTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\DeckParserTest.java
@@ -27,6 +26,7 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\Dec
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\DocumentBuilderTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\util\TestForLoopTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\MatchParserTest.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\MatchStatisticsParserTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\ClassVsClassStatisticsTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\RewardStatisticsWriterTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\Xml\ClassVSClassStatisticsWriterTest.java

@@ -26,7 +26,7 @@ public class StartUp {
     }
 
     public static ClassStatisticsKeeper getClassStatistics(String filepath) {
-        ClassStatisticsParser parser = new ClassStatisticsParser(filepath);
+        MatchStatisticsParser parser = new MatchStatisticsParser(filepath);
         parser.addValues();
         return parser.getKeeper();
     }
