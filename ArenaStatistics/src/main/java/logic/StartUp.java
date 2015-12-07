@@ -1,6 +1,11 @@
 package logic;
 
-import Xml.*;
+import xml.MatchParser;
+import xml.DeckParser;
+import xml.DeckClassStatisticsParser;
+import xml.RewardStatisticsParser;
+import xml.MatchStatisticsParser;
+import xml.ClassVSClassStatisticsParser;
 import domain.Deck;
 import domain.Match;
 import java.util.ArrayList;

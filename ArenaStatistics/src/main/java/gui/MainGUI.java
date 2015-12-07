@@ -1,6 +1,6 @@
 package gui;
 
-import Xml.MatchStatisticsWriter;
+import xml.MatchStatisticsWriter;
 import logic.StatisticsGUI;
 import logic.MatchStatisticsLogic;
 import logic.GeneralDeckStatisticsLogic;
