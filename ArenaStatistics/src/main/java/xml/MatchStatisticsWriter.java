@@ -3,7 +3,6 @@ package xml;
 import domain.DeckClass;
 import logic.ClassStatisticsKeeper;
 import org.jdom.Attribute;
-import org.jdom.Document;
 import org.jdom.Element;
 
 public class MatchStatisticsWriter extends StatisticsWriter {

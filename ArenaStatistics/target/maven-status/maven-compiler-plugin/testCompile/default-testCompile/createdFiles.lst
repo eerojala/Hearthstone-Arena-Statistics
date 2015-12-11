@@ -31,3 +31,4 @@ logic\MatchArchiverTest.class
 domain\ClassVsClassStatisticsTest.class
 logic\DeckArchiverTest.class
 domain\DeckClassPairTest.class
+xml\DataWriterTest.class

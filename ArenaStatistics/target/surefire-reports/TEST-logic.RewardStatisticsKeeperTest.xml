@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="71" failures="0" name="logic.RewardStatisticsKeeperTest" time="0.022" errors="0" skipped="0">
+<testsuite tests="71" failures="0" name="logic.RewardStatisticsKeeperTest" time="0.006" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -67,28 +67,28 @@
   <testcase classname="logic.RewardStatisticsKeeperTest" name="gold_cards_by_wins_has_correct_values2" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_average_dust_by_wins" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalRegularCards_works_correctly" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalGoldenCards_works_correctly" time="0.001"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalGoldenCards_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_average_regular_cards_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="get_total_deck_amount_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalExtraPacks_works_correctly" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="set_regular_cards_by_wins_works_correctly" time="0.001"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="set_regular_cards_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_regular_cards_by_wins" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="gold_by_wins_has_correct_values1" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="gold_by_wins_has_correct_values2" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="gold_by_wins_has_correct_values3" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="gold_by_wins_has_correct_values4" time="0.001"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="gold_by_wins_has_correct_values4" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_decks_by_wins" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="average_extra_packs_by_wins_has_correct_values1" time="0.002"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="average_extra_packs_by_wins_has_correct_values1" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="average_extra_packs_by_wins_has_correct_values2" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_average_extra_packs_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_average_gold_cards_by_wins" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalGold_works_correctly" time="0.001"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalGold_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalGoldAvergae_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="average_gold_by_wins_has_correct_values1" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="average_gold_by_wins_has_correct_values2" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="average_gold_by_wins_has_correct_values3" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="average_gold_by_wins_has_correct_values4" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_average_extra_packs_by_wins" time="0.001"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_average_extra_packs_by_wins" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalGoldenCardsAverage_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_average_gold_cards_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="cards_by_wins_has_correct_values1" time="0"/>
@@ -104,7 +104,7 @@
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_average_gold_by_wins" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="percentageOutOfAllDecks_works_correctly1" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="percentageOutOfAllDecks_works_correctly2" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="percentageOutOfAllDecks_works_correctly3" time="0.001"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="percentageOutOfAllDecks_works_correctly3" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_gold_cards_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_average_gold_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_gold_by_wins_works_correctly" time="0"/>
@@ -126,12 +126,12 @@
   <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalDust_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalDustAverage_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_extra_packs_by_wins" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="average_gold_cards_by_wins_has_correct_values1" time="0.001"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="average_gold_cards_by_wins_has_correct_values1" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="average_gold_cards_by_wins_has_correct_values2" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalDeckAmount_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_dust_by_wins" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_extra_packs_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_decks_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="average_cards_by_wins_has_correct_values1" time="0"/>
-  <testcase classname="logic.RewardStatisticsKeeperTest" name="average_cards_by_wins_has_correct_values2" time="0"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="average_cards_by_wins_has_correct_values2" time="0.001"/>
 </testsuite>

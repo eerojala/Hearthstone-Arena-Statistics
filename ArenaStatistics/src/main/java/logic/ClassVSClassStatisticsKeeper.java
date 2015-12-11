@@ -185,6 +185,6 @@ public class ClassVSClassStatisticsKeeper extends MatchStatisticsKeeper {
     }
 
     public void reset() {
-        this.statistics = new ClassVsClassStatistics();
+        statistics = new ClassVsClassStatistics();
     }
 }

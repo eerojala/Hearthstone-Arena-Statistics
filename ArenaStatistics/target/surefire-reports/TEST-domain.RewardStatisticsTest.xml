@@ -68,7 +68,7 @@
   <testcase classname="domain.RewardStatisticsTest" name="cards_by_wins_have_zeroes_at_start" time="0"/>
   <testcase classname="domain.RewardStatisticsTest" name="average_dust_by_wins_have_zeroes_at_start" time="0"/>
   <testcase classname="domain.RewardStatisticsTest" name="average_cards_by_wins_have_zeroes_at_start" time="0"/>
-  <testcase classname="domain.RewardStatisticsTest" name="gold_by_wins_have_zeroes_at_start" time="0.001"/>
+  <testcase classname="domain.RewardStatisticsTest" name="gold_by_wins_have_zeroes_at_start" time="0"/>
   <testcase classname="domain.RewardStatisticsTest" name="extra_packs_by_wins_have_zeroes_at_start" time="0"/>
   <testcase classname="domain.RewardStatisticsTest" name="average_gold_cards_by_wins_have_zeroes_at_start" time="0"/>
   <testcase classname="domain.RewardStatisticsTest" name="average_extra_packs_by_wins_have_zeroes_at_start" time="0"/>

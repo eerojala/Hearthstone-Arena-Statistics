@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="util.StatisticsHelperTest" time="0.008" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="util.StatisticsHelperTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -63,9 +63,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="util.StatisticsHelperTest" name="getWinPercentage_returns_zero_if_win_percentage_is_negative" time="0.001"/>
-  <testcase classname="util.StatisticsHelperTest" name="sumMapValueIntegers_works_correctly" time="0.004"/>
-  <testcase classname="util.StatisticsHelperTest" name="getAverage_is_correct" time="0.001"/>
+  <testcase classname="util.StatisticsHelperTest" name="getWinPercentage_returns_zero_if_win_percentage_is_negative" time="0"/>
+  <testcase classname="util.StatisticsHelperTest" name="sumMapValueIntegers_works_correctly" time="0"/>
+  <testcase classname="util.StatisticsHelperTest" name="getAverage_is_correct" time="0"/>
   <testcase classname="util.StatisticsHelperTest" name="sumMapValueIntegers_doesnt_count_integers_out_of_range" time="0"/>
   <testcase classname="util.StatisticsHelperTest" name="getAverage_returns_zero_if_average_is_negative" time="0"/>
   <testcase classname="util.StatisticsHelperTest" name="getWinPercentage_is_correct" time="0"/>
