@@ -38,6 +38,10 @@ public class DataWriterTest {
     private final DeckClassPair dVSh = new DeckClassPair(DeckClass.DRUID, DeckClass.HUNTER);
 
     public DataWriterTest() {
+        initStatisticsKeepers();
+        setUpDataWriterAndFilepaths();
+        setUpDeckAndMatches();
+        addDeckAndMatchesToStatisticsKeepers();
     }
 
     @BeforeClass
@@ -50,11 +54,7 @@ public class DataWriterTest {
 
     @Before
     public void setUp() {
-        initStatisticsKeepers();
-        setUpDataWriterAndFilepaths();
-        setUpDeckAndMatches();
-        addDeckAndMatchesToStatisticsKeepers();      
-        writer.save(deck);
+        writer.initXml();
     }
 
     private void initStatisticsKeepers() {
@@ -74,7 +74,7 @@ public class DataWriterTest {
         writer.setMatchWriterFilePath(matchUrl);
         writer.setRewardStatisticsWriterFilePath(rewardUrl);
     }
-    
+
     private void setUpDeckAndMatches() {
         deck = new Deck(DeckClass.DRUID, 1);
         match1 = new Match(DeckClass.HUNTER, Outcome.WIN, true, 1, 1);
@@ -84,7 +84,7 @@ public class DataWriterTest {
         handler.addMatch(match1);
         handler.addMatch(match2);
     }
-    
+
     private void addDeckAndMatchesToStatisticsKeepers() {
         classStatisticsKeeper.addMatch(match1);
         classStatisticsKeeper.addMatch(match2);
@@ -98,13 +98,13 @@ public class DataWriterTest {
     public void tearDown() {
         writer.resetDataTest();
     }
-    
+
     @Test
     public void resetData_resets_classStatisticsKeeper() {
         writer.resetData();
         assertEquals(0, classStatisticsKeeper.getTotalMatches());
     }
-    
+
     @Test
     public void resetData_resets_match_statistics_xml() {
         writer.resetData();
@@ -112,7 +112,7 @@ public class DataWriterTest {
         parser.addValues();
         assertEquals(0, parser.getKeeper().getTotalMatches());
     }
-    
+
     @Test
     public void resetData_resets_classVSClassStatisticsKeeper() {
         writer.resetData();
@@ -126,13 +126,13 @@ public class DataWriterTest {
         parser.addValues();
         assertEquals(0, parser.getKeeper().getMatchesInClassVSClass1st(dVSh));
     }
-    
+
     @Test
     public void resetData_resets_deckClassStatisticsKeeper() {
         writer.resetData();
         assertEquals(0, deckClassStatisticsKeeper.getTotalDeckAmount());
     }
-    
+
     @Test
     public void resetData_resets_deck_class_statistics_xml() {
         writer.resetData();
@@ -140,13 +140,13 @@ public class DataWriterTest {
         parser.addValues();
         assertEquals(0, parser.getKeeper().getTotalDeckAmount());
     }
-    
+
     @Test
     public void resetData_resets_rewardStatisticsKeeper() {
         writer.resetData();
         assertEquals(0, rewardStatisticsKeeper.getTotalDeckAmount());
     }
-    
+
     @Test
     public void resetData_resets_reward_statistics_xml() {
         writer.resetData();
@@ -154,47 +154,82 @@ public class DataWriterTest {
         parser.addValues();
         assertEquals(0, parser.getKeeper().getTotalDeckAmount());
     }
-    
+
     @Test
     public void match_statistics_are_written() {
+        writer.saveStatistics(deck);
         MatchStatisticsParser parser = new MatchStatisticsParser(matchStatisticsUrl);
         parser.addValues();
         assertEquals(2, parser.getKeeper().getTotalMatches());
     }
-    
+
     @Test
     public void class_vs_class_statistics_are_written() {
+        writer.saveStatistics(deck);
         ClassVSClassStatisticsParser parser = new ClassVSClassStatisticsParser(classVSClassUrl);
         parser.addValues();
         assertEquals(1, parser.getKeeper().getMatchesInClassVSClass1st(dVSh));
     }
-    
+
     @Test
     public void deck_class_statistics_are_written() {
+        writer.saveStatistics(deck);
         DeckClassStatisticsParser parser = new DeckClassStatisticsParser(deckClassUrl);
         parser.addValues();
         assertEquals(1, parser.getKeeper().getTotalDeckAmount());
     }
-    
+
     @Test
     public void reward_statistics_are_written() {
+        writer.saveStatistics(deck);
         RewardStatisticsParser parser = new RewardStatisticsParser(rewardUrl);
         parser.addValues();
         assertEquals(1, parser.getKeeper().getTotalDeckAmount());
     }
-    
+
     @Test
     public void deck_is_written() {
+        writer.saveProgress(deck);
         DeckParser parser = new DeckParser(deckUrl);
         parser.addValues();
         assertEquals(deck, parser.getDecks().get(0));
     }
     
     @Test
+    public void only_one_deck_written_at_a_time() {
+        writer.saveProgress(deck);
+        DeckParser parser = new DeckParser(deckUrl);
+        parser.addValues();
+        assertEquals(1, parser.getDecks().size());
+    }
+
+    @Test
+    public void correct_amount_of_matches_written() {
+        addMatchesAgain();
+        MatchParser parser = new MatchParser(matchUrl);
+        parser.addValues();
+        assertEquals(2, parser.getArchiver().getMatchesByDeckNumber(1).size());
+    }
+    
+    private void addMatchesAgain() {
+        deck.setMatches(new ArrayList<Match>());
+        addMatch(match1);
+        addMatch(match2);
+    }
+    
+    private void addMatch(Match match) {
+        DeckHandler handler = new DeckHandler();
+        handler.setDeck(deck);
+        handler.addMatch(match);
+        writer.saveProgress(deck);
+    }
+
+    @Test
     public void matches_are_written() {
         List<Match> matches = new ArrayList();
         matches.add(match1);
         matches.add(match2);
+        addMatchesAgain();
         MatchParser parser = new MatchParser(matchUrl);
         parser.addValues();
         writer.resetData();

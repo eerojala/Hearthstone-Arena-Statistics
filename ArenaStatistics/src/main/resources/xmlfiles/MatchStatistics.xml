@@ -1,4 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Classes>
-    
+  <Class id="Hunter">
+    <MatchesAsClass1st>0</MatchesAsClass1st>
+    <MatchesAsClass2nd>0</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>0</WinsAsClass1st>
+    <WinsAsClass2nd>0</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>0</LossesAsClass1st>
+    <LossesAsClass2nd>0</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
+  <Class id="Mage">
+    <MatchesAsClass1st>0</MatchesAsClass1st>
+    <MatchesAsClass2nd>0</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>0</WinsAsClass1st>
+    <WinsAsClass2nd>0</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>0</LossesAsClass1st>
+    <LossesAsClass2nd>0</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
+  <Class id="Paladin">
+    <MatchesAsClass1st>0</MatchesAsClass1st>
+    <MatchesAsClass2nd>0</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>0</WinsAsClass1st>
+    <WinsAsClass2nd>0</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>0</LossesAsClass1st>
+    <LossesAsClass2nd>0</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
+  <Class id="Priest">
+    <MatchesAsClass1st>0</MatchesAsClass1st>
+    <MatchesAsClass2nd>0</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>0</WinsAsClass1st>
+    <WinsAsClass2nd>0</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>0</LossesAsClass1st>
+    <LossesAsClass2nd>0</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
+  <Class id="Rogue">
+    <MatchesAsClass1st>0</MatchesAsClass1st>
+    <MatchesAsClass2nd>0</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>0</WinsAsClass1st>
+    <WinsAsClass2nd>0</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>0</LossesAsClass1st>
+    <LossesAsClass2nd>0</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
+  <Class id="Shaman">
+    <MatchesAsClass1st>0</MatchesAsClass1st>
+    <MatchesAsClass2nd>0</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>0</WinsAsClass1st>
+    <WinsAsClass2nd>0</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>0</LossesAsClass1st>
+    <LossesAsClass2nd>0</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
+  <Class id="Warlock">
+    <MatchesAsClass1st>0</MatchesAsClass1st>
+    <MatchesAsClass2nd>0</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>0</WinsAsClass1st>
+    <WinsAsClass2nd>0</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>0</LossesAsClass1st>
+    <LossesAsClass2nd>0</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
+  <Class id="Warrior">
+    <MatchesAsClass1st>0</MatchesAsClass1st>
+    <MatchesAsClass2nd>0</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>0</WinsAsClass1st>
+    <WinsAsClass2nd>0</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>0</LossesAsClass1st>
+    <LossesAsClass2nd>0</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
+  <Class id="Druid">
+    <MatchesAsClass1st>2</MatchesAsClass1st>
+    <MatchesAsClass2nd>2</MatchesAsClass2nd>
+    <MatchesVSClass1st>0</MatchesVSClass1st>
+    <MatchesVSClass2nd>0</MatchesVSClass2nd>
+    <WinsAsClass1st>1</WinsAsClass1st>
+    <WinsAsClass2nd>1</WinsAsClass2nd>
+    <WinsVSClass1st>0</WinsVSClass1st>
+    <WinsVSClass2nd>0</WinsVSClass2nd>
+    <LossesAsClass1st>1</LossesAsClass1st>
+    <LossesAsClass2nd>1</LossesAsClass2nd>
+    <LossesVSClass1st>0</LossesVSClass1st>
+    <LossesVSClass2nd>0</LossesVSClass2nd>
+  </Class>
 </Classes>
+

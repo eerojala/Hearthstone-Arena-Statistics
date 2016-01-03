@@ -1,4 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WinAmounts>
-    
+  <WinAmount id="0">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="1">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="3">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="4">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="5">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="6">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="7">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="8">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="9">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="10">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="11">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="12">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
+  <WinAmount id="2">
+    <AmountOfDecks>1</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
 </WinAmounts>
+

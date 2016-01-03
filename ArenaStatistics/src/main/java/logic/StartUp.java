@@ -8,7 +8,6 @@ import xml.MatchStatisticsParser;
 import xml.ClassVSClassStatisticsParser;
 import domain.Deck;
 import domain.Match;
-import java.util.ArrayList;
 import java.util.List;
 
 public class StartUp {

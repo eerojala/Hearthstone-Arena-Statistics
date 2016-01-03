@@ -1,15 +1,13 @@
 package gui;
 
-import xml.MatchStatisticsWriter;
 import logic.StatisticsGUI;
-import logic.MatchStatisticsLogic;
+import logic.MatchStatisticsDisplayLogic;
 import logic.GeneralDeckStatisticsLogic;
 import logic.CurrentDeckEditorLogic;
 import logic.ClassSpecificDeckStatisticsLogic;
 import domain.Deck;
 import domain.DeckClass;
 import domain.Match;
-import java.awt.HeadlessException;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -24,6 +22,7 @@ import logic.DeckClassStatisticsKeeper;
 import logic.RewardStatisticsKeeper;
 import logic.ClassStatisticsKeeper;
 import logic.MatchArchiver;
+import xml.DataWriter;
 
 public class MainGUI extends javax.swing.JFrame implements Runnable {
 
@@ -32,7 +31,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         initComponents();
         classSpecificDeckStatistics = new ClassSpecificDeckStatisticsLogic(this);
         classSpecificDeckStatistics.updateVisuals();
-        matchStatistics = new MatchStatisticsLogic(this);
+        matchStatistics = new MatchStatisticsDisplayLogic(this);
         matchStatistics.updateVisuals();
         generalDeckStatistics = new GeneralDeckStatisticsLogic(this);
         generalDeckStatistics.updateStats();
@@ -53,7 +52,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }
 
     public void setClassStatisticsKeeper(ClassStatisticsKeeper ClassStatisticsKeeper) {
-        this.ClassStatisticsKeeper = ClassStatisticsKeeper;
+        this.classStatisticsKeeper = ClassStatisticsKeeper;
     }
 
     public void setClassVSClassStatisticsKeeper(ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper) {
@@ -64,17 +63,25 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         this.deckClassStatisticsKeeper = deckClassStatisticsKeeper;
     }
 
-    public void setDeckWinStatisticsKeeper(RewardStatisticsKeeper deckWinStatisticsKeeper) {
-        this.deckWinStatisticsKeeper = deckWinStatisticsKeeper;
+    public void setRewardStatisticsKeeper(RewardStatisticsKeeper rewardStatisticsKeeper) {
+        this.rewardStatisticsKeeper = rewardStatisticsKeeper;
     }
 
     public void setMatches(List<Match> matches) {
         this.matches = matches;
-        this.currentMatchNumber = matches.get(matches.size() - 1).getMatchNumber() + 1;
+        if (matches != null) {
+            this.currentMatchNumber = matches.get(matches.size() - 1).getMatchNumber() + 1;
+        } else {
+            this.currentMatchNumber = 1;
+        }
     }
 
     public void setNewMatch(Match newMatch) {
         this.newMatch = newMatch;
+    }
+
+    public void setDataWriter(DataWriter dataWriter) {
+        this.dataWriter = dataWriter;
     }
 
     public JLabel getClassDeckStatisticsPortrait() {
@@ -86,7 +93,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }
 
     public ClassStatisticsKeeper getClassStatisticsKeeper() {
-        return ClassStatisticsKeeper;
+        return classStatisticsKeeper;
     }
 
     public ClassVSClassStatisticsKeeper getClassVSClassStatisticsKeeper() {
@@ -118,7 +125,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }
 
     public RewardStatisticsKeeper getRewardStatisticsKeeper() {
-        return deckWinStatisticsKeeper;
+        return rewardStatisticsKeeper;
     }
 
     public JLabel getClassDeckStatisticsWinsAsClass() {
@@ -446,13 +453,41 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private void updateMatchStatsPortrait() {
         matchStatistics.updatePortrait();
     }
-    
-    public void addNewMatch(Match match) {
-    
+
+    public void addDeckAndMatchesToStatisticsKeepers() {
+        deckClassStatisticsKeeper.addDeck(currentDeck);
+        rewardStatisticsKeeper.addDeck(currentDeck);
+        addMatchesToStatisticsKeepers();
+    }
+
+    private void addMatchesToStatisticsKeepers() {
+        for (Match match : currentDeck.getMatches()) {
+            classStatisticsKeeper.addMatch(match);
+            classVSClassStatisticsKeeper.addMatch(match);
+        }
+    }
+
+    public void saveProgress() {
+        dataWriter.saveProgress(currentDeck);
+    }
+
+    public void saveStatistics() {
+        dataWriter.saveStatistics(currentDeck);
+    }
+
+    public void initXml() {
+        dataWriter.initXml();
+    }
+
+    public void openResultsGUI() {
+        ResultsGUI gui = new ResultsGUI(this, currentDeck);
+        this.setEnabled(false);
+        SwingUtilities.invokeLater(gui);
+        gui.setVisible(true);
     }
     
-    private void writeData() {
-    
+    public void increaseMatchNumber() {
+        currentMatchNumber++;
     }
 
     /**
@@ -567,6 +602,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         generalDeckStatisticsWinSlider = new javax.swing.JSlider();
         generalDeckStatisticsSliderIndicator = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -628,10 +664,25 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         });
 
         removeMatch.setText("Remove Match");
+        removeMatch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeMatchActionPerformed(evt);
+            }
+        });
 
         retireCurrentDeck.setText("Retire");
+        retireCurrentDeck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retireCurrentDeckActionPerformed(evt);
+            }
+        });
 
         removeCurrentDeck.setText("Remove Current Deck");
+        removeCurrentDeck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeCurrentDeckActionPerformed(evt);
+            }
+        });
 
         jLabel37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel37.setText("Current Score:");
@@ -642,13 +693,13 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         matchInfoPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         currentDeckPlayerClass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        currentDeckPlayerClass.setText("jLabel38");
+        currentDeckPlayerClass.setText("Player");
 
         jLabel38.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel38.setText("VS");
 
         currentDeckOpponentClass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        currentDeckOpponentClass.setText("jLabel39");
+        currentDeckOpponentClass.setText("Opponent");
 
         currentDeck1stOr2nd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         currentDeck1stOr2nd.setText("jLabel39");
@@ -674,7 +725,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                         .addGroup(matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(currentDeckOutcome)
                             .addComponent(currentDeck1stOr2nd))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         matchInfoPanelLayout.setVerticalGroup(
             matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -695,15 +746,31 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         jLabel39.setText("Match Select:");
 
         matchSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        matchSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        matchSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
+        matchSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matchSelectActionPerformed(evt);
+            }
+        });
 
         currentDeckPortrait.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eero\\Hearthstone-Arena-Tracker\\ArenaStatistics\\src\\main\\resources\\portraits\\Druid1.png")); // NOI18N
 
         currentDeckPortraitSelect.add(currentDeckMainPortraitChooser);
+        currentDeckMainPortraitChooser.setSelected(true);
         currentDeckMainPortraitChooser.setText("Main Portrait");
+        currentDeckMainPortraitChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currentDeckMainPortraitChooserActionPerformed(evt);
+            }
+        });
 
         currentDeckPortraitSelect.add(currentDeckAltPortraitChooser);
         currentDeckAltPortraitChooser.setText("Alternate Portrait");
+        currentDeckAltPortraitChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currentDeckAltPortraitChooserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -713,36 +780,32 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(currentScore)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(newDeck)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(retireCurrentDeck))
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel39)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(matchInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(addMatch)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(removeMatch)))
-                            .addComponent(removeCurrentDeck))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                        .addComponent(currentDeckPortrait)
-                        .addGap(19, 19, 19))))
+                            .addComponent(addMatch)
+                            .addComponent(removeCurrentDeck)
+                            .addComponent(removeMatch)
+                            .addComponent(matchInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(currentDeckPortrait))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(currentScore))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(currentDeckMainPortraitChooser)
                 .addGap(18, 18, 18)
                 .addComponent(currentDeckAltPortraitChooser)
-                .addGap(57, 57, 57))
+                .addGap(97, 97, 97))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -760,15 +823,15 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                         .addGap(49, 49, 49)
                         .addComponent(matchInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addMatch)
-                            .addComponent(removeMatch))
+                        .addComponent(addMatch)
                         .addGap(33, 33, 33)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(newDeck)
                             .addComponent(retireCurrentDeck))
                         .addGap(18, 18, 18)
                         .addComponent(removeCurrentDeck)
+                        .addGap(18, 18, 18)
+                        .addComponent(removeMatch)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
@@ -1442,18 +1505,31 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
 
         jTabbedPane6.addTab("General Deck Statistics", jPanel1);
 
+        jButton1.setText("RESET");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 649, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(186, 186, 186)
+                .addComponent(jButton1)
+                .addContainerGap(400, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(jButton1)
+                .addContainerGap(442, Short.MAX_VALUE))
         );
 
-        jTabbedPane6.addTab("Match Search", jPanel7);
+        jTabbedPane6.addTab("Options", jPanel7);
 
         jPanel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -1958,6 +2034,38 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         this.setEnabled(false);
     }//GEN-LAST:event_addMatchActionPerformed
 
+    private void removeMatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMatchActionPerformed
+        currentDeckEditor.removeMatch(matchSelect.getSelectedIndex());
+    }//GEN-LAST:event_removeMatchActionPerformed
+
+    private void retireCurrentDeckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retireCurrentDeckActionPerformed
+        currentDeckEditor.finishDeck();
+    }//GEN-LAST:event_retireCurrentDeckActionPerformed
+
+    private void removeCurrentDeckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCurrentDeckActionPerformed
+        currentDeck = null;
+        currentDeckEditor.setCurrentDeck(currentDeck);
+        dataWriter.removeDeckAndMatches();
+    }//GEN-LAST:event_removeCurrentDeckActionPerformed
+
+    private void matchSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchSelectActionPerformed
+        System.out.println(matchSelect.getSelectedIndex());
+        System.out.println(matchSelect.getSelectedItem());
+        currentDeckEditor.setMatchInfo();
+    }//GEN-LAST:event_matchSelectActionPerformed
+
+    private void currentDeckMainPortraitChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentDeckMainPortraitChooserActionPerformed
+        currentDeckEditor.updateVisuals();
+    }//GEN-LAST:event_currentDeckMainPortraitChooserActionPerformed
+
+    private void currentDeckAltPortraitChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentDeckAltPortraitChooserActionPerformed
+        currentDeckEditor.updateVisuals();
+    }//GEN-LAST:event_currentDeckAltPortraitChooserActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dataWriter.resetData();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ClassDeckStatisticsClassChooser;
@@ -2007,6 +2115,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel generalDeckStatisticsSliderIndicator;
     private javax.swing.JSlider generalDeckStatisticsWinSlider;
     private javax.swing.JLabel generalDeckStatisticsWins;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2106,18 +2215,19 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private javax.swing.JButton retireCurrentDeck;
     // End of variables declaration//GEN-END:variables
     private Deck currentDeck;
-    private List<Match> matches;
-    private ClassStatisticsKeeper ClassStatisticsKeeper;
+    private ClassStatisticsKeeper classStatisticsKeeper;
     private ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
     private DeckClassStatisticsKeeper deckClassStatisticsKeeper;
-    private RewardStatisticsKeeper deckWinStatisticsKeeper;
+    private RewardStatisticsKeeper rewardStatisticsKeeper;
     private ClassSpecificDeckStatisticsLogic classSpecificDeckStatistics;
-    private MatchStatisticsLogic matchStatistics;
+    private MatchStatisticsDisplayLogic matchStatistics;
     private StatisticsGUI generalDeckStatistics;
     private MatchArchiver matchArchiver;
     private CurrentDeckEditorLogic currentDeckEditor;
     private int currentDeckNumber;
     private int currentMatchNumber;
     private Match newMatch;
-    
+    private List<Match> matches;
+    private DataWriter dataWriter;
+
 }

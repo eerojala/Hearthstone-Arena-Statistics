@@ -13,8 +13,7 @@ import domain.Outcome;
  *
  * @author Eero
  */
-public class MatchCreationGUI extends javax.swing.JFrame implements Runnable{
-
+public class MatchCreationGUI extends javax.swing.JFrame implements Runnable {
 
     public MatchCreationGUI(MainGUI maingui, int deckNumber, int matchNumber) {
         this.maingui = maingui;
@@ -23,12 +22,11 @@ public class MatchCreationGUI extends javax.swing.JFrame implements Runnable{
         going1st = true;
         outcome = Outcome.WIN;
     }
-    
+
     @Override
     public void run() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +52,7 @@ public class MatchCreationGUI extends javax.swing.JFrame implements Runnable{
         jRadioButton6 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -224,12 +222,12 @@ public class MatchCreationGUI extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_jRadioButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Match match = new Match((DeckClass)opponentClass.getSelectedItem(), outcome, going1st, deckNumber, matchNumber);
-       maingui.addNewMatch(match);
-       maingui.setEnabled(true);
-       this.dispose();
+        Match match = new Match((DeckClass) opponentClass.getSelectedItem(), outcome, going1st, deckNumber, matchNumber);     
+        maingui.getCurrentDeckEditor().addMatch(match);
+        maingui.setEnabled(true);
+        maingui.increaseMatchNumber();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

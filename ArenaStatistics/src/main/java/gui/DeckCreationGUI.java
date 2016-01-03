@@ -7,14 +7,12 @@ package gui;
 
 import domain.Deck;
 import domain.DeckClass;
-import util.PortraitSetter;
 
 /**
  *
  * @author Eero
  */
-public class DeckCreationGUI extends javax.swing.JFrame implements Runnable{
-
+public class DeckCreationGUI extends javax.swing.JFrame implements Runnable {
 
     public DeckCreationGUI(MainGUI mainGUI, int deckNumber) {
         this.deckNumber = deckNumber;
@@ -25,8 +23,6 @@ public class DeckCreationGUI extends javax.swing.JFrame implements Runnable{
     public void run() {
         initComponents();
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,7 +112,9 @@ public class DeckCreationGUI extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_classChooserActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        mainGUI.setCurrentDeck(new Deck((DeckClass) classChooser.getSelectedItem(), deckNumber));
+        Deck deck = new Deck((DeckClass) classChooser.getSelectedItem(), deckNumber);
+        mainGUI.setCurrentDeck(deck);
+        mainGUI.getCurrentDeckEditor().setCurrentDeck(deck);
         mainGUI.setEnabled(true);
         this.dispose();
     }//GEN-LAST:event_okButtonActionPerformed
@@ -129,6 +127,6 @@ public class DeckCreationGUI extends javax.swing.JFrame implements Runnable{
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
-    private int deckNumber;
-    private MainGUI mainGUI;
+    private final int deckNumber;
+    private final MainGUI mainGUI;
 }

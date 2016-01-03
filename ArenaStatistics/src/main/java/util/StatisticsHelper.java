@@ -29,4 +29,12 @@ public class StatisticsHelper {
         }
         return sum;
     }
+
+    public static double convertToPercentage(Double d) {
+        StringBuilder sb = new StringBuilder(d.toString());
+        if (sb.length() > 6) {
+            sb.replace(6, d.toString().length(), "");
+        }
+        return Double.parseDouble(sb.toString()) * 100;
+    }
 }

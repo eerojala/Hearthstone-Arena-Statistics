@@ -1,79 +1,42 @@
 package logic;
 
 import domain.Deck;
-import domain.DeckClass;
 import domain.Match;
 import gui.MainGUI;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import logic.DeckHandler;
 import util.PortraitSetter;
 
-public class CurrentDeckEditorLogic implements GUIWithPortrait{
+public class CurrentDeckEditorLogic implements GUIWithPortrait {
 
     private Deck currentDeck;
-    private DeckHandler deckHandler;
-    private JLabel currentScore;
-    private JLabel playerClass;
-    private JLabel opponentClass;
-    private JLabel outcome;
-    private JLabel went1stOr2nd;
-    private JLabel portrait;
-    private JRadioButton mainPortrait;
-    private JRadioButton altPortrait;
-    private JComboBox matchSelect;
-    private JButton addMatch;
-    private JButton removeMatch;
-    private JButton newDeck;
-    private JButton retireCurrentDeck;
-    private JButton removeCurrentDeck;
-    private JPanel matchInfoPanel;
+    private final DeckHandler deckHandler;
+    private final MainGUI gui;
 
     public CurrentDeckEditorLogic(MainGUI gui) {
+        this.gui = gui;
         currentDeck = gui.getCurrentDeck();
         deckHandler = new DeckHandler();
         deckHandler.setDeck(currentDeck);
-        setGUIObjects(gui);
         setLabelValues();
     }
 
-    private void setGUIObjects(MainGUI gui) {
-        currentScore = gui.getCurrentScore();
-        playerClass = gui.getCurrentDeckPlayerClass();
-        opponentClass = gui.getCurrentDeckOpponentClass();
-        outcome = gui.getCurrentDeckOutcome();
-        went1stOr2nd = gui.getCurrentDeck1stOr2nd();
-        portrait = gui.getCurrentDeckPortrait();
-        mainPortrait = gui.getCurrentDeckMainPortraitChooser();
-        altPortrait = gui.getCurrentDeckAltPortraitChooser();
-        matchSelect = gui.getMatchSelect();
-        addMatch = gui.getAddMatch();
-        removeMatch = gui.getRemoveMatch();
-        newDeck = gui.getNewDeck();
-        retireCurrentDeck = gui.getRetireCurrentDeck();
-        removeCurrentDeck = gui.getRemoveCurrentDeck();
-        matchInfoPanel = gui.getMatchInfoPanel();
-    }
-
     private void setLabelValues() {
-        if (currentDeck != null) {
+        if (currentDeck == null) {
             setDefaultValues();
         } else {
             setCurrentRunValues();
         }
     }
 
-    private void setCurrentRunValues() {
-        currentScore.setText(currentDeck.getScore());
+    public void setCurrentRunValues() {
+        gui.getCurrentScore().setText(currentDeck.getScore());
         enableElements(false, true);
         setMatchesToComboBox();
-        setMatchInfo();
+        if (!currentDeck.getMatches().isEmpty()) {
+            setMatchInfo();
+        } else {
+            gui.getMatchInfoPanel().setVisible(false);
+        }
         updateVisuals();
     }
 
@@ -81,36 +44,36 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait{
     // So if there is currently no arena run going on, you input (true, false) as the parameters, 
     // and vice versa if there is currently an ongoing arena run
     private void enableElements(boolean noDeck, boolean ongoingDeck) {
-        matchSelect.setEnabled(ongoingDeck);
-        matchInfoPanel.setVisible(ongoingDeck);
-        addMatch.setEnabled(ongoingDeck);
-        removeMatch.setEnabled(ongoingDeck);
-        newDeck.setEnabled(noDeck);
-        retireCurrentDeck.setEnabled(ongoingDeck);
-        removeCurrentDeck.setEnabled(ongoingDeck);
-        portrait.setVisible(ongoingDeck);
-        mainPortrait.setEnabled(ongoingDeck);
-        altPortrait.setEnabled(ongoingDeck);
+        gui.getMatchSelect().setEnabled(ongoingDeck);
+        gui.getMatchInfoPanel().setVisible(ongoingDeck);
+        gui.getAddMatch().setEnabled(ongoingDeck);
+        gui.getRemoveMatch().setEnabled(ongoingDeck);
+        gui.getNewDeck().setEnabled(noDeck);
+        gui.getRetireCurrentDeck().setEnabled(ongoingDeck);
+        gui.getRemoveCurrentDeck().setEnabled(ongoingDeck);
+        gui.getCurrentDeckPortrait().setVisible(ongoingDeck);
+        gui.getCurrentDeckMainPortraitChooser().setEnabled(ongoingDeck);
+        gui.getCurrentDeckAltPortraitChooser().setEnabled(ongoingDeck);
     }
 
-    private void setMatchInfo() {
-        Match match = (Match) matchSelect.getSelectedItem();
-        playerClass.setText(match.getPlayerClass().getName());
-        opponentClass.setText(match.getOpponentClass().getName());
+    public void setMatchInfo() {
+        Match match = (Match) gui.getMatchSelect().getSelectedItem();
+        gui.getCurrentDeckPlayerClass().setText(match.getPlayerClass().getName());
+        gui.getCurrentDeckOpponentClass().setText(match.getOpponentClass().getName());
         setWent1stOr2nd(match.wentFirst());
-        outcome.setText(match.getOutcome().getName());
+        gui.getCurrentDeckOutcome().setText(match.getOutcome().getName());
     }
 
     private void setWent1stOr2nd(boolean wentFirst) {
         if (wentFirst) {
-            went1stOr2nd.setText("Went first");
+            gui.getCurrentDeck1stOr2nd().setText("Went first");
         } else {
-            went1stOr2nd.setText("Went second");
+            gui.getCurrentDeck1stOr2nd().setText("Went second");
         }
     }
 
     private void setDefaultValues() {
-        currentScore.setText("0-0");
+        gui.getCurrentScore().setText("0-0");
         enableElements(true, false);
         setMatchesToComboBox();
     }
@@ -120,11 +83,12 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait{
         if (currentDeck != null) {
             matches = copyMatchListToArray();
         }
-        matchSelect.setModel(new DefaultComboBoxModel(matches));
+        gui.getMatchSelect().setModel(new DefaultComboBoxModel(matches));
+        gui.getMatchSelect().setEnabled(true);
     }
 
     private Match[] copyMatchListToArray() {
-        Match[] matches = new Match[]{};
+        Match[] matches = new Match[14];
         for (int i = 0; i < currentDeck.getMatches().size(); i++) {
             matches[i] = currentDeck.getMatches().get(i);
         }
@@ -135,10 +99,21 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait{
         return currentDeck.getMatches().get(i);
     }
 
-    public boolean addMatch(Match match) {
+    public void addMatch(Match match) {
         boolean deckFinished = deckHandler.addMatch(match);
         setLabelValues();
-        return deckFinished;
+        if (deckFinished) {
+            finishDeck();
+        } else {
+            gui.saveProgress();
+        }
+    }
+
+    public void finishDeck() {
+        gui.addDeckAndMatchesToStatisticsKeepers();
+        gui.openResultsGUI();
+        currentDeck = null;
+        setLabelValues();
     }
 
     public void removeMatch(int i) {
@@ -148,12 +123,14 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait{
 
     @Override
     public void updatePortrait() {
-        PortraitSetter.setPortrait(mainPortrait, altPortrait, portrait, currentDeck.getDeckClass());
+        PortraitSetter.setPortrait(gui.getCurrentDeckMainPortraitChooser(),
+                gui.getCurrentDeckAltPortraitChooser(), gui.getCurrentDeckPortrait(), currentDeck.getDeckClass());
     }
 
     @Override
     public void updatePortraitChoosers() {
-        PortraitSetter.updatePortraitChoosers(mainPortrait, altPortrait, currentDeck.getDeckClass());
+        PortraitSetter.updatePortraitChoosers(gui.getCurrentDeckMainPortraitChooser(),
+                gui.getCurrentDeckAltPortraitChooser(), currentDeck.getDeckClass());
     }
 
     @Override
@@ -164,7 +141,8 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait{
 
     public void setCurrentDeck(Deck currentDeck) {
         this.currentDeck = currentDeck;
+        deckHandler.setDeck(this.currentDeck);
+        setLabelValues();
     }
-    
-    
+
 }

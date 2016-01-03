@@ -3,10 +3,12 @@ logic\GUIWithPortrait.class
 gui\MainGUI$6.class
 xml\XmlWriter.class
 domain\DeckClassStatistics.class
+gui\MainGUI$16.class
 logic\StartUp.class
 gui\DeckCreationGUI$1.class
 xml\ClassVSClassStatisticsWriter.class
 gui\MatchCreationGUI$3.class
+gui\MainGUI$19.class
 gui\MainGUI.class
 logic\MatchAssigner.class
 domain\MatchArchive.class
@@ -16,6 +18,7 @@ xml\StatisticsParser.class
 gui\MainGUI$9.class
 domain\Outcome.class
 gui\MainGUI$3.class
+gui\MainGUI$20.class
 logic\CurrentDeckEditorLogic.class
 util\DocumentBuilder.class
 util\TestForLoop.class
@@ -39,6 +42,7 @@ gui\MainGUI$7.class
 domain\ClassStatistics.class
 domain\Deck.class
 logic\ClassStatisticsKeeper.class
+gui\MainGUI$17.class
 xml\MatchStatisticsParser.class
 gui\MatchCreationGUI$2.class
 xml\MatchWriter.class
@@ -61,10 +65,12 @@ domain\DeckClass.class
 gui\StartUpGUI.class
 gui\MainGUI$2.class
 xml\ClassVSClassStatisticsParser.class
+gui\MainGUI$15.class
 gui\MatchCreationGUI.class
 domain\ClassVsClassStatistics.class
 xml\DataWriter.class
 gui\MainGUI$12.class
+gui\MainGUI$18.class
 gui\MatchCreationGUI$1.class
 gui\MatchCreationGUI$7.class
 logic\DeckArchiver.class
@@ -73,6 +79,7 @@ gui\MatchCreationGUI$5.class
 gui\MainGUI$4.class
 domain\MatchStatistics.class
 util\PortraitSetter.class
+gui\MainGUI$14.class
 gui\MainGUI$5.class
 gui\StartUpGUI$1.class
 gui\MainGUI$13.class

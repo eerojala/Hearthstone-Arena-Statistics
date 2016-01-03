@@ -67,4 +67,24 @@ public class StatisticsHelperTest {
         intMap.put(13, 5);
         assertEquals(2, StatisticsHelper.sumMapValueIntegers(intMap));
     }
+    
+    @Test
+    public void convertToPercentage_returns_correct_value1() {
+        assertEquals(12.34, StatisticsHelper.convertToPercentage(0.12345), 0.0);
+    }
+    
+    @Test
+    public void convertToPercentageReturns_correct_value2() {
+        assertEquals(12.34, StatisticsHelper.convertToPercentage(0.1234), 0.0);
+    }
+    
+    @Test
+    public void convertToPercentageReturns_correct_value3() {
+        assertEquals(12.3, StatisticsHelper.convertToPercentage(0.123), 0.0);
+    }
+    
+    @Test
+    public void convertToPercentageReturns_correct_value4() {
+        assertEquals(12.0, StatisticsHelper.convertToPercentage(0.12), 0.0);
+    }
 }

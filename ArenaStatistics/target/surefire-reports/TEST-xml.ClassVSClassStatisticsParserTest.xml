@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="16" failures="0" name="xml.ClassVSClassStatisticsParserTest" time="0.267" errors="0" skipped="0">
+<testsuite tests="16" failures="0" name="xml.ClassVSClassStatisticsParserTest" time="3.107" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -68,7 +68,7 @@
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="wins_1st_is_correct1" time="0"/>
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="wins_1st_is_correct2" time="0"/>
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="wins_2nd_is_correct1" time="0"/>
-  <testcase classname="xml.ClassVSClassStatisticsParserTest" name="wins_2nd_is_correct2" time="0.001"/>
+  <testcase classname="xml.ClassVSClassStatisticsParserTest" name="wins_2nd_is_correct2" time="0"/>
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="win_percentage_1st_is_correct1" time="0"/>
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="win_percentage_1st_is_correct2" time="0"/>
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="matches_1st_is_correct1" time="0"/>
@@ -78,5 +78,5 @@
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="matches_2nd_is_correct1" time="0"/>
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="matches_2nd_is_correct2" time="0"/>
   <testcase classname="xml.ClassVSClassStatisticsParserTest" name="losses_1st_is_correct1" time="0"/>
-  <testcase classname="xml.ClassVSClassStatisticsParserTest" name="losses_1st_is_correct2" time="0.007"/>
+  <testcase classname="xml.ClassVSClassStatisticsParserTest" name="losses_1st_is_correct2" time="0"/>
 </testsuite>

@@ -3,13 +3,13 @@ package logic;
 import domain.Deck;
 import domain.Match;
 import java.util.List;
-import java.util.Collections;
 
 public class MatchAssigner {
 
-    private static DeckHandler handler;
-
-    public static void assignMatchesToDeck(Deck deck, List<Match> matches) {
+    public static void assignMatchesToDeck(Deck deck, List<Match> matches) {       
+        DeckHandler handler = new DeckHandler();
+        handler.setDeck(deck);
+        
         if (deck != null && !matches.isEmpty()) {
             for (Match match : matches) {
                 handler.addMatch(match);

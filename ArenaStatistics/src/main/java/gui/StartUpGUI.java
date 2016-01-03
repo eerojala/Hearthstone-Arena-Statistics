@@ -10,13 +10,13 @@ import domain.Match;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import javax.swing.WindowConstants;
 import logic.ClassVSClassStatisticsKeeper;
 import logic.DeckClassStatisticsKeeper;
 import logic.RewardStatisticsKeeper;
 import logic.ClassStatisticsKeeper;
 import logic.MatchArchiver;
 import logic.StartUp;
+import xml.DataWriter;
 
 public class StartUpGUI extends javax.swing.JFrame implements Runnable {
 
@@ -38,17 +38,20 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
 
     private void parseData() {
         updateFeed("Parsing decks");
-        currentDeck = StartUp.getCurrentDeck("src/main/resources/Decks.xml");
+        currentDeck = StartUp.getCurrentDeck("src/main/resources/xmlfiles/Decks.xml");
         updateFeed("Parsing matches");
-        archiver = StartUp.getMatchArchiver("src/main/resources/Matches.xml");
+        archiver = StartUp.getMatchArchiver("src/main/resources/xmlfiles/Matches.xml");
 //        updateFeed("Assigning matches to decks and vice versa");
-        StartUp.assignMatchesToDeck(currentDeck, matches);
+        if (currentDeck != null) {
+            matches = archiver.getMatchesByDeckNumber(currentDeck.getDeckNumber());
+            StartUp.assignMatchesToDeck(currentDeck, matches);
+        }
         updateFeed("Parsing match statistics");
-        ClassStatisticsKeeper = StartUp.getClassStatistics("src/main/resources/ClassStatistics.xml");
-        classVSClassStatisticsKeeper = StartUp.getClassVSClassStatistics("src/main/resources/ClassVSClassStatistics.xml");
+        classStatisticsKeeper = StartUp.getClassStatistics("src/main/resources/xmlfiles/ClassStatistics.xml");
+        classVSClassStatisticsKeeper = StartUp.getClassVSClassStatistics("src/main/resources/xmlfiles/ClassVSClassStatistics.xml");
         updateFeed("Parsing deck statistics");
-        deckClassStatisticsKeeper = StartUp.getDeckClassStatisticsKeeper("src/main/resources/DeckClassStatistics.xml");
-        deckWinStatisticsKeeper = StartUp.getDeckWinStatisticsKeeper("src/main/resources/DeckWinStatistics.xml");
+        deckClassStatisticsKeeper = StartUp.getDeckClassStatisticsKeeper("src/main/resources/xmlfiles/DeckClassStatistics.xml");
+        rewardStatisticsKeeper = StartUp.getDeckWinStatisticsKeeper("src/main/resources/xmlfiles/DeckWinStatistics.xml");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
@@ -59,7 +62,7 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
     }
 
     public ClassStatisticsKeeper getClassStatisticsKeeper() {
-        return ClassStatisticsKeeper;
+        return classStatisticsKeeper;
     }
 
     public ClassVSClassStatisticsKeeper getClassVSClassStatisticsKeeper() {
@@ -70,19 +73,18 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
         return deckClassStatisticsKeeper;
     }
 
-    public RewardStatisticsKeeper getDeckWinStatisticsKeeper() {
-        return deckWinStatisticsKeeper;
+    public RewardStatisticsKeeper getRewardStatisticsKeeper() {
+        return rewardStatisticsKeeper;
     }
 
     public MatchArchiver getArchiver() {
         return archiver;
-    }  
-    
+    }
+
 //
 //    public List<Match> getMatches() {
 //        return matches;
 //    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -161,13 +163,18 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
         dispose();
         MainGUI mainGUI = new MainGUI();
         mainGUI.setMatches(matches);
-        mainGUI.setClassStatisticsKeeper(ClassStatisticsKeeper);
+        mainGUI.setClassStatisticsKeeper(classStatisticsKeeper);
         mainGUI.setClassVSClassStatisticsKeeper(classVSClassStatisticsKeeper);
         mainGUI.setDeckClassStatisticsKeeper(deckClassStatisticsKeeper);
-        mainGUI.setDeckWinStatisticsKeeper(deckWinStatisticsKeeper);
+        mainGUI.setRewardStatisticsKeeper(rewardStatisticsKeeper);
         mainGUI.setMatchArchiver(archiver);
+        mainGUI.setDataWriter(new DataWriter(classStatisticsKeeper, classVSClassStatisticsKeeper,
+                deckClassStatisticsKeeper, rewardStatisticsKeeper));
+        if (classStatisticsKeeper.getTotalMatches() == 0) {
+            mainGUI.initXml();
+        }
         mainGUI.setCurrentDeck(currentDeck);
-        SwingUtilities.invokeLater(mainGUI);
+        SwingUtilities.invokeLater(mainGUI);      
         mainGUI.setVisible(true);
     }//GEN-LAST:event_okButtonActionPerformed
 
@@ -180,10 +187,10 @@ public class StartUpGUI extends javax.swing.JFrame implements Runnable {
     // End of variables declaration//GEN-END:variables
     private Deck currentDeck;
     private List<Match> matches;
-    private ClassStatisticsKeeper ClassStatisticsKeeper;
+    private ClassStatisticsKeeper classStatisticsKeeper;
     private ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
     private DeckClassStatisticsKeeper deckClassStatisticsKeeper;
-    private RewardStatisticsKeeper deckWinStatisticsKeeper;
+    private RewardStatisticsKeeper rewardStatisticsKeeper;
     private MatchArchiver archiver;
-   
+
 }
