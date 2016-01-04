@@ -16,6 +16,14 @@
     <RegularCards>0</RegularCards>
     <GoldCards>0</GoldCards>
   </WinAmount>
+  <WinAmount id="2">
+    <AmountOfDecks>0</AmountOfDecks>
+    <Dust>0</Dust>
+    <Gold>0</Gold>
+    <ExtraPacks>0</ExtraPacks>
+    <RegularCards>0</RegularCards>
+    <GoldCards>0</GoldCards>
+  </WinAmount>
   <WinAmount id="3">
     <AmountOfDecks>0</AmountOfDecks>
     <Dust>0</Dust>
@@ -90,14 +98,6 @@
   </WinAmount>
   <WinAmount id="12">
     <AmountOfDecks>0</AmountOfDecks>
-    <Dust>0</Dust>
-    <Gold>0</Gold>
-    <ExtraPacks>0</ExtraPacks>
-    <RegularCards>0</RegularCards>
-    <GoldCards>0</GoldCards>
-  </WinAmount>
-  <WinAmount id="2">
-    <AmountOfDecks>1</AmountOfDecks>
     <Dust>0</Dust>
     <Gold>0</Gold>
     <ExtraPacks>0</ExtraPacks>

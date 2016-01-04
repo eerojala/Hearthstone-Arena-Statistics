@@ -110,7 +110,6 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait {
     }
 
     public void finishDeck() {
-        gui.addDeckAndMatchesToStatisticsKeepers();
         gui.openResultsGUI();
         currentDeck = null;
         setLabelValues();

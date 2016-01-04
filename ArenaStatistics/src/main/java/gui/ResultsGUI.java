@@ -217,6 +217,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
                 setRewards();
                 this.dispose();
                 mainGUI.setEnabled(true);
+                mainGUI.addDeckAndMatchesToStatisticsKeepers();
                 mainGUI.saveStatistics();
             }
         } else {

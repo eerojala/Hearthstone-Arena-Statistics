@@ -16,6 +16,14 @@
     <Losses1st>0</Losses1st>
     <Losses2nd>0</Losses2nd>
   </ClassPair>
+  <ClassPair id="DruidVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
   <ClassPair id="DruidVSPaladin">
     <Matches1st>0</Matches1st>
     <Matches2nd>0</Matches2nd>
@@ -639,14 +647,6 @@
     <Wins2nd>0</Wins2nd>
     <Losses1st>0</Losses1st>
     <Losses2nd>0</Losses2nd>
-  </ClassPair>
-  <ClassPair id="DruidVSMage">
-    <Matches1st>2</Matches1st>
-    <Matches2nd>2</Matches2nd>
-    <Wins1st>1</Wins1st>
-    <Wins2nd>1</Wins2nd>
-    <Losses1st>1</Losses1st>
-    <Losses2nd>1</Losses2nd>
   </ClassPair>
 </ClassPairs>
 

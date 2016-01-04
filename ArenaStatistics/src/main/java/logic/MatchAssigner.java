@@ -10,7 +10,7 @@ public class MatchAssigner {
         DeckHandler handler = new DeckHandler();
         handler.setDeck(deck);
         
-        if (deck != null && !matches.isEmpty()) {
+        if (deck != null && matches != null && !matches.isEmpty()) {
             for (Match match : matches) {
                 handler.addMatch(match);
             }

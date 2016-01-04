@@ -20,6 +20,7 @@ domain\Outcome.class
 gui\MainGUI$3.class
 gui\MainGUI$20.class
 logic\CurrentDeckEditorLogic.class
+logic\MatchStatisticsDisplayLogic.class
 util\DocumentBuilder.class
 util\TestForLoop.class
 logic\RewardStatisticsKeeper.class
@@ -58,11 +59,9 @@ xml\DeckParser.class
 xml\DeckClassStatisticsWriter.class
 arenastatistics\arenastatistics\Main.class
 domain\Match.class
-logic\MatchStatisticsLogic.class
 logic\DeckClassStatisticsKeeper.class
 gui\ResultsGUI.class
 domain\DeckClass.class
-gui\StartUpGUI.class
 gui\MainGUI$2.class
 xml\ClassVSClassStatisticsParser.class
 gui\MainGUI$15.class
@@ -80,8 +79,8 @@ gui\MainGUI$4.class
 domain\MatchStatistics.class
 util\PortraitSetter.class
 gui\MainGUI$14.class
+xml\DataParser.class
 gui\MainGUI$5.class
-gui\StartUpGUI$1.class
 gui\MainGUI$13.class
 xml\XmlParser.class
 gui\MatchCreationGUI$6.class

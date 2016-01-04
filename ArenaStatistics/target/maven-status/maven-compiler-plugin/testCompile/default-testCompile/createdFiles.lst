@@ -2,12 +2,14 @@ domain\RewardStatisticsTest.class
 util\TestForLoopTest.class
 logic\DeckHandlerTest.class
 xml\ClassVSClassStatisticsParserTest.class
+logic\MatchAssignerTest.class
 util\MapperTest.class
 domain\CardTest.class
 domain\DeckClassStatisticsTest.class
 domain\DeckTest.class
 xml\MatchStatisticsParserTest.class
 logic\RewardStatisticsKeeperTest.class
+xml\DataParserTest.class
 xml\RewardStatisticsWriterTest.class
 xml\ClassVSClassStatisticsWriterTest.class
 xml\DeckClassStatisticsWriterTest.class

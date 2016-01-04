@@ -3,14 +3,14 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\DeckCl
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\ClassSpecificDeckStatisticsLogic.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\MatchStatisticsKeeper.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\ClassVSClassStatisticsParser.java
-C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\MatchStatisticsLogic.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\MatchStatisticsDisplayLogic.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\arenastatistics\arenastatistics\Main.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\gui\MainGUI.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\util\PortraitSetter.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\MatchParser.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\util\TestForLoop.java
-C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\gui\StartUpGUI.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\CurrentDeckEditorLogic.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\DataParser.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\domain\DeckArchive.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\RewardStatisticsKeeper.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\MatchStatisticsParser.java

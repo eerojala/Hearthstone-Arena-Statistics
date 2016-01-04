@@ -473,6 +473,8 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
 
     public void saveStatistics() {
         dataWriter.saveStatistics(currentDeck);
+        currentDeck = null;
+        currentDeckEditor.setCurrentDeck(currentDeck);
     }
 
     public void initXml() {
