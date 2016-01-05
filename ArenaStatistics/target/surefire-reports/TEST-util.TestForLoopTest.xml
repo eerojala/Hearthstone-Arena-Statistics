@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="32" failures="0" name="util.TestForLoopTest" time="0.005" errors="0" skipped="0">
+<testsuite tests="32" failures="0" name="util.TestForLoopTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -79,13 +79,13 @@
   <testcase classname="util.TestForLoopTest" name="zeroesInInIntMap_returns_true_if_only_zeroes_besides_exceptions" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInDcIntMap_returns_true_if_only_zeroes_besides_exceptions" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInIntDoubleMap_returns_true_if_only_zeroes_besides_exceptions" time="0"/>
-  <testcase classname="util.TestForLoopTest" name="zeroesInDcpDoubleMap_returns_true_if_only_zeroes_besides_exceptions" time="0.001"/>
+  <testcase classname="util.TestForLoopTest" name="zeroesInDcpDoubleMap_returns_true_if_only_zeroes_besides_exceptions" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInIntDoubleMap_returns_false_if_not_only_zeroes1" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInIntDoubleMap_returns_false_if_not_only_zeroes2" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInDcDoubleMap_returns_true_if_only_zeroes1" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInDcDoubleMap_returns_true_if_only_zeroes2" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInDcpIntMap_returns_false_if_not_all_zeroes1" time="0"/>
-  <testcase classname="util.TestForLoopTest" name="zeroesInDcpIntMap_returns_false_if_not_all_zeroes2" time="0.001"/>
+  <testcase classname="util.TestForLoopTest" name="zeroesInDcpIntMap_returns_false_if_not_all_zeroes2" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInDcDoubleMap_returns_false_if_not_only_zeroes1" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInDcDoubleMap_returns_false_if_not_only_zeroes2" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInInIntMap_returns_false_if_not_all_zeroes1" time="0"/>
@@ -93,6 +93,6 @@
   <testcase classname="util.TestForLoopTest" name="zeroesInIntDoubleMap_returns_true_if_only_zeroes1" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInIntDoubleMap_returns_true_if_only_zeroes2" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInDcIntMap_returns_true_if_only_zeroes1" time="0"/>
-  <testcase classname="util.TestForLoopTest" name="zeroesInDcIntMap_returns_true_if_only_zeroes2" time="0.001"/>
+  <testcase classname="util.TestForLoopTest" name="zeroesInDcIntMap_returns_true_if_only_zeroes2" time="0"/>
   <testcase classname="util.TestForLoopTest" name="zeroesInDcDoubleMap_returns_true_if_only_zeroes_besides_exceptions" time="0"/>
 </testsuite>

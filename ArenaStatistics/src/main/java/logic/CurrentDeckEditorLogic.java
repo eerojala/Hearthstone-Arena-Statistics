@@ -57,11 +57,14 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait {
     }
 
     public void setMatchInfo() {
-        Match match = (Match) gui.getMatchSelect().getSelectedItem();
-        gui.getCurrentDeckPlayerClass().setText(match.getPlayerClass().getName());
-        gui.getCurrentDeckOpponentClass().setText(match.getOpponentClass().getName());
-        setWent1stOr2nd(match.wentFirst());
-        gui.getCurrentDeckOutcome().setText(match.getOutcome().getName());
+        int selectedIndex = gui.getMatchSelect().getSelectedIndex();
+        if (selectedIndex > -1 && selectedIndex < currentDeck.getMatches().size()) {
+            Match match = (Match) gui.getMatchSelect().getSelectedItem();
+            gui.getCurrentDeckPlayerClass().setText(match.getPlayerClass().getName());
+            gui.getCurrentDeckOpponentClass().setText(match.getOpponentClass().getName());
+            setWent1stOr2nd(match.wentFirst());
+            gui.getCurrentDeckOutcome().setText(match.getOutcome().getName());
+        }
     }
 
     private void setWent1stOr2nd(boolean wentFirst) {

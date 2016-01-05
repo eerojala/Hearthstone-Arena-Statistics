@@ -1,13 +1,10 @@
 package gui;
 
-import logic.StatisticsGUI;
-import logic.MatchStatisticsDisplayLogic;
-import logic.GeneralDeckStatisticsLogic;
-import logic.CurrentDeckEditorLogic;
-import logic.ClassSpecificDeckStatisticsLogic;
+import logic.*;
 import domain.Deck;
 import domain.DeckClass;
 import domain.Match;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -17,11 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
 import javax.swing.SwingUtilities;
-import logic.ClassVSClassStatisticsKeeper;
-import logic.DeckClassStatisticsKeeper;
-import logic.RewardStatisticsKeeper;
-import logic.ClassStatisticsKeeper;
-import logic.MatchArchiver;
 import xml.DataWriter;
 
 public class MainGUI extends javax.swing.JFrame implements Runnable {
@@ -29,13 +21,31 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     @Override
     public void run() {
         initComponents();
-        classSpecificDeckStatistics = new ClassSpecificDeckStatisticsLogic(this);
+        putWinAmountLabelsToList();
+        classSpecificDeckStatistics = new ClassSpecificDeckStatisticsDisplayLogic(this);
         classSpecificDeckStatistics.updateVisuals();
         matchStatistics = new MatchStatisticsDisplayLogic(this);
         matchStatistics.updateVisuals();
-        generalDeckStatistics = new GeneralDeckStatisticsLogic(this);
+        generalDeckStatistics = new GeneralDeckStatisticsDisplayLogic(this);
         generalDeckStatistics.updateStats();
         currentDeckEditor = new CurrentDeckEditorLogic(this);
+    }
+
+    private void putWinAmountLabelsToList() {
+        winAmountLabels = new ArrayList();
+        winAmountLabels.add(classDeckStatisticsZeroWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsOneWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsTwoWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsThreeWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsFourWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsFiveWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsSixWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsSevenWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsEightWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsNineWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsTenWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsElevenWinDecksAsClass);
+        winAmountLabels.add(classDeckStatisticsTwelveWinDecksAsClass);
     }
 
     public void setCurrentDeck(Deck currentDeck) {
@@ -45,10 +55,15 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         } else {
             currentDeckNumber = this.currentDeck.getDeckNumber();
         }
+        setCurrentMatchNumber();
     }
 
-    public void setMatchArchiver(MatchArchiver matchArchiver) {
-        this.matchArchiver = matchArchiver;
+    private void setCurrentMatchNumber() {
+        if (currentDeck == null || currentDeck.getMatches().isEmpty()) {
+            currentMatchNumber = 1;
+        } else {
+            currentMatchNumber = this.currentDeck.getMatches().get(this.currentDeck.getMatches().size() - 1).getMatchNumber() + 1;
+        }
     }
 
     public void setClassStatisticsKeeper(ClassStatisticsKeeper ClassStatisticsKeeper) {
@@ -65,19 +80,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
 
     public void setRewardStatisticsKeeper(RewardStatisticsKeeper rewardStatisticsKeeper) {
         this.rewardStatisticsKeeper = rewardStatisticsKeeper;
-    }
-
-    public void setMatches(List<Match> matches) {
-        this.matches = matches;
-        if (matches != null) {
-            this.currentMatchNumber = matches.get(matches.size() - 1).getMatchNumber() + 1;
-        } else {
-            this.currentMatchNumber = 1;
-        }
-    }
-
-    public void setNewMatch(Match newMatch) {
-        this.newMatch = newMatch;
     }
 
     public void setDataWriter(DataWriter dataWriter) {
@@ -132,9 +134,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         return classDeckStatisticsWinsAsClass;
     }
 
-//    public List<Deck> getDecks() {
-//        return decks;
-//    }
     public JLabel getClassDeckStatisticsDecksAsClass() {
         return classDeckStatisticsDecksAsClass;
     }
@@ -211,9 +210,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         return matchStatisticsWinsVSClassValue;
     }
 
-//    public List<Match> getMatches() {
-//        return matches;
-//    }
     public JLabel getMatchStatisticsMatchesAsClassLabel() {
         return matchStatisticsMatchesAsClassLabel;
     }
@@ -446,6 +442,10 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         return currentDeckEditor;
     }
 
+    public List<JLabel> getWinAmountLabels() {
+        return winAmountLabels;
+    }
+
     private void updateDeckStatsPortrait() {
         classSpecificDeckStatistics.updatePortrait();
     }
@@ -487,7 +487,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         SwingUtilities.invokeLater(gui);
         gui.setVisible(true);
     }
-    
+
     public void increaseMatchNumber() {
         currentMatchNumber++;
     }
@@ -2051,8 +2051,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_removeCurrentDeckActionPerformed
 
     private void matchSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchSelectActionPerformed
-        System.out.println(matchSelect.getSelectedIndex());
-        System.out.println(matchSelect.getSelectedItem());
         currentDeckEditor.setMatchInfo();
     }//GEN-LAST:event_matchSelectActionPerformed
 
@@ -2221,15 +2219,12 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
     private DeckClassStatisticsKeeper deckClassStatisticsKeeper;
     private RewardStatisticsKeeper rewardStatisticsKeeper;
-    private ClassSpecificDeckStatisticsLogic classSpecificDeckStatistics;
+    private ClassSpecificDeckStatisticsDisplayLogic classSpecificDeckStatistics;
     private MatchStatisticsDisplayLogic matchStatistics;
     private StatisticsGUI generalDeckStatistics;
-    private MatchArchiver matchArchiver;
     private CurrentDeckEditorLogic currentDeckEditor;
+    private DataWriter dataWriter;
     private int currentDeckNumber;
     private int currentMatchNumber;
-    private Match newMatch;
-    private List<Match> matches;
-    private DataWriter dataWriter;
-
+    private List<JLabel> winAmountLabels;
 }

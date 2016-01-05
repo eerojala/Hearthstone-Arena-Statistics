@@ -1,7 +1,6 @@
 package arenastatistics.arenastatistics;
 
 import logic.StartUp;
-import xml.DataParser;
 
 public class Main {
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="32" failures="0" name="xml.MatchStatisticsParserTest" time="0.116" errors="0" skipped="0">
+<testsuite tests="32" failures="0" name="xml.MatchStatisticsParserTest" time="0.078" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -83,7 +83,7 @@
   <testcase classname="xml.MatchStatisticsParserTest" name="wins_vs_class_2nd_is_correct2" time="0"/>
   <testcase classname="xml.MatchStatisticsParserTest" name="matches_vs_class_2nd_is_correct1" time="0"/>
   <testcase classname="xml.MatchStatisticsParserTest" name="matches_vs_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsParserTest" name="losses_as_class_1st_is_correct1" time="0.002"/>
+  <testcase classname="xml.MatchStatisticsParserTest" name="losses_as_class_1st_is_correct1" time="0"/>
   <testcase classname="xml.MatchStatisticsParserTest" name="losses_as_class_1st_is_correct2" time="0"/>
   <testcase classname="xml.MatchStatisticsParserTest" name="losses_as_class_2nd_is_correct1" time="0"/>
   <testcase classname="xml.MatchStatisticsParserTest" name="losses_as_class_2nd_is_correct2" time="0"/>

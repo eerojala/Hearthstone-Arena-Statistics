@@ -1,6 +1,4 @@
-C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\GeneralDeckStatisticsLogic.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\DeckClassStatisticsWriter.java
-C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\ClassSpecificDeckStatisticsLogic.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\MatchStatisticsKeeper.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\ClassVSClassStatisticsParser.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\MatchStatisticsDisplayLogic.java
@@ -12,6 +10,7 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\util\TestF
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\CurrentDeckEditorLogic.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\DataParser.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\domain\DeckArchive.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\GeneralDeckStatisticsDisplayLogic.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\RewardStatisticsKeeper.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\MatchStatisticsParser.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\ClassVSClassStatisticsWriter.java
@@ -25,6 +24,7 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\domain\Mat
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\XmlParser.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\StartUp.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\GUIWithPortrait.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\ClassSpecificDeckStatisticsDisplayLogic.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\ClassVSClassStatisticsKeeper.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\logic\MatchAssigner.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\main\java\xml\RewardStatisticsWriter.java
