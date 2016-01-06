@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="util.StatisticsHelperTest" time="0" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="util.StatisticsHelperTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -66,7 +66,7 @@
   <testcase classname="util.StatisticsHelperTest" name="convertToPercentage_returns_correct_value1" time="0"/>
   <testcase classname="util.StatisticsHelperTest" name="getWinPercentage_returns_zero_if_win_percentage_is_negative" time="0"/>
   <testcase classname="util.StatisticsHelperTest" name="convertToPercentageReturns_correct_value2" time="0"/>
-  <testcase classname="util.StatisticsHelperTest" name="convertToPercentageReturns_correct_value3" time="0"/>
+  <testcase classname="util.StatisticsHelperTest" name="convertToPercentageReturns_correct_value3" time="0.001"/>
   <testcase classname="util.StatisticsHelperTest" name="convertToPercentageReturns_correct_value4" time="0"/>
   <testcase classname="util.StatisticsHelperTest" name="sumMapValueIntegers_works_correctly" time="0"/>
   <testcase classname="util.StatisticsHelperTest" name="getAverage_is_correct" time="0"/>

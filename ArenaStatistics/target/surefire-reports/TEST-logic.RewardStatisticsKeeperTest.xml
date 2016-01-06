@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="71" failures="0" name="logic.RewardStatisticsKeeperTest" time="0" errors="0" skipped="0">
+<testsuite tests="73" failures="0" name="logic.RewardStatisticsKeeperTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -71,6 +71,7 @@
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_average_regular_cards_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="get_total_deck_amount_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalExtraPacks_works_correctly" time="0"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalWins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_regular_cards_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_regular_cards_by_wins" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="gold_by_wins_has_correct_values1" time="0"/>
@@ -108,6 +109,7 @@
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_gold_cards_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_average_gold_by_wins_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="set_gold_by_wins_works_correctly" time="0"/>
+  <testcase classname="logic.RewardStatisticsKeeperTest" name="getTotalWinAverage_works_correctly" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="remove_deck_affects_gold_cards_by_wins" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="dust_by_wins_has_correct_values1" time="0"/>
   <testcase classname="logic.RewardStatisticsKeeperTest" name="dust_by_wins_has_correct_values2" time="0"/>

@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Decks />
+<Decks>
+  <Deck id="2">
+    <DeckNumber>2</DeckNumber>
+    <PlayerClass>Mage</PlayerClass>
+    <Gold>0</Gold>
+    <Dust>0</Dust>
+    <ExtraPacks>0</ExtraPacks>
+    <Cards />
+  </Deck>
+</Decks>
 

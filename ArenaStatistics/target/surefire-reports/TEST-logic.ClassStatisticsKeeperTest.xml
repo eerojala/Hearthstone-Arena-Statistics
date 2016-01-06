@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="108" failures="0" name="logic.ClassStatisticsKeeperTest" time="0.015" errors="0" skipped="0">
+<testsuite tests="108" failures="0" name="logic.ClassStatisticsKeeperTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -84,7 +84,7 @@
   <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_total_is_correct1" time="0"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_total_is_correct2" time="0"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_total_is_correct3" time="0"/>
-  <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_total_is_correct4" time="0"/>
+  <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_total_is_correct4" time="0.001"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_total_is_correct5" time="0"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_total_is_correct6" time="0"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="set_win_per_vs_class_2nd_works_correctly" time="0"/>
@@ -119,7 +119,7 @@
   <testcase classname="logic.ClassStatisticsKeeperTest" name="win_percentage_vs_class_going_1st_is_correct2" time="0"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="wins_as_class_total_is_correct1" time="0"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="wins_as_class_total_is_correct2" time="0"/>
-  <testcase classname="logic.ClassStatisticsKeeperTest" name="win_percentage_vs_class_going_2nd_is_correct1" time="0"/>
+  <testcase classname="logic.ClassStatisticsKeeperTest" name="win_percentage_vs_class_going_2nd_is_correct1" time="0.001"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="win_percentage_vs_class_going_2nd_is_correct2" time="0"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_going_1st_is_correct1" time="0"/>
   <testcase classname="logic.ClassStatisticsKeeperTest" name="matches_vs_class_going_1st_is_correct2" time="0"/>

@@ -211,6 +211,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
+        this.setEnabled(false);
         if (valuesAreValid()) {
             int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to save these rewards? You may not edit them after saving.");
             if (answer == JOptionPane.YES_OPTION) {
@@ -224,6 +225,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
             JOptionPane.showMessageDialog(rootPane, "You must only input integers that are 0 or positive as values", 
                     "Invalid values", JOptionPane.ERROR_MESSAGE);
         }
+        this.setEnabled(true);
     }//GEN-LAST:event_confirmActionPerformed
 
 

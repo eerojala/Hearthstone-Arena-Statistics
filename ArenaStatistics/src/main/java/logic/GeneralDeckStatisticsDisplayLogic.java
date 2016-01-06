@@ -17,8 +17,10 @@ public class GeneralDeckStatisticsDisplayLogic implements StatisticsGUI {
     public void updateStats() {
         if (gui.getGeneralDeckStatisticsWinSlider().getValue() == 13) {
             updateTotalStats();
+            enableAvgWinsDisplay(true);
         } else {
             updateXWinsStats(gui.getGeneralDeckStatisticsWinSlider().getValue());
+            enableAvgWinsDisplay(false);
         }
     }
 
@@ -36,6 +38,12 @@ public class GeneralDeckStatisticsDisplayLogic implements StatisticsGUI {
         gui.getGeneralDeckStatisticsAvgRegularCards().setText("" + keeper.getTotalRegularCardAverage());
         gui.getGeneralDeckStatisticsGoldenCards().setText("" + keeper.getTotalGoldenCards());
         gui.getGeneralDeckStatisticsAvgGoldenCards().setText("" + keeper.getTotalGoldenCardAverage());
+    }
+    
+    private void enableAvgWinsDisplay(boolean enable) {
+            gui.getGeneralDeckStatisticsAvgWinsLabel().setVisible(enable);
+            gui.getGeneralDeckStatisticsAvgWinsValue().setVisible(enable);
+            gui.getGeneralDeckStatisticsAvgWinsValue().setText("" + keeper.getTotalWinAverage());
     }
 
     private void updateXWinsStats(int x) {

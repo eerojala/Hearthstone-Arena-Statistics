@@ -228,4 +228,16 @@ public class RewardStatisticsKeeper extends DeckStatisticsKeeper{
         return StatisticsHelper.getAverage(getTotalGoldenCards(), getTotalDeckAmount());
     }
     
+    public double getTotalWinAverage() {
+        return (double) getTotalWins() / getTotalDeckAmount();
+    }
+    
+    public int getTotalWins() {
+        int sum = 0;
+        for (int i = 0; i < 13; i++) {
+            sum += i * this.statistics.getDecksByWins().get(i);
+        }
+        return sum;
+    }
+    
 }

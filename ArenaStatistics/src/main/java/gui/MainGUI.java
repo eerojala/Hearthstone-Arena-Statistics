@@ -10,6 +10,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
@@ -446,6 +447,14 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         return winAmountLabels;
     }
 
+    public JLabel getGeneralDeckStatisticsAvgWinsLabel() {
+        return jLabel40;
+    }
+
+    public JLabel getGeneralDeckStatisticsAvgWinsValue() {
+        return generalDeckStatisticsAvgWins;
+    }
+
     private void updateDeckStatsPortrait() {
         classSpecificDeckStatistics.updatePortrait();
     }
@@ -600,6 +609,8 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         generalDeckStatisticsAvgGoldenCards = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         generalDeckStatisticsPerOutOfAllDecks = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        generalDeckStatisticsAvgWins = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         generalDeckStatisticsWinSlider = new javax.swing.JSlider();
         generalDeckStatisticsSliderIndicator = new javax.swing.JLabel();
@@ -714,20 +725,17 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         matchInfoPanelLayout.setHorizontalGroup(
             matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(matchInfoPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(matchInfoPanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
                         .addComponent(currentDeckPlayerClass)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel38)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(currentDeckOpponentClass))
-                    .addGroup(matchInfoPanelLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(currentDeckOutcome)
-                            .addComponent(currentDeck1stOr2nd))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                    .addComponent(currentDeck1stOr2nd)
+                    .addComponent(currentDeckOutcome))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         matchInfoPanelLayout.setVerticalGroup(
             matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -739,9 +747,9 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                     .addComponent(currentDeckOpponentClass))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(currentDeck1stOr2nd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(currentDeckOutcome)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel39.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -779,35 +787,40 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(newDeck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(currentDeckMainPortraitChooser)
+                        .addGap(18, 18, 18)
+                        .addComponent(currentDeckAltPortraitChooser)
+                        .addGap(49, 49, 49))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(newDeck)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(removeCurrentDeck)
+                                    .addComponent(addMatch)
+                                    .addComponent(removeMatch)
+                                    .addComponent(retireCurrentDeck))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(matchInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(122, 122, 122)))
+                        .addComponent(currentDeckPortrait)
+                        .addGap(20, 20, 20))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel37)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(retireCurrentDeck))
-                            .addComponent(addMatch)
-                            .addComponent(removeCurrentDeck)
-                            .addComponent(removeMatch)
-                            .addComponent(matchInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(currentDeckPortrait))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(currentScore))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel39)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(currentDeckMainPortraitChooser)
-                .addGap(18, 18, 18)
-                .addComponent(currentDeckAltPortraitChooser)
-                .addGap(97, 97, 97))
+                                .addComponent(currentScore))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel39)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -818,31 +831,28 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                     .addComponent(jLabel37))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(0, 49, Short.MAX_VALUE)
+                        .addComponent(currentDeckPortrait, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel39)
                             .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49)
+                        .addGap(91, 91, 91)
                         .addComponent(matchInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addMatch)
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(newDeck)
-                            .addComponent(retireCurrentDeck))
-                        .addGap(18, 18, 18)
-                        .addComponent(removeCurrentDeck)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(removeMatch)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addComponent(currentDeckPortrait, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(currentDeckMainPortraitChooser)
-                            .addComponent(currentDeckAltPortraitChooser))
-                        .addGap(39, 39, 39))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(retireCurrentDeck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removeCurrentDeck)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(currentDeckMainPortraitChooser)
+                    .addComponent(currentDeckAltPortraitChooser)
+                    .addComponent(newDeck))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -856,7 +866,9 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane6.addTab("Current Deck", jPanel4);
@@ -1193,20 +1205,23 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1215,15 +1230,15 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane6.addTab("Class Specific Deck Statistics", jPanel6);
@@ -1310,6 +1325,12 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         generalDeckStatisticsPerOutOfAllDecks.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         generalDeckStatisticsPerOutOfAllDecks.setText("jLabel37");
 
+        jLabel40.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel40.setText("Average Wins:");
+
+        generalDeckStatisticsAvgWins.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        generalDeckStatisticsAvgWins.setText("jLabel41");
+
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
@@ -1317,6 +1338,10 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(generalDeckStatisticsWins))
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel32)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1354,22 +1379,22 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(generalDeckStatisticsAvgDust))
                     .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addComponent(jLabel22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(generalDeckStatisticsWins))
-                    .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(generalDeckStatisticsDecks))
-                    .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(generalDeckStatisticsDust))
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(generalDeckStatisticsPerOutOfAllDecks)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addComponent(generalDeckStatisticsPerOutOfAllDecks))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(generalDeckStatisticsAvgWins))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(generalDeckStatisticsDecks)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1382,6 +1407,10 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(generalDeckStatisticsDecks))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel40)
+                    .addComponent(generalDeckStatisticsAvgWins))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
@@ -1426,7 +1455,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
                     .addComponent(generalDeckStatisticsAvgGoldenCards))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel19.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1473,21 +1502,23 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1495,12 +1526,13 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -1519,16 +1551,16 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(186, 186, 186)
+                .addGap(288, 288, 288)
                 .addComponent(jButton1)
-                .addContainerGap(400, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addGap(219, 219, 219)
                 .addComponent(jButton1)
-                .addContainerGap(442, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         jTabbedPane6.addTab("Options", jPanel7);
@@ -1748,7 +1780,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                         .addComponent(matchStatisticsWinPerVSClass2Label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(matchStatisticsWinPerVSClass2Value)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1819,7 +1851,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(matchStatisticsClass2Chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1906,8 +1938,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)))
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
@@ -2037,17 +2068,35 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_addMatchActionPerformed
 
     private void removeMatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMatchActionPerformed
-        currentDeckEditor.removeMatch(matchSelect.getSelectedIndex());
+        this.setEnabled(false);
+        int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to remove this match: "
+                + currentDeckEditor.getMatch(matchSelect.getSelectedIndex()));
+        if (answer == JOptionPane.YES_OPTION) {
+            currentDeckEditor.removeMatch(matchSelect.getSelectedIndex());
+        }
+        this.setEnabled(true);
     }//GEN-LAST:event_removeMatchActionPerformed
 
     private void retireCurrentDeckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retireCurrentDeckActionPerformed
-        currentDeckEditor.finishDeck();
+        this.setEnabled(false);
+        int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to retire this deck? "
+                + "This option WILL affect statistics.");
+        if (answer == JOptionPane.YES_OPTION) {
+            currentDeckEditor.finishDeck();
+        }
+        this.setEnabled(true);
     }//GEN-LAST:event_retireCurrentDeckActionPerformed
 
     private void removeCurrentDeckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCurrentDeckActionPerformed
-        currentDeck = null;
-        currentDeckEditor.setCurrentDeck(currentDeck);
-        dataWriter.removeDeckAndMatches();
+        this.setEnabled(false);
+        int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to remove this deck? "
+                + "This option WILL NOT affect statistics.");
+        if (answer == JOptionPane.YES_OPTION) {
+            currentDeck = null;
+            currentDeckEditor.setCurrentDeck(currentDeck);
+            dataWriter.removeDeckAndMatches();
+        }
+        this.setEnabled(true);
     }//GEN-LAST:event_removeCurrentDeckActionPerformed
 
     private void matchSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchSelectActionPerformed
@@ -2063,7 +2112,15 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_currentDeckAltPortraitChooserActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dataWriter.resetData();
+        this.setEnabled(false);
+        int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to reset data? "
+                + "This will nullify your statistics and completely remove your current deck");
+        if (answer == JOptionPane.YES_OPTION) {
+            dataWriter.resetData();
+            currentDeck = null;
+            currentDeckEditor.setCurrentDeck(null);
+        }
+        this.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -2105,6 +2162,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel generalDeckStatisticsAvgGold;
     private javax.swing.JLabel generalDeckStatisticsAvgGoldenCards;
     private javax.swing.JLabel generalDeckStatisticsAvgRegularCards;
+    private javax.swing.JLabel generalDeckStatisticsAvgWins;
     private javax.swing.JLabel generalDeckStatisticsDecks;
     private javax.swing.JLabel generalDeckStatisticsDust;
     private javax.swing.JLabel generalDeckStatisticsExtraPacks;
@@ -2150,6 +2208,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2224,7 +2283,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private StatisticsGUI generalDeckStatistics;
     private CurrentDeckEditorLogic currentDeckEditor;
     private DataWriter dataWriter;
+    private List<JLabel> winAmountLabels;
     private int currentDeckNumber;
     private int currentMatchNumber;
-    private List<JLabel> winAmountLabels;
 }

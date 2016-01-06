@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="37" failures="0" name="xml.MatchStatisticsWriterTest" time="0.641" errors="0" skipped="0">
+<testsuite tests="37" failures="0" name="xml.MatchStatisticsWriterTest" time="0.826" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -63,41 +63,41 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="update_specific_does_not_duplicate_specific" time="0.219"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="update_specific_does_not_affect_others" time="0.016"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_vs_class_1st_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_vs_class_1st_is_correct2" time="0.016"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_vs_class_2nd_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_vs_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_vs_class_1st_is_correct1" time="0.015"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_vs_class_1st_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_vs_class_2nd_is_correct1" time="0.016"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_vs_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_as_class_1st_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_as_class_1st_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_as_class_2nd_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_as_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="update_specific_does_nothing_if_wrong_objects_are_given" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_vs_class_1st_is_correct1" time="0.015"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_vs_class_1st_is_correct2" time="0.016"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_vs_class_1st_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_vs_class_1st_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_vs_class_2nd_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_vs_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_vs_class_2nd_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_vs_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_as_class_1st_is_correct1" time="0.078"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_as_class_1st_is_correct2" time="0.016"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_as_class_2nd_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_as_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_as_class_1st_is_correct1" time="0.015"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_as_class_1st_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_as_class_1st_is_correct1" time="0.016"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_as_class_1st_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_as_class_2nd_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_as_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_as_class_2nd_is_correct1" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_as_class_2nd_is_correct2" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="update_specific_works_correctly" time="0"/>
-  <testcase classname="xml.MatchStatisticsWriterTest" name="amount_of_classes_is_correct" time="0.016"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="update_specific_does_not_duplicate_specific" time="0.005"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="update_specific_does_not_affect_others" time="0.017"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_vs_class_1st_is_correct1" time="0.038"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_vs_class_1st_is_correct2" time="0.003"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_vs_class_2nd_is_correct1" time="0.009"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_vs_class_2nd_is_correct2" time="0.004"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_vs_class_1st_is_correct1" time="0.01"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_vs_class_1st_is_correct2" time="0.041"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_vs_class_2nd_is_correct1" time="0.003"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_vs_class_2nd_is_correct2" time="0.006"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_as_class_1st_is_correct1" time="0.008"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_as_class_1st_is_correct2" time="0.02"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_as_class_2nd_is_correct1" time="0.018"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="win_percentage_as_class_2nd_is_correct2" time="0.004"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="update_specific_does_nothing_if_wrong_objects_are_given" time="0.008"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_vs_class_1st_is_correct1" time="0.021"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_vs_class_1st_is_correct2" time="0.104"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_vs_class_1st_is_correct1" time="0.021"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_vs_class_1st_is_correct2" time="0.014"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_vs_class_2nd_is_correct1" time="0.004"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_vs_class_2nd_is_correct2" time="0.029"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_vs_class_2nd_is_correct1" time="0.008"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_vs_class_2nd_is_correct2" time="0.005"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_as_class_1st_is_correct1" time="0.023"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_as_class_1st_is_correct2" time="0.019"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_as_class_2nd_is_correct1" time="0.017"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="losses_as_class_2nd_is_correct2" time="0.014"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_as_class_1st_is_correct1" time="0.006"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_as_class_1st_is_correct2" time="0.013"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_as_class_1st_is_correct1" time="0.006"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_as_class_1st_is_correct2" time="0.007"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_as_class_2nd_is_correct1" time="0.004"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="wins_as_class_2nd_is_correct2" time="0.015"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_as_class_2nd_is_correct1" time="0.005"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="matches_as_class_2nd_is_correct2" time="0.005"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="update_specific_works_correctly" time="0.004"/>
+  <testcase classname="xml.MatchStatisticsWriterTest" name="amount_of_classes_is_correct" time="0.004"/>
 </testsuite>

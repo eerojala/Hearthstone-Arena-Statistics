@@ -462,6 +462,16 @@ public class RewardStatisticsKeeperTest {
     
     @Test
     public void getPercentageOutOfAllDecksWorksCorrectly() {
+        assertEquals(0.4, keeper.getPercentageOutOfAllDecks(12), 0);
+    }
     
+    @Test
+    public void getTotalWins_works_correctly() {
+        assertEquals(39, keeper.getTotalWins());
+    }
+    
+    @Test
+    public void getTotalWinAverage_works_correctly() {
+        assertEquals(7.8, keeper.getTotalWinAverage(), 0);
     }
 }
