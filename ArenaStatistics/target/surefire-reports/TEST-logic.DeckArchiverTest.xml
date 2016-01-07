@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="20" failures="0" name="logic.DeckArchiverTest" time="0.035" errors="0" skipped="0">
+<testsuite tests="20" failures="0" name="logic.DeckArchiverTest" time="0.017" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -63,7 +63,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_returns_null_if_no_decks_found" time="0"/>
+  <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_returns_null_if_no_decks_found" time="0.005"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_class_have_decks_correctly1" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_class_have_decks_correctly2" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_class_have_decks_correctly3" time="0"/>
@@ -72,13 +72,13 @@
   <testcase classname="logic.DeckArchiverTest" name="decks_by_class_have_decks_correctly6" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_class_have_decks_correctly7" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="added_deck_can_be_found_by_win_count" time="0"/>
-  <testcase classname="logic.DeckArchiverTest" name="deck_by_number_returns_correct_deck" time="0"/>
+  <testcase classname="logic.DeckArchiverTest" name="deck_by_number_returns_correct_deck" time="0.003"/>
   <testcase classname="logic.DeckArchiverTest" name="deck_by_number_returns_null_if_no_deck_found" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="added_deck_can_be_found_by_class" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_have_decks_correctly1" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_have_decks_correctly2" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_have_decks_correctly3" time="0"/>
-  <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_have_decks_correctly4" time="0"/>
+  <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_have_decks_correctly4" time="0.003"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_have_decks_correctly5" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_win_count_have_decks_correctly6" time="0"/>
   <testcase classname="logic.DeckArchiverTest" name="decks_by_class_returns_null_if_no_decks_found" time="0"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="19" failures="0" name="xml.DeckClassStatisticsWriterTest" time="0.55" errors="0" skipped="0">
+<testsuite tests="19" failures="0" name="xml.DeckClassStatisticsWriterTest" time="0.33" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -63,23 +63,23 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="update_specific_doesnt_affect_others" time="0.006"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="update_specific_doesnt_affect_others" time="0.002"/>
   <testcase classname="xml.DeckClassStatisticsWriterTest" name="update_specific_does_nothing_if_wrong_objects_are_given" time="0.001"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="update_specific_doesnt_duplicate_specific" time="0.002"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_is_correct1" time="0.024"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="update_specific_doesnt_duplicate_specific" time="0.001"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_is_correct1" time="0.001"/>
   <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_is_correct2" time="0.001"/>
   <testcase classname="xml.DeckClassStatisticsWriterTest" name="average_wins_as_class_is_correct1" time="0.001"/>
   <testcase classname="xml.DeckClassStatisticsWriterTest" name="average_wins_as_class_is_correct2" time="0.001"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="play_percentage_as_class_is_correct1" time="0.008"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="play_percentage_as_class_is_correct2" time="0.001"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="update_specific_works_correctly" time="0.001"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="wins_as_class_is_correct1" time="0.003"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="wins_as_class_is_correct2" time="0.001"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="play_percentage_as_class_is_correct1" time="0"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="play_percentage_as_class_is_correct2" time="0.005"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="update_specific_works_correctly" time="0.003"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="wins_as_class_is_correct1" time="0.001"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="wins_as_class_is_correct2" time="0.004"/>
   <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct1" time="0"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct2" time="0.003"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct3" time="0.001"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct4" time="0.003"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct5" time="0.002"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct6" time="0.002"/>
-  <testcase classname="xml.DeckClassStatisticsWriterTest" name="amount_of_classes_is_correct" time="0"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct2" time="0.001"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct3" time="0.002"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct4" time="0.006"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct5" time="0"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="decks_as_class_with_x_wins_is_correct6" time="0"/>
+  <testcase classname="xml.DeckClassStatisticsWriterTest" name="amount_of_classes_is_correct" time="0.001"/>
 </testsuite>
