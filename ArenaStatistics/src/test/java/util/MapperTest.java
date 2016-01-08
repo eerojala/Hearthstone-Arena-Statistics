@@ -71,7 +71,7 @@ public class MapperTest {
     @Test
     public void mapZeroesToADeckClassIntegerMap_values_are_zeroes() {
         Mapper.mapZeroesToDcIntMap(dcIntMap);
-        assertTrue(TestForLoop.zeroesInDcIntMap(dcIntMap));
+        assertTrue(TestHelper.zeroesInDcIntMap(dcIntMap));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class MapperTest {
     @Test
     public void mapZeroesToADeckClassPairIntegerMap_maps_zeroes_to_values() {
         Mapper.mapZeroesToDcpIntMap(dcpIntMap);
-        assertTrue(TestForLoop.zeroesInDcpIntMap(dcpIntMap));
+        assertTrue(TestHelper.zeroesInDcpIntMap(dcpIntMap));
     }
 
     @Test
@@ -95,7 +95,7 @@ public class MapperTest {
     @Test
     public void mapZeroesToADeckClassDoubleMap_maps_zeroes_to_values() {
         Mapper.mapZeroesToDcDoubleMap(dcDoubleMap);
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(dcDoubleMap));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(dcDoubleMap));
     }
 
     @Test
@@ -107,7 +107,7 @@ public class MapperTest {
     @Test
     public void mapZeroesToADeckClassPairDoubleMap_maps_zeroes_to_values() {
         Mapper.mapZeroesToDcpDoubleMap(dcpDoubleMap);
-        assertTrue(TestForLoop.zeroesInDcpDoubleMap(dcpDoubleMap));
+        assertTrue(TestHelper.zeroesInDcpDoubleMap(dcpDoubleMap));
     }
 
     @Test
@@ -119,7 +119,7 @@ public class MapperTest {
     @Test
     public void mapZeroesToIntegerIntegerMap_maps_zeroes_to_values() {
         Mapper.mapZeroesToIntIntMap(intIntMap);
-        assertTrue(TestForLoop.zeroesInIntIntMap(intIntMap));
+        assertTrue(TestHelper.zeroesInIntIntMap(intIntMap));
     }
 
     @Test
@@ -131,7 +131,7 @@ public class MapperTest {
     @Test
     public void mapZeroesToIntegerDoubleMap_maps_zeroes_to_values() {
         Mapper.mapZeroesToIntDoubleMap(intDoubleMap);
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(intDoubleMap));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(intDoubleMap));
     }
 
     @Test
@@ -143,7 +143,7 @@ public class MapperTest {
     @Test
     public void mapZeroesToDcIntIntMapMap_maps_zeroes_to_values() {
         Mapper.mapZeroesToDcIntIntMapMap(dcIntIntMapMap);
-        assertTrue(TestForLoop.zeroesInDcIntIntMapMap(dcIntIntMapMap));
+        assertTrue(TestHelper.zeroesInDcIntIntMapMap(dcIntIntMapMap));
     }
 
     @Test

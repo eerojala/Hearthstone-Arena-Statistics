@@ -48,9 +48,8 @@ public class DataParser {
     private void setCurrentDeck() {
         DeckParser parser = new DeckParser(decksFilepath);
         parser.addValues();
-        List<Deck> decks = parser.getDecks();
         try {
-            currentDeck = decks.get(decks.size() - 1);
+            currentDeck = parser.getDeck();
         } catch (Exception e) {
 
         }
@@ -65,7 +64,7 @@ public class DataParser {
         MatchParser parser = new MatchParser(matchesFilepath);
         parser.addValues();
         try {
-            return parser.getArchiver().getMatchesByDeckNumber(currentDeck.getDeckNumber());
+            return parser.getMatches();
         } catch (Exception e) {
             return null;
         }     

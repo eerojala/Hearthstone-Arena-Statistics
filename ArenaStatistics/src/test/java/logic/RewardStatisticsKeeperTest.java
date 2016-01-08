@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.TestForLoop;
+import util.TestHelper;
 
 public class RewardStatisticsKeeperTest {
 
@@ -103,7 +103,7 @@ public class RewardStatisticsKeeperTest {
 
     @Test
     public void decks_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getDecksByWins(), intExceptions));
+        assertTrue(TestHelper.zeroesInIntIntMap(keeper.getStatistics().getDecksByWins(), intExceptions));
     }
 
     @Test
@@ -123,7 +123,7 @@ public class RewardStatisticsKeeperTest {
 
     @Test
     public void dust_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getDustByWins(), intExceptions));
+        assertTrue(TestHelper.zeroesInIntIntMap(keeper.getStatistics().getDustByWins(), intExceptions));
     }
 
     @Test
@@ -143,7 +143,7 @@ public class RewardStatisticsKeeperTest {
 
     @Test
     public void gold_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getGoldByWins(), intExceptions));
+        assertTrue(TestHelper.zeroesInIntIntMap(keeper.getStatistics().getGoldByWins(), intExceptions));
     }
 
     @Test
@@ -153,7 +153,7 @@ public class RewardStatisticsKeeperTest {
 
     @Test
     public void extra_packs_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getExtraPacksByWins(), 12));
+        assertTrue(TestHelper.zeroesInIntIntMap(keeper.getStatistics().getExtraPacksByWins(), 12));
     }
 
     @Test
@@ -163,7 +163,7 @@ public class RewardStatisticsKeeperTest {
 
     @Test
     public void cards_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getCardsByWins(), 4));
+        assertTrue(TestHelper.zeroesInIntIntMap(keeper.getStatistics().getCardsByWins(), 4));
     }
 
     @Test
@@ -173,7 +173,7 @@ public class RewardStatisticsKeeperTest {
 
     @Test
     public void gold_cards_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(keeper.getStatistics().getGoldCardsByWins(), 4));
+        assertTrue(TestHelper.zeroesInIntIntMap(keeper.getStatistics().getGoldCardsByWins(), 4));
     }
     
     @Test
@@ -198,7 +198,7 @@ public class RewardStatisticsKeeperTest {
 
     @Test
     public void average_dust_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgDustByWins(), intExceptions));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(keeper.getStatistics().getAvgDustByWins(), intExceptions));
     }
     
     @Test
@@ -218,7 +218,7 @@ public class RewardStatisticsKeeperTest {
     
     @Test
     public void average_gold_by_wins_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgGoldByWins(), intExceptions));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(keeper.getStatistics().getAvgGoldByWins(), intExceptions));
     }
     
     @Test
@@ -228,7 +228,7 @@ public class RewardStatisticsKeeperTest {
     
     @Test
     public void average_extra_packs_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgExtraPacksByWins(), 12));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(keeper.getStatistics().getAvgExtraPacksByWins(), 12));
     }
     
     @Test
@@ -238,7 +238,7 @@ public class RewardStatisticsKeeperTest {
     
     @Test
     public void average_cards_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgCardsByWins(), 4));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(keeper.getStatistics().getAvgCardsByWins(), 4));
     }
     
     @Test
@@ -248,7 +248,7 @@ public class RewardStatisticsKeeperTest {
     
     @Test
     public void average_gold_cards_by_wins_has_correct_values2() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(keeper.getStatistics().getAvgGoldCardsByWins(), 4));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(keeper.getStatistics().getAvgGoldCardsByWins(), 4));
     }
     
     @Test

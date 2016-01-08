@@ -4,29 +4,28 @@ import xml.XmlParser;
 import domain.*;
 import java.util.ArrayList;
 import java.util.List;
-import logic.MatchArchiver;
 import org.jdom.Document;
 import org.jdom.Element;
 
 public class MatchParser extends XmlParser {
 
-    private final MatchArchiver archiver;
+    private final List<Match> matches;
 
     public MatchParser(String filepath) {
         super(filepath, "Match", "Matches");
-        archiver = new MatchArchiver();
+        matches = new ArrayList();
     }
 
     public MatchParser(Document doc) {
         super(doc, "Match");
-        archiver = new MatchArchiver();
+        matches = new ArrayList();
     }
 
     @Override
     public void addValues() {
         for (int i = 0; i < childlist.size(); i++) {
             Element element = (Element) childlist.get(i);
-            archiver.addMatch(createMatch(element));
+            matches.add(createMatch(element));
         }
     }
 
@@ -43,7 +42,7 @@ public class MatchParser extends XmlParser {
                 wentFirst, deckNumber, matchNumber);
     }
     
-    public MatchArchiver getArchiver() {
-        return archiver;
+    public List<Match> getMatches() {
+        return matches;
     }
 }

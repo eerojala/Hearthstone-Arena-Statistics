@@ -31,7 +31,7 @@ public class DataWriterTest {
     private Match match2;
     private final String classVSClassUrl = "src/main/resources/xmltestfiles/ClassVSClassStatisticsWriteTest.xml";
     private final String deckClassUrl = "src/main/resources/xmltestfiles/DeckClassStatisticsWriteTest.xml";
-    private final String deckUrl = "src/main/resources/xmltestfiles/DeckWriteTest.xml";
+    private final String deckUrl = "src/main/resources/xmltestfiles/DeckXmlTest.xml";
     private final String matchStatisticsUrl = "src/main/resources/xmltestfiles/MatchStatisticsWriteTest.xml";
     private final String matchUrl = "src/main/resources/xmltestfiles/MatchWriteTest.xml";
     private final String rewardUrl = "src/main/resources/xmltestfiles/RewardStatisticsWriteTest.xml";
@@ -192,15 +192,7 @@ public class DataWriterTest {
         writer.saveProgress(deck);
         DeckParser parser = new DeckParser(deckUrl);
         parser.addValues();
-        assertEquals(deck, parser.getDecks().get(0));
-    }
-    
-    @Test
-    public void only_one_deck_written_at_a_time() {
-        writer.saveProgress(deck);
-        DeckParser parser = new DeckParser(deckUrl);
-        parser.addValues();
-        assertEquals(1, parser.getDecks().size());
+        assertEquals(deck, parser.getDeck());
     }
 
     @Test
@@ -208,7 +200,7 @@ public class DataWriterTest {
         addMatchesAgain();
         MatchParser parser = new MatchParser(matchUrl);
         parser.addValues();
-        assertEquals(2, parser.getArchiver().getMatchesByDeckNumber(1).size());
+        assertEquals(2, parser.getMatches().size());
     }
     
     private void addMatchesAgain() {
@@ -233,6 +225,6 @@ public class DataWriterTest {
         MatchParser parser = new MatchParser(matchUrl);
         parser.addValues();
         writer.resetData();
-        assertEquals(matches, parser.getArchiver().getMatchesByDeckNumber(1));
+        assertEquals(matches, parser.getMatches());
     }
 }

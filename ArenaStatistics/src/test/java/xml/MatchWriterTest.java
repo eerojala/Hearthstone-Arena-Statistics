@@ -1,13 +1,9 @@
 package xml;
 
-
 import domain.DeckClass;
 import domain.Match;
 import domain.Outcome;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,20 +13,20 @@ import static org.junit.Assert.*;
 
 public class MatchWriterTest {
 
-    MatchWriter writer;
-    MatchParser parser;
-    Match match;
-    Match match1;
-    Match match2;
-    Match match3;
-    Match match4;
-    Match match5;
-    Match match6;
-    Match match7;
-    Match match8;
-    Match match9;
-    String filePath;
-    List<Match> matches;
+    private final MatchWriter writer;
+    private final Match match1;
+    private final Match match2;
+    private final Match match3;
+    private final Match match4;
+    private final Match match5;
+    private final Match match6;
+    private final Match match7;
+    private final Match match8;
+    private final Match match9;
+    private final String filePath;
+    private MatchParser parser;
+    private Match match;
+    private List<Match> matches;
 
     public MatchWriterTest() {
         filePath = "src/main/resources/xmltestfiles/MatchWriteTest.xml";
@@ -57,17 +53,6 @@ public class MatchWriterTest {
     @Before
     public void setUp() {
         addAll();
-    }
-
-    private void addMatchesToList() {
-        matches = new ArrayList();
-        Map<String, List<Match>> map = parser.getArchiver().getArchive().getMatchesByOpponent();
-        for (String name : map.keySet()) {
-            for (Match m : map.get(name)) {
-                matches.add(m);
-            }
-        }
-        Collections.sort(matches);
     }
 
     @After
@@ -109,18 +94,6 @@ public class MatchWriterTest {
         assertTrue(!matches.contains(match3));
     }
 
-//    @Test
-//    public void removeMatchesFromASpecificDeck_removes_correct_matches() {
-//        writer.removeMatchesFromASpecificDeck(doc, 5);
-//        boolean bool = true;
-//        parseDocument();
-//        for (int i = 0; i < parser.getMatches().size(); i++) {
-//            if (parser.getMatches().get(i).getDeckNumber() == 5) {
-//                bool = false;
-//            }
-//        }
-//        assertTrue(bool);
-//    }
     @Test
     public void written_match_has_correct_player_class1() {
         parseDocument();
@@ -275,7 +248,7 @@ public class MatchWriterTest {
     private void parseDocument() {
         parser = new MatchParser(writer.getDoc());
         parser.addValues();
-        addMatchesToList();
+        matches = parser.getMatches();
     }
 
 }

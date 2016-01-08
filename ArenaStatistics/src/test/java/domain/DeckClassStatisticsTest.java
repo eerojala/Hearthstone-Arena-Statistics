@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.TestForLoop;
+import util.TestHelper;
 
 public class DeckClassStatisticsTest {
     DeckClassStatistics statistics;
@@ -33,16 +33,16 @@ public class DeckClassStatisticsTest {
     
     @Test
     public void average_wins_by_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(statistics.getAvgWinsAsClass()));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getAvgWinsAsClass()));
     }
     
     @Test
     public void percentage_played_as_class_out_of_all_decks_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(statistics.getPlayPerAsClass()));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getPlayPerAsClass()));
     }
     
     @Test
     public void decks_with_x_wins_as_class_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInDcIntIntMapMap(statistics.getDecksWithXWinsAsClass()));
+        assertTrue(TestHelper.zeroesInDcIntIntMapMap(statistics.getDecksWithXWinsAsClass()));
     }
 }

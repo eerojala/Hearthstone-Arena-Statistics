@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.TestForLoop;
+import util.TestHelper;
 
 
 public class RewardStatisticsTest {
@@ -35,56 +35,56 @@ public class RewardStatisticsTest {
     
     @Test
     public void decks_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getDecksByWins()));
+        assertTrue(TestHelper.zeroesInIntIntMap(statistics.getDecksByWins()));
     }
     
     @Test
     public void dust_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getDustByWins()));
+        assertTrue(TestHelper.zeroesInIntIntMap(statistics.getDustByWins()));
     }
     
     @Test
     public void gold_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getGoldByWins()));
+        assertTrue(TestHelper.zeroesInIntIntMap(statistics.getGoldByWins()));
     }
     
     @Test
     public void extra_packs_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getExtraPacksByWins()));
+        assertTrue(TestHelper.zeroesInIntIntMap(statistics.getExtraPacksByWins()));
     }
     
     @Test
     public void cards_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getCardsByWins()));
+        assertTrue(TestHelper.zeroesInIntIntMap(statistics.getCardsByWins()));
     }
     
     @Test
     public void gold_cards_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntIntMap(statistics.getGoldCardsByWins()));
+        assertTrue(TestHelper.zeroesInIntIntMap(statistics.getGoldCardsByWins()));
     }
     
     @Test
     public void average_dust_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgDustByWins()));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(statistics.getAvgDustByWins()));
     }
     
     @Test
     public void average_gold_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgGoldByWins()));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(statistics.getAvgGoldByWins()));
     }
     
     @Test
     public void average_extra_packs_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgExtraPacksByWins()));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(statistics.getAvgExtraPacksByWins()));
     }
     
     @Test
     public void average_cards_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgCardsByWins()));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(statistics.getAvgCardsByWins()));
     }
     
     @Test
     public void average_gold_cards_by_wins_have_zeroes_at_start() {
-        assertTrue(TestForLoop.zeroesInIntDoubleMap(statistics.getAvgGoldCardsByWins()));
+        assertTrue(TestHelper.zeroesInIntDoubleMap(statistics.getAvgGoldCardsByWins()));
     }
 }

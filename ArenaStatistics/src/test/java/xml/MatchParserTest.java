@@ -2,9 +2,7 @@ package xml;
 
 import domain.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,28 +12,18 @@ import static org.junit.Assert.*;
 
 public class MatchParserTest {
 
-    MatchParser parser;
-    List<Match> matches;
+    private final MatchParser parser;
+    private final List<Match> matches;
 
     public MatchParserTest() {
         parser = new MatchParser("src/main/resources/xmltestfiles/MatchParseTest.xml");
         parser.addValues();
-        addMatches();
-    }
-
-    private void addMatches() {
-        matches = new ArrayList();
-        Map<String, List<Match>> map = parser.getArchiver().getArchive().getMatchesByOpponent();
-        for (String name : map.keySet()) {
-            for (Match match : map.get(name)) {
-                matches.add(match);
-            }
-        }
-        Collections.sort(matches);
+        matches = parser.getMatches();
     }
 
     @BeforeClass
     public static void setUpClass() {
+        
     }
 
     @AfterClass
@@ -52,20 +40,20 @@ public class MatchParserTest {
 
     @Test
     public void childlist_is_empty_if_invalid_filepath() {
-        XmlParser parser = new MatchParser("sdasfafs");
-        assertEquals(0, parser.getChildlist().size());
+        XmlParser tempParser = new MatchParser("sdasfafs");
+        assertEquals(0, tempParser.getChildlist().size());
     }
 
     @Test
     public void parses_all_matches() {
         assertEquals(9, matches.size());
     }
-    
+
     @Test
     public void match_has_correct_player_class1() {
         assertEquals(DeckClass.HUNTER, matches.get(0).getPlayerClass());
     }
-    
+
     @Test
     public void match_has_correct_player_class2() {
         assertEquals(DeckClass.ROGUE, matches.get(1).getPlayerClass());

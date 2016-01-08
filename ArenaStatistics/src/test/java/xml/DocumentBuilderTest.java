@@ -38,7 +38,7 @@ public class DocumentBuilderTest {
 
     @Test
     public void buildDocument_returns_a_document_if_correct_filepath() {
-        assertEquals(Document.class, DocumentBuilder.buildDocument("src/main/resources/xmltestfiles/DeckParseTest.xml").getClass());
+        assertEquals(Document.class, DocumentBuilder.buildDocument("src/main/resources/xmltestfiles/DeckXmlTest.xml").getClass());
     }
 
     @Test

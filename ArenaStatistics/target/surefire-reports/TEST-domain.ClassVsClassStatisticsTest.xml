@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="domain.ClassVsClassStatisticsTest" time="0.036" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="domain.ClassVsClassStatisticsTest" time="0.023" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -63,12 +63,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="domain.ClassVsClassStatisticsTest" name="winPer_in_class_vs_class_1st_has_zeroes_at_start" time="0.002"/>
-  <testcase classname="domain.ClassVsClassStatisticsTest" name="matches_in_class_vs_class_2nd_has_zeroes_at_start" time="0.001"/>
+  <testcase classname="domain.ClassVsClassStatisticsTest" name="winPer_in_class_vs_class_1st_has_zeroes_at_start" time="0.001"/>
+  <testcase classname="domain.ClassVsClassStatisticsTest" name="matches_in_class_vs_class_2nd_has_zeroes_at_start" time="0"/>
   <testcase classname="domain.ClassVsClassStatisticsTest" name="wins_in_class_vs_class_2nd_has_zeroes_at_start" time="0.002"/>
   <testcase classname="domain.ClassVsClassStatisticsTest" name="matches_in_class_vs_class_1st_has_zeroes_at_start" time="0.001"/>
   <testcase classname="domain.ClassVsClassStatisticsTest" name="wins_in_class_vs_class_1st_has_zeroes_at_start" time="0.001"/>
-  <testcase classname="domain.ClassVsClassStatisticsTest" name="losses_in_class_vs_class_2nd_has_zeroes_at_start" time="0.003"/>
-  <testcase classname="domain.ClassVsClassStatisticsTest" name="winPer_in_class_vs_class_2nd_has_zeroes_at_start" time="0.001"/>
-  <testcase classname="domain.ClassVsClassStatisticsTest" name="losses_in_class_vs_class_1st_has_zeroes_at_start" time="0.002"/>
+  <testcase classname="domain.ClassVsClassStatisticsTest" name="losses_in_class_vs_class_2nd_has_zeroes_at_start" time="0"/>
+  <testcase classname="domain.ClassVsClassStatisticsTest" name="winPer_in_class_vs_class_2nd_has_zeroes_at_start" time="0"/>
+  <testcase classname="domain.ClassVsClassStatisticsTest" name="losses_in_class_vs_class_1st_has_zeroes_at_start" time="0.001"/>
 </testsuite>

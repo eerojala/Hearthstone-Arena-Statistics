@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.TestForLoop;
+import util.TestHelper;
 
 public class ClassStatisticsKeeperTest {
 
@@ -96,7 +96,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void matches_as_class_going_1st_are_correct2() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getMatchesAsClass1st(), DeckClass.SHAMAN, DeckClass.PRIEST);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getMatchesAsClass1st(), DeckClass.SHAMAN, DeckClass.PRIEST);
         assertTrue(bool);
     }
 
@@ -112,7 +112,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void matches_as_class_going_2nd_are_correct3() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getMatchesAsClass2nd(), DeckClass.PRIEST, DeckClass.SHAMAN);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getMatchesAsClass2nd(), DeckClass.PRIEST, DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -133,7 +133,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void matches_vs_class_going_1st_is_correct4() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getMatchesVSClass1st(), DeckClass.MAGE,
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getMatchesVSClass1st(), DeckClass.MAGE,
                 DeckClass.PALADIN, DeckClass.ROGUE, DeckClass.WARLOCK);
         assertTrue(bool);
     }
@@ -155,7 +155,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void matches_vs_class_going_2nd_is_correct4() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getMatchesVSClass2nd(), DeckClass.MAGE,
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getMatchesVSClass2nd(), DeckClass.MAGE,
                 DeckClass.DRUID, DeckClass.WARRIOR);
         assertTrue(bool);
     }
@@ -167,7 +167,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void wins_as_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass1st(), DeckClass.SHAMAN);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -178,7 +178,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void wins_as_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass2nd(), DeckClass.SHAMAN);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getWinsAsClass2nd(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -189,7 +189,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void losses_as_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getLossesAsClass1st(), DeckClass.SHAMAN);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getLossesAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -205,7 +205,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void losses_as_class_going_2nd_is_correct3() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getLossesAsClass2nd(), DeckClass.SHAMAN, DeckClass.PRIEST);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getLossesAsClass2nd(), DeckClass.SHAMAN, DeckClass.PRIEST);
         assertTrue(bool);
     }
 
@@ -216,7 +216,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void wins_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsVSClass1st(), DeckClass.MAGE);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getWinsVSClass1st(), DeckClass.MAGE);
         assertTrue(bool);
     }
 
@@ -227,7 +227,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void wins_vs_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getWinsVSClass2nd(), DeckClass.DRUID);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getWinsVSClass2nd(), DeckClass.DRUID);
         assertTrue(bool);
     }
 
@@ -238,7 +238,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void losses_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getLossesVSClass1st(), DeckClass.PALADIN);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getLossesVSClass1st(), DeckClass.PALADIN);
         assertTrue(bool);
     }
 
@@ -254,7 +254,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void losses_vs_class_going_2nd_is_correct3() {
-        bool = TestForLoop.zeroesInDcIntMap(keeper.getStatistics().getLossesVSClass2nd(), DeckClass.MAGE, DeckClass.WARRIOR);
+        bool = TestHelper.zeroesInDcIntMap(keeper.getStatistics().getLossesVSClass2nd(), DeckClass.MAGE, DeckClass.WARRIOR);
         assertTrue(bool);
     }
 
@@ -265,7 +265,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void win_percentage_as_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerAsClass1st(), DeckClass.SHAMAN);
+        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -276,7 +276,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void win_percentage_as_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerAsClass2nd(), DeckClass.SHAMAN);
+        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerAsClass2nd(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
@@ -287,7 +287,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void win_percentage_vs_class_going_1st_is_correct2() {
-        bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass1st(), DeckClass.MAGE);
+        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass1st(), DeckClass.MAGE);
         assertTrue(bool);
     }
 
@@ -298,7 +298,7 @@ public class ClassStatisticsKeeperTest {
 
     @Test
     public void win_percentage_vs_class_going_2nd_is_correct2() {
-        bool = TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass2nd(), DeckClass.DRUID);
+        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass2nd(), DeckClass.DRUID);
     }
 
     @Test

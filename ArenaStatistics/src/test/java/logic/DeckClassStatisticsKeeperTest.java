@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.TestForLoop;
+import util.TestHelper;
 
 public class DeckClassStatisticsKeeperTest {
 
@@ -111,7 +111,7 @@ public class DeckClassStatisticsKeeperTest {
 
     @Test
     public void average_wins_by_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getAvgWinsAsClass(), dcExceptions));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getAvgWinsAsClass(), dcExceptions));
     }
 
     @Test
@@ -131,7 +131,7 @@ public class DeckClassStatisticsKeeperTest {
 
     @Test
     public void play_percentage_as_class_has_correct_values4() {
-        assertTrue(TestForLoop.zeroesInDcDoubleMap(keeper.getStatistics().getPlayPerAsClass(), dcExceptions));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getPlayPerAsClass(), dcExceptions));
     }
     
     @Test

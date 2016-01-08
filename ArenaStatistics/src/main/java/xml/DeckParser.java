@@ -8,23 +8,21 @@ import org.jdom.Element;
 
 public class DeckParser extends XmlParser {
 
-    private List<Deck> decks;
+    private Deck deck;
 
     public DeckParser(String fileName) {
         super(fileName, "Deck", "Decks");
-        decks = new ArrayList();
     }
     
     public DeckParser(Document doc) {
         super(doc, "Deck");
-        decks = new ArrayList();
     }
 
     @Override
     public void addValues() {
         for (int i = 0; i < childlist.size(); i++) {
             Element node = (Element) childlist.get(i);
-            decks.add(createDeck(node));
+            deck = createDeck(node);
         }
     }
 
@@ -53,8 +51,8 @@ public class DeckParser extends XmlParser {
         return cards;
     }
 
-    public List<Deck> getDecks() {
-        return decks;
+    public Deck getDeck() {
+        return deck;
     }
 
 }

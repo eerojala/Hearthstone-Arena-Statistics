@@ -13,7 +13,6 @@ gui\MainGUI$19.class
 gui\MainGUI.class
 logic\MatchAssigner.class
 domain\MatchArchive.class
-logic\MatchArchiver.class
 xml\StatisticsParser.class
 gui\MainGUI$9.class
 domain\Outcome.class
@@ -22,7 +21,6 @@ gui\MainGUI$20.class
 logic\CurrentDeckEditorLogic.class
 logic\MatchStatisticsDisplayLogic.class
 util\DocumentBuilder.class
-util\TestForLoop.class
 logic\RewardStatisticsKeeper.class
 logic\StatisticsGUI.class
 util\StatisticsHelper.class
@@ -42,6 +40,7 @@ gui\MainGUI$7.class
 domain\ClassStatistics.class
 domain\Deck.class
 logic\ClassStatisticsKeeper.class
+util\TestHelper.class
 gui\MainGUI$17.class
 xml\MatchStatisticsParser.class
 logic\ClassSpecificDeckStatisticsDisplayLogic.class
