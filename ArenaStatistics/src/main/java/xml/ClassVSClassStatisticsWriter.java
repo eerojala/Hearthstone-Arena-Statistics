@@ -4,7 +4,6 @@ import domain.DeckClass;
 import domain.DeckClassPair;
 import logic.ClassVSClassStatisticsKeeper;
 import org.jdom.Attribute;
-import org.jdom.Document;
 import org.jdom.Element;
 
 public class ClassVSClassStatisticsWriter extends StatisticsWriter {

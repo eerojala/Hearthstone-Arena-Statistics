@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="16" failures="0" name="domain.ClassStatisticsTest" time="0.004" errors="0" skipped="0">
+<testsuite tests="16" failures="0" name="domain.ClassStatisticsTest" time="0.031" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -77,6 +77,6 @@
   <testcase classname="domain.ClassStatisticsTest" name="winPer_vs_class_1st_has_zeroes_at_start" time="0"/>
   <testcase classname="domain.ClassStatisticsTest" name="losses_vs_class_2nd_has_zeroes_at_start" time="0"/>
   <testcase classname="domain.ClassStatisticsTest" name="matches_as_class_1st_has_zeroes_at_start" time="0"/>
-  <testcase classname="domain.ClassStatisticsTest" name="losses_vs_class_1st_has_zeroes_at_start" time="0.001"/>
-  <testcase classname="domain.ClassStatisticsTest" name="matches_vs_class_2nd_has_zeroes_at_start" time="0.001"/>
+  <testcase classname="domain.ClassStatisticsTest" name="losses_vs_class_1st_has_zeroes_at_start" time="0"/>
+  <testcase classname="domain.ClassStatisticsTest" name="matches_vs_class_2nd_has_zeroes_at_start" time="0.015"/>
 </testsuite>
