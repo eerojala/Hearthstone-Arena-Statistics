@@ -1,7 +1,7 @@
 
 package xml;
 
-import logic.MatchStatisticsKeeper;
+import logic.MatchRelatedStatisticsKeeper;
 import org.jdom.Document;
 import org.jdom.Element;
 

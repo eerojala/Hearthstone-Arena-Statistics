@@ -1,7 +1,7 @@
 package xml;
 
 import domain.DeckClass;
-import logic.ClassStatisticsKeeper;
+import logic.MatchStatisticsKeeper;
 import org.jdom.Attribute;
 import org.jdom.Element;
 
@@ -14,7 +14,7 @@ public class MatchStatisticsWriter extends StatisticsWriter {
     @Override
     public void writeContent(Object obj) {
         try {
-            ClassStatisticsKeeper keeper = (ClassStatisticsKeeper) obj;
+            MatchStatisticsKeeper keeper = (MatchStatisticsKeeper) obj;
             for (DeckClass dc : DeckClass.values()) {
                 addClassToDocument(dc, keeper);
             }
@@ -23,7 +23,7 @@ public class MatchStatisticsWriter extends StatisticsWriter {
         }
     }
 
-    private void addClassToDocument(DeckClass dc, ClassStatisticsKeeper keeper) {
+    private void addClassToDocument(DeckClass dc, MatchStatisticsKeeper keeper) {
         Element element = new Element(childName);
         element.setAttribute(new Attribute("id", dc.toString()));
         element.addContent(new Element("MatchesAsClass1st").setText("" + keeper.getMatchesAsClass1st(dc)));
@@ -46,7 +46,7 @@ public class MatchStatisticsWriter extends StatisticsWriter {
     public void updateSpecific(Object key, Object keeper) {
         try {
             DeckClass dc = (DeckClass) key;
-            ClassStatisticsKeeper statKeeper = (ClassStatisticsKeeper) keeper;
+            MatchStatisticsKeeper statKeeper = (MatchStatisticsKeeper) keeper;
             remove(dc.toString());
             addClassToDocument(dc, statKeeper);
         } catch (Exception e) {

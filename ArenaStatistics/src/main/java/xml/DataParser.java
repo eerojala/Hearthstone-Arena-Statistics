@@ -3,18 +3,18 @@ package xml;
 import domain.Deck;
 import domain.Match;
 import java.util.List;
-import logic.ClassStatisticsKeeper;
-import logic.ClassVSClassStatisticsKeeper;
-import logic.DeckClassStatisticsKeeper;
+import logic.MatchStatisticsKeeper;
+import logic.MatchupStatisticsKeeper;
+import logic.DeckScoreStatisticsKeeper;
 import logic.MatchAssigner;
 import logic.RewardStatisticsKeeper;
 
 public class DataParser {
 
     private Deck currentDeck;
-    private ClassStatisticsKeeper classStatisticsKeeper;
-    private ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
-    private DeckClassStatisticsKeeper deckClassStatisticsKeeper;
+    private MatchStatisticsKeeper classStatisticsKeeper;
+    private MatchupStatisticsKeeper classVSClassStatisticsKeeper;
+    private DeckScoreStatisticsKeeper deckClassStatisticsKeeper;
     private RewardStatisticsKeeper rewardStatisticsKeeper;
     private String decksFilepath;
     private String matchesFilepath;
@@ -94,11 +94,11 @@ public class DataParser {
         rewardStatisticsKeeper = parser.getKeeper();
     }
 
-    public ClassStatisticsKeeper getClassStatisticsKeeper() {
+    public MatchStatisticsKeeper getClassStatisticsKeeper() {
         return classStatisticsKeeper;
     }
 
-    public ClassVSClassStatisticsKeeper getClassVSClassStatisticsKeeper() {
+    public MatchupStatisticsKeeper getClassVSClassStatisticsKeeper() {
         return classVSClassStatisticsKeeper;
     }
 
@@ -106,7 +106,7 @@ public class DataParser {
         return currentDeck;
     }
 
-    public DeckClassStatisticsKeeper getDeckClassStatisticsKeeper() {
+    public DeckScoreStatisticsKeeper getDeckClassStatisticsKeeper() {
         return deckClassStatisticsKeeper;
     }
 

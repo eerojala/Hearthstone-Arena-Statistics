@@ -1,7 +1,7 @@
 package logic;
 
 import domain.DeckClass;
-import domain.DeckClassPair;
+import domain.Matchup;
 import gui.MainGUI;
 import util.PortraitSetter;
 import util.StatisticsHelper;
@@ -9,8 +9,8 @@ import util.StatisticsHelper;
 public class MatchStatisticsDisplayLogic implements StatisticsGUI, GUIWithPortrait{
 
     private final MainGUI gui;
-    private final ClassStatisticsKeeper csk;
-    private final ClassVSClassStatisticsKeeper cvcsk;
+    private final MatchStatisticsKeeper csk;
+    private final MatchupStatisticsKeeper cvcsk;
 
     public MatchStatisticsDisplayLogic(MainGUI gui) {
         this.gui = gui;
@@ -41,7 +41,7 @@ public class MatchStatisticsDisplayLogic implements StatisticsGUI, GUIWithPortra
     public void updateStats() {
         DeckClass dc1 = (DeckClass) gui.getMatchStatisticsClass1Chooser().getSelectedItem();
         DeckClass dc2 = (DeckClass) gui.getMatchStatisticsClass2Chooser().getSelectedItem();
-        DeckClassPair dcp = new DeckClassPair(dc1, dc2);
+        Matchup dcp = new Matchup(dc1, dc2);
         updateLabels(dc1, dc2);
         updateValues(dc1, dcp);
     }
@@ -59,7 +59,7 @@ public class MatchStatisticsDisplayLogic implements StatisticsGUI, GUIWithPortra
         gui.getMatchStatisticsWinPerVSClass2Label().setText(dc1VSdc2 + " win%");
     }
 
-    private void updateValues(DeckClass dc, DeckClassPair dcp) {
+    private void updateValues(DeckClass dc, Matchup dcp) {
         updateTotalValues();
         if (gui.getMatchStatistics1stRadioButton().isSelected()) {
             update1stValues(dc, dcp);
@@ -76,7 +76,7 @@ public class MatchStatisticsDisplayLogic implements StatisticsGUI, GUIWithPortra
         gui.getMatchStatisticsTotalWinPer().setText("" + StatisticsHelper.convertToPercentage(csk.getTotalWinPer()));
     }
 
-    private void update1stValues(DeckClass dc, DeckClassPair dcp) {
+    private void update1stValues(DeckClass dc, Matchup dcp) {
         gui.getMatchStatisticsMatchesAsClassValue().setText("" + csk.getMatchesAsClass1st(dc));
         gui.getMatchStatisticsMatchesVSClassValue().setText("" + csk.getMatchesVSClass1st(dc));
         gui.getMatchStatisticsWinsAsClassValue().setText("" + csk.getWinsAsClass1st(dc));
@@ -88,7 +88,7 @@ public class MatchStatisticsDisplayLogic implements StatisticsGUI, GUIWithPortra
         gui.getMatchStatisticsWinPerVSClass2Value().setText("" + StatisticsHelper.convertToPercentage(cvcsk.getWinPerClassVSClass1st(dcp)));
     }
 
-    private void update2ndValues(DeckClass dc, DeckClassPair dcp) {
+    private void update2ndValues(DeckClass dc, Matchup dcp) {
         gui.getMatchStatisticsMatchesAsClassValue().setText("" + csk.getMatchesAsClass2nd(dc));
         gui.getMatchStatisticsMatchesVSClassValue().setText("" + csk.getMatchesVSClass2nd(dc));
         gui.getMatchStatisticsWinsAsClassValue().setText("" + csk.getWinsAsClass2nd(dc));
@@ -100,7 +100,7 @@ public class MatchStatisticsDisplayLogic implements StatisticsGUI, GUIWithPortra
         gui.getMatchStatisticsWinPerVSClass2Value().setText("" + StatisticsHelper.convertToPercentage(cvcsk.getWinPerClassVSClass2nd(dcp)));
     }
     
-    private void updateClassTotalValues(DeckClass dc, DeckClassPair dcp) {
+    private void updateClassTotalValues(DeckClass dc, Matchup dcp) {
         gui.getMatchStatisticsMatchesAsClassValue().setText("" + csk.getMatchesAsClassTotal(dc));
         gui.getMatchStatisticsMatchesVSClassValue().setText("" + csk.getMatchesVSClassTotal(dc));
         gui.getMatchStatisticsWinsAsClassValue().setText("" + csk.getWinsAsClassTotal(dc));

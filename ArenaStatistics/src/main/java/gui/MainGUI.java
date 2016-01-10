@@ -52,7 +52,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     public void setCurrentDeck(Deck currentDeck) {
         this.currentDeck = currentDeck;
         if (currentDeck == null) {
-            currentDeckNumber = deckClassStatisticsKeeper.getTotalDeckAmount() + 1;
+            currentDeckNumber = deckScoreStatisticsKeeper.getTotalDeckAmount() + 1;
         } else {
             currentDeckNumber = this.currentDeck.getDeckNumber();
         }
@@ -67,16 +67,16 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         }
     }
 
-    public void setClassStatisticsKeeper(ClassStatisticsKeeper ClassStatisticsKeeper) {
+    public void setClassStatisticsKeeper(MatchStatisticsKeeper ClassStatisticsKeeper) {
         this.classStatisticsKeeper = ClassStatisticsKeeper;
     }
 
-    public void setClassVSClassStatisticsKeeper(ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper) {
+    public void setClassVSClassStatisticsKeeper(MatchupStatisticsKeeper classVSClassStatisticsKeeper) {
         this.classVSClassStatisticsKeeper = classVSClassStatisticsKeeper;
     }
 
-    public void setDeckClassStatisticsKeeper(DeckClassStatisticsKeeper deckClassStatisticsKeeper) {
-        this.deckClassStatisticsKeeper = deckClassStatisticsKeeper;
+    public void setDeckScoreStatisticsKeeper(DeckScoreStatisticsKeeper deckClassStatisticsKeeper) {
+        this.deckScoreStatisticsKeeper = deckClassStatisticsKeeper;
     }
 
     public void setRewardStatisticsKeeper(RewardStatisticsKeeper rewardStatisticsKeeper) {
@@ -95,11 +95,11 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         return matchStatisticsPortrait;
     }
 
-    public ClassStatisticsKeeper getClassStatisticsKeeper() {
+    public MatchStatisticsKeeper getClassStatisticsKeeper() {
         return classStatisticsKeeper;
     }
 
-    public ClassVSClassStatisticsKeeper getClassVSClassStatisticsKeeper() {
+    public MatchupStatisticsKeeper getClassVSClassStatisticsKeeper() {
         return classVSClassStatisticsKeeper;
     }
 
@@ -111,8 +111,8 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         return classDeckStatisticsAltPortraitChooser;
     }
 
-    public DeckClassStatisticsKeeper getDeckClassStatisticsKeeper() {
-        return deckClassStatisticsKeeper;
+    public DeckScoreStatisticsKeeper getDeckScoreStatisticsKeeper() {
+        return deckScoreStatisticsKeeper;
     }
 
     public JRadioButton getClassDeckStatisticsMainPortraitChooser() {
@@ -464,7 +464,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }
 
     public void addDeckAndMatchesToStatisticsKeepers() {
-        deckClassStatisticsKeeper.addDeck(currentDeck);
+        deckScoreStatisticsKeeper.addDeck(currentDeck);
         rewardStatisticsKeeper.addDeck(currentDeck);
         addMatchesToStatisticsKeepers();
     }
@@ -614,8 +614,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         jPanel19 = new javax.swing.JPanel();
         generalDeckStatisticsWinSlider = new javax.swing.JSlider();
         generalDeckStatisticsSliderIndicator = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -657,8 +655,11 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         matchStatisticsTotalWins = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         matchStatisticsTotalWinPer = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -1539,32 +1540,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
 
         jTabbedPane6.addTab("General Deck Statistics", jPanel1);
 
-        jButton1.setText("RESET");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(288, 288, 288)
-                .addComponent(jButton1)
-                .addContainerGap(298, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(jButton1)
-                .addContainerGap(319, Short.MAX_VALUE))
-        );
-
-        jTabbedPane6.addTab("Options", jPanel7);
-
         jPanel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel13.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1977,6 +1952,32 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
 
         jTabbedPane6.addTab("Match Statistics", jPanel8);
 
+        jButton1.setText("RESET");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(288, 288, 288)
+                .addComponent(jButton1)
+                .addContainerGap(298, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(219, 219, 219)
+                .addComponent(jButton1)
+                .addContainerGap(319, Short.MAX_VALUE))
+        );
+
+        jTabbedPane6.addTab("Options", jPanel7);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -2274,9 +2275,9 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private javax.swing.JButton retireCurrentDeck;
     // End of variables declaration//GEN-END:variables
     private Deck currentDeck;
-    private ClassStatisticsKeeper classStatisticsKeeper;
-    private ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
-    private DeckClassStatisticsKeeper deckClassStatisticsKeeper;
+    private MatchStatisticsKeeper classStatisticsKeeper;
+    private MatchupStatisticsKeeper classVSClassStatisticsKeeper;
+    private DeckScoreStatisticsKeeper deckScoreStatisticsKeeper;
     private RewardStatisticsKeeper rewardStatisticsKeeper;
     private ClassSpecificDeckStatisticsDisplayLogic classSpecificDeckStatistics;
     private MatchStatisticsDisplayLogic matchStatistics;

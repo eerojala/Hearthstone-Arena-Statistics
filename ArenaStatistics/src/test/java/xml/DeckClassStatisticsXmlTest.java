@@ -1,7 +1,7 @@
 package xml;
 
 import domain.DeckClass;
-import logic.DeckClassStatisticsKeeper;
+import logic.DeckScoreStatisticsKeeper;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,8 +11,8 @@ import static org.junit.Assert.*;
 
 public class DeckClassStatisticsXmlTest {
 
-    private DeckClassStatisticsKeeper keeper1;
-    private DeckClassStatisticsKeeper keeper2;
+    private DeckScoreStatisticsKeeper keeper1;
+    private DeckScoreStatisticsKeeper keeper2;
     private DeckClassStatisticsParser parser;
     private final StatisticsWriter writer;
     private static final String filepath = "src/main/resources/xmltestfiles/DeckClassStatisticsXmlTest.xml";
@@ -21,7 +21,7 @@ public class DeckClassStatisticsXmlTest {
 
     public DeckClassStatisticsXmlTest() {
         writer = new DeckClassStatisticsWriter(filepath);
-        keeper1 = new DeckClassStatisticsKeeper();
+        keeper1 = new DeckScoreStatisticsKeeper();
         setClass1(priest);
         setClass2(hunter);
         writer.writeContent(keeper1);

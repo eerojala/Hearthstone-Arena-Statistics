@@ -2,7 +2,7 @@ package util;
 
 import domain.Deck;
 import domain.DeckClass;
-import domain.DeckClassPair;
+import domain.Matchup;
 import java.util.Map;
 import xml.DeckParser;
 import xml.XmlWriter;
@@ -29,10 +29,10 @@ public class TestHelper {
         return false;
     }
 
-    public static boolean zeroesInDcpIntMap(Map<DeckClassPair, Integer> map, DeckClassPair... exceptions) {
+    public static boolean zeroesInDcpIntMap(Map<Matchup, Integer> map, Matchup... exceptions) {
         for (DeckClass dc1 : dcArray) {
             for (DeckClass dc2 : dcArray) {
-                DeckClassPair dcp = new DeckClassPair(dc1, dc2);
+                Matchup dcp = new Matchup(dc1, dc2);
                 if (map.get(dcp) != 0 && !objectIsAnException(dcp, (Object[]) exceptions)) {
                     return false;
                 }
@@ -50,10 +50,10 @@ public class TestHelper {
         return true;
     }
 
-    public static boolean zeroesInDcpDoubleMap(Map<DeckClassPair, Double> map, DeckClassPair... exceptions) {
+    public static boolean zeroesInDcpDoubleMap(Map<Matchup, Double> map, Matchup... exceptions) {
         for (DeckClass dc1 : dcArray) {
             for (DeckClass dc2 : dcArray) {
-                DeckClassPair dcp = new DeckClassPair(dc1, dc2);
+                Matchup dcp = new Matchup(dc1, dc2);
                 if (map.get(dcp) != 0 && !objectIsAnException(dcp, (Object[]) exceptions)) {
                     return false;
                 }

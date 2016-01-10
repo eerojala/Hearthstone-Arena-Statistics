@@ -2,22 +2,22 @@
 package xml;
 
 import domain.DeckClass;
-import logic.DeckClassStatisticsKeeper;
+import logic.DeckScoreStatisticsKeeper;
 import org.jdom.Document;
 import org.jdom.Element;
 
 public class DeckClassStatisticsParser extends StatisticsParser{
-    private final DeckClassStatisticsKeeper keeper;
+    private final DeckScoreStatisticsKeeper keeper;
     
     public DeckClassStatisticsParser(String filepath) {
         super(filepath, "Class", "Classes");
-        keeper = new DeckClassStatisticsKeeper();
+        keeper = new DeckScoreStatisticsKeeper();
     }
 
     
     public DeckClassStatisticsParser(Document doc) {
         super(doc, "Class");
-        keeper = new DeckClassStatisticsKeeper();
+        keeper = new DeckScoreStatisticsKeeper();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class DeckClassStatisticsParser extends StatisticsParser{
         }
     }
 
-    public DeckClassStatisticsKeeper getKeeper() {
+    public DeckScoreStatisticsKeeper getKeeper() {
         return keeper;
     }
 }

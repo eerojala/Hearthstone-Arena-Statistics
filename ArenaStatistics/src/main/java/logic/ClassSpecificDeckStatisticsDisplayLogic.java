@@ -7,17 +7,17 @@ import javax.swing.JRadioButton;
 import util.PortraitSetter;
 import util.StatisticsHelper;
 
-public class ClassSpecificDeckStatisticsDisplayLogic  implements StatisticsGUI, GUIWithPortrait {
+public class ClassSpecificDeckStatisticsDisplayLogic implements StatisticsGUI, GUIWithPortrait {
 
     private final MainGUI gui;
-    private final DeckClassStatisticsKeeper keeper;
+    private final DeckScoreStatisticsKeeper keeper;
     private final JRadioButton mainPortraitChooser;
     private final JRadioButton altPortraitChooser;
     private final JComboBox classChooser;
 
     public ClassSpecificDeckStatisticsDisplayLogic(MainGUI gui) {
         this.gui = gui;
-        keeper = gui.getDeckClassStatisticsKeeper();
+        keeper = gui.getDeckScoreStatisticsKeeper();
         mainPortraitChooser = gui.getClassDeckStatisticsMainPortraitChooser();
         altPortraitChooser = gui.getClassDeckStatisticsAltPortraitChooser();
         classChooser = gui.getClassDeckStatisticsClassChooser();

@@ -1,7 +1,7 @@
 package util;
 
 import domain.DeckClass;
-import domain.DeckClassPair;
+import domain.Matchup;
 import domain.Match;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,18 +15,18 @@ import static org.junit.Assert.*;
 public class MapperTest {
 
     Map<DeckClass, Integer> dcIntMap;
-    Map<DeckClassPair, Integer> dcpIntMap;
+    Map<Matchup, Integer> dcpIntMap;
     Map<DeckClass, Double> dcDoubleMap;
-    Map<DeckClassPair, Double> dcpDoubleMap;
+    Map<Matchup, Double> dcpDoubleMap;
     Map<Integer, Integer> intIntMap;
     Map<Integer, Double> intDoubleMap;
-    DeckClassPair dcp;
+    Matchup dcp;
     Map<DeckClass, Integer> dcIntMatchMap;
     Map<DeckClass, Integer> dcIntWinMap;
     Map<DeckClass, Integer> dcIntLossMap;
-    Map<DeckClassPair, Integer> dcpIntMatchMap;
-    Map<DeckClassPair, Integer> dcpIntWinMap;
-    Map<DeckClassPair, Integer> dcpIntLossMap;
+    Map<Matchup, Integer> dcpIntMatchMap;
+    Map<Matchup, Integer> dcpIntWinMap;
+    Map<Matchup, Integer> dcpIntLossMap;
     Map<DeckClass, Map<Integer, Integer>> dcIntIntMapMap;
 
     public MapperTest() {
@@ -48,7 +48,7 @@ public class MapperTest {
         dcpDoubleMap = new HashMap();
         intIntMap = new HashMap();
         intDoubleMap = new HashMap();
-        dcp = new DeckClassPair(DeckClass.ROGUE, DeckClass.WARRIOR);
+        dcp = new Matchup(DeckClass.ROGUE, DeckClass.WARRIOR);
         dcIntMatchMap = new HashMap();
         dcIntWinMap = new HashMap();
         dcIntLossMap = new HashMap();

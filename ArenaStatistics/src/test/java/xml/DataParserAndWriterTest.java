@@ -2,14 +2,14 @@ package xml;
 
 import domain.Deck;
 import domain.DeckClass;
-import domain.DeckClassPair;
+import domain.Matchup;
 import domain.Match;
 import domain.Outcome;
 import java.util.ArrayList;
 import java.util.List;
-import logic.ClassStatisticsKeeper;
-import logic.ClassVSClassStatisticsKeeper;
-import logic.DeckClassStatisticsKeeper;
+import logic.MatchStatisticsKeeper;
+import logic.MatchupStatisticsKeeper;
+import logic.DeckScoreStatisticsKeeper;
 import logic.DeckHandler;
 import logic.RewardStatisticsKeeper;
 import org.junit.After;
@@ -23,9 +23,9 @@ public class DataParserAndWriterTest {
 
     private DataWriter writer;
     private DataParser parser;
-    private ClassStatisticsKeeper classStatisticsKeeper;
-    private ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
-    private DeckClassStatisticsKeeper deckClassStatisticsKeeper;
+    private MatchStatisticsKeeper classStatisticsKeeper;
+    private MatchupStatisticsKeeper classVSClassStatisticsKeeper;
+    private DeckScoreStatisticsKeeper deckClassStatisticsKeeper;
     private RewardStatisticsKeeper rewardStatisticsKeeper;
     private Deck deck;
     private Match match1;
@@ -36,7 +36,7 @@ public class DataParserAndWriterTest {
     private static final String matchStatisticsUrl = "src/main/resources/xmltestfiles/MatchStatisticsXmlTest.xml";
     private static final String matchUrl = "src/main/resources/xmltestfiles/MatchXmlTest.xml";
     private static final String rewardUrl = "src/main/resources/xmltestfiles/RewardStatisticsXmlTest.xml";
-    private static final DeckClassPair dVSh = new DeckClassPair(DeckClass.DRUID, DeckClass.HUNTER);
+    private static final Matchup dVSh = new Matchup(DeckClass.DRUID, DeckClass.HUNTER);
 
     public DataParserAndWriterTest() {
         initStatisticsKeepers();
@@ -59,9 +59,9 @@ public class DataParserAndWriterTest {
     }
 
     private void initStatisticsKeepers() {
-        classStatisticsKeeper = new ClassStatisticsKeeper();
-        classVSClassStatisticsKeeper = new ClassVSClassStatisticsKeeper();
-        deckClassStatisticsKeeper = new DeckClassStatisticsKeeper();
+        classStatisticsKeeper = new MatchStatisticsKeeper();
+        classVSClassStatisticsKeeper = new MatchupStatisticsKeeper();
+        deckClassStatisticsKeeper = new DeckScoreStatisticsKeeper();
         rewardStatisticsKeeper = new RewardStatisticsKeeper();
     }
 

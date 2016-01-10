@@ -1,7 +1,7 @@
 package xml;
 
 import domain.DeckClass;
-import logic.ClassStatisticsKeeper;
+import logic.MatchStatisticsKeeper;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,13 +15,13 @@ public class MatchStatisticsXmlTest {
     private static final String filepath = "src/main/resources/xmltestfiles/MatchStatisticsXmlTest.xml";
     private static final DeckClass rogue = DeckClass.ROGUE;
     private static final DeckClass paladin = DeckClass.PALADIN;
-    private ClassStatisticsKeeper keeper1;
-    private ClassStatisticsKeeper keeper2;
+    private MatchStatisticsKeeper keeper1;
+    private MatchStatisticsKeeper keeper2;
     private MatchStatisticsParser parser;
 
     public MatchStatisticsXmlTest() {
         writer = new MatchStatisticsWriter(filepath);
-        keeper1 = new ClassStatisticsKeeper();
+        keeper1 = new MatchStatisticsKeeper();
     }
 
     @BeforeClass
@@ -70,7 +70,7 @@ public class MatchStatisticsXmlTest {
         keeper1.setLossesVSClass2nd(dc, 5);
     }
 
-    private ClassStatisticsKeeper parseToKeeper() {
+    private MatchStatisticsKeeper parseToKeeper() {
         parse();
         return parser.getKeeper();
     }

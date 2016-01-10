@@ -1,8 +1,8 @@
 package xml;
 
 import domain.DeckClass;
-import domain.DeckClassPair;
-import logic.ClassVSClassStatisticsKeeper;
+import domain.Matchup;
+import logic.MatchupStatisticsKeeper;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,16 +13,16 @@ import static org.junit.Assert.*;
 public class ClassVSClassStatisticsXmlTest {
 
     private StatisticsWriter writer;
-    private ClassVSClassStatisticsKeeper keeper1;
-    private ClassVSClassStatisticsKeeper keeper2;
+    private MatchupStatisticsKeeper keeper1;
+    private MatchupStatisticsKeeper keeper2;
     private ClassVSClassStatisticsParser parser;
     private static final String filepath = "src/main/resources/xmltestfiles/ClassVSClassStatisticsXmlTest.xml";
-    private static final DeckClassPair mVSr = new DeckClassPair(DeckClass.MAGE, DeckClass.ROGUE);
-    private static final DeckClassPair sVSh = new DeckClassPair(DeckClass.SHAMAN, DeckClass.HUNTER);
+    private static final Matchup mVSr = new Matchup(DeckClass.MAGE, DeckClass.ROGUE);
+    private static final Matchup sVSh = new Matchup(DeckClass.SHAMAN, DeckClass.HUNTER);
 
     public ClassVSClassStatisticsXmlTest() {
         writer = new ClassVSClassStatisticsWriter(filepath);
-        keeper1 = new ClassVSClassStatisticsKeeper();
+        keeper1 = new MatchupStatisticsKeeper();
         setDcp1(mVSr);
         setDcp2(sVSh);
         writer.writeContent(keeper1);
@@ -57,7 +57,7 @@ public class ClassVSClassStatisticsXmlTest {
 
     }
 
-    private void setDcp1(DeckClassPair dcp) {
+    private void setDcp1(Matchup dcp) {
         keeper1.setMatchesInClassVSClass1st(dcp, 34);
         keeper1.setMatchesInClassVSClass2nd(dcp, 156);
         keeper1.setWinsInClassVSClass1st(dcp, 21);
@@ -66,7 +66,7 @@ public class ClassVSClassStatisticsXmlTest {
         keeper1.setLossesInClassVSClass2nd(dcp, 25);
     }
 
-    private void setDcp2(DeckClassPair dcp) {
+    private void setDcp2(Matchup dcp) {
         keeper1.setMatchesInClassVSClass1st(dcp, 66);
         keeper1.setMatchesInClassVSClass2nd(dcp, 179);
         keeper1.setWinsInClassVSClass1st(dcp, 34);

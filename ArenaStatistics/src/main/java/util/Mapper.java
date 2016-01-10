@@ -1,7 +1,7 @@
 package util;
 
 import domain.DeckClass;
-import domain.DeckClassPair;
+import domain.Matchup;
 import domain.Match;
 import java.util.HashMap;
 import java.util.List;
@@ -17,10 +17,10 @@ public class Mapper {
         }
     }
 
-    public static void mapZeroesToDcpIntMap(Map<DeckClassPair, Integer> map) {
+    public static void mapZeroesToDcpIntMap(Map<Matchup, Integer> map) {
         for (DeckClass deckClass1 : dcArray) {
             for (DeckClass deckClass2 : dcArray) {
-                DeckClassPair dcp = new DeckClassPair(deckClass1, deckClass2);
+                Matchup dcp = new Matchup(deckClass1, deckClass2);
                 map.put(dcp, 0);
             }
         }
@@ -32,10 +32,10 @@ public class Mapper {
         }
     }
 
-    public static void mapZeroesToDcpDoubleMap(Map<DeckClassPair, Double> map) {
+    public static void mapZeroesToDcpDoubleMap(Map<Matchup, Double> map) {
         for (DeckClass deckClass1 : dcArray) {
             for (DeckClass deckClass2 : dcArray) {
-                DeckClassPair dcp = new DeckClassPair(deckClass1, deckClass2);
+                Matchup dcp = new Matchup(deckClass1, deckClass2);
                 map.put(dcp, 0.0);
             }
         }
@@ -65,7 +65,7 @@ public class Mapper {
         increaseIntegerInDcIntMap(map, dc, 1);
     }
 
-    public static void increaseIntegerInDcpIntMap(Map<DeckClassPair, Integer> map, DeckClassPair dcp) {
+    public static void increaseIntegerInDcpIntMap(Map<Matchup, Integer> map, Matchup dcp) {
         map.put(dcp, map.get(dcp) + 1);
     }
 
@@ -79,9 +79,9 @@ public class Mapper {
         doublemap.put(deckClass, winPer);
     }
 
-    public static void updateWinPercentageInDcpDoubleMap(Map<DeckClassPair, Double> doublemap,
-            Map<DeckClassPair, Integer> matchmap, Map<DeckClassPair, Integer> winmap,
-            Map<DeckClassPair, Integer> lossmap, DeckClassPair dcp) {
+    public static void updateWinPercentageInDcpDoubleMap(Map<Matchup, Double> doublemap,
+            Map<Matchup, Integer> matchmap, Map<Matchup, Integer> winmap,
+            Map<Matchup, Integer> lossmap, Matchup dcp) {
         int wins = winmap.get(dcp);
         int losses = lossmap.get(dcp);
         int validMatches = wins + losses;
@@ -101,7 +101,7 @@ public class Mapper {
         }
     }
 
-    public static void decreaseIntegerInDcpIntMap(Map<DeckClassPair, Integer> map, DeckClassPair dcp) {
+    public static void decreaseIntegerInDcpIntMap(Map<Matchup, Integer> map, Matchup dcp) {
         map.put(dcp, decreaseInteger(map.get(dcp)));
     }
 

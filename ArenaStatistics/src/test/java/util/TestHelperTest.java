@@ -2,7 +2,7 @@ package util;
 
 import domain.Deck;
 import domain.DeckClass;
-import domain.DeckClassPair;
+import domain.Matchup;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.After;
@@ -19,14 +19,14 @@ public class TestHelperTest {
 
     private final Map<DeckClass, Integer> dcIntMap;
     private final Map<DeckClass, Map<Integer, Integer>> dcIntIntMapMap;
-    private final Map<DeckClassPair, Integer> dcpIntMap;
+    private final Map<Matchup, Integer> dcpIntMap;
     private final Map<DeckClass, Double> dcDoubleMap;
-    private final Map<DeckClassPair, Double> dcpDoubleMap;
+    private final Map<Matchup, Double> dcpDoubleMap;
     private final Map<Integer, Integer> intIntMap;
     private final Map<Integer, Double> intDoubleMap;
     private final XmlWriter writer;
-    private static final DeckClassPair dcp1 = new DeckClassPair(DeckClass.PALADIN, DeckClass.PRIEST);
-    private static final DeckClassPair dcp2 = new DeckClassPair(DeckClass.ROGUE, DeckClass.HUNTER);
+    private static final Matchup dcp1 = new Matchup(DeckClass.PALADIN, DeckClass.PRIEST);
+    private static final Matchup dcp2 = new Matchup(DeckClass.ROGUE, DeckClass.HUNTER);
     private static final String filepath = "src/main/resources/xmltestfiles/DeckXmlTest.xml";
 
     public TestHelperTest() {

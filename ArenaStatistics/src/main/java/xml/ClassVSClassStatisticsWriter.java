@@ -1,8 +1,8 @@
 package xml;
 
 import domain.DeckClass;
-import domain.DeckClassPair;
-import logic.ClassVSClassStatisticsKeeper;
+import domain.Matchup;
+import logic.MatchupStatisticsKeeper;
 import org.jdom.Attribute;
 import org.jdom.Element;
 
@@ -15,10 +15,10 @@ public class ClassVSClassStatisticsWriter extends StatisticsWriter {
     @Override
     public void writeContent(Object obj) {
         try {
-            ClassVSClassStatisticsKeeper keeper = (ClassVSClassStatisticsKeeper) obj;
+            MatchupStatisticsKeeper keeper = (MatchupStatisticsKeeper) obj;
             for (DeckClass dc1 : DeckClass.values()) {
                 for (DeckClass dc2 : DeckClass.values()) {
-                    DeckClassPair dcp = new DeckClassPair(dc1, dc2);
+                    Matchup dcp = new Matchup(dc1, dc2);
                     addClassPairToDocument(dcp, keeper);
                 }
             }
@@ -27,7 +27,7 @@ public class ClassVSClassStatisticsWriter extends StatisticsWriter {
         }
     }
 
-    private void addClassPairToDocument(DeckClassPair dcp, ClassVSClassStatisticsKeeper keeper) {
+    private void addClassPairToDocument(Matchup dcp, MatchupStatisticsKeeper keeper) {
         Element element = new Element(childName);
         element.setAttribute(new Attribute("id", dcp.toString()));
         element.addContent(new Element("Matches1st").setText("" + keeper.getMatchesInClassVSClass1st(dcp)));
@@ -43,8 +43,8 @@ public class ClassVSClassStatisticsWriter extends StatisticsWriter {
     @Override
     public void updateSpecific(Object key, Object keeper) {
         try {
-            DeckClassPair dcp = (DeckClassPair) key;
-            ClassVSClassStatisticsKeeper statKeeper = (ClassVSClassStatisticsKeeper) keeper;
+            Matchup dcp = (Matchup) key;
+            MatchupStatisticsKeeper statKeeper = (MatchupStatisticsKeeper) keeper;
             remove(dcp.toString());
             addClassPairToDocument(dcp, statKeeper);
         } catch (Exception e) {

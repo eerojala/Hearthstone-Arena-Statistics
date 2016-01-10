@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="24" failures="0" name="xml.MatchXmlTest" time="0.22" errors="0" skipped="0">
+<testsuite tests="24" failures="0" name="xml.MatchXmlTest" time="0.38" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -75,16 +75,16 @@
   <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_player_class2" time="0"/>
   <testcase classname="xml.MatchXmlTest" name="addContent_adds_all_matches" time="0"/>
   <testcase classname="xml.MatchXmlTest" name="addContent_adds_a_match" time="0"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_name1" time="0"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_name2" time="0"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_name1" time="0.003"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_name2" time="0.003"/>
   <testcase classname="xml.MatchXmlTest" name="removeAll_removes_every_match" time="0"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class1" time="0.011"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class2" time="0.003"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class3" time="0.003"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class4" time="0.004"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class5" time="0.005"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class6" time="0.004"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class7" time="0"/>
-  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class9" time="0"/>
-  <testcase classname="xml.MatchXmlTest" name="remove_removes_correct_match" time="0.015"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class1" time="0.015"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class2" time="0"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class3" time="0.016"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class4" time="0"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class5" time="0.016"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class6" time="0"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class7" time="0.015"/>
+  <testcase classname="xml.MatchXmlTest" name="written_match_has_correct_opponent_class9" time="0.047"/>
+  <testcase classname="xml.MatchXmlTest" name="remove_removes_correct_match" time="0"/>
 </testsuite>

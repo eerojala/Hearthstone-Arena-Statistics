@@ -1,7 +1,7 @@
 package xml;
 
 import domain.DeckClass;
-import logic.DeckClassStatisticsKeeper;
+import logic.DeckScoreStatisticsKeeper;
 import org.jdom.Attribute;
 import org.jdom.Element;
 
@@ -14,7 +14,7 @@ public class DeckClassStatisticsWriter extends StatisticsWriter {
     @Override
     public void writeContent(Object obj) {
         try {
-            DeckClassStatisticsKeeper keeper = (DeckClassStatisticsKeeper) obj;
+            DeckScoreStatisticsKeeper keeper = (DeckScoreStatisticsKeeper) obj;
             for (DeckClass dc : DeckClass.values()) {
                 writeClassToDocument(dc, keeper);
             }
@@ -23,7 +23,7 @@ public class DeckClassStatisticsWriter extends StatisticsWriter {
         }
     }
 
-    private void writeClassToDocument(DeckClass dc, DeckClassStatisticsKeeper keeper) {
+    private void writeClassToDocument(DeckClass dc, DeckScoreStatisticsKeeper keeper) {
         Element element = new Element(childName);
         element.setAttribute(new Attribute("id", dc.toString()));
         writeWinsToDocument(element, dc, keeper);
@@ -31,7 +31,7 @@ public class DeckClassStatisticsWriter extends StatisticsWriter {
         addToFile();
     }
     
-    private void writeWinsToDocument(Element element, DeckClass dc, DeckClassStatisticsKeeper keeper) {
+    private void writeWinsToDocument(Element element, DeckClass dc, DeckScoreStatisticsKeeper keeper) {
         Element winsElement = new Element("Decks");
         for (int i = 0; i < 13; i++) {
             Element winElement = new Element("Wins"+i);
@@ -45,7 +45,7 @@ public class DeckClassStatisticsWriter extends StatisticsWriter {
     public void updateSpecific(Object key, Object keeper) {
         try {
             DeckClass dc = (DeckClass) key;
-            DeckClassStatisticsKeeper statKeeper = (DeckClassStatisticsKeeper) keeper;
+            DeckScoreStatisticsKeeper statKeeper = (DeckScoreStatisticsKeeper) keeper;
             remove(dc.toString());
             writeClassToDocument(dc, statKeeper);
         } catch (Exception e) {

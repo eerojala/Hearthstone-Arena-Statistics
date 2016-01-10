@@ -12,16 +12,15 @@ import static org.junit.Assert.*;
 
 public class MatchTest {
 
-    Deck deck;
-    Match match1;
-    Match match2;
-    Match match3;
-    Match match4;
-    List<Match> matches;
+    private final Match match1;
+    private final Match match2;
+    private final Match match3;
+    private final Match match4;
+    private final List<Match> matches;
 
     public MatchTest() {
-        deck = new Deck(DeckClass.WARLOCK, 1);
-        match1 = new Match(DeckClass.SHAMAN, "Test1", Outcome.WIN, true, 1, 1);
+        match1 = new Match(DeckClass.WARLOCK, DeckClass.SHAMAN, "Test1", Outcome.WIN, true, 1, 1);
+        match2 = new Match(DeckClass.WARLOCK, DeckClass.SHAMAN, "Test1", Outcome.WIN, true, 1, 1);
         match3 = new Match(DeckClass.DRUID, "teasdasd", Outcome.LOSS, false, 2, 1);
         match4 = new Match(DeckClass.PALADIN, "f3w3wr3", Outcome.DISCONNECT, true, 1, 6);
         matches = new ArrayList();
@@ -45,28 +44,48 @@ public class MatchTest {
 
     @Test
     public void equals_returns_false_if_wrong_class() {
-        assertEquals(false, match1.equals(deck));
+        assertFalse(match1.equals(new Deck(DeckClass.WARLOCK, 1)));
     }
 
     @Test
     public void equals_returns_false_if_deck_is_different() {
-        match2 = new Match(DeckClass.SHAMAN, "Test1", Outcome.WIN,
-                true, 2, 1);
-        assertEquals(false, match1.equals(match2));
+        match2.setDeckNumber(2);
+        assertFalse(match1.equals(match2));
     }
 
     @Test
     public void equals_returns_false_if_different_match_number() {
-        match2 = new Match(DeckClass.SHAMAN, "Test1", Outcome.WIN,
-                true, 1, 2);
-        assertEquals(false, match1.equals(match2));
+        match2.setMatchNumber(2);
+        assertFalse(match1.equals(match2));
+    }
+    
+    @Test
+    public void equals_returns_false_if_different_player_class() {
+        match2.setPlayerClass(DeckClass.WARRIOR);
+        assertFalse(match1.equals(match2));
+    }
+    
+    @Test
+    public void equals_returns_false_if_different_opponent_class() {
+        match2.setOpponentClass(DeckClass.ROGUE);
+        assertFalse(match1.equals(match2));
+    }
+    
+    @Test
+    public void equals_returns_false_if_different_start_order() {
+        match2.setWentFirst(false);
+        assertFalse(match1.equals(match2));
+    }
+    
+    @Test
+    public void equals_returns_false_if_different_outcome() {
+        match2.setOutcome(Outcome.TIE);
+        assertFalse(match1.equals(match2));
     }
 
     @Test
     public void equals_returns_true_if_same() {
-        match2 = new Match(DeckClass.SHAMAN, "Test1", Outcome.WIN,
-                true, 1, 1);
-        assertEquals(true, match1.equals(match2));
+        assertTrue(match1.equals(match2));
     }
     
     @Test

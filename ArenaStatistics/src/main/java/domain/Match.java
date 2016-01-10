@@ -3,11 +3,11 @@ package domain;
 public class Match implements Comparable<Match> {
 
     private DeckClass playerClass;
-    private final DeckClass opponentClass;
+    private DeckClass opponentClass;
     private String opponentName;
-    private final Outcome outcome;
-    private final boolean wentFirst;
-    private final int deckNumber;
+    private Outcome outcome;
+    private boolean wentFirst;
+    private int deckNumber;
     private int matchNumber;
     private Deck deck;
     
@@ -76,6 +76,26 @@ public class Match implements Comparable<Match> {
         this.playerClass = playerClass;
     }
 
+    public void setWentFirst(boolean wentFirst) {
+        this.wentFirst = wentFirst;
+    }
+
+    public void setOutcome(Outcome outcome) {
+        this.outcome = outcome;
+    }
+
+    public void setOpponentName(String opponentName) {
+        this.opponentName = opponentName;
+    }
+
+    public void setOpponentClass(DeckClass opponentClass) {
+        this.opponentClass = opponentClass;
+    }
+
+    public void setDeckNumber(int deckNumber) {
+        this.deckNumber = deckNumber;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null || obj.getClass() != this.getClass()) {
@@ -84,11 +104,12 @@ public class Match implements Comparable<Match> {
 
         Match match = (Match) obj;
 
-        if (this.deckNumber == match.getDeckNumber()
-                && this.matchNumber == match.getMatchNumber()) {
-            return true;
-        }
-        return false;
+        return this.deckNumber == match.getDeckNumber()
+                && this.matchNumber == match.getMatchNumber()
+                && this.playerClass == match.getPlayerClass()
+                && this.opponentClass == match.getOpponentClass()
+                && this.wentFirst == match.wentFirst 
+                && this.outcome == match.getOutcome();
     }
 
     @Override

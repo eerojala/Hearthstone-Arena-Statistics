@@ -1,11 +1,11 @@
 package xml;
 
 import domain.Deck;
-import domain.DeckClassPair;
+import domain.Matchup;
 import domain.Match;
-import logic.ClassStatisticsKeeper;
-import logic.ClassVSClassStatisticsKeeper;
-import logic.DeckClassStatisticsKeeper;
+import logic.MatchStatisticsKeeper;
+import logic.MatchupStatisticsKeeper;
+import logic.DeckScoreStatisticsKeeper;
 
 import logic.RewardStatisticsKeeper;
 
@@ -17,13 +17,13 @@ public class DataWriter {
     private final DeckWriter deckWriter;
     private final MatchWriter matchWriter;
     private final RewardStatisticsWriter rewardStatisticsWriter;
-    private final ClassStatisticsKeeper classStatisticsKeeper;
-    private final ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper;
-    private final DeckClassStatisticsKeeper deckClassStatisticsKeeper;
+    private final MatchStatisticsKeeper classStatisticsKeeper;
+    private final MatchupStatisticsKeeper classVSClassStatisticsKeeper;
+    private final DeckScoreStatisticsKeeper deckClassStatisticsKeeper;
     private final RewardStatisticsKeeper rewardStatisticsKeeper;
 
-    public DataWriter(ClassStatisticsKeeper classStatisticsKeeper, ClassVSClassStatisticsKeeper classVSClassStatisticsKeeper,
-            DeckClassStatisticsKeeper deckClassStatisticsKeeper, RewardStatisticsKeeper rewardStatisticsKeeper) {
+    public DataWriter(MatchStatisticsKeeper classStatisticsKeeper, MatchupStatisticsKeeper classVSClassStatisticsKeeper,
+            DeckScoreStatisticsKeeper deckClassStatisticsKeeper, RewardStatisticsKeeper rewardStatisticsKeeper) {
         matchStatisticsWriter = new MatchStatisticsWriter("src/main/resources/xmlfiles/MatchStatistics.xml");
         classVSClassStatisticsWriter = new ClassVSClassStatisticsWriter("src/main/resources/xmlfiles/ClassVSClassStatistics.xml");
         deckClassStatisticsWriter = new DeckClassStatisticsWriter("src/main/resources/xmlfiles/DeckClassStatistics.xml");
@@ -53,7 +53,7 @@ public class DataWriter {
 
     private void saveSpecificMatchups(Deck deck) {
         for (Match match : deck.getMatches()) {
-            DeckClassPair dcp = new DeckClassPair(match.getPlayerClass(), match.getOpponentClass());
+            Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
             classVSClassStatisticsWriter.updateSpecific(dcp, classVSClassStatisticsKeeper);
         }
     }

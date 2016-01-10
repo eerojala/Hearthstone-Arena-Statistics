@@ -55,8 +55,8 @@ public abstract class XmlParser {
         return DeckClass.parseDeckClass(getStringValue(node, tagName));
     }
     
-    protected DeckClassPair getDeckClassPairValue(Element node, String tagName) {
-        return DeckClassPair.parseDeckClassPair(getStringValue(node, tagName));
+    protected Matchup getDeckClassPairValue(Element node, String tagName) {
+        return Matchup.parseDeckClassPair(getStringValue(node, tagName));
     }
     
     protected String getID(Element node) {

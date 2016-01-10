@@ -1,27 +1,27 @@
 package xml;
 
-import domain.DeckClassPair;
-import logic.ClassVSClassStatisticsKeeper;
+import domain.Matchup;
+import logic.MatchupStatisticsKeeper;
 import org.jdom.Document;
 import org.jdom.Element;
 
 public class ClassVSClassStatisticsParser extends StatisticsParser {
 
-    private ClassVSClassStatisticsKeeper keeper;
+    private MatchupStatisticsKeeper keeper;
 
     public ClassVSClassStatisticsParser(String filePath) {
         super(filePath, "ClassPair", "ClassPairs");
-        keeper = new ClassVSClassStatisticsKeeper();
+        keeper = new MatchupStatisticsKeeper();
     }
 
     public ClassVSClassStatisticsParser(Document doc) {
         super(doc, "ClassPair");
-        keeper = new ClassVSClassStatisticsKeeper();
+        keeper = new MatchupStatisticsKeeper();
     }
 
     @Override
     protected void setStatistics(Element element) {
-        DeckClassPair dcp = DeckClassPair.parseDeckClassPair(getID(element));
+        Matchup dcp = Matchup.parseDeckClassPair(getID(element));
         keeper.setMatchesInClassVSClass1st(dcp, getIntValue(element, "Matches1st"));
         keeper.setMatchesInClassVSClass2nd(dcp, getIntValue(element, "Matches2nd"));
         keeper.setWinsInClassVSClass1st(dcp, getIntValue(element, "Wins1st"));
@@ -32,7 +32,7 @@ public class ClassVSClassStatisticsParser extends StatisticsParser {
         keeper.updateWinPercentage2nd(dcp);
     }
 
-    public ClassVSClassStatisticsKeeper getKeeper() {
+    public MatchupStatisticsKeeper getKeeper() {
         return keeper;
     }
 

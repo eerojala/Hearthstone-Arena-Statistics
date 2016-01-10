@@ -37,7 +37,7 @@ public class DeckHandler {
     private void correctMatchNumbers(int j) { // j == index of the match which is going to be removed
         for (int i = j + 1; i < deck.getMatches().size(); i++) {
             Match match = deck.getMatches().get(i);
-            match.setMatchNumber(match.getMatchNumber() + 1);
+            match.setMatchNumber(match.getMatchNumber() - 1);
         }
     }
 

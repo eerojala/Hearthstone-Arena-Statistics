@@ -14,15 +14,20 @@ import static org.junit.Assert.*;
 
 public class DeckHandlerTest {
 
-    DeckHandler handler;
-    Match match1;
-    Match match2;
-    Match match3;
-    Match match4;
-    Card card;
-    int temp;
+    private final DeckHandler handler;
+    private final Match match1;
+    private final Match match2;
+    private final Match match3;
+    private final Match match4;
+    private static final Card card = Card.COMMON;
+    private int temp;
 
     public DeckHandlerTest() {
+        handler = new DeckHandler();
+        match1 = new Match(DeckClass.MAGE, "test1", Outcome.WIN, true, 1, 1);
+        match2 = new Match(DeckClass.PALADIN, "test2", Outcome.LOSS, false, 1, 2);
+        match3 = new Match(DeckClass.HUNTER, "test3", Outcome.DISCONNECT, false, 1, 3);
+        match4 = new Match(DeckClass.ROGUE, "test3", Outcome.TIE, false, 1, 4);
     }
 
     @BeforeClass
@@ -35,13 +40,7 @@ public class DeckHandlerTest {
 
     @Before
     public void setUp() {
-        handler = new DeckHandler();
         handler.setDeck(new Deck(DeckClass.DRUID, 1));
-        match1 = new Match(DeckClass.MAGE, "test1", Outcome.WIN, true, handler.getDeckNumber(), 1);
-        match2 = new Match(DeckClass.PALADIN, "test2", Outcome.LOSS, false, handler.getDeckNumber(), 2);
-        match3 = new Match(DeckClass.HUNTER, "test3", Outcome.DISCONNECT, false, handler.getDeckNumber(), 3);
-        match4 = new Match(DeckClass.ROGUE, "test3", Outcome.TIE, false, handler.getDeckNumber(), 4);
-        card = Card.COMMON;
         handler.addMatch(match1);
         handler.addMatch(match2);
     }
@@ -52,16 +51,17 @@ public class DeckHandlerTest {
 
     @Test
     public void addMatch_adds_to_list() {
+        System.out.println(handler.getDeck());
         handler.addMatch(match3);
         assertEquals(match3, handler.getLatestMatch());
     }
-    
+
     @Test
     public void addMatch_sets_deck_to_match() {
         handler.addMatch(match1);
         assertEquals(handler.getDeck(), match1.getDeck());
     }
-    
+
     @Test
     public void addMatch_sets_playerClass_to_match() {
         handler.addMatch(match1);
@@ -109,14 +109,14 @@ public class DeckHandlerTest {
         handler.addMatch(match3);
         assertEquals(temp, handler.getDeck().getWins());
     }
-    
+
     @Test
     public void addMatch_doesnt_count_tie_as_loss() {
         temp = handler.getDeck().getLosses();
         handler.addMatch(match4);
         assertEquals(temp, handler.getDeck().getLosses());
     }
-    
+
     @Test
     public void addMatch_doesnt_count_tie_as_win() {
         temp = handler.getDeck().getWins();
@@ -151,7 +151,7 @@ public class DeckHandlerTest {
     @Test
     public void removeMatch_removes_match_from_list() {
         handler.removeMatch(0);
-        assertEquals(false, handler.getMatches().contains(match1));
+        assertFalse(handler.getMatches().contains(match1));
     }
 
     @Test
@@ -202,7 +202,7 @@ public class DeckHandlerTest {
         handler.removeMatch(2);
         assertEquals(temp, handler.getDeck().getWins());
     }
-    
+
     @Test
     public void removeMatch_doesnt_count_tie_as_loss() {
         handler.addMatch(match4);
@@ -210,7 +210,7 @@ public class DeckHandlerTest {
         handler.removeMatch(2);
         assertEquals(temp, handler.getDeck().getLosses());
     }
-    
+
     @Test
     public void removeMatch_doesnt_count_tie_as_win() {
         handler.addMatch(match4);
@@ -218,6 +218,15 @@ public class DeckHandlerTest {
         handler.removeMatch(2);
         assertEquals(temp, handler.getDeck().getWins());
     }
+
+    @Test
+    public void removeMatch_corrects_match_numbers() {
+        handler.addMatch(match3);
+        handler.removeMatch(0);
+        assertTrue(handler.getMatches().get(0).getMatchNumber() == 1
+                && handler.getMatches().get(1).getMatchNumber() == 2);
+    }
+
     @Test
     public void removeLatestMatch_removes_match_from_list() {
         handler.removeLatestMatch();
@@ -234,6 +243,14 @@ public class DeckHandlerTest {
         handler.removeLatestMatch();
         handler.removeLatestMatch();
         assertEquals(null, handler.removeLatestMatch());
+    }
+
+    @Test
+    public void removeLatestMatch_doesnt_affect_match_numbers() {
+        handler.addMatch(match3);
+        handler.removeLatestMatch();
+        assertTrue(handler.getMatches().get(0).getMatchNumber() == 1
+                && handler.getMatches().get(1).getMatchNumber() == 2);
     }
 
     @Test

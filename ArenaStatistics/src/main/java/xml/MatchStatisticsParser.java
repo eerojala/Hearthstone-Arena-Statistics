@@ -1,22 +1,22 @@
 package xml;
 
 import domain.DeckClass;
-import logic.ClassStatisticsKeeper;
+import logic.MatchStatisticsKeeper;
 import org.jdom.Document;
 import org.jdom.Element;
 
 public class MatchStatisticsParser extends StatisticsParser {
 
-    private ClassStatisticsKeeper keeper;
+    private MatchStatisticsKeeper keeper;
 
     public MatchStatisticsParser(String filepath) {
         super(filepath, "Class", "Classes");
-        keeper = new ClassStatisticsKeeper();
+        keeper = new MatchStatisticsKeeper();
     }
 
     public MatchStatisticsParser(Document doc) {
         super(doc, "Class");
-        keeper = new ClassStatisticsKeeper();
+        keeper = new MatchStatisticsKeeper();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class MatchStatisticsParser extends StatisticsParser {
         keeper.updateWinPercentageIn2ndMatchMaps(dc, dc);
     }
 
-    public ClassStatisticsKeeper getKeeper() {
+    public MatchStatisticsKeeper getKeeper() {
         return keeper;
     }
 }
