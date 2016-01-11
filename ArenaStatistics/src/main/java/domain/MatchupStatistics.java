@@ -4,26 +4,32 @@ import java.util.HashMap;
 import java.util.Map;
 import util.Mapper;
 
+/**
+ * Class that contains HashMaps which store matchup-specifc statistics.
+ */
 public class MatchupStatistics {
 
-    private final Map<Matchup, Integer> matchesInClassVSClass1st;
-    private final Map<Matchup, Integer> matchesInClassVSClass2nd;
-    private final Map<Matchup, Integer> winsInClassVSClass1st;
-    private final Map<Matchup, Integer> winsInClassVSClass2nd;
-    private final Map<Matchup, Integer> lossesInClassVSClass1st;
-    private final Map<Matchup, Integer> lossesInClassVSClass2nd;
-    private final Map<Matchup, Double> winPerClassVSClass1st;
-    private final Map<Matchup, Double> winPerClassVSClass2nd;
+    private final Map<Matchup, Integer> matchesInMatchup1st;
+    private final Map<Matchup, Integer> matchesInMatchup2nd;
+    private final Map<Matchup, Integer> winsInMatchup1st;
+    private final Map<Matchup, Integer> winsInMatchup2nd;
+    private final Map<Matchup, Integer> lossesInMatchup1st;
+    private final Map<Matchup, Integer> lossesInMatchup2nd;
+    private final Map<Matchup, Double> MatchupWinRatio1st;
+    private final Map<Matchup, Double> MatchupWinRatio2nd;
 
+    /**
+     * Creates a new MatchupStatistics
+     */
     public MatchupStatistics() {
-        matchesInClassVSClass1st = new HashMap();
-        matchesInClassVSClass2nd = new HashMap();
-        winsInClassVSClass1st = new HashMap();
-        winsInClassVSClass2nd = new HashMap();
-        lossesInClassVSClass1st = new HashMap();
-        lossesInClassVSClass2nd = new HashMap();
-        winPerClassVSClass1st = new HashMap();
-        winPerClassVSClass2nd = new HashMap();
+        matchesInMatchup1st = new HashMap();
+        matchesInMatchup2nd = new HashMap();
+        winsInMatchup1st = new HashMap();
+        winsInMatchup2nd = new HashMap();
+        lossesInMatchup1st = new HashMap();
+        lossesInMatchup2nd = new HashMap();
+        MatchupWinRatio1st = new HashMap();
+        MatchupWinRatio2nd = new HashMap();
         mapZeroesToValues();
     }
 
@@ -31,50 +37,106 @@ public class MatchupStatistics {
         mapZeroesToDeckClassPairIntegerMaps();
         mapZeroesToDeckClassPairDoubleMaps();
     }
-    
+
     private void mapZeroesToDeckClassPairIntegerMaps() {
-        Mapper.mapZeroesToDcpIntMap(lossesInClassVSClass1st);
-        Mapper.mapZeroesToDcpIntMap(lossesInClassVSClass2nd);
-        Mapper.mapZeroesToDcpIntMap(matchesInClassVSClass1st);
-        Mapper.mapZeroesToDcpIntMap(matchesInClassVSClass2nd);
-        Mapper.mapZeroesToDcpIntMap(winsInClassVSClass1st);
-        Mapper.mapZeroesToDcpIntMap(winsInClassVSClass2nd);
+        Mapper.mapZeroesToDcpIntMap(lossesInMatchup1st);
+        Mapper.mapZeroesToDcpIntMap(lossesInMatchup2nd);
+        Mapper.mapZeroesToDcpIntMap(matchesInMatchup1st);
+        Mapper.mapZeroesToDcpIntMap(matchesInMatchup2nd);
+        Mapper.mapZeroesToDcpIntMap(winsInMatchup1st);
+        Mapper.mapZeroesToDcpIntMap(winsInMatchup2nd);
     }
-    
+
     private void mapZeroesToDeckClassPairDoubleMaps() {
-        Mapper.mapZeroesToDcpDoubleMap(winPerClassVSClass1st);
-        Mapper.mapZeroesToDcpDoubleMap(winPerClassVSClass2nd);
+        Mapper.mapZeroesToDcpDoubleMap(MatchupWinRatio1st);
+        Mapper.mapZeroesToDcpDoubleMap(MatchupWinRatio2nd);
     }
 
-    public Map<Matchup, Integer> getLossesInClassVSClass1st() {
-        return lossesInClassVSClass1st;
+    /**
+     * Returns the HashMap which contains the amount of losses in a specific
+     * matchup where the player went 1st.
+     *
+     * @return HashMap where the key is a Matchup and the value is an Integer of
+     * the amount of losses in a specific matchup where the player went 1st.
+     */
+    public Map<Matchup, Integer> getLossesInMatchup1st() {
+        return lossesInMatchup1st;
     }
 
-    public Map<Matchup, Integer> getLossesInClassVSClass2nd() {
-        return lossesInClassVSClass2nd;
+    /**
+     * Returns the HashMap which contains the amount of losses in a specific
+     * matchup where the player went 2nd.
+     *
+     * @return HashMap where the key is a Matchup and the value is an Integer of
+     * the amount of losses in a specific matchup where the player went 2nd.
+     */
+    public Map<Matchup, Integer> getLossesInMatchup2nd() {
+        return lossesInMatchup2nd;
     }
 
-    public Map<Matchup, Integer> getMatchesInClassVSClass1st() {
-        return matchesInClassVSClass1st;
+    /**
+     * Returns the HashMap which contains the amount of matches in a specific
+     * matchup where the player went 1st.
+     *
+     * @return HashMap where the key is a Matchup and the value is an Integer of
+     * the amount of matches in a specific matchup where the player went 1st.
+     */
+    public Map<Matchup, Integer> getMatchesInMatchup1st() {
+        return matchesInMatchup1st;
     }
 
-    public Map<Matchup, Integer> getMatchesInClassVSClass2nd() {
-        return matchesInClassVSClass2nd;
+    /**
+     * Returns the HashMap which contains the amount of matches in a specific
+     * matchup where the player went 2nd.
+     *
+     * @return HashMap where the key is a Matchup and the value is an Integer of
+     * the amount of matches in a specific matchup where the player went 2nd.
+     */
+    public Map<Matchup, Integer> getMatchesInMatchup2nd() {
+        return matchesInMatchup2nd;
     }
 
-    public Map<Matchup, Double> getWinPerClassVSClass1st() {
-        return winPerClassVSClass1st;
+    /**
+     * Returns the HashMap which contains the win ratio of a specific matchup
+     * where the player went 1st.
+     *
+     * @return HashMap where the key is a Matchup and the value is a Double
+     * signifying the win ratio of a specific mathup where the player went 1st.
+     */
+    public Map<Matchup, Double> getMatchupWinRatio1st() {
+        return MatchupWinRatio1st;
     }
 
-    public Map<Matchup, Double> getWinPerClassVSClass2nd() {
-        return winPerClassVSClass2nd;
+    /**
+     * Returns the HashMap which contains the win ratio of a specific matchup
+     * where the player went 2nd.
+     *
+     * @return HashMap where the key is a Matchup and the value is a Double
+     * signifying the win ratio of a specific mathup where the player went 2nd.
+     */
+    public Map<Matchup, Double> getMatchupWinRatio2nd() {
+        return MatchupWinRatio2nd;
     }
 
-    public Map<Matchup, Integer> getWinsInClassVSClass1st() {
-        return winsInClassVSClass1st;
+    /**
+     * Returns the HashMap which contains the amount of wins in a specific
+     * matchup where the player went 1st.
+     *
+     * @return HashMap where the key is a Matchup and the value is an Integer of
+     * the amount of wins in a specific matchup where the player went 1st.
+     */
+    public Map<Matchup, Integer> getWinsInMatchup1st() {
+        return winsInMatchup1st;
     }
 
-    public Map<Matchup, Integer> getWinsInClassVSClass2nd() {
-        return winsInClassVSClass2nd;
+    /**
+     * Returns the HashMap which contains the amount of wins in a specific
+     * matchup where the player went 1st.
+     *
+     * @return HashMap where the key is a Matchup and the value is an Integer of
+     * the amount of wins in a specific matchup where the player went 2nd.
+     */
+    public Map<Matchup, Integer> getWinsInMatchup2nd() {
+        return winsInMatchup2nd;
     }
 }

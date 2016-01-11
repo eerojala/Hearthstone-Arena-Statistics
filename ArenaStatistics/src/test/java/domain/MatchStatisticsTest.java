@@ -95,7 +95,7 @@ public class MatchStatisticsTest {
 
     @Test
     public void winPer_as_class_1st_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getWinPerAsClass1st()));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getWinRatioAsClass1st()));
     }
 
     @Test

@@ -131,7 +131,7 @@ public class DeckScoreStatisticsKeeperTest {
 
     @Test
     public void play_percentage_as_class_has_correct_values4() {
-        assertTrue(TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getPlayPerAsClass(), dcExceptions));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getPlayRatioAsClass(), dcExceptions));
     }
     
     @Test

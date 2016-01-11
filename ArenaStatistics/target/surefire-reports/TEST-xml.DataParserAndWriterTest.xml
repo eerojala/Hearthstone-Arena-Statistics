@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="xml.DataParserAndWriterTest" time="11.186" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="xml.DataParserAndWriterTest" time="6.629" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -63,19 +63,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="xml.DataParserAndWriterTest" name="correct_amount_of_matches_written" time="2.445"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_classStatisticsKeeper" time="1.255"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="class_vs_class_statistics_are_written" time="1.068"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_rewardStatisticsKeeper" time="0.14"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="reward_statistics_are_written" time="0.115"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_reward_statistics_xml" time="0.188"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_class_vs_class_statistics_xml" time="0.656"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="deck_is_written" time="0.469"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_deck_class_statistics_xml" time="1.201"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="deck_class_statistics_are_written" time="0.209"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_classVSClassStatisticsKeeper" time="0.344"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="matches_are_written" time="0.313"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_deckClassStatisticsKeeper" time="1.038"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="match_statistics_are_written" time="0.193"/>
-  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_match_statistics_xml" time="0.156"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="correct_amount_of_matches_written" time="1.384"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_classStatisticsKeeper" time="0.406"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="class_vs_class_statistics_are_written" time="0.751"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_rewardStatisticsKeeper" time="0.183"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="reward_statistics_are_written" time="0.268"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_reward_statistics_xml" time="0.103"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_class_vs_class_statistics_xml" time="0.111"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="deck_is_written" time="0.41"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_deck_class_statistics_xml" time="0.078"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="deck_class_statistics_are_written" time="0.062"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_classVSClassStatisticsKeeper" time="0.11"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="matches_are_written" time="0.17"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_deckClassStatisticsKeeper" time="0.239"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="match_statistics_are_written" time="0.309"/>
+  <testcase classname="xml.DataParserAndWriterTest" name="resetData_resets_match_statistics_xml" time="0.111"/>
 </testsuite>

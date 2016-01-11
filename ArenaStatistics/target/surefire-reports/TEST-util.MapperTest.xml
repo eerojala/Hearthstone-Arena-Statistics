@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="38" failures="0" name="util.MapperTest" time="0" errors="0" skipped="0">
+<testsuite tests="38" failures="0" name="util.MapperTest" time="0.011" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -78,7 +78,7 @@
   <testcase classname="util.MapperTest" name="decreaseIntegerInDeckClassIntegerMap_decreases_integer_by_one" time="0"/>
   <testcase classname="util.MapperTest" name="mapZeroesToDcIntIntMapMap_has_correct_keyset_size" time="0"/>
   <testcase classname="util.MapperTest" name="increaseIntegerInDcIntIntMapMap_increases_integer_by_x_amount" time="0"/>
-  <testcase classname="util.MapperTest" name="increaseIntegerInDeckClassPairIntegerMap_increases_value_by_one" time="0"/>
+  <testcase classname="util.MapperTest" name="increaseIntegerInDeckClassPairIntegerMap_increases_value_by_one" time="0.004"/>
   <testcase classname="util.MapperTest" name="mapZeroesToADeckClassDoubleMap_maps_zeroes_to_values" time="0"/>
   <testcase classname="util.MapperTest" name="mapZeroesToIntegerIntegerMap_maps_zeroes_to_values" time="0"/>
   <testcase classname="util.MapperTest" name="updateWinPercentageInDeckClassPairDoubleMap_works_correctly" time="0"/>
@@ -90,8 +90,8 @@
   <testcase classname="util.MapperTest" name="increaseIntegerInDeckClassIntegerMap_increases_value_by_x_amount" time="0"/>
   <testcase classname="util.MapperTest" name="decreaseIntegerInIntegerIntegerMap_decreases_integer_by_x_amount" time="0"/>
   <testcase classname="util.MapperTest" name="mapZeroesToADeckClassPairDoubleMap_maps_zeroes_to_values" time="0"/>
-  <testcase classname="util.MapperTest" name="mapZeroesToDcIntIntMapMap_maps_zeroes_to_values" time="0"/>
-  <testcase classname="util.MapperTest" name="mapZeroesToADeckClassPairDoubleMap_has_correct_keyset_size" time="0"/>
+  <testcase classname="util.MapperTest" name="mapZeroesToDcIntIntMapMap_maps_zeroes_to_values" time="0.001"/>
+  <testcase classname="util.MapperTest" name="mapZeroesToADeckClassPairDoubleMap_has_correct_keyset_size" time="0.001"/>
   <testcase classname="util.MapperTest" name="decreaseIntegerInDeckClassPairIntegerMap_does_not_decrease_integer_below_zero" time="0"/>
   <testcase classname="util.MapperTest" name="increaseIntegerInDeckClassIntegerMap_increases_value_by_one" time="0"/>
   <testcase classname="util.MapperTest" name="decreaseIntegerInDeckClassPairIntegerMap_decreases_integer_by_one" time="0"/>

@@ -38,7 +38,7 @@ public class DeckScoreStatisticsTest {
     
     @Test
     public void percentage_played_as_class_out_of_all_decks_have_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getPlayPerAsClass()));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getPlayRatioAsClass()));
     }
     
     @Test

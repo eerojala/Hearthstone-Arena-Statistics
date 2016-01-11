@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="29" failures="0" name="logic.DeckScoreStatisticsKeeperTest" time="0" errors="0" skipped="0">
+<testsuite tests="29" failures="0" name="logic.DeckScoreStatisticsKeeperTest" time="0.029" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -68,28 +68,28 @@
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="wins_as_class_has_correct_values3" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="setDecksAsClassWithXWins_works_correctly" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="play_percentage_as_class_has_correct_values1" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="play_percentage_as_class_has_correct_values2" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="play_percentage_as_class_has_correct_values3" time="0"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="play_percentage_as_class_has_correct_values2" time="0.005"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="play_percentage_as_class_has_correct_values3" time="0.001"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="play_percentage_as_class_has_correct_values4" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="remove_deck_affects_play_percentage_as_class" time="0"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="remove_deck_affects_play_percentage_as_class" time="0.001"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="remove_deck_affects_average_wins_by_class" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksByWins_works_correctly1" time="0"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksByWins_works_correctly1" time="0.002"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksByWins_works_correctly2" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksByWins_works_correctly3" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="set_play_percentage_as_class_works_correctly" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksAsClassWithXWins_works_correctly1" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksAsClassWithXWins_works_correctly2" time="0"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksAsClassWithXWins_works_correctly1" time="0.001"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksAsClassWithXWins_works_correctly2" time="0.003"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getDecksAsClassWithXWins_works_correctly3" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="remove_deck_affects_wins_by_class" time="0"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="remove_deck_affects_wins_by_class" time="0.001"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="set_average_wins_as_class_works_correctly" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="average_wins_works_correctly" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="remove_deck_affects_decks_by_class" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="average_wins_by_class_has_correct_values1" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="average_wins_by_class_has_correct_values2" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="average_wins_by_class_has_correct_values3" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="average_wins_by_class_has_correct_values4" time="0"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="average_wins_by_class_has_correct_values4" time="0.001"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="decks_by_class_has_correct_values1" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="decks_by_class_has_correct_values2" time="0"/>
   <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="decks_by_class_has_correct_values3" time="0"/>
-  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getTotalDeckAmount_works_correctly" time="0"/>
+  <testcase classname="logic.DeckScoreStatisticsKeeperTest" name="getTotalDeckAmount_works_correctly" time="0.001"/>
 </testsuite>

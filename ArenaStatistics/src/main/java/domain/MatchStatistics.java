@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import util.Mapper;
 
+/**
+ * Class that contains the HashMaps which store class specific match statistics.
+ */
 public class MatchStatistics {
 
     private final Map<DeckClass, Integer> matchesAsClass1st;
@@ -20,9 +23,12 @@ public class MatchStatistics {
     private final Map<DeckClass, Integer> lossesVSClass2nd;
     private final Map<DeckClass, Double> winPerVSClass1st;
     private final Map<DeckClass, Double> winPerVSClass2nd;
-    private final Map<DeckClass, Double> winPerAsClass1st;
+    private final Map<DeckClass, Double> winRatioAsClass1st;
     private final Map<DeckClass, Double> winPerAsClass2nd;
 
+    /**
+     * Creates a new MatchStatistics Object.
+     */
     public MatchStatistics() {
         matchesAsClass1st = new HashMap();
         matchesAsClass2nd = new HashMap();
@@ -38,7 +44,7 @@ public class MatchStatistics {
         lossesVSClass2nd = new HashMap();
         winPerVSClass1st = new HashMap();
         winPerVSClass2nd = new HashMap();
-        winPerAsClass1st = new HashMap();
+        winRatioAsClass1st = new HashMap();
         winPerAsClass2nd = new HashMap();
         mapZeroesToValues();
     }
@@ -64,73 +70,191 @@ public class MatchStatistics {
     }
 
     private void mapZeroesToDeckClassDoubleMaps() {
-        Mapper.mapZeroesToDcDoubleMap(winPerAsClass1st);
+        Mapper.mapZeroesToDcDoubleMap(winRatioAsClass1st);
         Mapper.mapZeroesToDcDoubleMap(winPerAsClass2nd);
         Mapper.mapZeroesToDcDoubleMap(winPerVSClass1st);
         Mapper.mapZeroesToDcDoubleMap(winPerVSClass2nd);
     }
 
+    /**
+     * Returns the HashMap which contains amount of losses where the player went
+     * 1st as a specific class
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of losses where the player went 1st as a specific class.
+     */
     public Map<DeckClass, Integer> getLossesAsClass1st() {
         return lossesAsClass1st;
     }
 
+    /**
+     * Returns the HashMap which contains amount of losses where the player went
+     * 2nd as a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of losses where the player went 2nd as a specific class
+     */
     public Map<DeckClass, Integer> getLossesAsClass2nd() {
         return lossesAsClass2nd;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of losses where the player
+     * went 1st against a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of losses where the player went 1st against a specific
+     * class.
+     */
     public Map<DeckClass, Integer> getLossesVSClass1st() {
         return lossesVSClass1st;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of losses where the player
+     * went 2nd against a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of losses where the player went 2nd against a specific
+     * class.
+     */
     public Map<DeckClass, Integer> getLossesVSClass2nd() {
         return lossesVSClass2nd;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of matches where the player
+     * went 1st as a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of matches where the player went 1st as a specific class.
+     */
     public Map<DeckClass, Integer> getMatchesAsClass1st() {
         return matchesAsClass1st;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of matches where the player
+     * went 2nd as a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of matches where the player went 2nd as a specific class.
+     */
     public Map<DeckClass, Integer> getMatchesAsClass2nd() {
         return matchesAsClass2nd;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of matches where the player
+     * went 1st against a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of matches where the player went 1st against a specific
+     * class.
+     */
     public Map<DeckClass, Integer> getMatchesVSClass1st() {
         return matchesVSClass1st;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of matches where the player
+     * went 2nd against a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of matches where the player went 2nd against a specific
+     * class.
+     */
     public Map<DeckClass, Integer> getMatchesVSClass2nd() {
         return matchesVSClass2nd;
     }
 
-    public Map<DeckClass, Double> getWinPerAsClass1st() {
-        return winPerAsClass1st;
+    /**
+     * Returns the HashMap which contains the win ratio of playing as a specific
+     * class while going 1st.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Double
+     * signifying the win ratio of playing as a specific class while going 1st.
+     */
+    public Map<DeckClass, Double> getWinRatioAsClass1st() {
+        return winRatioAsClass1st;
     }
 
+    /**
+     * Returns the HashMap which contains the win ratio of playing as a specific
+     * class while going 2nd.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Double
+     * signifying the win ratio of playing as a specific class while going 2nd.
+     */
     public Map<DeckClass, Double> getWinPerAsClass2nd() {
         return winPerAsClass2nd;
     }
 
+    /**
+     * Returns the HashMap which contains the win ratio of playing against a
+     * specific class while going 1st.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Double
+     * signifying the win ratio of playing against a specific class while going
+     * 1st.
+     */
     public Map<DeckClass, Double> getWinPerVSClass1st() {
         return winPerVSClass1st;
     }
 
+    /**
+     * Returns the HashMap which contains the win ratio of playing against a
+     * specific class while going 2nd.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Double
+     * signifying the win ratio of playing against a specific class while going
+     * 2nd.
+     */
     public Map<DeckClass, Double> getWinPerVSClass2nd() {
         return winPerVSClass2nd;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of wins where the player
+     * went 1st as a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of wins where the player went 1st as a specific class.
+     */
     public Map<DeckClass, Integer> getWinsAsClass1st() {
         return winsAsClass1st;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of wins where the player
+     * went 2nd as a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of wins where the player went 2nd as a specific class.
+     */
     public Map<DeckClass, Integer> getWinsAsClass2nd() {
         return winsAsClass2nd;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of wins where the player
+     * went 1st against a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of wins where the player went 1st against a specific class.
+     */
     public Map<DeckClass, Integer> getWinsVSClass1st() {
         return winsVSClass1st;
     }
 
+    /**
+     * Returns the HashMap which contains the amount of wins where the player
+     * went 2nd against a specific class.
+     *
+     * @return HashMap where the key is a DeckClass and the value is an Integer
+     * of the amount of wins where the player went 2nd against a specific class.
+     */
     public Map<DeckClass, Integer> getWinsVSClass2nd() {
         return winsVSClass2nd;
-    }  
+    }
 }

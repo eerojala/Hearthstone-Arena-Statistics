@@ -42,7 +42,7 @@ public class MatchStatisticsKeeper extends MatchRelatedStatisticsKeeper{
     }
     
     public void updateWinPercentageIn1stMatchMaps(DeckClass playerClass, DeckClass opponentClass) {
-        Mapper.updateWinPercentageInDcDoubleMap(statistics.getWinPerAsClass1st(),
+        Mapper.updateWinPercentageInDcDoubleMap(statistics.getWinRatioAsClass1st(),
                 statistics.getMatchesAsClass1st(), statistics.getWinsAsClass1st(),
                 statistics.getLossesAsClass1st(), playerClass);
         Mapper.updateWinPercentageInDcDoubleMap(statistics.getWinPerVSClass1st(),
@@ -140,7 +140,7 @@ public class MatchStatisticsKeeper extends MatchRelatedStatisticsKeeper{
     }
 
     public void setWinPerAsClass1st(DeckClass deckClass, double percentage) {
-        statistics.getWinPerAsClass1st().put(deckClass, percentage);
+        statistics.getWinRatioAsClass1st().put(deckClass, percentage);
     }
 
     public void setWinPerAsClass2nd(DeckClass deckClass, double percentage) {
@@ -204,7 +204,7 @@ public class MatchStatisticsKeeper extends MatchRelatedStatisticsKeeper{
     }
 
     public double getWinPerAsClass1st(DeckClass deckClass) {
-        return statistics.getWinPerAsClass1st().get(deckClass);
+        return statistics.getWinRatioAsClass1st().get(deckClass);
     }
 
     public double getWinPerAsClass2nd(DeckClass deckClass) {

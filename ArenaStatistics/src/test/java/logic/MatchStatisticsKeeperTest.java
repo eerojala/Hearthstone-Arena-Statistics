@@ -265,7 +265,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_as_class_going_1st_is_correct2() {
-        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerAsClass1st(), DeckClass.SHAMAN);
+        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinRatioAsClass1st(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 

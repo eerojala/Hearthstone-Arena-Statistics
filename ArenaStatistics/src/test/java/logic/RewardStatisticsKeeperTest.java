@@ -55,11 +55,11 @@ public class RewardStatisticsKeeperTest {
     private void deckCards() {
         List<Card> clist = new ArrayList();
         clist.add(Card.RARE);
-        deck3.setCards(clist);
+        deck3.setRewardCards(clist);
         clist = new ArrayList();
         clist.add(Card.RARE);
         clist.add(Card.COMMON_GOLD);
-        deck4.setCards(clist);
+        deck4.setRewardCards(clist);
     }
 
     @BeforeClass

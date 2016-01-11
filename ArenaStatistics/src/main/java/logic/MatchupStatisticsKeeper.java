@@ -18,111 +18,111 @@ public class MatchupStatisticsKeeper extends MatchRelatedStatisticsKeeper {
     @Override
     protected void addMatchThatWent1st(Match match) {
         Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-        Mapper.increaseIntegerInDcpIntMap(statistics.getMatchesInClassVSClass1st(), dcp);
+        Mapper.increaseIntegerInDcpIntMap(statistics.getMatchesInMatchup1st(), dcp);
         if (match.getOutcome() == Outcome.WIN) {
-            Mapper.increaseIntegerInDcpIntMap(statistics.getWinsInClassVSClass1st(), dcp);
+            Mapper.increaseIntegerInDcpIntMap(statistics.getWinsInMatchup1st(), dcp);
         } else if (match.getOutcome() == Outcome.LOSS) {
-            Mapper.increaseIntegerInDcpIntMap(statistics.getLossesInClassVSClass1st(), dcp);
+            Mapper.increaseIntegerInDcpIntMap(statistics.getLossesInMatchup1st(), dcp);
         }
         updateWinPercentage1st(dcp);
     }
 
     public void updateWinPercentage1st(Matchup dcp) {
-        Mapper.updateWinPercentageInDcpDoubleMap(statistics.getWinPerClassVSClass1st(),
-                statistics.getMatchesInClassVSClass1st(), statistics.getWinsInClassVSClass1st(),
-                statistics.getLossesInClassVSClass1st(), dcp);
+        Mapper.updateWinPercentageInDcpDoubleMap(statistics.getMatchupWinRatio1st(),
+                statistics.getMatchesInMatchup1st(), statistics.getWinsInMatchup1st(),
+                statistics.getLossesInMatchup1st(), dcp);
     }
 
     @Override
     protected void addMatchThatWent2nd(Match match) {
         Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-        Mapper.increaseIntegerInDcpIntMap(statistics.getMatchesInClassVSClass2nd(), dcp);
+        Mapper.increaseIntegerInDcpIntMap(statistics.getMatchesInMatchup2nd(), dcp);
         if (match.getOutcome() == Outcome.WIN) {
-            Mapper.increaseIntegerInDcpIntMap(statistics.getWinsInClassVSClass2nd(), dcp);
+            Mapper.increaseIntegerInDcpIntMap(statistics.getWinsInMatchup2nd(), dcp);
         } else if (match.getOutcome() == Outcome.LOSS) {
-            Mapper.increaseIntegerInDcpIntMap(statistics.getLossesInClassVSClass2nd(), dcp);
+            Mapper.increaseIntegerInDcpIntMap(statistics.getLossesInMatchup2nd(), dcp);
         }
         updateWinPercentage2nd(dcp);
     }
 
     public void updateWinPercentage2nd(Matchup dcp) {
-        Mapper.updateWinPercentageInDcpDoubleMap(statistics.getWinPerClassVSClass2nd(),
-                statistics.getMatchesInClassVSClass2nd(), statistics.getWinsInClassVSClass2nd(),
-                statistics.getLossesInClassVSClass2nd(), dcp);
+        Mapper.updateWinPercentageInDcpDoubleMap(statistics.getMatchupWinRatio2nd(),
+                statistics.getMatchesInMatchup2nd(), statistics.getWinsInMatchup2nd(),
+                statistics.getLossesInMatchup2nd(), dcp);
     }
 
     public void setMatchesInClassVSClass1st(Matchup dcp, int matches) {
-        statistics.getMatchesInClassVSClass1st().put(dcp, matches);
+        statistics.getMatchesInMatchup1st().put(dcp, matches);
     }
 
     public void setMatchesInClassVSClass2nd(Matchup dcp, int matches) {
-        statistics.getMatchesInClassVSClass2nd().put(dcp, matches);
+        statistics.getMatchesInMatchup2nd().put(dcp, matches);
     }
 
     public void setWinsInClassVSClass1st(Matchup dcp, int wins) {
-        statistics.getWinsInClassVSClass1st().put(dcp, wins);
+        statistics.getWinsInMatchup1st().put(dcp, wins);
     }
 
     public void setWinsInClassVSClass2nd(Matchup dcp, int wins) {
-        statistics.getWinsInClassVSClass2nd().put(dcp, wins);
+        statistics.getWinsInMatchup2nd().put(dcp, wins);
     }
 
     public void setLossesInClassVSClass1st(Matchup dcp, int losses) {
-        statistics.getLossesInClassVSClass1st().put(dcp, losses);
+        statistics.getLossesInMatchup1st().put(dcp, losses);
     }
 
     public void setLossesInClassVSClass2nd(Matchup dcp, int losses) {
-        statistics.getLossesInClassVSClass2nd().put(dcp, losses);
+        statistics.getLossesInMatchup2nd().put(dcp, losses);
     }
 
     public void setWinPerClassVSClass1st(Matchup dcp, double percentage) {
-        statistics.getWinPerClassVSClass1st().put(dcp, percentage);
+        statistics.getMatchupWinRatio1st().put(dcp, percentage);
     }
 
     public void setWinPerClassVSClass2nd(Matchup dcp, double percentage) {
-        statistics.getWinPerClassVSClass2nd().put(dcp, percentage);
+        statistics.getMatchupWinRatio2nd().put(dcp, percentage);
     }
 
     public int getMatchesInClassVSClass1st(Matchup dcp) {
-        return statistics.getMatchesInClassVSClass1st().get(dcp);
+        return statistics.getMatchesInMatchup1st().get(dcp);
     }
 
     public int getMatchesInClassVSClass2nd(Matchup dcp) {
-        return statistics.getMatchesInClassVSClass2nd().get(dcp);
+        return statistics.getMatchesInMatchup2nd().get(dcp);
     }
 
     public int getWinsInClassVSClass1st(Matchup dcp) {
-        return statistics.getWinsInClassVSClass1st().get(dcp);
+        return statistics.getWinsInMatchup1st().get(dcp);
     }
 
     public int getWinsInClassVSClass2nd(Matchup dcp) {
-        return statistics.getWinsInClassVSClass2nd().get(dcp);
+        return statistics.getWinsInMatchup2nd().get(dcp);
     }
 
     public int getLossesInClassVSClass1st(Matchup dcp) {
-        return statistics.getLossesInClassVSClass1st().get(dcp);
+        return statistics.getLossesInMatchup1st().get(dcp);
     }
 
     public int getLossesInClassVSClass2nd(Matchup dcp) {
-        return statistics.getLossesInClassVSClass2nd().get(dcp);
+        return statistics.getLossesInMatchup2nd().get(dcp);
     }
 
     public double getWinPerClassVSClass1st(Matchup dcp) {
-        return statistics.getWinPerClassVSClass1st().get(dcp);
+        return statistics.getMatchupWinRatio1st().get(dcp);
     }
 
     public double getWinPerClassVSClass2nd(Matchup dcp) {
-        return statistics.getWinPerClassVSClass2nd().get(dcp);
+        return statistics.getMatchupWinRatio2nd().get(dcp);
     }
 
     @Override
     protected void removeMatchThatWent1st(Match match) {
         Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-        Mapper.decreaseIntegerInDcpIntMap(statistics.getMatchesInClassVSClass1st(), dcp);
+        Mapper.decreaseIntegerInDcpIntMap(statistics.getMatchesInMatchup1st(), dcp);
         if (match.getOutcome() == Outcome.WIN) {
-            Mapper.decreaseIntegerInDcpIntMap(statistics.getWinsInClassVSClass1st(), dcp);
+            Mapper.decreaseIntegerInDcpIntMap(statistics.getWinsInMatchup1st(), dcp);
         } else if (match.getOutcome() == Outcome.LOSS) {
-            Mapper.decreaseIntegerInDcpIntMap(statistics.getLossesInClassVSClass1st(), dcp);
+            Mapper.decreaseIntegerInDcpIntMap(statistics.getLossesInMatchup1st(), dcp);
         }
         updateWinPercentage1st(dcp);
     }
@@ -130,11 +130,11 @@ public class MatchupStatisticsKeeper extends MatchRelatedStatisticsKeeper {
     @Override
     protected void removeMatchThatWent2nd(Match match) {
         Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-        Mapper.decreaseIntegerInDcpIntMap(statistics.getMatchesInClassVSClass2nd(), dcp);
+        Mapper.decreaseIntegerInDcpIntMap(statistics.getMatchesInMatchup2nd(), dcp);
         if (match.getOutcome() == Outcome.WIN) {
-            Mapper.decreaseIntegerInDcpIntMap(statistics.getWinsInClassVSClass2nd(), dcp);
+            Mapper.decreaseIntegerInDcpIntMap(statistics.getWinsInMatchup2nd(), dcp);
         } else if (match.getOutcome() == Outcome.LOSS) {
-            Mapper.decreaseIntegerInDcpIntMap(statistics.getLossesInClassVSClass2nd(), dcp);
+            Mapper.decreaseIntegerInDcpIntMap(statistics.getLossesInMatchup2nd(), dcp);
         }
         updateWinPercentage2nd(dcp);
     }

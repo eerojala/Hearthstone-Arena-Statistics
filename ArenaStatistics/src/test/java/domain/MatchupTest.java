@@ -62,7 +62,7 @@ public class MatchupTest {
 
     @Test
     public void deckClassPairList_is_correct_size() {
-        assertEquals(81, Matchup.getDeckClassPairList().size());
+        assertEquals(81, Matchup.getMatchupList().size());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class MatchupTest {
         for (DeckClass dc1 : DeckClass.values()) {
             for (DeckClass dc2 : DeckClass.values()) {
                 Matchup dcp = new Matchup(dc1, dc2);
-                if (!Matchup.getDeckClassPairList().contains(dcp)) {
+                if (!Matchup.getMatchupList().contains(dcp)) {
                     bool = false;
                     break;
                 }
@@ -86,7 +86,7 @@ public class MatchupTest {
         for (DeckClass dc1 : DeckClass.values()) {
             for (DeckClass dc2 : DeckClass.values()) {
                 Matchup dcp1 = new Matchup(dc1, dc2);
-                Matchup dcp2 = Matchup.parseDeckClassPair(dcp1.toString());
+                Matchup dcp2 = Matchup.parseMatchup(dcp1.toString());
                 if (!dcp1.equals(dcp2)) {
                     bool = false;
                     break;
@@ -98,6 +98,6 @@ public class MatchupTest {
     
     @Test
     public void parseDeckClassPair_returns_null_if_not_valid_DeckClassPair() {
-        assertNull(Matchup.parseDeckClassPair("ShamanVSTest"));
+        assertNull(Matchup.parseMatchup("ShamanVSTest"));
     }
 }

@@ -21,7 +21,7 @@ public class ClassVSClassStatisticsParser extends StatisticsParser {
 
     @Override
     protected void setStatistics(Element element) {
-        Matchup dcp = Matchup.parseDeckClassPair(getID(element));
+        Matchup dcp = Matchup.parseMatchup(getID(element));
         keeper.setMatchesInClassVSClass1st(dcp, getIntValue(element, "Matches1st"));
         keeper.setMatchesInClassVSClass2nd(dcp, getIntValue(element, "Matches2nd"));
         keeper.setWinsInClassVSClass1st(dcp, getIntValue(element, "Wins1st"));

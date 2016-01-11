@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="67" failures="0" name="logic.MatchupStatisticsKeeperTest" time="0" errors="0" skipped="0">
+<testsuite tests="67" failures="0" name="logic.MatchupStatisticsKeeperTest" time="0.079" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -78,9 +78,9 @@
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="updateWinPercentage2nd_works_correctly" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_total_is_correct1" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_total_is_correct2" time="0"/>
-  <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_total_is_correct3" time="0"/>
+  <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_total_is_correct3" time="0.002"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="set_matches_in_class_vs_class_1st_works_correctly" time="0"/>
-  <testcase classname="logic.MatchupStatisticsKeeperTest" name="updateWinPercentage1st_works_correctly" time="0"/>
+  <testcase classname="logic.MatchupStatisticsKeeperTest" name="updateWinPercentage1st_works_correctly" time="0.001"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="matches_in_class_vs_class_total_is_correct1" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="matches_in_class_vs_class_total_is_correct2" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="matches_in_class_vs_class_total_is_correct3" time="0"/>
@@ -92,7 +92,7 @@
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="remove_match_removes_match_from_matches_in_class_vs_class_1st" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="remove_match_removes_match_from_matches_in_class_vs_class_2nd" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_1st_is_correct1" time="0"/>
-  <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_1st_is_correct2" time="0"/>
+  <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_1st_is_correct2" time="0.001"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_1st_is_correct3" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_2nd_is_correct1" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_2nd_is_correct2" time="0"/>
@@ -104,7 +104,7 @@
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="win_percentage_in_class_vs_class_total_is_correct1" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="win_percentage_in_class_vs_class_total_is_correct2" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="win_percentage_in_class_vs_class_total_is_correct3" time="0"/>
-  <testcase classname="logic.MatchupStatisticsKeeperTest" name="win_percentage_in_class_vs_class_total_is_correct4" time="0"/>
+  <testcase classname="logic.MatchupStatisticsKeeperTest" name="win_percentage_in_class_vs_class_total_is_correct4" time="0.001"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="win_percentage_in_class_vs_class_total_is_correct5" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="win_percentage_in_class_vs_class_total_is_correct6" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="losses_in_class_vs_class_going_2nd_is_correct1" time="0"/>
@@ -116,16 +116,16 @@
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_going_1st_is_correct1" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_going_1st_is_correct2" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_total_is_correct1" time="0"/>
-  <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_total_is_correct2" time="0"/>
+  <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_total_is_correct2" time="0.001"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_total_is_correct3" time="0"/>
-  <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_total_is_correct4" time="0"/>
+  <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_total_is_correct4" time="0.001"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_total_is_correct5" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="loss_percentage_in_class_vs_class_total_is_correct6" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="matches_in_class_vs_class_going_2nd_is_correct1" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="matches_in_class_vs_class_going_2nd_is_correct2" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="matches_in_class_vs_class_going_2nd_is_correct3" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_going_2nd_is_correct1" time="0"/>
-  <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_going_2nd_is_correct2" time="0"/>
+  <testcase classname="logic.MatchupStatisticsKeeperTest" name="wins_in_class_vs_class_going_2nd_is_correct2" time="0.001"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="remove_match_removes_match_from_losses_in_class_vs_class_1st" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="remove_match_removes_match_from_losses_in_class_vs_class_2nd" time="0"/>
   <testcase classname="logic.MatchupStatisticsKeeperTest" name="set_losses_in_class_vs_class_2nd_works_correctly" time="0"/>

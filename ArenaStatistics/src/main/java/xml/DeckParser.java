@@ -33,7 +33,7 @@ public class DeckParser extends XmlParser {
         deck.setGold(getIntValue(element, "Gold"));
         deck.setDust(getIntValue(element, "Dust"));
         deck.setExtraPacks(getIntValue(element, "ExtraPacks"));
-        deck.setCards(getCards(element));
+        deck.setRewardCards(getCards(element));
         return deck;
     }
 

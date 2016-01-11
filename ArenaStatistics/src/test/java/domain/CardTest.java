@@ -1,7 +1,6 @@
 
 package domain;
 
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -74,6 +73,5 @@ public class CardTest {
     @Test
     public void parseCard9() {
         assertEquals(null, Card.parseCard("common"));
-    }
-    
+    }  
 }

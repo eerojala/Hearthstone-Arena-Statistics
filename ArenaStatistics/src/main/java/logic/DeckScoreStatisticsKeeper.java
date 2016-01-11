@@ -34,7 +34,7 @@ public class DeckScoreStatisticsKeeper extends DeckStatisticsKeeper {
     private void updatePlayPerAsClass() {
         for (DeckClass dc : DeckClass.values()) {
             int totalDecksAsClass = getDecksAsClass(dc);
-            Mapper.updateAverageInDcDoubleMap(statistics.getPlayPerAsClass(),
+            Mapper.updateAverageInDcDoubleMap(statistics.getPlayRatioAsClass(),
                     dc, totalDecksAsClass, getTotalDeckAmount());
         }
     }
@@ -54,7 +54,7 @@ public class DeckScoreStatisticsKeeper extends DeckStatisticsKeeper {
     }
 
     public void setPlayPercentageAsClass(DeckClass dc, double per) {
-        statistics.getPlayPerAsClass().put(dc, per);
+        statistics.getPlayRatioAsClass().put(dc, per);
     }
 
     public int getDecksAsClass(DeckClass dc) {
@@ -82,7 +82,7 @@ public class DeckScoreStatisticsKeeper extends DeckStatisticsKeeper {
     }
 
     public double getPlayPercentageAsClass(DeckClass dc) {
-        return statistics.getPlayPerAsClass().get(dc);
+        return statistics.getPlayRatioAsClass().get(dc);
     }
 
     @Override

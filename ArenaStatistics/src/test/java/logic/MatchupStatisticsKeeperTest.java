@@ -139,7 +139,7 @@ public class MatchupStatisticsKeeperTest {
 
     @Test
     public void wins_in_class_vs_class_going_1st_is_correct2() {
-        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getWinsInClassVSClass1st(), sVSm);
+        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getWinsInMatchup1st(), sVSm);
         assertTrue(bool);
     }
 
@@ -150,7 +150,7 @@ public class MatchupStatisticsKeeperTest {
 
     @Test
     public void wins_in_class_vs_class_going_2nd_is_correct2() {
-        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getWinsInClassVSClass2nd(), sVSd);
+        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getWinsInMatchup2nd(), sVSd);
         assertTrue(bool);
     }
 
@@ -161,7 +161,7 @@ public class MatchupStatisticsKeeperTest {
 
     @Test
     public void losses_in_class_vs_class_going_1st_is_correct2() {
-        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getLossesInClassVSClass1st(), sVSpa);
+        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getLossesInMatchup1st(), sVSpa);
         assertTrue(bool);
     }
 
@@ -177,7 +177,7 @@ public class MatchupStatisticsKeeperTest {
 
     @Test
     public void losses_in_class_vs_class_going_2nd_is_correct3() {
-        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getLossesInClassVSClass2nd(),
+        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getLossesInMatchup2nd(),
                 sVSm, prVSwarr);
         assertTrue(bool);
     }
@@ -189,7 +189,7 @@ public class MatchupStatisticsKeeperTest {
 
     @Test
     public void win_percentage_class_vs_class_going_1st_is_correct2() {
-        bool = TestHelper.zeroesInDcpDoubleMap(keeper.getStatistics().getWinPerClassVSClass1st(), sVSm);
+        bool = TestHelper.zeroesInDcpDoubleMap(keeper.getStatistics().getMatchupWinRatio1st(), sVSm);
         assertTrue(bool);
     }
 
@@ -200,7 +200,7 @@ public class MatchupStatisticsKeeperTest {
 
     @Test
     public void win_percentage_class_vs_class_going_second_is_correct2() {
-        bool = TestHelper.zeroesInDcpDoubleMap(keeper.getStatistics().getWinPerClassVSClass2nd(), sVSd);
+        bool = TestHelper.zeroesInDcpDoubleMap(keeper.getStatistics().getMatchupWinRatio2nd(), sVSd);
         assertTrue(bool);
     }
 
