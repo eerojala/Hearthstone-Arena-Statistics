@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
 import domain.DeckClass;
@@ -10,11 +6,17 @@ import domain.Match;
 import domain.Outcome;
 
 /**
- *
- * @author Eero
+ * GUI class which enables the user to create matches.
  */
 public class MatchCreationGUI extends javax.swing.JFrame implements Runnable {
 
+    /**
+     * Creates a new MatchCreationGUI Object.
+     * 
+     * @param maingui The Main GUI of the program.
+     * @param deckNumber Identifying number of the current deck.
+     * @param matchNumber Identifying number for the new created match.
+     */
     public MatchCreationGUI(MainGUI maingui, int deckNumber, int matchNumber) {
         this.maingui = maingui;
         this.deckNumber = deckNumber;
@@ -53,6 +55,7 @@ public class MatchCreationGUI extends javax.swing.JFrame implements Runnable {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -225,7 +228,7 @@ public class MatchCreationGUI extends javax.swing.JFrame implements Runnable {
         Match match = new Match((DeckClass) opponentClass.getSelectedItem(), outcome, going1st, deckNumber, matchNumber);     
         maingui.getCurrentDeckEditor().addMatch(match);
         maingui.setEnabled(true);
-        maingui.increaseMatchNumber();
+        maingui.increaseNextMatchNumber();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

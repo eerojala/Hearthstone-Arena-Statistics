@@ -68,10 +68,10 @@ public class DataParserAndWriterTest {
     private void setUpDataWriterAndFilepaths() {
         writer = new DataWriter(classStatisticsKeeper, classVSClassStatisticsKeeper,
                 deckClassStatisticsKeeper, rewardStatisticsKeeper);
-        writer.setClassVSClassStatisticsWriterFilepath(classVSClassUrl);
-        writer.setDeckClassStatisticsWriterFilepath(deckClassUrl);
+        writer.setMatchupStatisticsWriterFilePath(classVSClassUrl);
+        writer.setDeckScoreStatisticsWriterFilePath(deckClassUrl);
         writer.setDeckWriterFilePath(deckUrl);
-        writer.setMatchStatisticsWriterFilepath(matchStatisticsUrl);
+        writer.setMatchStatisticsWriterFilePath(matchStatisticsUrl);
         writer.setMatchWriterFilePath(matchUrl);
         writer.setRewardStatisticsWriterFilePath(rewardUrl);
     }
@@ -97,13 +97,13 @@ public class DataParserAndWriterTest {
 
     @After
     public void tearDown() {
-        writer.resetDataTest();
+        writer.resetDataWithoutRewritingTheXml();
     }
 
     @Test
     public void resetData_resets_classStatisticsKeeper() {
         resetAndParse();
-        classStatisticsKeeper = parser.getClassStatisticsKeeper();
+        classStatisticsKeeper = parser.getMatchStatisticsKeeper();
         assertEquals(0, classStatisticsKeeper.getTotalMatches());
     }
 
@@ -114,11 +114,11 @@ public class DataParserAndWriterTest {
 
     private void parseData() {
         parser = new DataParser();
-        parser.setClassVSClassStatisticsFilepath(classVSClassUrl);
-        parser.setDeckClassStatisticsFilepath(deckClassUrl);
-        parser.setDecksFilepath(deckUrl);
+        parser.setMatchupStatisticsFilePath(classVSClassUrl);
+        parser.setDeckScoreStatisticsFilePath(deckClassUrl);
+        parser.setDecksFilePath(deckUrl);
         parser.setMatchStatisticsFilepath(matchStatisticsUrl);
-        parser.setMatchesFilepath(matchUrl);
+        parser.setMatchesFilePath(matchUrl);
         parser.setRewardStatisticsFilepath(rewardUrl);
         parser.parseData();
     }
@@ -126,39 +126,42 @@ public class DataParserAndWriterTest {
     @Test
     public void resetData_resets_match_statistics_xml() {
         writer.resetData();
-        MatchStatisticsParser mStatParser = new MatchStatisticsParser(matchStatisticsUrl);
+        StatisticsParser mStatParser = new MatchStatisticsParser(matchStatisticsUrl);
         mStatParser.addValues();
-        assertEquals(0, mStatParser.getKeeper().getTotalMatches());
+        MatchStatisticsKeeper mStatKeeper = (MatchStatisticsKeeper) mStatParser.getParsedObject();
+        assertEquals(0, mStatKeeper.getTotalMatches());
     }
 
     @Test
     public void resetData_resets_classVSClassStatisticsKeeper() {
         resetAndParse();
-        classVSClassStatisticsKeeper = parser.getClassVSClassStatisticsKeeper();
-        assertEquals(0, classVSClassStatisticsKeeper.getMatchesInClassVSClass1st(dVSh));
+        classVSClassStatisticsKeeper = parser.getMatchupStatisticsKeeper();
+        assertEquals(0, classVSClassStatisticsKeeper.getMatchesInMatchup1st(dVSh));
     }
 
     @Test
     public void resetData_resets_class_vs_class_statistics_xml() {
         writer.resetData();
-        ClassVSClassStatisticsParser matchupParser = new ClassVSClassStatisticsParser(classVSClassUrl);
+        MatchupStatisticsParser matchupParser = new MatchupStatisticsParser(classVSClassUrl);
         matchupParser.addValues();
-        assertEquals(0, matchupParser.getKeeper().getMatchesInClassVSClass1st(dVSh));
+        MatchupStatisticsKeeper mStatKeeper = (MatchupStatisticsKeeper) matchupParser.getParsedObject();
+        assertEquals(0, mStatKeeper.getMatchesInMatchup1st(dVSh));
     }
 
     @Test
     public void resetData_resets_deckClassStatisticsKeeper() {
         resetAndParse();
-        deckClassStatisticsKeeper = parser.getDeckClassStatisticsKeeper();
+        deckClassStatisticsKeeper = parser.getDeckScoreStatisticsKeeper();
         assertEquals(0, deckClassStatisticsKeeper.getTotalDeckAmount());
     }
 
     @Test
     public void resetData_resets_deck_class_statistics_xml() {
         writer.resetData();
-        DeckClassStatisticsParser dParser = new DeckClassStatisticsParser(deckClassUrl);
-        dParser.addValues();
-        assertEquals(0, dParser.getKeeper().getTotalDeckAmount());
+        DeckScoreStatisticsParser dsParser = new DeckScoreStatisticsParser(deckClassUrl);
+        dsParser.addValues();
+        DeckScoreStatisticsKeeper dsKeeper = (DeckScoreStatisticsKeeper) dsParser.getParsedObject();
+        assertEquals(0, dsKeeper.getTotalDeckAmount());
     }
 
     @Test
@@ -173,28 +176,29 @@ public class DataParserAndWriterTest {
         writer.resetData();
         RewardStatisticsParser rParser = new RewardStatisticsParser(rewardUrl);
         rParser.addValues();
-        assertEquals(0, rParser.getKeeper().getTotalDeckAmount());
+        RewardStatisticsKeeper rStatKeeper = (RewardStatisticsKeeper) rParser.getParsedObject();
+        assertEquals(0, rStatKeeper.getTotalDeckAmount());
     }
 
     @Test
     public void match_statistics_are_written() {
         writer.saveStatistics(deck);
         parseData();
-        assertEquals(2, parser.getClassStatisticsKeeper().getTotalMatches());
+        assertEquals(2, parser.getMatchStatisticsKeeper().getTotalMatches());
     }
 
     @Test
     public void class_vs_class_statistics_are_written() {
         writer.saveStatistics(deck);
         parseData();
-        assertEquals(1, parser.getClassVSClassStatisticsKeeper().getMatchesInClassVSClass1st(dVSh));
+        assertEquals(1, parser.getMatchupStatisticsKeeper().getMatchesInMatchup1st(dVSh));
     }
 
     @Test
     public void deck_class_statistics_are_written() {
         writer.saveStatistics(deck);
         parseData();
-        assertEquals(1, parser.getDeckClassStatisticsKeeper().getTotalDeckAmount());
+        assertEquals(1, parser.getDeckScoreStatisticsKeeper().getTotalDeckAmount());
     }
 
     @Test

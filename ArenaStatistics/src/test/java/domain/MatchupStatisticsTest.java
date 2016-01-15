@@ -35,42 +35,42 @@ public class MatchupStatisticsTest {
 
     @Test
     public void matches_in_class_vs_class_1st_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcpIntMap(statistics.getMatchesInMatchup1st()));
+        assertTrue(TestHelper.zeroesInMatchupIntMap(statistics.getMatchesInMatchup1st()));
     }
 
     @Test
     public void matches_in_class_vs_class_2nd_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcpIntMap(statistics.getMatchesInMatchup2nd()));
+        assertTrue(TestHelper.zeroesInMatchupIntMap(statistics.getMatchesInMatchup2nd()));
     }
 
     @Test
     public void wins_in_class_vs_class_1st_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcpIntMap(statistics.getWinsInMatchup1st()));
+        assertTrue(TestHelper.zeroesInMatchupIntMap(statistics.getWinsInMatchup1st()));
     }
 
     @Test
     public void wins_in_class_vs_class_2nd_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcpIntMap(statistics.getWinsInMatchup2nd()));
+        assertTrue(TestHelper.zeroesInMatchupIntMap(statistics.getWinsInMatchup2nd()));
     }
 
     @Test
     public void losses_in_class_vs_class_1st_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcpIntMap(statistics.getLossesInMatchup1st()));
+        assertTrue(TestHelper.zeroesInMatchupIntMap(statistics.getLossesInMatchup1st()));
     }
 
     @Test
     public void losses_in_class_vs_class_2nd_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcpIntMap(statistics.getLossesInMatchup2nd()));
+        assertTrue(TestHelper.zeroesInMatchupIntMap(statistics.getLossesInMatchup2nd()));
     }
 
     @Test
     public void winPer_in_class_vs_class_1st_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcpDoubleMap(statistics.getMatchupWinRatio1st()));
+        assertTrue(TestHelper.zeroesInMatchupDoubleMap(statistics.getMatchupWinRatio1st()));
     }
 
     @Test
     public void winPer_in_class_vs_class_2nd_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcpDoubleMap(statistics.getMatchupWinRatio2nd()));
+        assertTrue(TestHelper.zeroesInMatchupDoubleMap(statistics.getMatchupWinRatio2nd()));
     }
 
 }

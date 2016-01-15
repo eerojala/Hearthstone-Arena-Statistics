@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class representing the deck that is used by the player in the arena run.
+ * Class representing the deck which is used by the player in the arena run.
  */
 public class Deck implements Comparable<Deck> {
 
@@ -22,7 +22,7 @@ public class Deck implements Comparable<Deck> {
      * Creates a new Deck object.
      *
      * @param playerClass The Class which the player chose for the deck.
-     * @param deckNumber Number that identifies the deck.
+     * @param deckNumber Number which identifies the deck.
      */
     public Deck(DeckClass playerClass, int deckNumber) {
         this.deckClass = playerClass;
@@ -37,9 +37,9 @@ public class Deck implements Comparable<Deck> {
     }
 
     /**
-     * Returns the deck's number.
+     * Returns the deck's identifying number.
      *
-     * @return Deck number as an int.
+     * @return Deck number..
      */
     public int getDeckNumber() {
         return deckNumber;
@@ -48,14 +48,14 @@ public class Deck implements Comparable<Deck> {
     /**
      * Returns the current loss amount of the deck.
      *
-     * @return Number of losses as an int.
+     * @return Number of losses.
      */
     public int getLosses() {
         return losses;
     }
 
     /**
-     * Returns a list of the matches done with the deck.
+     * Returns a list of the matches played with the deck.
      *
      * @return List of Matches.
      */
@@ -75,7 +75,7 @@ public class Deck implements Comparable<Deck> {
     /**
      * Returns the current win amount of the deck.
      *
-     * @return Number of wins as an int.
+     * @return Number of wins.
      */
     public int getWins() {
         return wins;
@@ -85,7 +85,7 @@ public class Deck implements Comparable<Deck> {
      * Returns a list of the cards which the player received at the end of the
      * arena run.
      *
-     * @return List of the Cards gotten at the end of the arena run.
+     * @return List of the Cards received at the end of the arena run.
      */
     public List<Card> getRewardCards() {
         return rewardCards;
@@ -95,7 +95,7 @@ public class Deck implements Comparable<Deck> {
      * Returns the amount of dust which the player received at the end of the
      * arena run.
      *
-     * @return Amount of dust received at the end of the arena run as an int.
+     * @return Amount of dust received at the end of the arena run .
      */
     public int getDust() {
         return dust;
@@ -106,8 +106,7 @@ public class Deck implements Comparable<Deck> {
      * received at the end of every arena run) which the player received at the
      * end of the arena run.
      *
-     * @return Amount of extra packs received at the end of the arena run as an
-     * int.
+     * @return Amount of extra packs received at the end of the arena run.
      */
     public int getExtraPacks() {
         return extraPacks;
@@ -117,14 +116,14 @@ public class Deck implements Comparable<Deck> {
      * Returns the amount of gold which the player received at the end of the
      * arena run.
      *
-     * @return Amount of gold received at the end of the run as an int.
+     * @return Amount of gold received at the end of the run.
      */
     public int getGold() {
         return gold;
     }
 
     /**
-     * Set the amount of dust received at the end of the arena run.
+     * Sets the amount of dust received at the end of the arena run.
      *
      * @param dust Amount of dust received at the end of the run.
      */
@@ -133,7 +132,7 @@ public class Deck implements Comparable<Deck> {
     }
 
     /**
-     * Set the amount of extra card packs (besides the default card pack
+     * Sets the amount of extra card packs (besides the default card pack
      * received at the end of every arena run) received at the end of the arena
      * run.
      *
@@ -145,7 +144,7 @@ public class Deck implements Comparable<Deck> {
     }
 
     /**
-     * Set the amount of gold received at the end of the arena run
+     * Sets the amount of gold received at the end of the arena run
      *
      * @param gold Amount of gold received at the end of the run.
      */
@@ -154,7 +153,7 @@ public class Deck implements Comparable<Deck> {
     }
 
     /**
-     * Set the cards received at the end of the arena run.
+     * Sets the cards received at the end of the arena run.
      *
      * @param rewardCards List of the cards which the player received at the end
      * of the run
@@ -164,7 +163,7 @@ public class Deck implements Comparable<Deck> {
     }
 
     /**
-     * Set the amount of losses which the deck currently has.
+     * Sets the amount of losses which the deck currently has.
      *
      * @param losses Amount of losses which the deck currently has.
      */
@@ -173,7 +172,7 @@ public class Deck implements Comparable<Deck> {
     }
 
     /**
-     * Set the matches where the player has participated in the current arena
+     * Sets the matches where the player has participated in the current arena
      * run.
      *
      * @param matches List of matches where the player has participated in the
@@ -184,7 +183,7 @@ public class Deck implements Comparable<Deck> {
     }
 
     /**
-     * Set the amount of wins which the deck currently has.
+     * Sets the amount of wins which the deck currently has.
      *
      * @param wins Amount of wins which the deck currently has.
      */
@@ -219,8 +218,8 @@ public class Deck implements Comparable<Deck> {
     }
 
     /**
-     * Returns a boolean based on if the deck has finished (Amount of wins is 12
-     * or amount of losses is 3)
+     * Returns a boolean based on if the deck has finished (Amount of wins is
+     * over 11 or amount of losses is over 2)
      *
      * @return true if the deck is finished, false if the deck is still ongoing.
      */

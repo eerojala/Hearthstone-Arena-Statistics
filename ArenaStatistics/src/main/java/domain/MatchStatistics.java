@@ -21,10 +21,10 @@ public class MatchStatistics {
     private final Map<DeckClass, Integer> winsVSClass2nd;
     private final Map<DeckClass, Integer> lossesVSClass1st;
     private final Map<DeckClass, Integer> lossesVSClass2nd;
-    private final Map<DeckClass, Double> winPerVSClass1st;
-    private final Map<DeckClass, Double> winPerVSClass2nd;
+    private final Map<DeckClass, Double> winRatioVSClass1st;
+    private final Map<DeckClass, Double> winRatioVSClass2nd;
     private final Map<DeckClass, Double> winRatioAsClass1st;
-    private final Map<DeckClass, Double> winPerAsClass2nd;
+    private final Map<DeckClass, Double> winRatioAsClass2nd;
 
     /**
      * Creates a new MatchStatistics Object.
@@ -42,10 +42,10 @@ public class MatchStatistics {
         winsVSClass2nd = new HashMap();
         lossesVSClass1st = new HashMap();
         lossesVSClass2nd = new HashMap();
-        winPerVSClass1st = new HashMap();
-        winPerVSClass2nd = new HashMap();
+        winRatioVSClass1st = new HashMap();
+        winRatioVSClass2nd = new HashMap();
         winRatioAsClass1st = new HashMap();
-        winPerAsClass2nd = new HashMap();
+        winRatioAsClass2nd = new HashMap();
         mapZeroesToValues();
     }
 
@@ -71,9 +71,9 @@ public class MatchStatistics {
 
     private void mapZeroesToDeckClassDoubleMaps() {
         Mapper.mapZeroesToDcDoubleMap(winRatioAsClass1st);
-        Mapper.mapZeroesToDcDoubleMap(winPerAsClass2nd);
-        Mapper.mapZeroesToDcDoubleMap(winPerVSClass1st);
-        Mapper.mapZeroesToDcDoubleMap(winPerVSClass2nd);
+        Mapper.mapZeroesToDcDoubleMap(winRatioAsClass2nd);
+        Mapper.mapZeroesToDcDoubleMap(winRatioVSClass1st);
+        Mapper.mapZeroesToDcDoubleMap(winRatioVSClass2nd);
     }
 
     /**
@@ -186,8 +186,8 @@ public class MatchStatistics {
      * @return HashMap where the key is a DeckClass and the value is an Double
      * signifying the win ratio of playing as a specific class while going 2nd.
      */
-    public Map<DeckClass, Double> getWinPerAsClass2nd() {
-        return winPerAsClass2nd;
+    public Map<DeckClass, Double> getWinRatioAsClass2nd() {
+        return winRatioAsClass2nd;
     }
 
     /**
@@ -198,8 +198,8 @@ public class MatchStatistics {
      * signifying the win ratio of playing against a specific class while going
      * 1st.
      */
-    public Map<DeckClass, Double> getWinPerVSClass1st() {
-        return winPerVSClass1st;
+    public Map<DeckClass, Double> getWinRatioVSClass1st() {
+        return winRatioVSClass1st;
     }
 
     /**
@@ -210,8 +210,8 @@ public class MatchStatistics {
      * signifying the win ratio of playing against a specific class while going
      * 2nd.
      */
-    public Map<DeckClass, Double> getWinPerVSClass2nd() {
-        return winPerVSClass2nd;
+    public Map<DeckClass, Double> getWinRatioVSClass2nd() {
+        return winRatioVSClass2nd;
     }
 
     /**

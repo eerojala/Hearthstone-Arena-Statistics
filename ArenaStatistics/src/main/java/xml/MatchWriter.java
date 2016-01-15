@@ -1,16 +1,21 @@
 package xml;
 
 import domain.Match;
-import java.util.ArrayList;
-import java.util.List;
 import org.jdom.Attribute;
-import org.jdom.Document;
 import org.jdom.Element;
 
+/**
+ * Match which writes the data of the current deck's matches to a Xml file.
+ */
 public class MatchWriter extends XmlWriter {
 
-    public MatchWriter(String filepath) {
-        super(filepath, "Matches", "Match");
+    /**
+     * Creates a new MatchWriter Object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public MatchWriter(String filePath) {
+        super(filePath, "Matches", "Match");
     }
 
     @Override
@@ -30,25 +35,4 @@ public class MatchWriter extends XmlWriter {
             System.out.println("Writing match to file failed");
         }
     }
-    
-
-//    public void removeMatchesFromASpecificDeck(Document doc, int deckNumber) {
-//        List<Element> children = doc.getRootElement().getChildren();
-//        List<Element> removeThese = new ArrayList();
-//        for (Element child : children) {
-//            String temp = "" + child.getAttributeValue("id").charAt(0);
-//            if (temp.equals("" + deckNumber)) {
-//                removeThese.add(child);
-//            }
-//        }
-//        removeMatches(doc.getRootElement(), removeThese);
-//        addToFile(doc);
-//    }
-
-//    private void removeMatches(Element root, List<Element> removeThese) {
-//        for (Element child : removeThese) {
-//            root.removeContent(child);
-//        }
-//    }
-
 }

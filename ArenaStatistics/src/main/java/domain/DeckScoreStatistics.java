@@ -5,7 +5,7 @@ import java.util.Map;
 import util.Mapper;
 
 /**
- * Class that contains the HashMaps where the statistics about Deck scores,
+ * Class which contains the HashMaps where the statistics about Deck scores,
  * average win amounts and play ratios are stored.
  */
 public class DeckScoreStatistics {

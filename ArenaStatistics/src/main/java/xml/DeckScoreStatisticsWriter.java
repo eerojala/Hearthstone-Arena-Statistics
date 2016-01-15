@@ -5,10 +5,18 @@ import logic.DeckScoreStatisticsKeeper;
 import org.jdom.Attribute;
 import org.jdom.Element;
 
-public class DeckClassStatisticsWriter extends StatisticsWriter {
+/**
+ * Class which writes deck score statistics to a Xml file.
+ */
+public class DeckScoreStatisticsWriter extends StatisticsWriter {
 
-    public DeckClassStatisticsWriter(String filepath) {
-        super(filepath, "Classes", "Class");
+    /**
+     * Creates a new DeckScoreStatisticsWriter Object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public DeckScoreStatisticsWriter(String filePath) {
+        super(filePath, "Classes", "Class");
     }
 
     @Override

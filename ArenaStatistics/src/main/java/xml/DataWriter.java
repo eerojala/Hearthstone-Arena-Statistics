@@ -9,44 +9,70 @@ import logic.DeckScoreStatisticsKeeper;
 
 import logic.RewardStatisticsKeeper;
 
+/**
+ * Class which writes all of the data to the Xml files.
+ */
 public class DataWriter {
 
-    private final MatchStatisticsWriter matchStatisticsWriter;
-    private final ClassVSClassStatisticsWriter classVSClassStatisticsWriter;
-    private final DeckClassStatisticsWriter deckClassStatisticsWriter;
+    private final StatisticsWriter matchStatisticsWriter;
+    private final StatisticsWriter matchupStatisticsWriter;
+    private final StatisticsWriter deckScoreStatisticsWriter;
     private final DeckWriter deckWriter;
     private final MatchWriter matchWriter;
-    private final RewardStatisticsWriter rewardStatisticsWriter;
-    private final MatchStatisticsKeeper classStatisticsKeeper;
-    private final MatchupStatisticsKeeper classVSClassStatisticsKeeper;
-    private final DeckScoreStatisticsKeeper deckClassStatisticsKeeper;
+    private final StatisticsWriter rewardStatisticsWriter;
+    private final MatchStatisticsKeeper matchStatisticsKeeper;
+    private final MatchupStatisticsKeeper matchupStatisticsKeeper;
+    private final DeckScoreStatisticsKeeper deckScoreStatisticsKeeper;
     private final RewardStatisticsKeeper rewardStatisticsKeeper;
 
-    public DataWriter(MatchStatisticsKeeper classStatisticsKeeper, MatchupStatisticsKeeper classVSClassStatisticsKeeper,
-            DeckScoreStatisticsKeeper deckClassStatisticsKeeper, RewardStatisticsKeeper rewardStatisticsKeeper) {
+    /**
+     * Creates a new DataWriter object.
+     *
+     * @param matchStatisticsKeeper MatchStatisticsKeeper which is written to
+     * the Xml file.
+     * @param matchupStatisticsKeeper MatchupStatisticsKeeper which is written
+     * to the Xml file.
+     * @param deckScoreStatisticsKeeper DeckScoreStatisitcsKeeper which is
+     * written to the Xml file.
+     * @param rewardStatisticsKeeper RewardStatisticsKeeper which is written to
+     * the Xml file.
+     */
+    public DataWriter(MatchStatisticsKeeper matchStatisticsKeeper, MatchupStatisticsKeeper matchupStatisticsKeeper,
+            DeckScoreStatisticsKeeper deckScoreStatisticsKeeper, RewardStatisticsKeeper rewardStatisticsKeeper) {
         matchStatisticsWriter = new MatchStatisticsWriter("src/main/resources/xmlfiles/MatchStatistics.xml");
-        classVSClassStatisticsWriter = new ClassVSClassStatisticsWriter("src/main/resources/xmlfiles/ClassVSClassStatistics.xml");
-        deckClassStatisticsWriter = new DeckClassStatisticsWriter("src/main/resources/xmlfiles/DeckClassStatistics.xml");
+        matchupStatisticsWriter = new MatchupStatisticsWriter("src/main/resources/xmlfiles/ClassVSClassStatistics.xml");
+        deckScoreStatisticsWriter = new DeckScoreStatisticsWriter("src/main/resources/xmlfiles/DeckClassStatistics.xml");
         deckWriter = new DeckWriter("src/main/resources/xmlfiles/Decks.xml");
         matchWriter = new MatchWriter("src/main/resources/xmlfiles/Matches.xml");
         rewardStatisticsWriter = new RewardStatisticsWriter("src/main/resources/xmlfiles/RewardStatistics.xml");
-        this.classStatisticsKeeper = classStatisticsKeeper;
-        this.deckClassStatisticsKeeper = deckClassStatisticsKeeper;
-        this.classVSClassStatisticsKeeper = classVSClassStatisticsKeeper;
+        this.matchStatisticsKeeper = matchStatisticsKeeper;
+        this.deckScoreStatisticsKeeper = deckScoreStatisticsKeeper;
+        this.matchupStatisticsKeeper = matchupStatisticsKeeper;
         this.rewardStatisticsKeeper = rewardStatisticsKeeper;
     }
 
+    /**
+     * Writes the data of the current deck and it's matches to the Xml files.
+     *
+     * @param deck Deck which data is written to the Xml files.
+     */
     public void saveProgress(Deck deck) {
         deckWriter.removeAll();
         deckWriter.writeContent(deck);
         matchWriter.writeContent(deck.getMatches().get(deck.getMatches().size() - 1));
     }
 
+    /**
+     * Writes the data from the statistics keepers to the Xml files, removes
+     * data of the current deck and it's matches from the Xml files.
+     *
+     * @param deck Deck which data is removed from the Xml files.
+     */
     public void saveStatistics(Deck deck) {
         deckWriter.removeAll();
         matchWriter.removeAll();
-        matchStatisticsWriter.updateSpecific(deck.getDeckClass(), classStatisticsKeeper);
-        deckClassStatisticsWriter.updateSpecific(deck.getDeckClass(), deckClassStatisticsKeeper);
+        matchStatisticsWriter.updateSpecific(deck.getDeckClass(), matchStatisticsKeeper);
+        deckScoreStatisticsWriter.updateSpecific(deck.getDeckClass(), deckScoreStatisticsKeeper);
         rewardStatisticsWriter.updateSpecific(deck.getWins(), rewardStatisticsKeeper);
         saveSpecificMatchups(deck);
     }
@@ -54,72 +80,122 @@ public class DataWriter {
     private void saveSpecificMatchups(Deck deck) {
         for (Match match : deck.getMatches()) {
             Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-            classVSClassStatisticsWriter.updateSpecific(dcp, classVSClassStatisticsKeeper);
+            matchupStatisticsWriter.updateSpecific(dcp, matchupStatisticsKeeper);
         }
     }
 
-    public void setMatchStatisticsWriterFilepath(String filepath) {
-        matchStatisticsWriter.setFilepath(filepath);
+    /**
+     * Sets the file path where the Xml which stores match statistics can be
+     * found
+     *
+     * @param filePath File path
+     */
+    public void setMatchStatisticsWriterFilePath(String filePath) {
+        matchStatisticsWriter.setFilePath(filePath);
     }
 
-    public void setClassVSClassStatisticsWriterFilepath(String filepath) {
-        classVSClassStatisticsWriter.setFilepath(filepath);
+    /**
+     * Sets the file path where the Xml which stores matchup statistics can be
+     * found
+     *
+     * @param filePath File path
+     */
+    public void setMatchupStatisticsWriterFilePath(String filePath) {
+        matchupStatisticsWriter.setFilePath(filePath);
     }
 
-    public void setDeckClassStatisticsWriterFilepath(String filepath) {
-        deckClassStatisticsWriter.setFilepath(filepath);
+    /**
+     * Sets the file path where the Xml which stores deck score statistics can
+     * be found
+     *
+     * @param filePath File path
+     */
+    public void setDeckScoreStatisticsWriterFilePath(String filePath) {
+        deckScoreStatisticsWriter.setFilePath(filePath);
     }
 
-    public void setRewardStatisticsWriterFilePath(String filepath) {
-        rewardStatisticsWriter.setFilepath(filepath);
+    /**
+     * Sets the file path where the Xml which stores reward statistics can be
+     * found
+     *
+     * @param filePath File path
+     */
+    public void setRewardStatisticsWriterFilePath(String filePath) {
+        rewardStatisticsWriter.setFilePath(filePath);
     }
 
-    public void setDeckWriterFilePath(String filepath) {
-        deckWriter.setFilepath(filepath);
+    /**
+     * Sets the file path where the Xml which stores the current deck can be
+     * found.
+     *
+     * @param filePath File path
+     */
+    public void setDeckWriterFilePath(String filePath) {
+        deckWriter.setFilePath(filePath);
     }
 
-    public void setMatchWriterFilePath(String filepath) {
-        matchWriter.setFilepath(filepath);
+    /**
+     * Sets the file path where the Xml which stores the current deck's matches.
+     *
+     * @param filePath File path
+     */
+    public void setMatchWriterFilePath(String filePath) {
+        matchWriter.setFilePath(filePath);
     }
 
+    /**
+     * Resets all of the data in the statistics keepers and the Xml, and
+     * rewrites the empty statistics back into the Xml.
+     */
     public void resetData() {
-        resetDataTest();
+        resetDataWithoutRewritingTheXml();
         initXml();
     }
 
-    public void resetDataTest() {
+    /**
+     * Resets all of the data in the statistics keeper and the Xml.
+     */
+    public void resetDataWithoutRewritingTheXml() {
         clearXml();
         resetStatisticsKeepers();
     }
 
     private void clearXml() {
         clearStatisticsXml();
-        removeDeckAndMatches();
+        clearDeckAndMatchesXml();
     }
 
     private void clearStatisticsXml() {
         matchStatisticsWriter.removeAll();
-        classVSClassStatisticsWriter.removeAll();
-        deckClassStatisticsWriter.removeAll();
+        matchupStatisticsWriter.removeAll();
+        deckScoreStatisticsWriter.removeAll();
         rewardStatisticsWriter.removeAll();
     }
 
     private void resetStatisticsKeepers() {
-        classStatisticsKeeper.reset();
-        classVSClassStatisticsKeeper.reset();
-        deckClassStatisticsKeeper.reset();
+        matchStatisticsKeeper.reset();
+        matchupStatisticsKeeper.reset();
+        deckScoreStatisticsKeeper.reset();
         rewardStatisticsKeeper.reset();
     }
 
+    /**
+     * Clears the data from the Xml files which contains statistics data and
+     * write the contents of the statistics keepers back into the Xml files.
+     */
     public void initXml() {
         clearStatisticsXml();
-        matchStatisticsWriter.writeContent(classStatisticsKeeper);
-        classVSClassStatisticsWriter.writeContent(classVSClassStatisticsKeeper);
-        deckClassStatisticsWriter.writeContent(deckClassStatisticsKeeper);
+        matchStatisticsWriter.writeContent(matchStatisticsKeeper);
+        matchupStatisticsWriter.writeContent(matchupStatisticsKeeper);
+        deckScoreStatisticsWriter.writeContent(deckScoreStatisticsKeeper);
         rewardStatisticsWriter.writeContent(rewardStatisticsKeeper);
     }
 
-    public void removeDeckAndMatches() {
+    /**
+     * Clears the data from the Xml files which contains data about the current
+     * deck and it's matches.
+     */
+    public void clearDeckAndMatchesXml() {
         matchWriter.removeAll();
         deckWriter.removeAll();
     }

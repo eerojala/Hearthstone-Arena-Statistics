@@ -39,17 +39,17 @@ public class MatchupStatistics {
     }
 
     private void mapZeroesToDeckClassPairIntegerMaps() {
-        Mapper.mapZeroesToDcpIntMap(lossesInMatchup1st);
-        Mapper.mapZeroesToDcpIntMap(lossesInMatchup2nd);
-        Mapper.mapZeroesToDcpIntMap(matchesInMatchup1st);
-        Mapper.mapZeroesToDcpIntMap(matchesInMatchup2nd);
-        Mapper.mapZeroesToDcpIntMap(winsInMatchup1st);
-        Mapper.mapZeroesToDcpIntMap(winsInMatchup2nd);
+        Mapper.mapZeroesToMatchupIntMap(lossesInMatchup1st);
+        Mapper.mapZeroesToMatchupIntMap(lossesInMatchup2nd);
+        Mapper.mapZeroesToMatchupIntMap(matchesInMatchup1st);
+        Mapper.mapZeroesToMatchupIntMap(matchesInMatchup2nd);
+        Mapper.mapZeroesToMatchupIntMap(winsInMatchup1st);
+        Mapper.mapZeroesToMatchupIntMap(winsInMatchup2nd);
     }
 
     private void mapZeroesToDeckClassPairDoubleMaps() {
-        Mapper.mapZeroesToDcpDoubleMap(MatchupWinRatio1st);
-        Mapper.mapZeroesToDcpDoubleMap(MatchupWinRatio2nd);
+        Mapper.mapZeroesToMatchupDoubleMap(MatchupWinRatio1st);
+        Mapper.mapZeroesToMatchupDoubleMap(MatchupWinRatio2nd);
     }
 
     /**

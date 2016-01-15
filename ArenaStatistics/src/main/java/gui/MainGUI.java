@@ -6,7 +6,6 @@ import domain.DeckClass;
 import domain.Match;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -17,6 +16,9 @@ import javax.swing.JSlider;
 import javax.swing.SwingUtilities;
 import xml.DataWriter;
 
+/**
+ * Class for the main GUI of the program.
+ */
 public class MainGUI extends javax.swing.JFrame implements Runnable {
 
     @Override
@@ -49,6 +51,11 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         winAmountLabels.add(classDeckStatisticsTwelveWinDecksAsClass);
     }
 
+    /**
+     * Sets the deck currently used by the player.
+     *
+     * @param currentDeck Deck currently used by the player.
+     */
     public void setCurrentDeck(Deck currentDeck) {
         this.currentDeck = currentDeck;
         if (currentDeck == null) {
@@ -61,396 +68,922 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
 
     private void setCurrentMatchNumber() {
         if (currentDeck == null || currentDeck.getMatches().isEmpty()) {
-            currentMatchNumber = 1;
+            nextMatchNumber = 1;
         } else {
-            currentMatchNumber = this.currentDeck.getMatches().get(this.currentDeck.getMatches().size() - 1).getMatchNumber() + 1;
+            nextMatchNumber = this.currentDeck.getMatches().get(this.currentDeck.getMatches().size() - 1).getMatchNumber() + 1;
         }
     }
 
-    public void setClassStatisticsKeeper(MatchStatisticsKeeper ClassStatisticsKeeper) {
-        this.classStatisticsKeeper = ClassStatisticsKeeper;
+    /**
+     * @param matchStatisticsKeeper
+     */
+    public void setMatchStatisticsKeeper(MatchStatisticsKeeper matchStatisticsKeeper) {
+        this.matchStatisticsKeeper = matchStatisticsKeeper;
     }
 
-    public void setClassVSClassStatisticsKeeper(MatchupStatisticsKeeper classVSClassStatisticsKeeper) {
-        this.classVSClassStatisticsKeeper = classVSClassStatisticsKeeper;
+    /**
+     *
+     * @param matchupStatisticsKeeper
+     */
+    public void setMatchupStatisticsKeeper(MatchupStatisticsKeeper matchupStatisticsKeeper) {
+        this.matchupStatisticsKeeper = matchupStatisticsKeeper;
     }
 
-    public void setDeckScoreStatisticsKeeper(DeckScoreStatisticsKeeper deckClassStatisticsKeeper) {
-        this.deckScoreStatisticsKeeper = deckClassStatisticsKeeper;
+    /**
+     *
+     * @param deckScoreStatisticsKeeper
+     */
+    public void setDeckScoreStatisticsKeeper(DeckScoreStatisticsKeeper deckScoreStatisticsKeeper) {
+        this.deckScoreStatisticsKeeper = deckScoreStatisticsKeeper;
     }
 
+    /**
+     *
+     * @param rewardStatisticsKeeper
+     */
     public void setRewardStatisticsKeeper(RewardStatisticsKeeper rewardStatisticsKeeper) {
         this.rewardStatisticsKeeper = rewardStatisticsKeeper;
     }
 
+    /**
+     *
+     * @param dataWriter
+     */
     public void setDataWriter(DataWriter dataWriter) {
         this.dataWriter = dataWriter;
     }
 
+    /**
+     * Returns the JLabel used for class portraits in the 'Class Specific Deck
+     * Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsPortrait() {
         return classDeckStatisticsPortrait;
     }
 
+    /**
+     * Returns the JLabel used for class portraits in the 'Match Statistics'
+     * tab.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsPortrait() {
         return matchStatisticsPortrait;
     }
 
-    public MatchStatisticsKeeper getClassStatisticsKeeper() {
-        return classStatisticsKeeper;
+    /**
+     *
+     * @return MatchStatisticsKeeper
+     */
+    public MatchStatisticsKeeper getMatchStatisticsKeeper() {
+        return matchStatisticsKeeper;
     }
 
-    public MatchupStatisticsKeeper getClassVSClassStatisticsKeeper() {
-        return classVSClassStatisticsKeeper;
+    /**
+     *
+     * @return MatchupStatisticsKeeper
+     */
+    public MatchupStatisticsKeeper getMatchupStatisticsKeeper() {
+        return matchupStatisticsKeeper;
     }
 
+    /**
+     * Returns the JLabel used for the average wins as class value in the 'Class
+     * Specific Deck Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsAvgWinsAsClass() {
         return classDeckStatisticsAvgWinsAsClass;
     }
 
+    /**
+     * Returns the JRadioButton used for selecting the alternate class portrait
+     * in the 'Class Specific Deck Statistics' tab.
+     *
+     * @return JRadioButton
+     */
     public JRadioButton getClassDeckStatisticsAltPortraitChooser() {
         return classDeckStatisticsAltPortraitChooser;
     }
 
+    /**
+     *
+     * @return DeckScoreStatisticsKeeper
+     */
     public DeckScoreStatisticsKeeper getDeckScoreStatisticsKeeper() {
         return deckScoreStatisticsKeeper;
     }
 
+    /**
+     * Returns the JRadioButton used for selecting the main class portrait in
+     * the 'Class Specific Deck Statistics' tab.
+     *
+     * @return JRadioButton
+     */
     public JRadioButton getClassDeckStatisticsMainPortraitChooser() {
         return classDeckStatisticsMainPortraitChooser;
     }
 
+    /**
+     * Returns the JComboBox used for selecting the viewed class in the 'Class
+     * Specific Deck Statistics' tab.
+     *
+     * @return JComboBox
+     */
     public JComboBox getClassDeckStatisticsClassChooser() {
         return ClassDeckStatisticsClassChooser;
     }
 
-    public ButtonGroup getDeckStatisticsPortraitSelect() {
-        return deckStatisticsPortraitSelect;
-    }
-
+    /**
+     *
+     * @return RewardStatisticsKeeper
+     */
     public RewardStatisticsKeeper getRewardStatisticsKeeper() {
         return rewardStatisticsKeeper;
     }
 
+    /**
+     * Returns the JLabel used for the 'wins as class' value in 'Class Specific
+     * Deck Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsWinsAsClass() {
         return classDeckStatisticsWinsAsClass;
     }
 
+    /**
+     * Returns the JLabel used for the 'decks as class' value in the 'Class
+     * Specific Deck Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsDecksAsClass() {
         return classDeckStatisticsDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used for the '8 win decks' value in the 'Class
+     * Specific Deck Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsEightWinDecksAsClass() {
         return classDeckStatisticsEightWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used for the '11 win decks' value in the 'Class
+     * Specific Deck Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsElevenWinDecksAsClass() {
         return classDeckStatisticsElevenWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used for the '5 win decks' value in the 'Class
+     * Specific Deck Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsFiveWinDecksAsClass() {
         return classDeckStatisticsFiveWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used for the '4 win decks' value in the 'Class
+     * Specific Deck Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsFourWinDecksAsClass() {
         return classDeckStatisticsFourWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used for the '9 win decks' value in the 'Class
+     * Specific Deck Statistics' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsNineWinDecksAsClass() {
         return classDeckStatisticsNineWinDecksAsClass;
     }
 
+    /**
+     * Returns the JRadioButton used for choosing the alternate class portrait
+     * in the 'Match Statistics' tab.
+     *
+     * @return JRadioButton
+     */
     public JRadioButton getMatchStatisticsAltPortraitChooser() {
         return matchStatisticsAltPortraitChooser;
     }
 
+    /**
+     * Returns the JRadioButton used for choosing the main class portrait in the
+     * 'Match Statistics' tab.
+     *
+     * @return JRadioButton
+     */
     public JRadioButton getMatchStatisticsMainPortraitChooser() {
         return matchStatisticsMainPortraitChooser;
     }
 
+    /**
+     * Returns the JRadioButton used in the 'Match Statistics' tab for choosing
+     * to display statistics about matches where the player went 1st.
+     *
+     * @return JRadioButton
+     */
     public JRadioButton getMatchStatistics1stRadioButton() {
         return matchStatistics1stRadioButton;
     }
 
+    /**
+     * Returns the JRadioButton used in the 'Match Statistics' tab for choosing
+     * to display statistics about matches where the player went 2nd.
+     *
+     * @return JRadioButton
+     */
     public JRadioButton getMatchStatistics2ndRadioButton() {
         return matchStatistics2ndRadioButton;
     }
 
+    /**
+     * Returns the JComboBox used in the 'Match Statistics' tab for choosing the
+     * main class which statistics are viewed.
+     *
+     * @return JComboBox
+     */
     public JComboBox getMatchStatisticsClass1Chooser() {
         return matchStatisticsClass1Chooser;
     }
 
+    /**
+     * Returns the JComboBox used in the 'Match Statistics' tab for choosing the
+     * second class which is used in the matchup statistics section along with
+     * the main class.
+     *
+     * @return JComboBox
+     */
     public JComboBox getMatchStatisticsClass2Chooser() {
         return matchStatisticsClass2Chooser;
     }
 
-    public ButtonGroup getMatchStatisticsPortraitSelect() {
-        return matchStatisticsPortraitSelect;
-    }
-
-    public ButtonGroup getMatchStatisticsStatsSelect() {
-        return matchStatisticsStatsSelect;
-    }
-
+    /**
+     * Returns the JRadioButton used in the 'Match Statistics' tab for choosing
+     * to display statistics about all of the matches regardless of the turn
+     * order.
+     *
+     * @return
+     */
     public JRadioButton getMatchStatisticsTotalRadioButton() {
         return matchStatisticsTotalRadioButton;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen class in the 'Wins as [class]' label.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinsAsClassLabel() {
         return matchStatisticsWinsAsClassLabel;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * amount of wins for the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinsAsClassValue() {
         return matchStatisticsWinsAsClassValue;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen class in the 'Wins vs [class]' label.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinsVSClassLabel() {
         return matchStatisticsWinsVSClassLabel;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * amount of wins against the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinsVSClassValue() {
         return matchStatisticsWinsVSClassValue;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen class in the 'Matches as [class]' label
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsMatchesAsClassLabel() {
         return matchStatisticsMatchesAsClassLabel;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * amount matches where the player used the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsMatchesAsClassValue() {
         return matchStatisticsMatchesAsClassValue;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen alternate class in the 'Matches vs [altclass]' label.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsMatchesVSClass2Label() {
         return matchStatisticsMatchesVSClass2Label;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * amount of matches in a specific matchup.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsMatchesVSClass2Value() {
         return matchStatisticsMatchesVSClass2Value;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen class in the 'Matches vs [class]' label.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsMatchesVSClassLabel() {
         return matchStatisticsMatchesVSClassLabel;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * amount of matches against the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsMatchesVSClassValue() {
         return matchStatisticsMatchesVSClassValue;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the amount of 1-win decks played with the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsOneWinDecksAsClass() {
         return classDeckStatisticsOneWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the playing percentage of the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsPlayPerAsClass() {
         return classDeckStatisticsPlayPerAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the amount of 7-win decks played with the class.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsSevenWinDecksAsClass() {
         return classDeckStatisticsSevenWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the amount of 6-win decks played with the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsSixWinDecksAsClass() {
         return classDeckStatisticsSixWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the amount of 10-win decks played with the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsTenWinDecksAsClass() {
         return classDeckStatisticsTenWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the amount of 3-win decks played with the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsThreeWinDecksAsClass() {
         return classDeckStatisticsThreeWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the amount of 12-win decks played with the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsTwelveWinDecksAsClass() {
         return classDeckStatisticsTwelveWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the amount of 2-win decks played with the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getClassDeckStatisticsTwoWinDecksAsClass() {
         return classDeckStatisticsTwoWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen class in the 'Win% as [class]' label.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinPerAsClassLabel() {
         return matchStatisticsWinPerAsClassLabel;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * win percentage of the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinPerAsClassValue() {
         return matchStatisticsWinPerAsClassValue;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen alternate class in the 'Win% vs [altclass]' label.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinPerVSClass2Label() {
         return matchStatisticsWinPerVSClass2Label;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * win percentage in a specific matchup.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinPerVSClass2Value() {
         return matchStatisticsWinPerVSClass2Value;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen class in the 'Win% vs [class]' label.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinPerVSClassLabel() {
         return matchStatisticsWinPerVSClassLabel;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * win percentage against the chosen class.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinPerVSClassValue() {
         return matchStatisticsWinPerVSClassValue;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * chosen alternate class in the 'wins vs [altclass]' label.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinsVSClass2Label() {
         return matchStatisticsWinsVSClass2Label;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * amount of wins in a specific matchup.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsWinsVSClass2Value() {
         return matchStatisticsWinsVSClass2Value;
     }
 
+    /**
+     * Returns the JLabel used in the 'Class Specific Deck Statistics' tab for
+     * displaying the amount of 0-win decks played with the chosen class.
+     *
+     * @return
+     */
     public JLabel getClassDeckStatisticsZeroWinDecksAsClass() {
         return classDeckStatisticsZeroWinDecksAsClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * total amount of matches.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsTotalMatches() {
         return matchStatisticsTotalMatches;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * users total win percentage.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsTotalWinPer() {
         return matchStatisticsTotalWinPer;
     }
 
+    /**
+     * Returns the JLabel used in the 'Match Statistics' tab for displaying the
+     * total amount of wins.
+     *
+     * @return JLabel
+     */
     public JLabel getMatchStatisticsTotalWins() {
         return matchStatisticsTotalWins;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the average amount of dust received in X-win decks.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsAvgDust() {
         return generalDeckStatisticsAvgDust;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the average amount of extra card packs received in X-win
+     * decks.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsAvgExtraPacks() {
         return generalDeckStatisticsAvgExtraPacks;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the average amount of gold received in X-win decks.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsAvgGold() {
         return generalDeckStatisticsAvgGold;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the average amount of golden cards received in X-win decks.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsAvgGoldenCards() {
         return generalDeckStatisticsAvgGoldenCards;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the average amount of regular cards received in X-win decks.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsAvgRegularCards() {
         return generalDeckStatisticsAvgRegularCards;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the total amount of decks with X-wins.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsDecks() {
         return generalDeckStatisticsDecks;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the total amount of dust received from decks with X-wins.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsDust() {
         return generalDeckStatisticsDust;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the total amount of extra card packs received from decks with
+     * X-wins.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsExtraPacks() {
         return generalDeckStatisticsExtraPacks;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the total amount of golden cards received from decks with
+     * X-wins.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsGoldenCards() {
         return generalDeckStatisticsGoldenCards;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the total amount of regular cards received from decks with
+     * X-wins.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsRegularCards() {
         return generalDeckStatisticsRegularCards;
     }
 
-    public JLabel getGeneralDeckStatisticsSliderIndicator() {
-        return generalDeckStatisticsSliderIndicator;
-    }
-
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the total amount of gold received from decks with X-winsö.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsGold() {
         return generalDeckStatisticsGold;
     }
 
+    /**
+     * Returns the JSlider used in the 'General Deck Statistics' tab for
+     * choosing the amount of wins which statistics are shown.
+     *
+     * @return JSlider
+     */
     public JSlider getGeneralDeckStatisticsWinSlider() {
         return generalDeckStatisticsWinSlider;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the amount of wins which statistics are displayed.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsWins() {
         return generalDeckStatisticsWins;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the percentage of X-win decks out of all the decks.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsPerOutOfAllDecks() {
         return generalDeckStatisticsPerOutOfAllDecks;
     }
 
+    /**
+     * Returns the current deck in use by the user.
+     *
+     * @return Deck
+     */
     public Deck getCurrentDeck() {
         return currentDeck;
     }
 
+    /**
+     * Returns the JLabel which displays the deck's current score in the
+     * 'Current Deck' tab.
+     *
+     * @return JLabel
+     */
     public JLabel getCurrentScore() {
         return currentScore;
     }
 
+    /**
+     * Returns the JLabel used in the 'Current Deck' tab for displaying the
+     * score of the current deck.
+     *
+     * @return JLabel
+     */
     public JLabel getCurrentDeckPlayerClass() {
         return currentDeckPlayerClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Current Deck' tab for displaying the
+     * opponent's class in the viewed match.
+     *
+     * @return JLabel
+     */
     public JLabel getCurrentDeckOpponentClass() {
         return currentDeckOpponentClass;
     }
 
+    /**
+     * Returns the JLabel used in the 'Current Deck' tab for displaying the
+     * outcome of the viewed match.
+     *
+     * @return JLabel
+     */
     public JLabel getCurrentDeckOutcome() {
         return currentDeckOutcome;
     }
 
+    /**
+     * Returns the JLabel used in the 'Current Deck' tab for displaying if the
+     * player went first or second in the viewed match.
+     *
+     * @return JLabel
+     */
     public JLabel getCurrentDeck1stOr2nd() {
         return currentDeck1stOr2nd;
     }
 
+    /**
+     * Returns the JLabel used in the 'Current Deck' tab for displaying the
+     * chosen class portrait.
+     *
+     * @return JLabel
+     */
     public JLabel getCurrentDeckPortrait() {
         return currentDeckPortrait;
     }
 
+    /**
+     * Returns the JRadioButton used in the 'Current Deck' tab for choosing the
+     * main class portrait.
+     *
+     * @return JRadioButton
+     */
     public JRadioButton getCurrentDeckMainPortraitChooser() {
         return currentDeckMainPortraitChooser;
     }
 
+    /**
+     * Returns the JRadioButton used in the 'Current Deck' tab for choosing the
+     * alternate class portrait.
+     *
+     * @return JRadioButton
+     */
     public JRadioButton getCurrentDeckAltPortraitChooser() {
         return currentDeckAltPortraitChooser;
     }
 
+    /**
+     * Returns the JCombobox used in the 'Current Deck' tab for choosing the
+     * displayed match.
+     *
+     * @return JComboBox
+     */
     public JComboBox getMatchSelect() {
         return matchSelect;
     }
 
+    /**
+     * Returns the JButton used in the 'Current Deck' tab for opening the match
+     * creation GUI.
+     *
+     * @return JButton
+     */
     public JButton getAddMatch() {
         return addMatch;
     }
 
+    /**
+     * Returns the JButton used in the 'Current Deck' tab for removing the
+     * currently selected match.
+     *
+     * @return JButton
+     */
     public JButton getRemoveMatch() {
         return removeMatch;
     }
 
+    /**
+     * Returns the JButton used in the 'Current Deck' tab for opening the deck
+     * creation GUI.
+     *
+     * @return JButton
+     */
     public JButton getNewDeck() {
         return newDeck;
     }
 
+    /**
+     * Returns the JButton used in the 'Current Deck' tab for retiring the
+     * current deck.
+     *
+     * @return JButton
+     */
     public JButton getRetireCurrentDeck() {
         return retireCurrentDeck;
     }
 
+    /**
+     * Returns the JButton used in the 'Current Deck' tab for removing the
+     * current deck.
+     *
+     * @return JButton
+     */
     public JButton getRemoveCurrentDeck() {
         return removeCurrentDeck;
     }
 
+    /**
+     * Returns the JPanel used in the 'Current Deck' tab for displaying info
+     * about the currently selected match.
+     *
+     * @return JPanel
+     */
     public JPanel getMatchInfoPanel() {
         return matchInfoPanel;
     }
 
+    /**
+     *
+     * @return CurrentDeckEditorLogic
+     */
     public CurrentDeckEditorLogic getCurrentDeckEditor() {
         return currentDeckEditor;
     }
 
+    /**
+     * Returns a list of JLabels used in the 'Class Specific Deck Statistics'
+     * tab for displaying the amount of decks with X-wins.
+     *
+     * @return
+     */
     public List<JLabel> getWinAmountLabels() {
         return winAmountLabels;
     }
 
-    public JLabel getGeneralDeckStatisticsAvgWinsLabel() {
-        return jLabel40;
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the 'Average Wins' label.
+     *
+     * @return JLabel
+     */
+    public JLabel getGeneralDeckStatisticsAvgWins() {
+        return generalDeckStatisticsAvgWins;
     }
 
+    /**
+     * Returns the JLabel used in the 'General Deck Statistics' tab for
+     * displaying the total average amount of wins.
+     *
+     * @return JLabel
+     */
     public JLabel getGeneralDeckStatisticsAvgWinsValue() {
         return generalDeckStatisticsAvgWins;
     }
@@ -463,6 +996,9 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         matchStatistics.updatePortrait();
     }
 
+    /**
+     * Adds the current deck and it's matches to the statistics keepers.
+     */
     public void addDeckAndMatchesToStatisticsKeepers() {
         deckScoreStatisticsKeeper.addDeck(currentDeck);
         rewardStatisticsKeeper.addDeck(currentDeck);
@@ -471,25 +1007,44 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
 
     private void addMatchesToStatisticsKeepers() {
         for (Match match : currentDeck.getMatches()) {
-            classStatisticsKeeper.addMatch(match);
-            classVSClassStatisticsKeeper.addMatch(match);
+            matchStatisticsKeeper.addMatch(match);
+            matchupStatisticsKeeper.addMatch(match);
         }
     }
 
+    /**
+     * Saves the current deck and the newest match in the Xml files.
+     *
+     * @see xml.DataWriter#saveProgress(domain.Deck)
+     */
     public void saveProgress() {
         dataWriter.saveProgress(currentDeck);
     }
 
+    /**
+     * Saves the statistics into the Xml files and nullifies the current deck.
+     *
+     * @see xml.DataWriter#saveStatistics(domain.Deck)
+     */
     public void saveStatistics() {
         dataWriter.saveStatistics(currentDeck);
         currentDeck = null;
         currentDeckEditor.setCurrentDeck(currentDeck);
     }
 
+    /**
+     * Clears the statistics Xml files, and saves the current statistics on
+     * them.
+     *
+     * @see xml.DataWriter#initXml()
+     */
     public void initXml() {
         dataWriter.initXml();
     }
 
+    /**
+     * Disables the main GUI and runs a new ResultsGUI
+     */
     public void openResultsGUI() {
         ResultsGUI gui = new ResultsGUI(this, currentDeck);
         this.setEnabled(false);
@@ -497,8 +1052,11 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         gui.setVisible(true);
     }
 
-    public void increaseMatchNumber() {
-        currentMatchNumber++;
+    /**
+     * Increases the number used for identifying the next created match by 1.
+     */
+    public void increaseNextMatchNumber() {
+        nextMatchNumber++;
     }
 
     /**
@@ -516,26 +1074,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         currentDeckPortraitSelect = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane6 = new javax.swing.JTabbedPane();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        newDeck = new javax.swing.JButton();
-        addMatch = new javax.swing.JButton();
-        removeMatch = new javax.swing.JButton();
-        retireCurrentDeck = new javax.swing.JButton();
-        removeCurrentDeck = new javax.swing.JButton();
-        jLabel37 = new javax.swing.JLabel();
-        currentScore = new javax.swing.JLabel();
-        matchInfoPanel = new javax.swing.JPanel();
-        currentDeckPlayerClass = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        currentDeckOpponentClass = new javax.swing.JLabel();
-        currentDeck1stOr2nd = new javax.swing.JLabel();
-        currentDeckOutcome = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        matchSelect = new javax.swing.JComboBox();
-        currentDeckPortrait = new javax.swing.JLabel();
-        currentDeckMainPortraitChooser = new javax.swing.JRadioButton();
-        currentDeckAltPortraitChooser = new javax.swing.JRadioButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -580,6 +1118,26 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         classDeckStatisticsPortrait = new javax.swing.JLabel();
         classDeckStatisticsMainPortraitChooser = new javax.swing.JRadioButton();
         classDeckStatisticsAltPortraitChooser = new javax.swing.JRadioButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        newDeck = new javax.swing.JButton();
+        addMatch = new javax.swing.JButton();
+        removeMatch = new javax.swing.JButton();
+        retireCurrentDeck = new javax.swing.JButton();
+        removeCurrentDeck = new javax.swing.JButton();
+        jLabel37 = new javax.swing.JLabel();
+        currentScore = new javax.swing.JLabel();
+        matchInfoPanel = new javax.swing.JPanel();
+        currentDeckPlayerClass = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        currentDeckOpponentClass = new javax.swing.JLabel();
+        currentDeck1stOr2nd = new javax.swing.JLabel();
+        currentDeckOutcome = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        matchSelect = new javax.swing.JComboBox();
+        currentDeckPortrait = new javax.swing.JLabel();
+        currentDeckMainPortraitChooser = new javax.swing.JRadioButton();
+        currentDeckAltPortraitChooser = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
@@ -660,219 +1218,6 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-
-        jPanel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        newDeck.setText("Start a New Run");
-        newDeck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newDeckActionPerformed(evt);
-            }
-        });
-
-        addMatch.setText("Add Match");
-        addMatch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addMatchActionPerformed(evt);
-            }
-        });
-
-        removeMatch.setText("Remove Match");
-        removeMatch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeMatchActionPerformed(evt);
-            }
-        });
-
-        retireCurrentDeck.setText("Retire");
-        retireCurrentDeck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                retireCurrentDeckActionPerformed(evt);
-            }
-        });
-
-        removeCurrentDeck.setText("Remove Current Deck");
-        removeCurrentDeck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeCurrentDeckActionPerformed(evt);
-            }
-        });
-
-        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel37.setText("Current Score:");
-
-        currentScore.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        currentScore.setText("jLabel38");
-
-        matchInfoPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        currentDeckPlayerClass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        currentDeckPlayerClass.setText("Player");
-
-        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel38.setText("VS");
-
-        currentDeckOpponentClass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        currentDeckOpponentClass.setText("Opponent");
-
-        currentDeck1stOr2nd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        currentDeck1stOr2nd.setText("jLabel39");
-
-        currentDeckOutcome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        currentDeckOutcome.setText("jLabel39");
-
-        javax.swing.GroupLayout matchInfoPanelLayout = new javax.swing.GroupLayout(matchInfoPanel);
-        matchInfoPanel.setLayout(matchInfoPanelLayout);
-        matchInfoPanelLayout.setHorizontalGroup(
-            matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(matchInfoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(matchInfoPanelLayout.createSequentialGroup()
-                        .addComponent(currentDeckPlayerClass)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel38)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(currentDeckOpponentClass))
-                    .addComponent(currentDeck1stOr2nd)
-                    .addComponent(currentDeckOutcome))
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-        matchInfoPanelLayout.setVerticalGroup(
-            matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(matchInfoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(currentDeckPlayerClass)
-                    .addComponent(jLabel38)
-                    .addComponent(currentDeckOpponentClass))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(currentDeck1stOr2nd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(currentDeckOutcome)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel39.setText("Match Select:");
-
-        matchSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        matchSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
-        matchSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                matchSelectActionPerformed(evt);
-            }
-        });
-
-        currentDeckPortrait.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eero\\Hearthstone-Arena-Tracker\\ArenaStatistics\\src\\main\\resources\\portraits\\Druid1.png")); // NOI18N
-
-        currentDeckPortraitSelect.add(currentDeckMainPortraitChooser);
-        currentDeckMainPortraitChooser.setSelected(true);
-        currentDeckMainPortraitChooser.setText("Main Portrait");
-        currentDeckMainPortraitChooser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                currentDeckMainPortraitChooserActionPerformed(evt);
-            }
-        });
-
-        currentDeckPortraitSelect.add(currentDeckAltPortraitChooser);
-        currentDeckAltPortraitChooser.setText("Alternate Portrait");
-        currentDeckAltPortraitChooser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                currentDeckAltPortraitChooserActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(newDeck)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(currentDeckMainPortraitChooser)
-                        .addGap(18, 18, 18)
-                        .addComponent(currentDeckAltPortraitChooser)
-                        .addGap(49, 49, 49))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(removeCurrentDeck)
-                                    .addComponent(addMatch)
-                                    .addComponent(removeMatch)
-                                    .addComponent(retireCurrentDeck))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(matchInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(122, 122, 122)))
-                        .addComponent(currentDeckPortrait)
-                        .addGap(20, 20, 20))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel37)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(currentScore))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel39)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(currentScore)
-                    .addComponent(jLabel37))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 49, Short.MAX_VALUE)
-                        .addComponent(currentDeckPortrait, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel39)
-                            .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(91, 91, 91)
-                        .addComponent(matchInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addMatch)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeMatch)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(retireCurrentDeck)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeCurrentDeck)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(currentDeckMainPortraitChooser)
-                    .addComponent(currentDeckAltPortraitChooser)
-                    .addComponent(newDeck))
-                .addGap(39, 39, 39))
-        );
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane6.addTab("Current Deck", jPanel4);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -1243,6 +1588,219 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         );
 
         jTabbedPane6.addTab("Class Specific Deck Statistics", jPanel6);
+
+        jPanel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        newDeck.setText("Start a New Run");
+        newDeck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newDeckActionPerformed(evt);
+            }
+        });
+
+        addMatch.setText("Add Match");
+        addMatch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMatchActionPerformed(evt);
+            }
+        });
+
+        removeMatch.setText("Remove Match");
+        removeMatch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeMatchActionPerformed(evt);
+            }
+        });
+
+        retireCurrentDeck.setText("Retire");
+        retireCurrentDeck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retireCurrentDeckActionPerformed(evt);
+            }
+        });
+
+        removeCurrentDeck.setText("Remove Current Deck");
+        removeCurrentDeck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeCurrentDeckActionPerformed(evt);
+            }
+        });
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel37.setText("Current Score:");
+
+        currentScore.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        currentScore.setText("jLabel38");
+
+        matchInfoPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        currentDeckPlayerClass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        currentDeckPlayerClass.setText("Player");
+
+        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel38.setText("VS");
+
+        currentDeckOpponentClass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        currentDeckOpponentClass.setText("Opponent");
+
+        currentDeck1stOr2nd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        currentDeck1stOr2nd.setText("jLabel39");
+
+        currentDeckOutcome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        currentDeckOutcome.setText("jLabel39");
+
+        javax.swing.GroupLayout matchInfoPanelLayout = new javax.swing.GroupLayout(matchInfoPanel);
+        matchInfoPanel.setLayout(matchInfoPanelLayout);
+        matchInfoPanelLayout.setHorizontalGroup(
+            matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(matchInfoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(matchInfoPanelLayout.createSequentialGroup()
+                        .addComponent(currentDeckPlayerClass)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(currentDeckOpponentClass))
+                    .addComponent(currentDeck1stOr2nd)
+                    .addComponent(currentDeckOutcome))
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+        matchInfoPanelLayout.setVerticalGroup(
+            matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(matchInfoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(matchInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(currentDeckPlayerClass)
+                    .addComponent(jLabel38)
+                    .addComponent(currentDeckOpponentClass))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(currentDeck1stOr2nd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(currentDeckOutcome)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel39.setText("Match Select:");
+
+        matchSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        matchSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
+        matchSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matchSelectActionPerformed(evt);
+            }
+        });
+
+        currentDeckPortrait.setIcon(new javax.swing.ImageIcon("C:\\Users\\Eero\\Hearthstone-Arena-Tracker\\ArenaStatistics\\src\\main\\resources\\portraits\\Druid1.png")); // NOI18N
+
+        currentDeckPortraitSelect.add(currentDeckMainPortraitChooser);
+        currentDeckMainPortraitChooser.setSelected(true);
+        currentDeckMainPortraitChooser.setText("Main Portrait");
+        currentDeckMainPortraitChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currentDeckMainPortraitChooserActionPerformed(evt);
+            }
+        });
+
+        currentDeckPortraitSelect.add(currentDeckAltPortraitChooser);
+        currentDeckAltPortraitChooser.setText("Alternate Portrait");
+        currentDeckAltPortraitChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currentDeckAltPortraitChooserActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(newDeck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(currentDeckMainPortraitChooser)
+                        .addGap(18, 18, 18)
+                        .addComponent(currentDeckAltPortraitChooser)
+                        .addGap(49, 49, 49))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(removeCurrentDeck)
+                                    .addComponent(addMatch)
+                                    .addComponent(removeMatch)
+                                    .addComponent(retireCurrentDeck))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(matchInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(122, 122, 122)))
+                        .addComponent(currentDeckPortrait)
+                        .addGap(20, 20, 20))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(currentScore))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel39)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(currentScore)
+                    .addComponent(jLabel37))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 49, Short.MAX_VALUE)
+                        .addComponent(currentDeckPortrait, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel39)
+                            .addComponent(matchSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(91, 91, 91)
+                        .addComponent(matchInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addMatch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removeMatch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(retireCurrentDeck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removeCurrentDeck)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(currentDeckMainPortraitChooser)
+                    .addComponent(currentDeckAltPortraitChooser)
+                    .addComponent(newDeck))
+                .addGap(39, 39, 39))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane6.addTab("Current Deck", jPanel4);
 
         jPanel17.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -2062,7 +2620,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_newDeckActionPerformed
 
     private void addMatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMatchActionPerformed
-        MatchCreationGUI matchCreationGUI = new MatchCreationGUI(this, currentDeckNumber, currentMatchNumber);
+        MatchCreationGUI matchCreationGUI = new MatchCreationGUI(this, currentDeckNumber, nextMatchNumber);
         SwingUtilities.invokeLater(matchCreationGUI);
         matchCreationGUI.setVisible(true);
         this.setEnabled(false);
@@ -2095,7 +2653,7 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
         if (answer == JOptionPane.YES_OPTION) {
             currentDeck = null;
             currentDeckEditor.setCurrentDeck(currentDeck);
-            dataWriter.removeDeckAndMatches();
+            dataWriter.clearDeckAndMatchesXml();
         }
         this.setEnabled(true);
     }//GEN-LAST:event_removeCurrentDeckActionPerformed
@@ -2275,16 +2833,16 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private javax.swing.JButton retireCurrentDeck;
     // End of variables declaration//GEN-END:variables
     private Deck currentDeck;
-    private MatchStatisticsKeeper classStatisticsKeeper;
-    private MatchupStatisticsKeeper classVSClassStatisticsKeeper;
+    private MatchStatisticsKeeper matchStatisticsKeeper;
+    private MatchupStatisticsKeeper matchupStatisticsKeeper;
     private DeckScoreStatisticsKeeper deckScoreStatisticsKeeper;
     private RewardStatisticsKeeper rewardStatisticsKeeper;
     private ClassSpecificDeckStatisticsDisplayLogic classSpecificDeckStatistics;
     private MatchStatisticsDisplayLogic matchStatistics;
-    private StatisticsGUI generalDeckStatistics;
+    private StatisticsDisplay generalDeckStatistics;
     private CurrentDeckEditorLogic currentDeckEditor;
     private DataWriter dataWriter;
     private List<JLabel> winAmountLabels;
     private int currentDeckNumber;
-    private int currentMatchNumber;
+    private int nextMatchNumber;
 }

@@ -5,10 +5,18 @@ import logic.MatchStatisticsKeeper;
 import org.jdom.Attribute;
 import org.jdom.Element;
 
+/**
+ * Class which writes Match statistics to a Xml file.
+ */
 public class MatchStatisticsWriter extends StatisticsWriter {
 
-    public MatchStatisticsWriter(String filepath) {
-        super(filepath, "Classes", "Class");
+    /**
+     * Creates a new MatchStatisticsWriter object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public MatchStatisticsWriter(String filePath) {
+        super(filePath, "Classes", "Class");
     }
 
     @Override

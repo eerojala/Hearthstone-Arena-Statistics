@@ -2,13 +2,20 @@ package xml;
 
 import logic.RewardStatisticsKeeper;
 import org.jdom.Attribute;
-import org.jdom.Document;
 import org.jdom.Element;
 
+/**
+ * Class which writes reward statistics to a Xml file.
+ */
 public class RewardStatisticsWriter extends StatisticsWriter {
 
-    public RewardStatisticsWriter(String filepath) {
-        super(filepath, "WinAmounts", "WinAmount");
+    /**
+     * Creates a new RewardStatisticsWriter Object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public RewardStatisticsWriter(String filePath) {
+        super(filePath, "WinAmounts", "WinAmount");
     }
 
     @Override

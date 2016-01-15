@@ -6,12 +6,21 @@ import gui.MainGUI;
 import javax.swing.DefaultComboBoxModel;
 import util.PortraitSetter;
 
-public class CurrentDeckEditorLogic implements GUIWithPortrait {
+/**
+ * Class that manipulates the user's deck and GUI elements of the 'Current Deck'
+ * tab of MainGUI.
+ */
+public class CurrentDeckEditorLogic implements DisplayWithPortrait {
 
     private Deck currentDeck;
     private final DeckHandler deckHandler;
     private final MainGUI gui;
 
+    /**
+     * Creates a new CurrentDeckEditorLogic Object.
+     *
+     * @param gui The Main GUI of the program.
+     */
     public CurrentDeckEditorLogic(MainGUI gui) {
         this.gui = gui;
         currentDeck = gui.getCurrentDeck();
@@ -28,6 +37,10 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait {
         }
     }
 
+    /**
+     * Enables all the JButtons except the Deck Creation JButton, sets different
+     * values from the current run into GUI elements.
+     */
     public void setCurrentRunValues() {
         gui.getCurrentScore().setText(currentDeck.getScore());
         enableElements(false, true);
@@ -56,6 +69,9 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait {
         gui.getCurrentDeckAltPortraitChooser().setEnabled(ongoingDeck);
     }
 
+    /**
+     * Sets info from the currently selected match into the match info display.
+     */
     public void setMatchInfo() {
         int selectedIndex = gui.getMatchSelect().getSelectedIndex();
         if (selectedIndex > -1 && selectedIndex < currentDeck.getMatches().size()) {
@@ -98,10 +114,21 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait {
         return matches;
     }
 
+    /**
+     * Returns the selected match from the deck#s list of matches.
+     * 
+     * @param i Index of the match.
+     * @return Match if match found at the specified index, otherwise null.
+     */
     public Match getMatch(int i) {
         return currentDeck.getMatches().get(i);
     }
 
+    /**
+     * Adds a match to the Deck.
+     * 
+     * @param match Match which is added to the deck.
+     */
     public void addMatch(Match match) {
         boolean deckFinished = deckHandler.addMatch(match);
         setLabelValues();
@@ -112,12 +139,20 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait {
         }
     }
 
+    /**
+     * Opens the results GUI, nullifies the current deck and updates the display.
+     */
     public void finishDeck() {
         gui.openResultsGUI();
         currentDeck = null;
         setLabelValues();
     }
 
+    /**
+     * Removes the selected match from the deck's list of matches
+     * 
+     * @param i Index of the selected match.
+     */
     public void removeMatch(int i) {
         deckHandler.removeMatch(i);
         setLabelValues();
@@ -141,6 +176,11 @@ public class CurrentDeckEditorLogic implements GUIWithPortrait {
         updatePortraitChoosers();
     }
 
+    /**
+     * Sets the current deck used by the user.
+     * 
+     * @param currentDeck Deck currently in use by the user.
+     */
     public void setCurrentDeck(Deck currentDeck) {
         this.currentDeck = currentDeck;
         deckHandler.setDeck(this.currentDeck);

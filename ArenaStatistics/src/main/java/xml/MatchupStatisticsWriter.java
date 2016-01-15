@@ -6,9 +6,17 @@ import logic.MatchupStatisticsKeeper;
 import org.jdom.Attribute;
 import org.jdom.Element;
 
-public class ClassVSClassStatisticsWriter extends StatisticsWriter {
+/**
+ * Class which writes Matchup statistics into a Xml file.
+ */
+public class MatchupStatisticsWriter extends StatisticsWriter {
 
-    public ClassVSClassStatisticsWriter(String filepath) {
+    /**
+     * Creates a new MatchUpStatisticsWriter Object.
+     * 
+     * @param filepath Filepath to the Xml file.
+     */
+    public MatchupStatisticsWriter(String filepath) {
         super(filepath, "ClassPairs", "ClassPair");
     }
 
@@ -30,12 +38,12 @@ public class ClassVSClassStatisticsWriter extends StatisticsWriter {
     private void addClassPairToDocument(Matchup dcp, MatchupStatisticsKeeper keeper) {
         Element element = new Element(childName);
         element.setAttribute(new Attribute("id", dcp.toString()));
-        element.addContent(new Element("Matches1st").setText("" + keeper.getMatchesInClassVSClass1st(dcp)));
-        element.addContent(new Element("Matches2nd").setText("" + keeper.getMatchesInClassVSClass2nd(dcp)));
-        element.addContent(new Element("Wins1st").setText("" + keeper.getWinsInClassVSClass1st(dcp)));
-        element.addContent(new Element("Wins2nd").setText("" + keeper.getWinsInClassVSClass2nd(dcp)));
-        element.addContent(new Element("Losses1st").setText("" + keeper.getLossesInClassVSClass1st(dcp)));
-        element.addContent(new Element("Losses2nd").setText("" + keeper.getLossesInClassVSClass2nd(dcp)));
+        element.addContent(new Element("Matches1st").setText("" + keeper.getMatchesInMatchup1st(dcp)));
+        element.addContent(new Element("Matches2nd").setText("" + keeper.getMatchesInMatchup2nd(dcp)));
+        element.addContent(new Element("Wins1st").setText("" + keeper.getWinsInMatchup1st(dcp)));
+        element.addContent(new Element("Wins2nd").setText("" + keeper.getWinsInMatchup2nd(dcp)));
+        element.addContent(new Element("Losses1st").setText("" + keeper.getLossesInMatchup1st(dcp)));
+        element.addContent(new Element("Losses2nd").setText("" + keeper.getLossesInMatchup2nd(dcp)));
         doc.getRootElement().addContent(element);
         addToFile();
     }

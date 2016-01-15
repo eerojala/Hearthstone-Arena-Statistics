@@ -35,22 +35,22 @@ public class StatisticsHelperTest {
 
     @Test
     public void getWinPercentage_is_correct() {
-        assertEquals(0.75, StatisticsHelper.getWinPercentage(4, 3), 0);
+        assertEquals(0.75, StatisticsHelper.getWinRatio(4, 3), 0);
     }
 
     @Test
     public void getWinPercentage_returns_zero_if_win_percentage_is_negative() {
-        assertEquals(0, StatisticsHelper.getWinPercentage(4, -3), 0);
+        assertEquals(0, StatisticsHelper.getWinRatio(4, -3), 0);
     }
 
     @Test
     public void getAverage_is_correct() {
-        assertEquals(0.9, StatisticsHelper.getAverage(9, 10), 0);
+        assertEquals(0.9, StatisticsHelper.getDivision(9, 10), 0);
     }
 
     @Test
     public void getAverage_returns_zero_if_average_is_negative() {
-        assertEquals(0, StatisticsHelper.getAverage(9, -10), 0);
+        assertEquals(0, StatisticsHelper.getDivision(9, -10), 0);
     }
 
     @Test
@@ -70,21 +70,21 @@ public class StatisticsHelperTest {
     
     @Test
     public void convertToPercentage_returns_correct_value1() {
-        assertEquals(12.34, StatisticsHelper.convertToPercentage(0.12345), 0.0);
+        assertEquals(12.34, StatisticsHelper.convertToDecimal(0.12345), 0.0);
     }
     
     @Test
     public void convertToPercentageReturns_correct_value2() {
-        assertEquals(12.34, StatisticsHelper.convertToPercentage(0.1234), 0.0);
+        assertEquals(12.34, StatisticsHelper.convertToDecimal(0.1234), 0.0);
     }
     
     @Test
     public void convertToPercentageReturns_correct_value3() {
-        assertEquals(12.3, StatisticsHelper.convertToPercentage(0.123), 0.0);
+        assertEquals(12.3, StatisticsHelper.convertToDecimal(0.123), 0.0);
     }
     
     @Test
     public void convertToPercentageReturns_correct_value4() {
-        assertEquals(12.0, StatisticsHelper.convertToPercentage(0.12), 0.0);
+        assertEquals(12.0, StatisticsHelper.convertToDecimal(0.12), 0.0);
     }
 }

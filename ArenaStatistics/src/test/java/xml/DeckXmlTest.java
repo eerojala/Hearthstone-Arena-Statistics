@@ -13,7 +13,7 @@ import util.TestHelper;
 public class DeckXmlTest {
 
     private static final String filepath = "src/main/resources/xmltestfiles/DeckXmlTest.xml";
-    private final DeckWriter writer;
+    private final XmlWriter writer;
     private static final Deck druidDeck = new Deck(DeckClass.DRUID, 1);
     private static final Deck hunterDeck = new Deck(DeckClass.HUNTER, 2);
     private static final Deck mageDeck = new Deck(DeckClass.MAGE, 3);

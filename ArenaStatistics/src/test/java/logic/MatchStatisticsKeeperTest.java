@@ -260,7 +260,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_as_class_going_1st_is_correct1() {
-        assertEquals(0.5, keeper.getWinPerAsClass1st(DeckClass.SHAMAN), 0.05);
+        assertEquals(0.5, keeper.getWinRatioAsClass1st(DeckClass.SHAMAN), 0.05);
     }
 
     @Test
@@ -276,29 +276,29 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_as_class_going_2nd_is_correct2() {
-        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerAsClass2nd(), DeckClass.SHAMAN);
+        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinRatioAsClass2nd(), DeckClass.SHAMAN);
         assertTrue(bool);
     }
 
     @Test
     public void win_percentage_vs_class_going_1st_is_correct1() {
-        assertEquals(1, keeper.getWinPerVSClass1st(DeckClass.MAGE), 0.00001);
+        assertEquals(1, keeper.getWinRatioVSClass1st(DeckClass.MAGE), 0.00001);
     }
 
     @Test
     public void win_percentage_vs_class_going_1st_is_correct2() {
-        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass1st(), DeckClass.MAGE);
+        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinRatioVSClass1st(), DeckClass.MAGE);
         assertTrue(bool);
     }
 
     @Test
     public void win_percentage_vs_class_going_2nd_is_correct1() {
-        assertEquals(1, keeper.getWinPerVSClass2nd(DeckClass.DRUID), 0.0001);
+        assertEquals(1, keeper.getWinRatioVSClass2nd(DeckClass.DRUID), 0.0001);
     }
 
     @Test
     public void win_percentage_vs_class_going_2nd_is_correct2() {
-        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinPerVSClass2nd(), DeckClass.DRUID);
+        bool = TestHelper.zeroesInDcDoubleMap(keeper.getStatistics().getWinRatioVSClass2nd(), DeckClass.DRUID);
     }
 
     @Test
@@ -408,47 +408,47 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void win_percentage_as_class_total_is_correct1() {
-        assertEquals(0.5, keeper.getWinPerAsClassTotal(DeckClass.SHAMAN), 0.0001);
+        assertEquals(0.5, keeper.getWinRatioAsClassTotal(DeckClass.SHAMAN), 0.0001);
     }
 
     @Test
     public void win_percentage_as_class_total_is_correct2() {
-        assertEquals(0, keeper.getWinPerAsClassTotal(DeckClass.PRIEST), 0.0001);
+        assertEquals(0, keeper.getWinRatioAsClassTotal(DeckClass.PRIEST), 0.0001);
     }
 
     @Test
     public void win_percentage_as_class_total_is_correct3() {
-        assertEquals(0, keeper.getWinPerAsClassTotal(DeckClass.WARLOCK), 0.0001);
+        assertEquals(0, keeper.getWinRatioAsClassTotal(DeckClass.WARLOCK), 0.0001);
     }
 
     @Test
     public void win_percentage_vs_class_total_is_correct1() {
-        assertEquals(0.5, keeper.getWinPerVSClassTotal(DeckClass.MAGE), 0.0001);
+        assertEquals(0.5, keeper.getWinRatioVSClassTotal(DeckClass.MAGE), 0.0001);
     }
 
     @Test
     public void win_percentage_vs_class_total_is_correct2() {
-        assertEquals(1, keeper.getWinPerVSClassTotal(DeckClass.DRUID), 0.0001);
+        assertEquals(1, keeper.getWinRatioVSClassTotal(DeckClass.DRUID), 0.0001);
     }
 
     @Test
     public void win_percentage_vs_class_total_is_correct3() {
-        assertEquals(0, keeper.getWinPerVSClassTotal(DeckClass.PALADIN), 0.00001);
+        assertEquals(0, keeper.getWinRatioVSClassTotal(DeckClass.PALADIN), 0.00001);
     }
 
     @Test
     public void win_percentage_vs_class_total_is_correct4() {
-        assertEquals(0, keeper.getWinPerVSClassTotal(DeckClass.ROGUE), 0.0001);
+        assertEquals(0, keeper.getWinRatioVSClassTotal(DeckClass.ROGUE), 0.0001);
     }
 
     @Test
     public void win_percentage_vs_class_total_is_correct5() {
-        assertEquals(0, keeper.getWinPerVSClassTotal(DeckClass.WARRIOR), 0.00001);
+        assertEquals(0, keeper.getWinRatioVSClassTotal(DeckClass.WARRIOR), 0.00001);
     }
 
     @Test
     public void win_percentage_vs_class_total_is_correct6() {
-        assertEquals(0, keeper.getWinPerVSClassTotal(DeckClass.WARLOCK), 0.00001);
+        assertEquals(0, keeper.getWinRatioVSClassTotal(DeckClass.WARLOCK), 0.00001);
     }
 
     @Test
@@ -468,7 +468,7 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void total_win_percent_is_correct() {
-        assertEquals(0.44, keeper.getTotalWinPer(), 0.01);
+        assertEquals(0.44, keeper.getTotalWinRatio(), 0.01);
     }
 
     @Test
@@ -546,7 +546,7 @@ public class MatchStatisticsKeeperTest {
     @Test
     public void remove_match_affects_win_percentage_as_class_1st() {
         keeper.removeMatch(match1);
-        assertEquals(0.33, keeper.getWinPerAsClass1st(DeckClass.SHAMAN), 0.01);
+        assertEquals(0.33, keeper.getWinRatioAsClass1st(DeckClass.SHAMAN), 0.01);
     }
 
     @Test
@@ -558,7 +558,7 @@ public class MatchStatisticsKeeperTest {
     @Test
     public void remove_match_affects_win_percentage_vs_class_total() {
         keeper.removeMatch(match1);
-        assertEquals(0.33, keeper.getWinPerVSClassTotal(DeckClass.MAGE), 0.01);
+        assertEquals(0.33, keeper.getWinRatioVSClassTotal(DeckClass.MAGE), 0.01);
     }
 
     @Test
@@ -611,26 +611,26 @@ public class MatchStatisticsKeeperTest {
 
     @Test
     public void set_win_per_as_class_1st_works_correctly() {
-        keeper.setWinPerAsClass1st(DeckClass.DRUID, 34.22);
-        assertEquals(34.22, keeper.getWinPerAsClass1st(DeckClass.DRUID), 0.0);
+        keeper.setWinRatioAsClass1st(DeckClass.DRUID, 34.22);
+        assertEquals(34.22, keeper.getWinRatioAsClass1st(DeckClass.DRUID), 0.0);
     }
 
     @Test
     public void set_win_per_as_class_2nd_works_correctly() {
-        keeper.setWinPerAsClass2nd(DeckClass.DRUID, 66.66);
+        keeper.setWinRatioAsClass2nd(DeckClass.DRUID, 66.66);
         assertEquals(66.66, keeper.getWinPerAsClass2nd(DeckClass.DRUID), 0.0);
     }
 
     @Test
     public void set_win_per_vs_class_1st_works_correctly() {
-        keeper.setWinPerVSClass1st(DeckClass.DRUID, 33.3);
-        assertEquals(33.3, keeper.getWinPerVSClass1st(DeckClass.DRUID), 0.0);
+        keeper.setWinRatioVSClass1st(DeckClass.DRUID, 33.3);
+        assertEquals(33.3, keeper.getWinRatioVSClass1st(DeckClass.DRUID), 0.0);
     }
 
     @Test
     public void set_win_per_vs_class_2nd_works_correctly() {
-        keeper.setWinPerVSClass2nd(DeckClass.DRUID, 55.5);
-        assertEquals(55.5, keeper.getWinPerVSClass2nd(DeckClass.DRUID), 0.0);
+        keeper.setWinRatioVSClass2nd(DeckClass.DRUID, 55.5);
+        assertEquals(55.5, keeper.getWinRatioVSClass2nd(DeckClass.DRUID), 0.0);
     }
 
     @Test
@@ -662,8 +662,8 @@ public class MatchStatisticsKeeperTest {
         keeper.setMatchesAsClass1st(DeckClass.DRUID, 5);
         keeper.setWinsAsClass1st(DeckClass.DRUID, 3);
         keeper.setLossesAsClass1st(DeckClass.DRUID, 1);
-        keeper.updateWinPercentageIn1stMatchMaps(DeckClass.DRUID, DeckClass.WARLOCK);
-        assertEquals(0.75, keeper.getWinPerAsClass1st(DeckClass.DRUID), 0);
+        keeper.updateWinRatioIn1stMatchMaps(DeckClass.DRUID, DeckClass.WARLOCK);
+        assertEquals(0.75, keeper.getWinRatioAsClass1st(DeckClass.DRUID), 0);
     }
     
     @Test
@@ -671,8 +671,8 @@ public class MatchStatisticsKeeperTest {
         keeper.setMatchesVSClass1st(DeckClass.DRUID, 8);
         keeper.setWinsVSClass1st(DeckClass.DRUID, 2);
         keeper.setLossesVSClass1st(DeckClass.DRUID, 6);
-        keeper.updateWinPercentageIn1stMatchMaps(DeckClass.WARLOCK, DeckClass.DRUID);
-        assertEquals(0.25, keeper.getWinPerVSClass1st(DeckClass.DRUID), 0);
+        keeper.updateWinRatioIn1stMatchMaps(DeckClass.WARLOCK, DeckClass.DRUID);
+        assertEquals(0.25, keeper.getWinRatioVSClass1st(DeckClass.DRUID), 0);
     }
     
     @Test
@@ -680,7 +680,7 @@ public class MatchStatisticsKeeperTest {
         keeper.setMatchesAsClass2nd(DeckClass.DRUID, 100);
         keeper.setWinsAsClass2nd(DeckClass.DRUID, 99);
         keeper.setLossesAsClass2nd(DeckClass.DRUID, 1);
-        keeper.updateWinPercentageIn2ndMatchMaps(DeckClass.DRUID, DeckClass.WARLOCK);
+        keeper.updateWinRatioIn2ndMatchMaps(DeckClass.DRUID, DeckClass.WARLOCK);
         assertEquals(0.99, keeper.getWinPerAsClass2nd(DeckClass.DRUID), 0);
     }
     
@@ -689,7 +689,7 @@ public class MatchStatisticsKeeperTest {
         keeper.setMatchesVSClass2nd(DeckClass.DRUID, 12);
         keeper.setWinsVSClass2nd(DeckClass.DRUID, 6);
         keeper.setLossesVSClass2nd(DeckClass.DRUID, 4);
-        keeper.updateWinPercentageIn2ndMatchMaps(DeckClass.WARLOCK, DeckClass.DRUID);
-        assertEquals(0.6, keeper.getWinPerVSClass2nd(DeckClass.DRUID), 0);
+        keeper.updateWinRatioIn2ndMatchMaps(DeckClass.WARLOCK, DeckClass.DRUID);
+        assertEquals(0.6, keeper.getWinRatioVSClass2nd(DeckClass.DRUID), 0);
     }
 }

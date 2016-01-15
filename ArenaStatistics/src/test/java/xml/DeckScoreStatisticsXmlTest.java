@@ -9,18 +9,18 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class DeckClassStatisticsXmlTest {
+public class DeckScoreStatisticsXmlTest {
 
     private DeckScoreStatisticsKeeper keeper1;
     private DeckScoreStatisticsKeeper keeper2;
-    private DeckClassStatisticsParser parser;
+    private DeckScoreStatisticsParser parser;
     private final StatisticsWriter writer;
     private static final String filepath = "src/main/resources/xmltestfiles/DeckClassStatisticsXmlTest.xml";
     private static final DeckClass priest = DeckClass.PRIEST;
     private static final DeckClass hunter = DeckClass.HUNTER;
 
-    public DeckClassStatisticsXmlTest() {
-        writer = new DeckClassStatisticsWriter(filepath);
+    public DeckScoreStatisticsXmlTest() {
+        writer = new DeckScoreStatisticsWriter(filepath);
         keeper1 = new DeckScoreStatisticsKeeper();
         setClass1(priest);
         setClass2(hunter);
@@ -30,17 +30,17 @@ public class DeckClassStatisticsXmlTest {
 
     private void parseToKeeper1() {
         parse();
-        keeper1 = parser.getKeeper();
+        keeper1 = (DeckScoreStatisticsKeeper) parser.getParsedObject();
     }
 
     private void parse() {
-        parser = new DeckClassStatisticsParser(writer.getDoc());
+        parser = new DeckScoreStatisticsParser(writer.getDoc());
         parser.addValues();
     }
 
     private void parseToKeeper2() {
         parse();
-        keeper2 = parser.getKeeper();
+        keeper2 = (DeckScoreStatisticsKeeper) parser.getParsedObject();
     }
 
     private void setClass1(DeckClass dc) {
@@ -109,12 +109,12 @@ public class DeckClassStatisticsXmlTest {
 
     @Test
     public void play_percentage_as_class_is_correct1() {
-        assertEquals(0.33, keeper1.getPlayPercentageAsClass(priest), 0.01);
+        assertEquals(0.33, keeper1.getPlayRatioAsClass(priest), 0.01);
     }
 
     @Test
     public void play_percentage_as_class_is_correct2() {
-        assertEquals(0.66, keeper1.getPlayPercentageAsClass(hunter), 0.01);
+        assertEquals(0.66, keeper1.getPlayRatioAsClass(hunter), 0.01);
     }
 
     @Test

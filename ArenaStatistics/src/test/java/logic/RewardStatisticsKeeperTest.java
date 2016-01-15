@@ -258,17 +258,17 @@ public class RewardStatisticsKeeperTest {
     
     @Test
     public void percentageOutOfAllDecks_works_correctly1() {
-        assertEquals(0.4, keeper.getPercentageOutOfAllDecks(12), 0);
+        assertEquals(0.4, keeper.getPlayRatio(12), 0);
     }
     
     @Test
     public void percentageOutOfAllDecks_works_correctly2() {
-        assertEquals(0.4, keeper.getPercentageOutOfAllDecks(4), 0);
+        assertEquals(0.4, keeper.getPlayRatio(4), 0);
     }
     
     @Test
     public void percentageOutOfAllDecks_works_correctly3() {
-        assertEquals(0.2, keeper.getPercentageOutOfAllDecks(7), 0);
+        assertEquals(0.2, keeper.getPlayRatio(7), 0);
     }
     
     @Test
@@ -462,7 +462,7 @@ public class RewardStatisticsKeeperTest {
     
     @Test
     public void getPercentageOutOfAllDecksWorksCorrectly() {
-        assertEquals(0.4, keeper.getPercentageOutOfAllDecks(12), 0);
+        assertEquals(0.4, keeper.getPlayRatio(12), 0);
     }
     
     @Test

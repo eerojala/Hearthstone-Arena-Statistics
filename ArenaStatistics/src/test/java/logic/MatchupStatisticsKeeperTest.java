@@ -104,368 +104,308 @@ public class MatchupStatisticsKeeperTest {
 
     @Test
     public void matches_in_class_vs_class_going_1st_is_correct1() {
-        assertEquals(2, keeper.getMatchesInClassVSClass1st(sVSm));
+        assertEquals(2, keeper.getMatchesInMatchup1st(sVSm));
     }
 
     @Test
     public void matches_in_class_vs_class_going_1st_is_correct2() {
-        assertEquals(2, keeper.getMatchesInClassVSClass1st(sVSpa));
+        assertEquals(2, keeper.getMatchesInMatchup1st(sVSpa));
     }
 
     @Test
     public void matches_in_class_vs_class_going_1st_is_correct3() {
-        assertEquals(1, keeper.getMatchesInClassVSClass1st(sVSr));
+        assertEquals(1, keeper.getMatchesInMatchup1st(sVSr));
     }
 
     @Test
     public void matches_in_class_vs_class_going_2nd_is_correct1() {
-        assertEquals(2, keeper.getMatchesInClassVSClass2nd(sVSm));
+        assertEquals(2, keeper.getMatchesInMatchup2nd(sVSm));
     }
 
     @Test
     public void matches_in_class_vs_class_going_2nd_is_correct2() {
-        assertEquals(2, keeper.getMatchesInClassVSClass2nd(sVSd));
+        assertEquals(2, keeper.getMatchesInMatchup2nd(sVSd));
     }
 
     @Test
     public void matches_in_class_vs_class_going_2nd_is_correct3() {
-        assertEquals(1, keeper.getMatchesInClassVSClass2nd(prVSwarr));
+        assertEquals(1, keeper.getMatchesInMatchup2nd(prVSwarr));
     }
 
     @Test
     public void wins_in_class_vs_class_going_1st_is_correct1() {
-        assertEquals(2, keeper.getWinsInClassVSClass1st(sVSm));
+        assertEquals(2, keeper.getWinsInMatchup1st(sVSm));
     }
 
     @Test
     public void wins_in_class_vs_class_going_1st_is_correct2() {
-        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getWinsInMatchup1st(), sVSm);
+        bool = TestHelper.zeroesInMatchupIntMap(keeper.getStatistics().getWinsInMatchup1st(), sVSm);
         assertTrue(bool);
     }
 
     @Test
     public void wins_in_class_vs_class_going_2nd_is_correct1() {
-        assertEquals(2, keeper.getWinsInClassVSClass2nd(sVSd));
+        assertEquals(2, keeper.getWinsInMatchup2nd(sVSd));
     }
 
     @Test
     public void wins_in_class_vs_class_going_2nd_is_correct2() {
-        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getWinsInMatchup2nd(), sVSd);
+        bool = TestHelper.zeroesInMatchupIntMap(keeper.getStatistics().getWinsInMatchup2nd(), sVSd);
         assertTrue(bool);
     }
 
     @Test
     public void losses_in_class_vs_class_going_1st_is_correct1() {
-        assertEquals(2, keeper.getLossesInClassVSClass1st(sVSpa));
+        assertEquals(2, keeper.getLossesInMatchup1st(sVSpa));
     }
 
     @Test
     public void losses_in_class_vs_class_going_1st_is_correct2() {
-        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getLossesInMatchup1st(), sVSpa);
+        bool = TestHelper.zeroesInMatchupIntMap(keeper.getStatistics().getLossesInMatchup1st(), sVSpa);
         assertTrue(bool);
     }
 
     @Test
     public void losses_in_class_vs_class_going_2nd_is_correct1() {
-        assertEquals(2, keeper.getLossesInClassVSClass2nd(sVSm));
+        assertEquals(2, keeper.getLossesInMatchup2nd(sVSm));
     }
 
     @Test
     public void losses_in_class_vs_class_going_2nd_is_correct2() {
-        assertEquals(1, keeper.getLossesInClassVSClass2nd(prVSwarr));
+        assertEquals(1, keeper.getLossesInMatchup2nd(prVSwarr));
     }
 
     @Test
     public void losses_in_class_vs_class_going_2nd_is_correct3() {
-        bool = TestHelper.zeroesInDcpIntMap(keeper.getStatistics().getLossesInMatchup2nd(),
+        bool = TestHelper.zeroesInMatchupIntMap(keeper.getStatistics().getLossesInMatchup2nd(),
                 sVSm, prVSwarr);
         assertTrue(bool);
     }
 
     @Test
     public void win_percentage_class_vs_class_going_1st_is_correct1() {
-        assertEquals(1, keeper.getWinPerClassVSClass1st(sVSm), 0.0001);
+        assertEquals(1, keeper.getMatchupWinRatio1st(sVSm), 0.0001);
     }
 
     @Test
     public void win_percentage_class_vs_class_going_1st_is_correct2() {
-        bool = TestHelper.zeroesInDcpDoubleMap(keeper.getStatistics().getMatchupWinRatio1st(), sVSm);
+        bool = TestHelper.zeroesInMatchupDoubleMap(keeper.getStatistics().getMatchupWinRatio1st(), sVSm);
         assertTrue(bool);
     }
 
     @Test
     public void win_percentage_class_vs_class_going_second_is_correct1() {
-        assertEquals(1, keeper.getWinPerClassVSClass2nd(sVSd), 0.00001);
+        assertEquals(1, keeper.getMatchupWinRatio2nd(sVSd), 0.00001);
     }
 
     @Test
     public void win_percentage_class_vs_class_going_second_is_correct2() {
-        bool = TestHelper.zeroesInDcpDoubleMap(keeper.getStatistics().getMatchupWinRatio2nd(), sVSd);
+        bool = TestHelper.zeroesInMatchupDoubleMap(keeper.getStatistics().getMatchupWinRatio2nd(), sVSd);
         assertTrue(bool);
     }
 
     @Test
     public void matches_in_class_vs_class_total_is_correct1() {
-        assertEquals(4, keeper.getMatchesInClassVSClassTotal(sVSm));
+        assertEquals(4, keeper.getMatchesInMatchupTotal(sVSm));
     }
 
     @Test
     public void matches_in_class_vs_class_total_is_correct2() {
-        assertEquals(2, keeper.getMatchesInClassVSClassTotal(sVSd));
+        assertEquals(2, keeper.getMatchesInMatchupTotal(sVSd));
     }
 
     @Test
     public void matches_in_class_vs_class_total_is_correct3() {
-        assertEquals(2, keeper.getMatchesInClassVSClassTotal(sVSpa));
+        assertEquals(2, keeper.getMatchesInMatchupTotal(sVSpa));
     }
 
     @Test
     public void matches_in_class_vs_class_total_is_correct4() {
-        assertEquals(1, keeper.getMatchesInClassVSClassTotal(sVSr));
+        assertEquals(1, keeper.getMatchesInMatchupTotal(sVSr));
     }
 
     @Test
     public void matches_in_class_vs_class_total_is_correct5() {
-        assertEquals(1, keeper.getMatchesInClassVSClassTotal(prVSwarr));
+        assertEquals(1, keeper.getMatchesInMatchupTotal(prVSwarr));
     }
 
     @Test
     public void matches_in_class_vs_class_total_is_correct6() {
-        assertEquals(0, keeper.getMatchesInClassVSClassTotal(rVSs));
+        assertEquals(0, keeper.getMatchesInMatchupTotal(rVSs));
     }
 
     @Test
     public void wins_in_class_vs_class_total_is_correct1() {
-        assertEquals(2, keeper.getWinsInClassVSClassTotal(sVSm));
+        assertEquals(2, keeper.getWinsInMatchupTotal(sVSm));
     }
 
     @Test
     public void wins_in_class_vs_class_total_is_correct2() {
-        assertEquals(2, keeper.getWinsInClassVSClassTotal(sVSd));
+        assertEquals(2, keeper.getWinsInMatchupTotal(sVSd));
     }
 
     @Test
     public void wins_in_class_vs_class_total_is_correct3() {
-        assertEquals(0, keeper.getWinsInClassVSClassTotal(prVSwarr));
+        assertEquals(0, keeper.getWinsInMatchupTotal(prVSwarr));
     }
 
     @Test
     public void losses_in_class_vs_class_is_correct1() {
-        assertEquals(2, keeper.getLossesInClassVSClassTotal(sVSm));
+        assertEquals(2, keeper.getLossesInMatchupTotal(sVSm));
     }
 
     @Test
     public void losses_in_class_vs_class_is_correct2() {
-        assertEquals(2, keeper.getLossesInClassVSClassTotal(sVSpa));
+        assertEquals(2, keeper.getLossesInMatchupTotal(sVSpa));
     }
 
     @Test
     public void losses_in_class_vs_class_is_correct3() {
-        assertEquals(1, keeper.getLossesInClassVSClassTotal(prVSwarr));
+        assertEquals(1, keeper.getLossesInMatchupTotal(prVSwarr));
     }
 
     @Test
     public void losses_in_class_vs_class_is_correct4() {
-        assertEquals(0, keeper.getLossesInClassVSClassTotal(rVSs));
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_1st_is_correct1() {
-        assertEquals(1, keeper.getLossPerInClassVSClass1st(sVSpa), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_1st_is_correct2() {
-        assertEquals(0, keeper.getLossPerInClassVSClass1st(sVSr), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_1st_is_correct3() {
-        assertEquals(0, keeper.getLossPerInClassVSClass1st(rVSs), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_2nd_is_correct1() {
-        assertEquals(1, keeper.getLossPerInClassVSClass2nd(sVSm), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_2nd_is_correct2() {
-        assertEquals(1, keeper.getLossPerInClassVSClass2nd(prVSwarr), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_2nd_is_correct3() {
-        assertEquals(0, keeper.getLossPerInClassVSClass2nd(sVSpa), 0.0001);
+        assertEquals(0, keeper.getLossesInMatchupTotal(rVSs));
     }
 
     @Test
     public void win_percentage_in_class_vs_class_total_is_correct1() {
-        assertEquals(0.5, keeper.getWinPerInClassVSClassTotal(sVSm), 0.0001);
+        assertEquals(0.5, keeper.getWinRatioInMatchupTotal(sVSm), 0.0001);
     }
 
     @Test
     public void win_percentage_in_class_vs_class_total_is_correct2() {
-        assertEquals(1, keeper.getWinPerInClassVSClassTotal(sVSd), 0.00001);
+        assertEquals(1, keeper.getWinRatioInMatchupTotal(sVSd), 0.00001);
     }
 
     @Test
     public void win_percentage_in_class_vs_class_total_is_correct3() {
-        assertEquals(0, keeper.getWinPerInClassVSClassTotal(sVSpa), 0.0001);
+        assertEquals(0, keeper.getWinRatioInMatchupTotal(sVSpa), 0.0001);
     }
 
     @Test
     public void win_percentage_in_class_vs_class_total_is_correct4() {
-        assertEquals(0, keeper.getWinPerInClassVSClassTotal(sVSr), 0.0001);
+        assertEquals(0, keeper.getWinRatioInMatchupTotal(sVSr), 0.0001);
     }
 
     @Test
     public void win_percentage_in_class_vs_class_total_is_correct5() {
-        assertEquals(0, keeper.getWinPerInClassVSClassTotal(prVSwarr), 0.00001);
+        assertEquals(0, keeper.getWinRatioInMatchupTotal(prVSwarr), 0.00001);
     }
 
     @Test
     public void win_percentage_in_class_vs_class_total_is_correct6() {
-        assertEquals(0, keeper.getWinPerInClassVSClassTotal(rVSs), 0.00001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct1() {
-        assertEquals(0.5, keeper.getLossPerInClassVSClassTotal(sVSm), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct2() {
-        assertEquals(0, keeper.getLossPerInClassVSClassTotal(sVSd), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct3() {
-        assertEquals(1, keeper.getLossPerInClassVSClassTotal(sVSpa), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct4() {
-        assertEquals(0, keeper.getLossPerInClassVSClassTotal(sVSr), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct5() {
-        assertEquals(1, keeper.getLossPerInClassVSClassTotal(prVSwarr), 0.0001);
-    }
-
-    @Test
-    public void loss_percentage_in_class_vs_class_total_is_correct6() {
-        assertEquals(0, keeper.getLossPerInClassVSClassTotal(rVSs), 0.00001);
+        assertEquals(0, keeper.getWinRatioInMatchupTotal(rVSs), 0.00001);
     }
 
     @Test
     public void remove_match_removes_match_from_matches_in_class_vs_class_1st() {
         keeper.removeMatch(match1);
-        assertEquals(1, keeper.getMatchesInClassVSClass1st(sVSm));
+        assertEquals(1, keeper.getMatchesInMatchup1st(sVSm));
     }
 
     @Test
     public void remove_match_removes_match_from_matches_in_class_vs_class_2nd() {
         keeper.removeMatch(match10);
-        assertEquals(0, keeper.getMatchesInClassVSClass2nd(prVSwarr));
+        assertEquals(0, keeper.getMatchesInMatchup2nd(prVSwarr));
     }
 
     @Test
     public void remove_match_removes_match_from_wins_in_class_vs_class_1st() {
         keeper.removeMatch(match1);
-        assertEquals(1, keeper.getWinsInClassVSClass1st(sVSm));
+        assertEquals(1, keeper.getWinsInMatchup1st(sVSm));
     }
 
     @Test
     public void remove_match_removes_match_from_wins_in_class_vs_class_2nd() {
         keeper.removeMatch(match3);
-        assertEquals(1, keeper.getWinsInClassVSClass2nd(sVSd));
+        assertEquals(1, keeper.getWinsInMatchup2nd(sVSd));
     }
 
     @Test
     public void remove_match_removes_match_from_losses_in_class_vs_class_1st() {
         keeper.removeMatch(match4);
-        assertEquals(1, keeper.getLossesInClassVSClass1st(sVSpa));
+        assertEquals(1, keeper.getLossesInMatchup1st(sVSpa));
     }
 
     @Test
     public void remove_match_removes_match_from_losses_in_class_vs_class_2nd() {
         keeper.removeMatch(match2);
-        assertEquals(1, keeper.getLossesInClassVSClass2nd(sVSm));
+        assertEquals(1, keeper.getLossesInMatchup2nd(sVSm));
     }
 
     @Test
     public void remove_match_affects_win_percentage_in_class_vs_class_total() {
         keeper.removeMatch(match1);
-        assertEquals(0.33, keeper.getWinPerInClassVSClassTotal(sVSm), 0.01);
+        assertEquals(0.33, keeper.getWinRatioInMatchupTotal(sVSm), 0.01);
     }
 
     @Test
     public void set_losses_in_class_vs_class_1st_works_correctly() {
-        keeper.setLossesInClassVSClass1st(sVSm, 1000);
-        assertEquals(1000, keeper.getLossesInClassVSClass1st(sVSm));
+        keeper.setLossesInMatchup1st(sVSm, 1000);
+        assertEquals(1000, keeper.getLossesInMatchup1st(sVSm));
     }
 
     @Test
     public void set_losses_in_class_vs_class_2nd_works_correctly() {
-        keeper.setLossesInClassVSClass2nd(sVSm, 15);
-        assertEquals(15, keeper.getLossesInClassVSClass2nd(sVSm));
+        keeper.setLossesInMatchup2nd(sVSm, 15);
+        assertEquals(15, keeper.getLossesInMatchup2nd(sVSm));
     }
 
     @Test
     public void set_matches_in_class_vs_class_1st_works_correctly() {
-        keeper.setMatchesInClassVSClass1st(sVSm, 40);
-        assertEquals(40, keeper.getMatchesInClassVSClass1st(sVSm));
+        keeper.setMatchesInMatchup1st(sVSm, 40);
+        assertEquals(40, keeper.getMatchesInMatchup1st(sVSm));
     }
 
     @Test
     public void set_matches_in_class_vs_class_2nd_works_correctly() {
-        keeper.setMatchesInClassVSClass2nd(sVSm, 444);
-        assertEquals(444, keeper.getMatchesInClassVSClass2nd(sVSm));
+        keeper.setMatchesInMatchup2nd(sVSm, 444);
+        assertEquals(444, keeper.getMatchesInMatchup2nd(sVSm));
     }
 
 
     @Test
     public void set_win_per_class_vs_class_1st_works_correctly() {
-        keeper.setWinPerClassVSClass1st(sVSm, 500);
-        assertEquals(500, keeper.getWinPerClassVSClass1st(sVSm), 0.0);
+        keeper.setMatchupWinRatio1st(sVSm, 500);
+        assertEquals(500, keeper.getMatchupWinRatio1st(sVSm), 0.0);
     }
 
     @Test
     public void set_win_per_class_vs_class_2nd_works_correctly() {
-        keeper.setWinPerClassVSClass2nd(sVSm, 99.9);
-        assertEquals(99.9, keeper.getWinPerClassVSClass2nd(sVSm), 0.0);
+        keeper.setMatchupWinRatio2nd(sVSm, 99.9);
+        assertEquals(99.9, keeper.getMatchupWinRatio2nd(sVSm), 0.0);
     }
 
     @Test
     public void set_wins_in_class_vs_class_1st_works_correctly() {
-        keeper.setWinsInClassVSClass1st(sVSm, 33);
-        assertEquals(33, keeper.getWinsInClassVSClass1st(sVSm));
+        keeper.setWinsInMatchup1st(sVSm, 33);
+        assertEquals(33, keeper.getWinsInMatchup1st(sVSm));
     }
 
     @Test
     public void set_wins_in_class_vs_class_2nd_works_correctly() {
-        keeper.setWinsInClassVSClass2nd(sVSm, 99);
-        assertEquals(99, keeper.getWinsInClassVSClass2nd(sVSm));
+        keeper.setWinsInMatchup2nd(sVSm, 99);
+        assertEquals(99, keeper.getWinsInMatchup2nd(sVSm));
     }
 
     @Test
     public void updateWinPercentage1st_works_correctly() {
-        keeper.setMatchesInClassVSClass1st(sVSm, 7);
-        keeper.setWinsInClassVSClass1st(sVSm, 4);
-        keeper.setLossesInClassVSClass1st(sVSm, 1);
-        keeper.updateWinPercentage1st(sVSm);
-        assertEquals(0.8, keeper.getWinPerClassVSClass1st(sVSm), 0);
+        keeper.setMatchesInMatchup1st(sVSm, 7);
+        keeper.setWinsInMatchup1st(sVSm, 4);
+        keeper.setLossesInMatchup1st(sVSm, 1);
+        keeper.updateWinRatio1st(sVSm);
+        assertEquals(0.8, keeper.getMatchupWinRatio1st(sVSm), 0);
     }
     
     @Test
     public void updateWinPercentage2nd_works_correctly() {
-        keeper.setMatchesInClassVSClass2nd(sVSm, 10);
-        keeper.setWinsInClassVSClass2nd(sVSm, 8);
-        keeper.setLossesInClassVSClass2nd(sVSm, 2);
-        keeper.updateWinPercentage2nd(sVSm);
-        assertEquals(0.80, keeper.getWinPerClassVSClass2nd(sVSm), 0);
+        keeper.setMatchesInMatchup2nd(sVSm, 10);
+        keeper.setWinsInMatchup2nd(sVSm, 8);
+        keeper.setLossesInMatchup2nd(sVSm, 2);
+        keeper.updateWinRatio2nd(sVSm);
+        assertEquals(0.80, keeper.getMatchupWinRatio2nd(sVSm), 0);
     }
     
     

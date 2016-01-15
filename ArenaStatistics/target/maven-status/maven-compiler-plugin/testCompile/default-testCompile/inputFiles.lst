@@ -5,6 +5,7 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\util\TestH
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\xml\MatchXmlTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\RewardStatisticsTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\RewardStatisticsKeeperTest.java
+C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\xml\DeckScoreStatisticsXmlTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\DeckScoreStatisticsTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\DeckHandlerTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\xml\DataParserAndWriterTest.java
@@ -21,6 +22,5 @@ C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\Dec
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\xml\MatchStatisticsXmlTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\logic\DeckScoreStatisticsKeeperTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\xml\DocumentBuilderTest.java
-C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\xml\DeckClassStatisticsXmlTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\domain\MatchupTest.java
 C:\Users\Eero\Hearthstone-Arena-Tracker\ArenaStatistics\src\test\java\xml\ClassVSClassStatisticsXmlTest.java

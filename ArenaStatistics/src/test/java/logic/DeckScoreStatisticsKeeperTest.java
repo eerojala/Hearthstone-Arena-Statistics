@@ -116,17 +116,17 @@ public class DeckScoreStatisticsKeeperTest {
 
     @Test
     public void play_percentage_as_class_has_correct_values1() {
-        assertEquals(0.4, keeper.getPlayPercentageAsClass(DeckClass.DRUID), 0.0);
+        assertEquals(0.4, keeper.getPlayRatioAsClass(DeckClass.DRUID), 0.0);
     }
 
     @Test
     public void play_percentage_as_class_has_correct_values2() {
-        assertEquals(0.4, keeper.getPlayPercentageAsClass(DeckClass.MAGE), 0.0);
+        assertEquals(0.4, keeper.getPlayRatioAsClass(DeckClass.MAGE), 0.0);
     }
 
     @Test
     public void play_percentage_as_class_has_correct_values3() {
-        assertEquals(0.2, keeper.getPlayPercentageAsClass(DeckClass.SHAMAN), 0.0);
+        assertEquals(0.2, keeper.getPlayRatioAsClass(DeckClass.SHAMAN), 0.0);
     }
 
     @Test
@@ -155,7 +155,7 @@ public class DeckScoreStatisticsKeeperTest {
     @Test
     public void remove_deck_affects_play_percentage_as_class() {
         keeper.removeDeck(deck1);
-        assertEquals(0.25, keeper.getPlayPercentageAsClass(DeckClass.DRUID), 0.0);
+        assertEquals(0.25, keeper.getPlayRatioAsClass(DeckClass.DRUID), 0.0);
     }
     
     @Test
@@ -166,8 +166,8 @@ public class DeckScoreStatisticsKeeperTest {
     
     @Test
     public void set_play_percentage_as_class_works_correctly() {
-        keeper.setPlayPercentageAsClass(DeckClass.MAGE, 33.3);
-        assertEquals(33.3, keeper.getPlayPercentageAsClass(DeckClass.MAGE), 0);
+        keeper.setPlayRatioAsClass(DeckClass.MAGE, 33.3);
+        assertEquals(33.3, keeper.getPlayRatioAsClass(DeckClass.MAGE), 0);
     }
     
     @Test

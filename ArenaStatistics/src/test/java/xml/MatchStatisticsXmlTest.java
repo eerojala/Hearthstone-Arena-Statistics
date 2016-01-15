@@ -17,7 +17,7 @@ public class MatchStatisticsXmlTest {
     private static final DeckClass paladin = DeckClass.PALADIN;
     private MatchStatisticsKeeper keeper1;
     private MatchStatisticsKeeper keeper2;
-    private MatchStatisticsParser parser;
+    private StatisticsParser parser;
 
     public MatchStatisticsXmlTest() {
         writer = new MatchStatisticsWriter(filepath);
@@ -72,7 +72,7 @@ public class MatchStatisticsXmlTest {
 
     private MatchStatisticsKeeper parseToKeeper() {
         parse();
-        return parser.getKeeper();
+        return (MatchStatisticsKeeper) parser.getParsedObject();
     }
 
     private void parse() {
@@ -212,12 +212,12 @@ public class MatchStatisticsXmlTest {
 
     @Test
     public void win_percentage_as_class_1st_is_correct1() {
-        assertEquals(0.648, keeper1.getWinPerAsClass1st(rogue), 0.001);
+        assertEquals(0.648, keeper1.getWinRatioAsClass1st(rogue), 0.001);
     }
 
     @Test
     public void win_percentage_as_class_1st_is_correct2() {
-        assertEquals(0.51, keeper1.getWinPerAsClass1st(paladin), 0.01);
+        assertEquals(0.51, keeper1.getWinRatioAsClass1st(paladin), 0.01);
     }
 
     @Test
@@ -232,22 +232,22 @@ public class MatchStatisticsXmlTest {
 
     @Test
     public void win_percentage_vs_class_1st_is_correct1() {
-        assertEquals(0.7, keeper1.getWinPerVSClass1st(rogue), 0.01);
+        assertEquals(0.7, keeper1.getWinRatioVSClass1st(rogue), 0.01);
     }
 
     @Test
     public void win_percentage_vs_class_1st_is_correct2() {
-        assertEquals(0.354, keeper1.getWinPerVSClass1st(paladin), 0.001);
+        assertEquals(0.354, keeper1.getWinRatioVSClass1st(paladin), 0.001);
     }
 
     @Test
     public void win_percentage_vs_class_2nd_is_correct1() {
-        assertEquals(0.785, keeper1.getWinPerVSClass2nd(rogue), 0.001);
+        assertEquals(0.785, keeper1.getWinRatioVSClass2nd(rogue), 0.001);
     }
 
     @Test
     public void win_percentage_vs_class_2nd_is_correct2() {
-        assertEquals(0.929, keeper1.getWinPerVSClass2nd(paladin), 0.001);
+        assertEquals(0.929, keeper1.getWinRatioVSClass2nd(paladin), 0.001);
     }
 
     @Test

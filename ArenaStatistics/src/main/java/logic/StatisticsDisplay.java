@@ -2,6 +2,6 @@
 package logic;
 
 
-public interface StatisticsGUI {
+public interface StatisticsDisplay {
     public void updateStats();
 }

@@ -6,10 +6,18 @@ import java.util.List;
 import org.jdom.Attribute;
 import org.jdom.Element;
 
+/**
+ * Class which writes data from the current deck into a Xml file.
+ */
 public class DeckWriter extends XmlWriter {
 
-    public DeckWriter(String filepath) {
-        super(filepath, "Decks", "Deck");
+    /**
+     * Creates a new DeckWriter Object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public DeckWriter(String filePath) {
+        super(filePath, "Decks", "Deck");
     }
 
     @Override

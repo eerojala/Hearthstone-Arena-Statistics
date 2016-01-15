@@ -6,18 +6,34 @@ import java.util.List;
 import org.jdom.Document;
 import org.jdom.Element;
 
+/**
+ * Class which parses data of the current deck from a Xml file.
+ */
 public class DeckParser extends XmlParser {
 
     private Deck deck;
 
-    public DeckParser(String fileName) {
-        super(fileName, "Deck", "Decks");
+    /**
+     * Creates a new DeckParser Object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public DeckParser(String filePath) {
+        super(filePath, "Deck", "Decks");
     }
     
+    /**
+     * Creates a new DeckParser Object.
+     * 
+     * @param doc Document representation of the Xml Document.
+     */
     public DeckParser(Document doc) {
         super(doc, "Deck");
     }
 
+    /**
+     * Parses the data of the Xml file to a Deck Object.
+     */
     @Override
     public void addValues() {
         for (int i = 0; i < childlist.size(); i++) {
@@ -29,12 +45,12 @@ public class DeckParser extends XmlParser {
     private Deck createDeck(Element element) {
         int deckNumber = Integer.parseInt(getID(element));
         DeckClass playerClass = getDeckClassValue(element, "PlayerClass");
-        Deck deck = new Deck(playerClass, deckNumber);
-        deck.setGold(getIntValue(element, "Gold"));
-        deck.setDust(getIntValue(element, "Dust"));
-        deck.setExtraPacks(getIntValue(element, "ExtraPacks"));
-        deck.setRewardCards(getCards(element));
-        return deck;
+        Deck newDeck = new Deck(playerClass, deckNumber);
+        newDeck.setGold(getIntValue(element, "Gold"));
+        newDeck.setDust(getIntValue(element, "Dust"));
+        newDeck.setExtraPacks(getIntValue(element, "ExtraPacks"));
+        newDeck.setRewardCards(getCards(element));
+        return newDeck;
     }
 
     private List<Card> getCards(Element element) {
@@ -51,8 +67,11 @@ public class DeckParser extends XmlParser {
         return cards;
     }
 
-    public Deck getDeck() {
+    @Override
+    public Object getParsedObject() {
         return deck;
     }
 
+    
+    
 }

@@ -1,19 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
 import domain.Deck;
 import domain.DeckClass;
 
 /**
- *
- * @author Eero
+ * GUI class which enables the user create arena decks.
  */
 public class DeckCreationGUI extends javax.swing.JFrame implements Runnable {
 
+    /**
+     * Creates a new DeckCreationGUI Object.
+     * 
+     * @param mainGUI The Main GUI of the program.
+     * @param deckNumber Identifying number for the new Deck.
+     */
     public DeckCreationGUI(MainGUI mainGUI, int deckNumber) {
         this.deckNumber = deckNumber;
         this.mainGUI = mainGUI;
@@ -40,6 +41,7 @@ public class DeckCreationGUI extends javax.swing.JFrame implements Runnable {
         okButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

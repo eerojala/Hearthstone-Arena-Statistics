@@ -7,10 +7,16 @@ import domain.Outcome;
 import util.Mapper;
 import util.StatisticsHelper;
 
+/**
+ * Class which handles matchup-specific statistics.
+ */
 public class MatchupStatisticsKeeper extends MatchRelatedStatisticsKeeper {
 
-    MatchupStatistics statistics;
+    private MatchupStatistics statistics;
 
+    /**
+     * Creates a new MatchUpStatisticsKeeper Object.
+     */
     public MatchupStatisticsKeeper() {
         statistics = new MatchupStatistics();
     }
@@ -18,172 +24,307 @@ public class MatchupStatisticsKeeper extends MatchRelatedStatisticsKeeper {
     @Override
     protected void addMatchThatWent1st(Match match) {
         Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-        Mapper.increaseIntegerInDcpIntMap(statistics.getMatchesInMatchup1st(), dcp);
+        Mapper.increaseIntegerInMatchupIntMap(statistics.getMatchesInMatchup1st(), dcp);
         if (match.getOutcome() == Outcome.WIN) {
-            Mapper.increaseIntegerInDcpIntMap(statistics.getWinsInMatchup1st(), dcp);
+            Mapper.increaseIntegerInMatchupIntMap(statistics.getWinsInMatchup1st(), dcp);
         } else if (match.getOutcome() == Outcome.LOSS) {
-            Mapper.increaseIntegerInDcpIntMap(statistics.getLossesInMatchup1st(), dcp);
+            Mapper.increaseIntegerInMatchupIntMap(statistics.getLossesInMatchup1st(), dcp);
         }
-        updateWinPercentage1st(dcp);
+        updateWinRatio1st(dcp);
     }
 
-    public void updateWinPercentage1st(Matchup dcp) {
-        Mapper.updateWinPercentageInDcpDoubleMap(statistics.getMatchupWinRatio1st(),
+    /**
+     * Updates the win ratio of matches where there is a specific matchup and
+     * the player went 1st.
+     *
+     * @param matchup Matchup
+     */
+    public void updateWinRatio1st(Matchup matchup) {
+        Mapper.updateWinRatioInMatchupDoubleMap(statistics.getMatchupWinRatio1st(),
                 statistics.getMatchesInMatchup1st(), statistics.getWinsInMatchup1st(),
-                statistics.getLossesInMatchup1st(), dcp);
+                statistics.getLossesInMatchup1st(), matchup);
     }
 
     @Override
     protected void addMatchThatWent2nd(Match match) {
         Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-        Mapper.increaseIntegerInDcpIntMap(statistics.getMatchesInMatchup2nd(), dcp);
+        Mapper.increaseIntegerInMatchupIntMap(statistics.getMatchesInMatchup2nd(), dcp);
         if (match.getOutcome() == Outcome.WIN) {
-            Mapper.increaseIntegerInDcpIntMap(statistics.getWinsInMatchup2nd(), dcp);
+            Mapper.increaseIntegerInMatchupIntMap(statistics.getWinsInMatchup2nd(), dcp);
         } else if (match.getOutcome() == Outcome.LOSS) {
-            Mapper.increaseIntegerInDcpIntMap(statistics.getLossesInMatchup2nd(), dcp);
+            Mapper.increaseIntegerInMatchupIntMap(statistics.getLossesInMatchup2nd(), dcp);
         }
-        updateWinPercentage2nd(dcp);
+        updateWinRatio2nd(dcp);
     }
 
-    public void updateWinPercentage2nd(Matchup dcp) {
-        Mapper.updateWinPercentageInDcpDoubleMap(statistics.getMatchupWinRatio2nd(),
+    /**
+     * Updates the win ratio of matches where there is a specific matchup and
+     * the player went 2nd.
+     *
+     * @param matchup Matchup
+     */
+    public void updateWinRatio2nd(Matchup matchup) {
+        Mapper.updateWinRatioInMatchupDoubleMap(statistics.getMatchupWinRatio2nd(),
                 statistics.getMatchesInMatchup2nd(), statistics.getWinsInMatchup2nd(),
-                statistics.getLossesInMatchup2nd(), dcp);
+                statistics.getLossesInMatchup2nd(), matchup);
     }
 
-    public void setMatchesInClassVSClass1st(Matchup dcp, int matches) {
-        statistics.getMatchesInMatchup1st().put(dcp, matches);
+    /**
+     * Sets the amount of matches where there was a specific matchup and the
+     * user went 1st.
+     *
+     * @param matchup Matchup
+     * @param matches Amount of matches.
+     */
+    public void setMatchesInMatchup1st(Matchup matchup, int matches) {
+        statistics.getMatchesInMatchup1st().put(matchup, matches);
     }
 
-    public void setMatchesInClassVSClass2nd(Matchup dcp, int matches) {
-        statistics.getMatchesInMatchup2nd().put(dcp, matches);
+    /**
+     * Sets the amount of matches where there was a specific matchup and the
+     * user went 2nd.
+     *
+     * @param matchup Matchup
+     * @param matches Amount of matches.
+     */
+    public void setMatchesInMatchup2nd(Matchup matchup, int matches) {
+        statistics.getMatchesInMatchup2nd().put(matchup, matches);
     }
 
-    public void setWinsInClassVSClass1st(Matchup dcp, int wins) {
-        statistics.getWinsInMatchup1st().put(dcp, wins);
+    /**
+     * Sets the amount of wins where there was a specific matchup and the user
+     * went 1st.
+     *
+     * @param matchup Matchup
+     * @param wins Amount of matches.
+     */
+    public void setWinsInMatchup1st(Matchup matchup, int wins) {
+        statistics.getWinsInMatchup1st().put(matchup, wins);
     }
 
-    public void setWinsInClassVSClass2nd(Matchup dcp, int wins) {
-        statistics.getWinsInMatchup2nd().put(dcp, wins);
+    /**
+     * Sets the amount of wins where there was a specific matchup and the user
+     * went 2nd.
+     *
+     * @param matchup Matchup
+     * @param wins Amount of matches.
+     */
+    public void setWinsInMatchup2nd(Matchup matchup, int wins) {
+        statistics.getWinsInMatchup2nd().put(matchup, wins);
     }
 
-    public void setLossesInClassVSClass1st(Matchup dcp, int losses) {
-        statistics.getLossesInMatchup1st().put(dcp, losses);
+    /**
+     * Sets the amount of losses where there was a specific matchup and the user
+     * went 1st.
+     *
+     * @param matchup Matchup
+     * @param losses Amount of matches.
+     */
+    public void setLossesInMatchup1st(Matchup matchup, int losses) {
+        statistics.getLossesInMatchup1st().put(matchup, losses);
     }
 
-    public void setLossesInClassVSClass2nd(Matchup dcp, int losses) {
-        statistics.getLossesInMatchup2nd().put(dcp, losses);
+    /**
+     * Sets the amount of losses where there was a specific matchup and the user
+     * went 2nd.
+     *
+     * @param matchup Matchup
+     * @param losses Amount of matches.
+     */
+    public void setLossesInMatchup2nd(Matchup matchup, int losses) {
+        statistics.getLossesInMatchup2nd().put(matchup, losses);
     }
 
-    public void setWinPerClassVSClass1st(Matchup dcp, double percentage) {
-        statistics.getMatchupWinRatio1st().put(dcp, percentage);
+    /**
+     * Sets the win ratio of matches where there was a specific matchup and the
+     * player went 1st.
+     *
+     * @param matchup Matchup
+     * @param ratio Win ratio.
+     */
+    public void setMatchupWinRatio1st(Matchup matchup, double ratio) {
+        statistics.getMatchupWinRatio1st().put(matchup, ratio);
     }
 
-    public void setWinPerClassVSClass2nd(Matchup dcp, double percentage) {
-        statistics.getMatchupWinRatio2nd().put(dcp, percentage);
+    /**
+     * Sets the win ratio of matches where there was a specific matchup and the
+     * player went 2nd.
+     *
+     * @param matchup Matchup
+     * @param ratio Win ratio.
+     */
+    public void setMatchupWinRatio2nd(Matchup matchup, double ratio) {
+        statistics.getMatchupWinRatio2nd().put(matchup, ratio);
     }
 
-    public int getMatchesInClassVSClass1st(Matchup dcp) {
-        return statistics.getMatchesInMatchup1st().get(dcp);
+    /**
+     * Returns the amount of matches where there was a specific matchup and the
+     * player went 1st.
+     *
+     * @param matchup Matchup
+     * @return Amount of matches.
+     */
+    public int getMatchesInMatchup1st(Matchup matchup) {
+        return statistics.getMatchesInMatchup1st().get(matchup);
     }
 
-    public int getMatchesInClassVSClass2nd(Matchup dcp) {
-        return statistics.getMatchesInMatchup2nd().get(dcp);
+    /**
+     * Returns the amount of matches where there was a specific matchup and the
+     * player went 2nd.
+     *
+     * @param matchup Matchup
+     * @return Amount of matches.
+     */
+    public int getMatchesInMatchup2nd(Matchup matchup) {
+        return statistics.getMatchesInMatchup2nd().get(matchup);
     }
 
-    public int getWinsInClassVSClass1st(Matchup dcp) {
-        return statistics.getWinsInMatchup1st().get(dcp);
+    /**
+     * Returns the amount of wins where there was a specific matchup and the
+     * player went 1st.
+     *
+     * @param matchup Matchup
+     * @return Amount of wins.
+     */
+    public int getWinsInMatchup1st(Matchup matchup) {
+        return statistics.getWinsInMatchup1st().get(matchup);
     }
 
-    public int getWinsInClassVSClass2nd(Matchup dcp) {
-        return statistics.getWinsInMatchup2nd().get(dcp);
+    /**
+     * Returns the amount of wins where there was a specific matchup and the
+     * player went 2nd.
+     *
+     * @param matchup Matchup
+     * @return Amount of wins.
+     */
+    public int getWinsInMatchup2nd(Matchup matchup) {
+        return statistics.getWinsInMatchup2nd().get(matchup);
     }
 
-    public int getLossesInClassVSClass1st(Matchup dcp) {
-        return statistics.getLossesInMatchup1st().get(dcp);
+    /**
+     * Returns the amount of losses where there was a specific matchup and the
+     * player went 1st.
+     *
+     * @param matchup Matchup
+     * @return Amount of losses.
+     */
+    public int getLossesInMatchup1st(Matchup matchup) {
+        return statistics.getLossesInMatchup1st().get(matchup);
     }
 
-    public int getLossesInClassVSClass2nd(Matchup dcp) {
-        return statistics.getLossesInMatchup2nd().get(dcp);
+    /**
+     * Returns the amount of losses where there was a specific matchup and the
+     * player went 2nd.
+     *
+     * @param matchup Matchup
+     * @return Amount of losses.
+     */
+    public int getLossesInMatchup2nd(Matchup matchup) {
+        return statistics.getLossesInMatchup2nd().get(matchup);
     }
 
-    public double getWinPerClassVSClass1st(Matchup dcp) {
-        return statistics.getMatchupWinRatio1st().get(dcp);
+    /**
+     * Returns the win ratio of matches where there was a specific matchup and
+     * the player went 1st. ¨
+     *
+     * @param matchup Matchup
+     * @return Win ratio.
+     */
+    public double getMatchupWinRatio1st(Matchup matchup) {
+        return statistics.getMatchupWinRatio1st().get(matchup);
     }
 
-    public double getWinPerClassVSClass2nd(Matchup dcp) {
-        return statistics.getMatchupWinRatio2nd().get(dcp);
+    /**
+     * Returns the win ratio of matches where there was a specific matchup and
+     * the player went 2nd. ¨
+     *
+     * @param matchup Matchup
+     * @return Win ratio.
+     */
+    public double getMatchupWinRatio2nd(Matchup matchup) {
+        return statistics.getMatchupWinRatio2nd().get(matchup);
     }
 
     @Override
     protected void removeMatchThatWent1st(Match match) {
         Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-        Mapper.decreaseIntegerInDcpIntMap(statistics.getMatchesInMatchup1st(), dcp);
+        Mapper.decreaseIntegerInMatchupIntMap(statistics.getMatchesInMatchup1st(), dcp);
         if (match.getOutcome() == Outcome.WIN) {
-            Mapper.decreaseIntegerInDcpIntMap(statistics.getWinsInMatchup1st(), dcp);
+            Mapper.decreaseIntegerInMatchupIntMap(statistics.getWinsInMatchup1st(), dcp);
         } else if (match.getOutcome() == Outcome.LOSS) {
-            Mapper.decreaseIntegerInDcpIntMap(statistics.getLossesInMatchup1st(), dcp);
+            Mapper.decreaseIntegerInMatchupIntMap(statistics.getLossesInMatchup1st(), dcp);
         }
-        updateWinPercentage1st(dcp);
+        updateWinRatio1st(dcp);
     }
 
     @Override
     protected void removeMatchThatWent2nd(Match match) {
         Matchup dcp = new Matchup(match.getPlayerClass(), match.getOpponentClass());
-        Mapper.decreaseIntegerInDcpIntMap(statistics.getMatchesInMatchup2nd(), dcp);
+        Mapper.decreaseIntegerInMatchupIntMap(statistics.getMatchesInMatchup2nd(), dcp);
         if (match.getOutcome() == Outcome.WIN) {
-            Mapper.decreaseIntegerInDcpIntMap(statistics.getWinsInMatchup2nd(), dcp);
+            Mapper.decreaseIntegerInMatchupIntMap(statistics.getWinsInMatchup2nd(), dcp);
         } else if (match.getOutcome() == Outcome.LOSS) {
-            Mapper.decreaseIntegerInDcpIntMap(statistics.getLossesInMatchup2nd(), dcp);
+            Mapper.decreaseIntegerInMatchupIntMap(statistics.getLossesInMatchup2nd(), dcp);
         }
-        updateWinPercentage2nd(dcp);
+        updateWinRatio2nd(dcp);
     }
 
+    /**
+     * Returns the MatchUpStatistics used by the MatchUpStatisticsKeeper.
+     * 
+     * @return MatchupStatistics
+     */
     public MatchupStatistics getStatistics() {
         return statistics;
     }
 
-    public int getMatchesInClassVSClassTotal(Matchup dcp) {
-        return getMatchesInClassVSClass1st(dcp) + getMatchesInClassVSClass2nd(dcp);
+    /**
+     * Returns the total amount of matches in a specific matchup.
+     * 
+     * @param matchup
+     * @return Amount of matches.
+     */
+    public int getMatchesInMatchupTotal(Matchup matchup) {
+        return getMatchesInMatchup1st(matchup) + getMatchesInMatchup2nd(matchup);
     }
 
-    public int getWinsInClassVSClassTotal(Matchup dcp) {
-        return getWinsInClassVSClass1st(dcp) + getWinsInClassVSClass2nd(dcp);
+    /**
+     * Returns the total amount of wins in a specific matchup.
+     * 
+     * @param matchup
+     * @return Amount of wins.
+     */
+    public int getWinsInMatchupTotal(Matchup matchup) {
+        return getWinsInMatchup1st(matchup) + getWinsInMatchup2nd(matchup);
     }
 
-    public int getLossesInClassVSClassTotal(Matchup dcp) {
-        return getLossesInClassVSClass1st(dcp) + getLossesInClassVSClass2nd(dcp);
+    /**
+     * Returns the total amount of losses in a specific matchup.
+     * 
+     * @param matchup
+     * @return Amount of losses.
+     */
+    public int getLossesInMatchupTotal(Matchup matchup) {
+        return getLossesInMatchup1st(matchup) + getLossesInMatchup2nd(matchup);
     }
 
-    public double getLossPerInClassVSClass1st(Matchup dcp) {
-        if (getWinsInClassVSClass1st(dcp) + getLossesInClassVSClass1st(dcp) == 0) {
-            return 0;
-        }
-        return 1 - getWinPerClassVSClass1st(dcp);
-    }
-
-    public double getLossPerInClassVSClass2nd(Matchup dcp) {
-        if (getWinsInClassVSClass2nd(dcp) + getLossesInClassVSClass2nd(dcp) == 0) {
-            return 0;
-        }
-        return 1 - getWinPerClassVSClass2nd(dcp);
-    }
-
-    public double getWinPerInClassVSClassTotal(Matchup dcp) {
-        int wins = getWinsInClassVSClassTotal(dcp);
-        int losses = getLossesInClassVSClassTotal(dcp);
+    /**
+     * Returns the win ratio of a specific matchup.
+     * 
+     * @param matchup Matchup
+     * @return Win ratio.
+     */
+    public double getWinRatioInMatchupTotal(Matchup matchup) {
+        int wins = getWinsInMatchupTotal(matchup);
+        int losses = getLossesInMatchupTotal(matchup);
         int validMatches = wins + losses;
-        double winPer = StatisticsHelper.getWinPercentage(validMatches, wins);
+        double winPer = StatisticsHelper.getWinRatio(validMatches, wins);
         return winPer;
     }
 
-    public double getLossPerInClassVSClassTotal(Matchup dcp) {
-        if (getWinsInClassVSClassTotal(dcp) + getLossesInClassVSClassTotal(dcp) == 0) {
-            return 0;
-        }
-        return 1 - getWinPerInClassVSClassTotal(dcp);
-    }
-
+    /**
+     * Resets the matchup statistics
+     */
     public void reset() {
         statistics = new MatchupStatistics();
     }

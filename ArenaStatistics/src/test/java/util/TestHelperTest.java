@@ -92,35 +92,35 @@ public class TestHelperTest {
 
     @Test
     public void zeroesInDcpIntMap_returns_true_if_only_zeroes1() {
-        Mapper.mapZeroesToDcpIntMap(dcpIntMap);
-        assertTrue(TestHelper.zeroesInDcpIntMap(dcpIntMap));
+        Mapper.mapZeroesToMatchupIntMap(dcpIntMap);
+        assertTrue(TestHelper.zeroesInMatchupIntMap(dcpIntMap));
     }
 
     @Test
     public void zeroesInDcpIntMap_returns_true_if_only_zeroes2() {
-        Mapper.mapZeroesToDcpIntMap(dcpIntMap);
-        assertTrue(TestHelper.zeroesInDcpIntMap(dcpIntMap, dcp1));
+        Mapper.mapZeroesToMatchupIntMap(dcpIntMap);
+        assertTrue(TestHelper.zeroesInMatchupIntMap(dcpIntMap, dcp1));
     }
 
     @Test
     public void zeroesInDcpIntMap_returns_true_if_only_zeroes_besides_exceptions() {
-        Mapper.mapZeroesToDcpIntMap(dcpIntMap);
+        Mapper.mapZeroesToMatchupIntMap(dcpIntMap);
         dcpIntMap.put(dcp1, 4);
-        assertTrue(TestHelper.zeroesInDcpIntMap(dcpIntMap, dcp1));
+        assertTrue(TestHelper.zeroesInMatchupIntMap(dcpIntMap, dcp1));
     }
 
     @Test
     public void zeroesInDcpIntMap_returns_false_if_not_all_zeroes1() {
-        Mapper.mapZeroesToDcpIntMap(dcpIntMap);
+        Mapper.mapZeroesToMatchupIntMap(dcpIntMap);
         dcpIntMap.put(dcp1, 1);
-        assertFalse(TestHelper.zeroesInDcpIntMap(dcpIntMap));
+        assertFalse(TestHelper.zeroesInMatchupIntMap(dcpIntMap));
     }
 
     @Test
     public void zeroesInDcpIntMap_returns_false_if_not_all_zeroes2() {
-        Mapper.mapZeroesToDcpIntMap(dcpIntMap);
+        Mapper.mapZeroesToMatchupIntMap(dcpIntMap);
         dcpIntMap.put(dcp1, 6);
-        assertFalse(TestHelper.zeroesInDcpIntMap(dcpIntMap, dcp2));
+        assertFalse(TestHelper.zeroesInMatchupIntMap(dcpIntMap, dcp2));
     }
 
     @Test
@@ -159,37 +159,37 @@ public class TestHelperTest {
 
     @Test
     public void zeroesInDcpDoubleMap_returns_true_if_only_zeroes1() {
-        Mapper.mapZeroesToDcpDoubleMap(dcpDoubleMap);
-        assertTrue(TestHelper.zeroesInDcpDoubleMap(dcpDoubleMap));
+        Mapper.mapZeroesToMatchupDoubleMap(dcpDoubleMap);
+        assertTrue(TestHelper.zeroesInMatchupDoubleMap(dcpDoubleMap));
     }
 
     @Test
     public void zeroesInDcpDoubleMap_returns_true_if_only_zeroes2() {
-        Mapper.mapZeroesToDcpDoubleMap(dcpDoubleMap);
-        assertTrue(TestHelper.zeroesInDcpDoubleMap(dcpDoubleMap, dcp1, dcp2));
+        Mapper.mapZeroesToMatchupDoubleMap(dcpDoubleMap);
+        assertTrue(TestHelper.zeroesInMatchupDoubleMap(dcpDoubleMap, dcp1, dcp2));
     }
 
     @Test
     public void zeroesInDcpDoubleMap_returns_true_if_only_zeroes_besides_exceptions() {
-        Mapper.mapZeroesToDcpDoubleMap(dcpDoubleMap);
+        Mapper.mapZeroesToMatchupDoubleMap(dcpDoubleMap);
         dcpDoubleMap.put(dcp1, 1.111);
         dcpDoubleMap.put(dcp2, 111.111);
-        assertTrue(TestHelper.zeroesInDcpDoubleMap(dcpDoubleMap, dcp1, dcp2));
+        assertTrue(TestHelper.zeroesInMatchupDoubleMap(dcpDoubleMap, dcp1, dcp2));
     }
 
     @Test
     public void zeroesInDcpDoubleMap_returns_false_if_not_only_zeroes1() {
-        Mapper.mapZeroesToDcpDoubleMap(dcpDoubleMap);
+        Mapper.mapZeroesToMatchupDoubleMap(dcpDoubleMap);
         dcpDoubleMap.put(dcp1, 2.2);
-        assertFalse(TestHelper.zeroesInDcpDoubleMap(dcpDoubleMap));
+        assertFalse(TestHelper.zeroesInMatchupDoubleMap(dcpDoubleMap));
     }
 
     @Test
     public void zeroesInDcpDoubleMap_returns_false_if_not_only_zeroes2() {
-        Mapper.mapZeroesToDcpDoubleMap(dcpDoubleMap);
+        Mapper.mapZeroesToMatchupDoubleMap(dcpDoubleMap);
         dcpDoubleMap.put(dcp1, 1.111);
         dcpDoubleMap.put(dcp2, 44.44);
-        assertFalse(TestHelper.zeroesInDcpDoubleMap(dcpDoubleMap, dcp1));
+        assertFalse(TestHelper.zeroesInMatchupDoubleMap(dcpDoubleMap, dcp1));
     }
 
     @Test

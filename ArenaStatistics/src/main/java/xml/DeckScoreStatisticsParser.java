@@ -6,16 +6,28 @@ import logic.DeckScoreStatisticsKeeper;
 import org.jdom.Document;
 import org.jdom.Element;
 
-public class DeckClassStatisticsParser extends StatisticsParser{
+/**
+ * Class which parses deck score statistics from a Xml file.
+ */
+public class DeckScoreStatisticsParser extends StatisticsParser{
     private final DeckScoreStatisticsKeeper keeper;
     
-    public DeckClassStatisticsParser(String filepath) {
-        super(filepath, "Class", "Classes");
+    /**
+     * Creates a new DeckScoreStatisticsParser Object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public DeckScoreStatisticsParser(String filePath) {
+        super(filePath, "Class", "Classes");
         keeper = new DeckScoreStatisticsKeeper();
     }
 
-    
-    public DeckClassStatisticsParser(Document doc) {
+    /**
+     * Creates a new DeckScoreStatisticsParser Object.
+     * 
+     * @param doc Document representation of the Xml document.
+     */
+    public DeckScoreStatisticsParser(Document doc) {
         super(doc, "Class");
         keeper = new DeckScoreStatisticsKeeper();
     }
@@ -33,7 +45,10 @@ public class DeckClassStatisticsParser extends StatisticsParser{
         }
     }
 
-    public DeckScoreStatisticsKeeper getKeeper() {
+    @Override
+    public Object getParsedObject() {
         return keeper;
     }
+    
+    
 }

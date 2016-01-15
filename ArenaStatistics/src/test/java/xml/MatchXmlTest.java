@@ -24,7 +24,7 @@ public class MatchXmlTest {
     private final Match match8;
     private final Match match9;
     private static final String filePath = "src/main/resources/xmltestfiles/MatchXmlTest.xml";
-    private MatchParser parser;
+    private XmlParser parser;
     private Match match;
     private List<Match> matches;
     
@@ -248,7 +248,7 @@ public class MatchXmlTest {
     private void parseDocument() {
         parser = new MatchParser(writer.getDoc());
         parser.addValues();
-        matches = parser.getMatches();
+        matches = (List<Match>) parser.getParsedObject();
     }
 
 }

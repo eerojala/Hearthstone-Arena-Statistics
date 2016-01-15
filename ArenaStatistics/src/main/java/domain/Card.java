@@ -69,7 +69,7 @@ public enum Card {
      *
      * @param text The String which the card is parsed from.
      * @return The Card parsed from the String if successful, null if the String
-     * does not match any of the Cards' types.
+     * does not match any of the Cards types.
      */
     public static Card parseCard(String text) {
         for (Card card : Card.values()) {

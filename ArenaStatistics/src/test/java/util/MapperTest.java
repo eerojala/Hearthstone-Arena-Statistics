@@ -76,14 +76,14 @@ public class MapperTest {
 
     @Test
     public void mapZeroesToADeckClassPairIntegerMap_has_correct_keyset_size() {
-        Mapper.mapZeroesToDcpIntMap(dcpIntMap);
+        Mapper.mapZeroesToMatchupIntMap(dcpIntMap);
         assertEquals(81, dcpIntMap.keySet().size());
     }
 
     @Test
     public void mapZeroesToADeckClassPairIntegerMap_maps_zeroes_to_values() {
-        Mapper.mapZeroesToDcpIntMap(dcpIntMap);
-        assertTrue(TestHelper.zeroesInDcpIntMap(dcpIntMap));
+        Mapper.mapZeroesToMatchupIntMap(dcpIntMap);
+        assertTrue(TestHelper.zeroesInMatchupIntMap(dcpIntMap));
     }
 
     @Test
@@ -100,14 +100,14 @@ public class MapperTest {
 
     @Test
     public void mapZeroesToADeckClassPairDoubleMap_has_correct_keyset_size() {
-        Mapper.mapZeroesToDcpDoubleMap(dcpDoubleMap);
+        Mapper.mapZeroesToMatchupDoubleMap(dcpDoubleMap);
         assertEquals(81, dcpDoubleMap.keySet().size());
     }
 
     @Test
     public void mapZeroesToADeckClassPairDoubleMap_maps_zeroes_to_values() {
-        Mapper.mapZeroesToDcpDoubleMap(dcpDoubleMap);
-        assertTrue(TestHelper.zeroesInDcpDoubleMap(dcpDoubleMap));
+        Mapper.mapZeroesToMatchupDoubleMap(dcpDoubleMap);
+        assertTrue(TestHelper.zeroesInMatchupDoubleMap(dcpDoubleMap));
     }
 
     @Test
@@ -163,7 +163,7 @@ public class MapperTest {
     @Test
     public void increaseIntegerInDeckClassPairIntegerMap_increases_value_by_one() {
         dcpIntMap.put(dcp, 1);
-        Mapper.increaseIntegerInDcpIntMap(dcpIntMap, dcp);
+        Mapper.increaseIntegerInMatchupIntMap(dcpIntMap, dcp);
         assertEquals(2, (int) dcpIntMap.get(dcp));
     }
 
@@ -172,7 +172,7 @@ public class MapperTest {
         dcIntMatchMap.put(DeckClass.MAGE, 2);
         dcIntWinMap.put(DeckClass.MAGE, 1);
         dcIntLossMap.put(DeckClass.MAGE, 1);
-        Mapper.updateWinPercentageInDcDoubleMap(dcDoubleMap, dcIntMatchMap,
+        Mapper.updateWinRatioInDcDoubleMap(dcDoubleMap, dcIntMatchMap,
                 dcIntWinMap, dcIntLossMap, DeckClass.MAGE);
         assertEquals(0.5, dcDoubleMap.get(DeckClass.MAGE), 0);
     }
@@ -182,7 +182,7 @@ public class MapperTest {
         dcpIntMatchMap.put(dcp, 5);
         dcpIntWinMap.put(dcp, 3);
         dcpIntLossMap.put(dcp, 2);
-        Mapper.updateWinPercentageInDcpDoubleMap(dcpDoubleMap, dcpIntMatchMap,
+        Mapper.updateWinRatioInMatchupDoubleMap(dcpDoubleMap, dcpIntMatchMap,
                 dcpIntWinMap, dcpIntLossMap, dcp);
         assertEquals(0.6, dcpDoubleMap.get(dcp), 0);
     }
@@ -211,14 +211,14 @@ public class MapperTest {
     @Test
     public void decreaseIntegerInDeckClassPairIntegerMap_decreases_integer_by_one() {
         dcpIntMap.put(dcp, 5);
-        Mapper.decreaseIntegerInDcpIntMap(dcpIntMap, dcp);
+        Mapper.decreaseIntegerInMatchupIntMap(dcpIntMap, dcp);
         assertEquals(4, (int) dcpIntMap.get(dcp));
     }
 
     @Test
     public void decreaseIntegerInDeckClassPairIntegerMap_does_not_decrease_integer_below_zero() {
         dcpIntMap.put(dcp, 0);
-        Mapper.decreaseIntegerInDcpIntMap(dcpIntMap, dcp);
+        Mapper.decreaseIntegerInMatchupIntMap(dcpIntMap, dcp);
         assertEquals(0, (int) dcpIntMap.get(dcp));
     }
 

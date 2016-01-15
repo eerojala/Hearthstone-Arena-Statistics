@@ -4,15 +4,28 @@ import logic.RewardStatisticsKeeper;
 import org.jdom.Document;
 import org.jdom.Element;
 
+/**
+ * Class which parses reward statistics from a Xml file.
+ */
 public class RewardStatisticsParser extends StatisticsParser {
 
     private final RewardStatisticsKeeper keeper;
 
-    public RewardStatisticsParser(String filepath) {
-        super(filepath, "WinAmount", "WinAmounts");
+    /**
+     * Creates a new RewardStatisticsParser Object.
+     *
+     * @param filePath File path to the Xml file.
+     */
+    public RewardStatisticsParser(String filePath) {
+        super(filePath, "WinAmount", "WinAmounts");
         keeper = new RewardStatisticsKeeper();
     }
 
+    /**
+     * Creates a new RewardStatisticsParser Object.
+     *
+     * @param doc Document representation of the Xml file.
+     */
     public RewardStatisticsParser(Document doc) {
         super(doc, "WinAmount");
         keeper = new RewardStatisticsKeeper();
@@ -30,7 +43,9 @@ public class RewardStatisticsParser extends StatisticsParser {
         keeper.updateDoubleMaps(wins);
     }
 
-    public RewardStatisticsKeeper getKeeper() {
+    @Override
+    public Object getParsedObject() {
         return keeper;
     }
+
 }

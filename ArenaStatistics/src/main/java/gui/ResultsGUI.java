@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
 import domain.Card;
@@ -12,12 +8,16 @@ import javax.swing.JTextField;
 import logic.DeckHandler;
 
 /**
- *
- * @author Eero
+ * GUI class which enables the user to input rewards to a finished deck.
  */
 public class ResultsGUI extends javax.swing.JFrame implements Runnable {
 
-
+    /**
+     * Creates a new ResultsGUI object.
+     * 
+     * @param mainGUI The Main GUI of the program.
+     * @param deck The finished deck.
+     */
     public ResultsGUI(MainGUI mainGUI, Deck deck) {
         this.mainGUI = mainGUI;
         this.deck = deck;
@@ -92,6 +92,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
         confirm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -246,7 +247,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
     private javax.swing.JTextField regularCards;
     private javax.swing.JLabel result;
     // End of variables declaration//GEN-END:variables
-    private Deck deck;
-    private DeckHandler deckHandler;
-    private MainGUI mainGUI;
+    private final Deck deck;
+    private final DeckHandler deckHandler;
+    private final MainGUI mainGUI;
 }

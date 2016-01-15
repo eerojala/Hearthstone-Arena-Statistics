@@ -5,15 +5,28 @@ import logic.MatchStatisticsKeeper;
 import org.jdom.Document;
 import org.jdom.Element;
 
+/**
+ * Class which parses Match statistics from a Xml file.
+ */
 public class MatchStatisticsParser extends StatisticsParser {
 
-    private MatchStatisticsKeeper keeper;
+    private final MatchStatisticsKeeper keeper;
 
-    public MatchStatisticsParser(String filepath) {
-        super(filepath, "Class", "Classes");
+    /**
+     * Creates a new MatchStatisticsParser Object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public MatchStatisticsParser(String filePath) {
+        super(filePath, "Class", "Classes");
         keeper = new MatchStatisticsKeeper();
     }
 
+    /**
+     * Creates a new MatchStatisticsParser Object.
+     * 
+     * @param doc Document reprsentation of the Xml document.
+     */
     public MatchStatisticsParser(Document doc) {
         super(doc, "Class");
         keeper = new MatchStatisticsKeeper();
@@ -34,11 +47,12 @@ public class MatchStatisticsParser extends StatisticsParser {
         keeper.setLossesAsClass2nd(dc, getIntValue(element, "LossesAsClass2nd"));
         keeper.setLossesVSClass1st(dc, getIntValue(element, "LossesVSClass1st"));
         keeper.setLossesVSClass2nd(dc, getIntValue(element, "LossesVSClass2nd"));
-        keeper.updateWinPercentageIn1stMatchMaps(dc, dc);
-        keeper.updateWinPercentageIn2ndMatchMaps(dc, dc);
+        keeper.updateWinRatioIn1stMatchMaps(dc, dc);
+        keeper.updateWinRatioIn2ndMatchMaps(dc, dc);
     }
 
-    public MatchStatisticsKeeper getKeeper() {
+    @Override
+    public Object getParsedObject() {
         return keeper;
     }
 }

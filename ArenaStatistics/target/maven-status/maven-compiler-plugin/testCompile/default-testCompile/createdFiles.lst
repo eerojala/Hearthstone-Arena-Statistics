@@ -22,5 +22,5 @@ xml\MatchXmlTest.class
 xml\RewardStatisticsXmlTest.class
 domain\MatchupStatisticsTest.class
 domain\MatchTest.class
-xml\DeckClassStatisticsXmlTest.class
+xml\DeckScoreStatisticsXmlTest.class
 domain\DeckScoreStatisticsTest.class

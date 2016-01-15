@@ -1,26 +1,41 @@
 package xml;
 
-import xml.XmlParser;
 import domain.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.jdom.Document;
 import org.jdom.Element;
 
+/**
+ * Class which parses Data about the current deck's matches from a Xml file.
+ */
 public class MatchParser extends XmlParser {
 
     private final List<Match> matches;
 
-    public MatchParser(String filepath) {
-        super(filepath, "Match", "Matches");
+    /**
+     * Creates a new MatchParser Object.
+     * 
+     * @param filePath File path to the Xml file.
+     */
+    public MatchParser(String filePath) {
+        super(filePath, "Match", "Matches");
         matches = new ArrayList();
     }
 
+    /**
+     * Creates a new MatchParser Object.
+     * 
+     * @param doc Document representation of the Xml document.
+     */
     public MatchParser(Document doc) {
         super(doc, "Match");
         matches = new ArrayList();
     }
 
+    /**
+     * Adds the parsed matches to a List.
+     */
     @Override
     public void addValues() {
         for (int i = 0; i < childlist.size(); i++) {
@@ -41,8 +56,11 @@ public class MatchParser extends XmlParser {
         return new Match(playerClass, opponentClass, opponentName, outcome,
                 wentFirst, deckNumber, matchNumber);
     }
-    
-    public List<Match> getMatches() {
+
+    @Override
+    public Object getParsedObject() {
         return matches;
     }
+    
+
 }

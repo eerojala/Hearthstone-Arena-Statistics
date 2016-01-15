@@ -100,16 +100,16 @@ public class MatchStatisticsTest {
 
     @Test
     public void winPer_as_class_2nd_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getWinPerAsClass2nd()));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getWinRatioAsClass2nd()));
     }
 
     @Test
     public void winPer_vs_class_1st_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getWinPerVSClass1st()));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getWinRatioVSClass1st()));
     }
 
     @Test
     public void winPer_vs_class_2nd_has_zeroes_at_start() {
-        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getWinPerVSClass2nd()));
+        assertTrue(TestHelper.zeroesInDcDoubleMap(statistics.getWinRatioVSClass2nd()));
     }
 }

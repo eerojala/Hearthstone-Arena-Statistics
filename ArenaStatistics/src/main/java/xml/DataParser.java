@@ -9,33 +9,43 @@ import logic.DeckScoreStatisticsKeeper;
 import logic.MatchAssigner;
 import logic.RewardStatisticsKeeper;
 
+/**
+ * Class which parses all of the data from the Xml files.
+ */
 public class DataParser {
 
     private Deck currentDeck;
-    private MatchStatisticsKeeper classStatisticsKeeper;
-    private MatchupStatisticsKeeper classVSClassStatisticsKeeper;
-    private DeckScoreStatisticsKeeper deckClassStatisticsKeeper;
+    private MatchStatisticsKeeper matchStatisticsKeeper;
+    private MatchupStatisticsKeeper matchupStatisticsKeeper;
+    private DeckScoreStatisticsKeeper deckScoreStatisticsKeeper;
     private RewardStatisticsKeeper rewardStatisticsKeeper;
-    private String decksFilepath;
-    private String matchesFilepath;
+    private XmlParser parser;
+    private String decksFilePath;
+    private String matchesFilePath;
     private String matchStatisticsFilepath;
-    private String classVSClassStatisticsFilepath;
-    private String deckClassStatisticsFilepath;
+    private String matchupStatisticsFilePath;
+    private String deckScoreStatisticsFilePath;
     private String rewardStatisticsFilepath;
 
+    /**
+     * Creates a new DataParser object.
+     */
     public DataParser() {
         setDefaultFilepaths();
     }
     
     private void setDefaultFilepaths() {
-        decksFilepath = "src/main/resources/xmlfiles/Decks.xml";
-        matchesFilepath = "src/main/resources/xmlfiles/Matches.xml";
+        decksFilePath = "src/main/resources/xmlfiles/Decks.xml";
+        matchesFilePath = "src/main/resources/xmlfiles/Matches.xml";
         matchStatisticsFilepath = "src/main/resources/xmlfiles/MatchStatistics.xml";
-        classVSClassStatisticsFilepath = "src/main/resources/xmlfiles/ClassVSClassStatistics.xml";
-        deckClassStatisticsFilepath = "src/main/resources/xmlfiles/DeckClassStatistics.xml";
+        matchupStatisticsFilePath = "src/main/resources/xmlfiles/ClassVSClassStatistics.xml";
+        deckScoreStatisticsFilePath = "src/main/resources/xmlfiles/DeckClassStatistics.xml";
         rewardStatisticsFilepath = "src/main/resources/xmlfiles/RewardStatistics.xml";
     }
     
+    /**
+     * Parses the data from all of the Xml files.
+     */
     public void parseData() {
         setCurrentDeck();
         assignMatchesToDeck();
@@ -46,10 +56,10 @@ public class DataParser {
     }
 
     private void setCurrentDeck() {
-        DeckParser parser = new DeckParser(decksFilepath);
+        parser = new DeckParser(decksFilePath);
         parser.addValues();
         try {
-            currentDeck = parser.getDeck();
+            currentDeck = (Deck) parser.getParsedObject();
         } catch (Exception e) {
 
         }
@@ -61,79 +71,134 @@ public class DataParser {
     }
 
     private List<Match> getMatches() {
-        MatchParser parser = new MatchParser(matchesFilepath);
+        parser = new MatchParser(matchesFilePath);
         parser.addValues();
         try {
-            return parser.getMatches();
+            return (List<Match>) parser.getParsedObject();
         } catch (Exception e) {
             return null;
         }     
     }
 
     private void setMatchStatistics() {
-        MatchStatisticsParser parser = new MatchStatisticsParser(matchStatisticsFilepath);
+        parser = new MatchStatisticsParser(matchStatisticsFilepath);
         parser.addValues();
-        classStatisticsKeeper = parser.getKeeper();
+        matchStatisticsKeeper = (MatchStatisticsKeeper) parser.getParsedObject();
     }
 
     private void setClassVSClassStatistics() {
-        ClassVSClassStatisticsParser parser = new ClassVSClassStatisticsParser(classVSClassStatisticsFilepath);
+        parser = new MatchupStatisticsParser(matchupStatisticsFilePath);
         parser.addValues();
-        classVSClassStatisticsKeeper = parser.getKeeper();
+        matchupStatisticsKeeper = (MatchupStatisticsKeeper) parser.getParsedObject();
     }
 
     private void setDeckClassStatistics() {
-        DeckClassStatisticsParser parser = new DeckClassStatisticsParser(deckClassStatisticsFilepath);
+        parser = new DeckScoreStatisticsParser(deckScoreStatisticsFilePath);
         parser.addValues();
-        deckClassStatisticsKeeper = parser.getKeeper();
+        deckScoreStatisticsKeeper = (DeckScoreStatisticsKeeper) parser.getParsedObject();
     }
 
     private void setRewardStatistics() {
-        RewardStatisticsParser parser = new RewardStatisticsParser(rewardStatisticsFilepath);
+        parser = new RewardStatisticsParser(rewardStatisticsFilepath);
         parser.addValues();
-        rewardStatisticsKeeper = parser.getKeeper();
+        rewardStatisticsKeeper = (RewardStatisticsKeeper) parser.getParsedObject();
     }
 
-    public MatchStatisticsKeeper getClassStatisticsKeeper() {
-        return classStatisticsKeeper;
+    /**
+     * Returns the MatchStatisticsKeeper parsed from the Xml file.
+     * 
+     * @return MatchStatisticsKeeper
+     */
+    public MatchStatisticsKeeper getMatchStatisticsKeeper() {
+        return matchStatisticsKeeper;
     }
 
-    public MatchupStatisticsKeeper getClassVSClassStatisticsKeeper() {
-        return classVSClassStatisticsKeeper;
+    /**
+     * Returns the MatchupStatisticsKeeper parsed from the Xml file.
+     * 
+     * @return MatchupStatisitcsKeeper
+     */
+    public MatchupStatisticsKeeper getMatchupStatisticsKeeper() {
+        return matchupStatisticsKeeper;
     }
 
+    /**
+     * Returns the Deck parsed from the Xml file.
+     * 
+     * @return Deck
+     */
     public Deck getCurrentDeck() {
         return currentDeck;
     }
 
-    public DeckScoreStatisticsKeeper getDeckClassStatisticsKeeper() {
-        return deckClassStatisticsKeeper;
+    /**
+     * Returns the DeckScoreStatisticsKeeper parsed from the Xml file.
+     * 
+     * @return DeckScoreStatisticsKeeper
+     */
+    public DeckScoreStatisticsKeeper getDeckScoreStatisticsKeeper() {
+        return deckScoreStatisticsKeeper;
     }
 
+    /**
+     * Returns the RewardStatisticsKeeper parsed from the Xml file.
+     * 
+     * @return RewardStatisticsKeeper.
+     */
     public RewardStatisticsKeeper getRewardStatisticsKeeper() {
         return rewardStatisticsKeeper;
     }
 
-    public void setClassVSClassStatisticsFilepath(String classVSClassStatisticsFilepath) {
-        this.classVSClassStatisticsFilepath = classVSClassStatisticsFilepath;
+    /**
+     * Sets the file path to the Xml file which contains matchup related statistics.
+     * 
+     * @param matchupStatisticsFilePath File path
+     */
+    public void setMatchupStatisticsFilePath(String matchupStatisticsFilePath) {
+        this.matchupStatisticsFilePath = matchupStatisticsFilePath;
     }
 
-    public void setDeckClassStatisticsFilepath(String deckClassStatisticsFilepath) {
-        this.deckClassStatisticsFilepath = deckClassStatisticsFilepath;
+    /**
+     * Sets the file path where the Xml file which contains deck score related statistics can be found.
+     * 
+     * @param deckScoreStatisticsFilePath File path
+     */
+    public void setDeckScoreStatisticsFilePath(String deckScoreStatisticsFilePath) {
+        this.deckScoreStatisticsFilePath = deckScoreStatisticsFilePath;
     }
 
-    public void setDecksFilepath(String decksFilepath) {
-        this.decksFilepath = decksFilepath;
+    /**
+     * Sets the file path where the Xml file which contains the currently ongoing arena Deck can be found.
+     * 
+     * @param decksFilePath File path
+     */
+    public void setDecksFilePath(String decksFilePath) {
+        this.decksFilePath = decksFilePath;
     }
 
+    /**
+     * Sets the file path where the Xml file which contains match related statistics can be found.
+     * 
+     * @param matchStatisticsFilepath File path
+     */
     public void setMatchStatisticsFilepath(String matchStatisticsFilepath) {
         this.matchStatisticsFilepath = matchStatisticsFilepath;
     }
 
-    public void setMatchesFilepath(String matchesFilepath) {
-        this.matchesFilepath = matchesFilepath;
+    /**
+     * Sets the file path where the Xml file which contains the current deck's matches can be found.
+     * 
+     * @param matchesFilePath File path
+     */
+    public void setMatchesFilePath(String matchesFilePath) {
+        this.matchesFilePath = matchesFilePath;
     }
 
+    /**
+     * Sets the file path where the Xml file which contains reward related statistics can be found.
+     * 
+     * @param rewardStatisticsFilepath
+     */
     public void setRewardStatisticsFilepath(String rewardStatisticsFilepath) {
         this.rewardStatisticsFilepath = rewardStatisticsFilepath;
     }

@@ -3,11 +3,19 @@ package logic;
 import gui.MainGUI;
 import util.StatisticsHelper;
 
-public class GeneralDeckStatisticsDisplayLogic implements StatisticsGUI {
+/**
+ * Class which manipulates GUI elements of the 'General Deck Statistics' tab of MainGUI.
+ */
+public class GeneralDeckStatisticsDisplayLogic implements StatisticsDisplay {
 
     private final MainGUI gui;
     private final RewardStatisticsKeeper keeper;
 
+    /**
+     * Creates a new GeneralDeckStatisticsDisplayLogic Object.
+     * 
+     * @param gui The Main GUI of the program.
+     */
     public GeneralDeckStatisticsDisplayLogic(MainGUI gui) {
         this.gui = gui;
         keeper = gui.getRewardStatisticsKeeper();
@@ -41,7 +49,7 @@ public class GeneralDeckStatisticsDisplayLogic implements StatisticsGUI {
     }
     
     private void enableAvgWinsDisplay(boolean enable) {
-            gui.getGeneralDeckStatisticsAvgWinsLabel().setVisible(enable);
+            gui.getGeneralDeckStatisticsAvgWins().setVisible(enable);
             gui.getGeneralDeckStatisticsAvgWinsValue().setVisible(enable);
             gui.getGeneralDeckStatisticsAvgWinsValue().setText("" + keeper.getTotalWinAverage());
     }
@@ -49,7 +57,7 @@ public class GeneralDeckStatisticsDisplayLogic implements StatisticsGUI {
     private void updateXWinsStats(int x) {
         gui.getGeneralDeckStatisticsWins().setText("" + x);
         gui.getGeneralDeckStatisticsDecks().setText("" + keeper.getDecksByWins(x));
-        gui.getGeneralDeckStatisticsPerOutOfAllDecks().setText("" + StatisticsHelper.convertToPercentage(keeper.getPercentageOutOfAllDecks(x)));
+        gui.getGeneralDeckStatisticsPerOutOfAllDecks().setText("" + StatisticsHelper.convertToDecimal(keeper.getPlayRatio(x)));
         gui.getGeneralDeckStatisticsDust().setText("" + keeper.getDustByWins(x));
         gui.getGeneralDeckStatisticsAvgDust().setText("" + keeper.getAverageDustByWins(x));
         gui.getGeneralDeckStatisticsGold().setText("" + keeper.getGoldByWins(x));

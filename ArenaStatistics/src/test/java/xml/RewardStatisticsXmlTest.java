@@ -14,7 +14,7 @@ public class RewardStatisticsXmlTest {
     private static final String filepath = "src/main/resources/xmltestfiles/RewardStatisticsXmlTest.xml";
     private RewardStatisticsKeeper keeper1;
     private RewardStatisticsKeeper keeper2;
-    private RewardStatisticsParser parser;
+    private StatisticsParser parser;
 
     public RewardStatisticsXmlTest() {
         writer = new RewardStatisticsWriter(filepath);
@@ -57,7 +57,7 @@ public class RewardStatisticsXmlTest {
 
     private RewardStatisticsKeeper parseToKeeper() {
         parse();
-        return parser.getKeeper();
+        return (RewardStatisticsKeeper) parser.getParsedObject();
     }
 
     private void parse() {

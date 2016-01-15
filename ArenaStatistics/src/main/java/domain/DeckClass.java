@@ -44,12 +44,12 @@ public enum DeckClass {
 
     private final String name;
     private final String portraitFilename;
-    private final String alPortraitFilename;
+    private final String altPortraitFilename;
 
     private DeckClass(String name, String portraitFilepath, String altPortraitFilePath) {
         this.name = name;
         this.portraitFilename = portraitFilepath;
-        this.alPortraitFilename = altPortraitFilePath;
+        this.altPortraitFilename = altPortraitFilePath;
     }
 
     /**
@@ -76,8 +76,8 @@ public enum DeckClass {
      * @return Filename of the main portrait as String. If the class does not
      * have an alternate portrait, the method returns an empty String.
      */
-    public String getAlPortraitFilename() {
-        return alPortraitFilename;
+    public String getAltPortraitFilename() {
+        return altPortraitFilename;
     }
 
     /**
