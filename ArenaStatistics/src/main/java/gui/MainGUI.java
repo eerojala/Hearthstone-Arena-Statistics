@@ -2629,33 +2629,38 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private void removeMatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMatchActionPerformed
         this.setEnabled(false);
         int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to remove this match: "
-                + currentDeckEditor.getMatch(matchSelect.getSelectedIndex()));
+                + currentDeckEditor.getMatch(matchSelect.getSelectedIndex()), "Match Removal Confirmation",
+                JOptionPane.YES_NO_OPTION);
         if (answer == JOptionPane.YES_OPTION) {
             currentDeckEditor.removeMatch(matchSelect.getSelectedIndex());
         }
         this.setEnabled(true);
+        this.requestFocus();
     }//GEN-LAST:event_removeMatchActionPerformed
 
     private void retireCurrentDeckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retireCurrentDeckActionPerformed
         this.setEnabled(false);
         int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to retire this deck? "
-                + "This option WILL affect statistics.");
+                + "This option WILL affect statistics.", "Deck Retiral Confirmation", JOptionPane.YES_NO_OPTION);
         if (answer == JOptionPane.YES_OPTION) {
             currentDeckEditor.finishDeck();
+        } else {
+            this.setEnabled(true);
+            this.requestFocus();
         }
-        this.setEnabled(true);
     }//GEN-LAST:event_retireCurrentDeckActionPerformed
 
     private void removeCurrentDeckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCurrentDeckActionPerformed
         this.setEnabled(false);
         int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to remove this deck? "
-                + "This option WILL NOT affect statistics.");
+                + "This option WILL NOT affect statistics.", "Deck Removal Confirmation", JOptionPane.YES_NO_OPTION);
         if (answer == JOptionPane.YES_OPTION) {
             currentDeck = null;
             currentDeckEditor.setCurrentDeck(currentDeck);
             dataWriter.clearDeckAndMatchesXml();
         }
         this.setEnabled(true);
+        this.requestFocus();
     }//GEN-LAST:event_removeCurrentDeckActionPerformed
 
     private void matchSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchSelectActionPerformed
@@ -2673,12 +2678,14 @@ public class MainGUI extends javax.swing.JFrame implements Runnable {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setEnabled(false);
         int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to reset data? "
-                + "This will nullify your statistics and completely remove your current deck");
+                + "This will nullify your statistics and completely remove your current deck",
+                "Data Reset Confirmation", JOptionPane.YES_NO_OPTION);
         if (answer == JOptionPane.YES_OPTION) {
             dataWriter.resetData();
             currentDeck = null;
             currentDeckEditor.setCurrentDeck(null);
         }
+        this.requestFocus();
         this.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -86,7 +86,7 @@ public class MatchStatisticsDisplayLogic implements StatisticsDisplay, DisplayWi
     private void updateTotalValues() {
         gui.getMatchStatisticsTotalMatches().setText("" + csk.getTotalMatches());
         gui.getMatchStatisticsTotalWins().setText("" + csk.getTotalWins());
-        gui.getMatchStatisticsTotalWinPer().setText("" + StatisticsHelper.convertToDecimal(csk.getTotalWinRatio()));
+        gui.getMatchStatisticsTotalWinPer().setText("" + StatisticsHelper.convertToPercentage(csk.getTotalWinRatio()));
     }
 
     private void update1stValues(DeckClass dc, Matchup dcp) {
@@ -94,11 +94,11 @@ public class MatchStatisticsDisplayLogic implements StatisticsDisplay, DisplayWi
         gui.getMatchStatisticsMatchesVSClassValue().setText("" + csk.getMatchesVSClass1st(dc));
         gui.getMatchStatisticsWinsAsClassValue().setText("" + csk.getWinsAsClass1st(dc));
         gui.getMatchStatisticsWinsVSClassValue().setText("" + csk.getWinsVSClass1st(dc));
-        gui.getMatchStatisticsWinPerAsClassValue().setText("" + StatisticsHelper.convertToDecimal(csk.getWinRatioAsClass1st(dc)));
-        gui.getMatchStatisticsWinPerVSClassValue().setText("" + StatisticsHelper.convertToDecimal(csk.getWinRatioVSClass1st(dc)));
+        gui.getMatchStatisticsWinPerAsClassValue().setText("" + StatisticsHelper.convertToPercentage(csk.getWinRatioAsClass1st(dc)));
+        gui.getMatchStatisticsWinPerVSClassValue().setText("" + StatisticsHelper.convertToPercentage(csk.getWinRatioVSClass1st(dc)));
         gui.getMatchStatisticsMatchesVSClass2Value().setText("" + cvcsk.getMatchesInMatchup1st(dcp));
         gui.getMatchStatisticsWinsVSClass2Value().setText("" + cvcsk.getWinsInMatchup1st(dcp));
-        gui.getMatchStatisticsWinPerVSClass2Value().setText("" + StatisticsHelper.convertToDecimal(cvcsk.getMatchupWinRatio1st(dcp)));
+        gui.getMatchStatisticsWinPerVSClass2Value().setText("" + StatisticsHelper.convertToPercentage(cvcsk.getMatchupWinRatio1st(dcp)));
     }
 
     private void update2ndValues(DeckClass dc, Matchup dcp) {
@@ -106,11 +106,11 @@ public class MatchStatisticsDisplayLogic implements StatisticsDisplay, DisplayWi
         gui.getMatchStatisticsMatchesVSClassValue().setText("" + csk.getMatchesVSClass2nd(dc));
         gui.getMatchStatisticsWinsAsClassValue().setText("" + csk.getWinsAsClass2nd(dc));
         gui.getMatchStatisticsWinsVSClassValue().setText("" + csk.getWinsVSClass2nd(dc));
-        gui.getMatchStatisticsWinPerAsClassValue().setText("" + StatisticsHelper.convertToDecimal(csk.getWinPerAsClass2nd(dc)));
-        gui.getMatchStatisticsWinPerVSClassValue().setText("" + StatisticsHelper.convertToDecimal(csk.getWinRatioVSClass2nd(dc)));
+        gui.getMatchStatisticsWinPerAsClassValue().setText("" + StatisticsHelper.convertToPercentage(csk.getWinPerAsClass2nd(dc)));
+        gui.getMatchStatisticsWinPerVSClassValue().setText("" + StatisticsHelper.convertToPercentage(csk.getWinRatioVSClass2nd(dc)));
         gui.getMatchStatisticsMatchesVSClass2Value().setText("" + cvcsk.getMatchesInMatchup2nd(dcp));
         gui.getMatchStatisticsWinsVSClass2Value().setText("" + cvcsk.getWinsInMatchup2nd(dcp));
-        gui.getMatchStatisticsWinPerVSClass2Value().setText("" + StatisticsHelper.convertToDecimal(cvcsk.getMatchupWinRatio2nd(dcp)));
+        gui.getMatchStatisticsWinPerVSClass2Value().setText("" + StatisticsHelper.convertToPercentage(cvcsk.getMatchupWinRatio2nd(dcp)));
     }
     
     private void updateClassTotalValues(DeckClass dc, Matchup dcp) {
@@ -118,11 +118,11 @@ public class MatchStatisticsDisplayLogic implements StatisticsDisplay, DisplayWi
         gui.getMatchStatisticsMatchesVSClassValue().setText("" + csk.getMatchesVSClassTotal(dc));
         gui.getMatchStatisticsWinsAsClassValue().setText("" + csk.getWinsAsClassTotal(dc));
         gui.getMatchStatisticsWinsVSClassValue().setText("" + csk.getWinsVSClassTotal(dc));
-        gui.getMatchStatisticsWinPerAsClassValue().setText("" + StatisticsHelper.convertToDecimal(csk.getWinRatioAsClassTotal(dc)));
-        gui.getMatchStatisticsWinPerVSClassValue().setText("" + StatisticsHelper.convertToDecimal(csk.getWinRatioVSClassTotal(dc)));
+        gui.getMatchStatisticsWinPerAsClassValue().setText("" + StatisticsHelper.convertToPercentage(csk.getWinRatioAsClassTotal(dc)));
+        gui.getMatchStatisticsWinPerVSClassValue().setText("" + StatisticsHelper.convertToPercentage(csk.getWinRatioVSClassTotal(dc)));
         gui.getMatchStatisticsMatchesVSClass2Value().setText("" + cvcsk.getMatchesInMatchupTotal(dcp));
         gui.getMatchStatisticsWinsVSClass2Value().setText("" + cvcsk.getWinsInMatchupTotal(dcp));
-        gui.getMatchStatisticsWinPerVSClass2Value().setText("" + StatisticsHelper.convertToDecimal(cvcsk.getWinRatioInMatchupTotal(dcp)));
+        gui.getMatchStatisticsWinPerVSClass2Value().setText("" + StatisticsHelper.convertToPercentage(cvcsk.getWinRatioInMatchupTotal(dcp)));
     }
     
     @Override

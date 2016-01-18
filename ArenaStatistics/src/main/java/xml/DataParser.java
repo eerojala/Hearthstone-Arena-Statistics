@@ -38,8 +38,8 @@ public class DataParser {
         decksFilePath = "src/main/resources/xmlfiles/Decks.xml";
         matchesFilePath = "src/main/resources/xmlfiles/Matches.xml";
         matchStatisticsFilepath = "src/main/resources/xmlfiles/MatchStatistics.xml";
-        matchupStatisticsFilePath = "src/main/resources/xmlfiles/ClassVSClassStatistics.xml";
-        deckScoreStatisticsFilePath = "src/main/resources/xmlfiles/DeckClassStatistics.xml";
+        matchupStatisticsFilePath = "src/main/resources/xmlfiles/MatchupStatistics.xml";
+        deckScoreStatisticsFilePath = "src/main/resources/xmlfiles/DeckScoreStatistics.xml";
         rewardStatisticsFilepath = "src/main/resources/xmlfiles/RewardStatistics.xml";
     }
     

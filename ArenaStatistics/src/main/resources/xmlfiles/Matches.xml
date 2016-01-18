@@ -1,18 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Matches>
-  <Match id="2.1">
-    <PlayerClass>Mage</PlayerClass>
-    <OpponentClass>Druid</OpponentClass>
-    <OpponentName />
-    <Outcome>Win</Outcome>
-    <WentFirst>false</WentFirst>
-  </Match>
-  <Match id="2.2">
-    <PlayerClass>Mage</PlayerClass>
-    <OpponentClass>Priest</OpponentClass>
-    <OpponentName />
-    <Outcome>Win</Outcome>
-    <WentFirst>false</WentFirst>
-  </Match>
-</Matches>
+<Matches />
 

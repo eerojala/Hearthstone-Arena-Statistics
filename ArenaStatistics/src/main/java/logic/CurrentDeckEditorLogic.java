@@ -140,12 +140,10 @@ public class CurrentDeckEditorLogic implements DisplayWithPortrait {
     }
 
     /**
-     * Opens the results GUI, nullifies the current deck and updates the display.
+     * Opens the results GUI.
      */
     public void finishDeck() {
         gui.openResultsGUI();
-        currentDeck = null;
-        setLabelValues();
     }
 
     /**

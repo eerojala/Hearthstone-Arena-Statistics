@@ -40,8 +40,8 @@ public class DataWriter {
     public DataWriter(MatchStatisticsKeeper matchStatisticsKeeper, MatchupStatisticsKeeper matchupStatisticsKeeper,
             DeckScoreStatisticsKeeper deckScoreStatisticsKeeper, RewardStatisticsKeeper rewardStatisticsKeeper) {
         matchStatisticsWriter = new MatchStatisticsWriter("src/main/resources/xmlfiles/MatchStatistics.xml");
-        matchupStatisticsWriter = new MatchupStatisticsWriter("src/main/resources/xmlfiles/ClassVSClassStatistics.xml");
-        deckScoreStatisticsWriter = new DeckScoreStatisticsWriter("src/main/resources/xmlfiles/DeckClassStatistics.xml");
+        matchupStatisticsWriter = new MatchupStatisticsWriter("src/main/resources/xmlfiles/MatchupStatistics.xml");
+        deckScoreStatisticsWriter = new DeckScoreStatisticsWriter("src/main/resources/xmlfiles/DeckScoreStatistics.xml");
         deckWriter = new DeckWriter("src/main/resources/xmlfiles/Decks.xml");
         matchWriter = new MatchWriter("src/main/resources/xmlfiles/Matches.xml");
         rewardStatisticsWriter = new RewardStatisticsWriter("src/main/resources/xmlfiles/RewardStatistics.xml");
@@ -66,12 +66,13 @@ public class DataWriter {
      * Writes the data from the statistics keepers to the Xml files, removes
      * data of the current deck and it's matches from the Xml files.
      *
-     * @param deck Deck which data is removed from the Xml files.
+     * @param deck Deck which data is written to the statistics.
      */
     public void saveStatistics(Deck deck) {
         deckWriter.removeAll();
         matchWriter.removeAll();
-        matchStatisticsWriter.updateSpecific(deck.getDeckClass(), matchStatisticsKeeper);
+        matchStatisticsWriter.removeAll();
+        matchStatisticsWriter.writeContent(matchStatisticsKeeper);
         deckScoreStatisticsWriter.updateSpecific(deck.getDeckClass(), deckScoreStatisticsKeeper);
         rewardStatisticsWriter.updateSpecific(deck.getWins(), rewardStatisticsKeeper);
         saveSpecificMatchups(deck);

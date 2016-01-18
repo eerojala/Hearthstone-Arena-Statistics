@@ -1,4 +1,3 @@
-
 package gui;
 
 import domain.DeckClass;
@@ -12,7 +11,7 @@ public class MatchCreationGUI extends javax.swing.JFrame implements Runnable {
 
     /**
      * Creates a new MatchCreationGUI Object.
-     * 
+     *
      * @param maingui The Main GUI of the program.
      * @param deckNumber Identifying number of the current deck.
      * @param matchNumber Identifying number for the new created match.
@@ -225,9 +224,9 @@ public class MatchCreationGUI extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jRadioButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Match match = new Match((DeckClass) opponentClass.getSelectedItem(), outcome, going1st, deckNumber, matchNumber);     
-        maingui.getCurrentDeckEditor().addMatch(match);
+        Match match = new Match((DeckClass) opponentClass.getSelectedItem(), outcome, going1st, deckNumber, matchNumber);
         maingui.setEnabled(true);
+        maingui.getCurrentDeckEditor().addMatch(match);
         maingui.increaseNextMatchNumber();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

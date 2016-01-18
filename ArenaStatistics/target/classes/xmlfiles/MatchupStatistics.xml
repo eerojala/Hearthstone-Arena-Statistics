@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassPairs>
+  <ClassPair id="DruidVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="DruidVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="DruidVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="DruidVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="DruidVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="DruidVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="DruidVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="DruidVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="DruidVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="HunterVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="MageVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PaladinVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="PriestVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="RogueVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="ShamanVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarlockVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSDruid">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSHunter">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSMage">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSPaladin">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSPriest">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSRogue">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSShaman">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSWarlock">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+  <ClassPair id="WarriorVSWarrior">
+    <Matches1st>0</Matches1st>
+    <Matches2nd>0</Matches2nd>
+    <Wins1st>0</Wins1st>
+    <Wins2nd>0</Wins2nd>
+    <Losses1st>0</Losses1st>
+    <Losses2nd>0</Losses2nd>
+  </ClassPair>
+</ClassPairs>
+

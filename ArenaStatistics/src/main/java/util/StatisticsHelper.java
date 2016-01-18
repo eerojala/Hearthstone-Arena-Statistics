@@ -1,5 +1,7 @@
 package util;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Map;
 
 /**
@@ -54,18 +56,31 @@ public class StatisticsHelper {
     }
 
     /**
-     * Returns the given double converted into percents by shaving all the
-     * decimals after the 3rd one and multiplying the double by 100. NOTE: the
-     * method only shaves off the decimals and does NOT round double.
+     * Rounds a given double to 2 decimals.
+     *
+     * @param d Double which is rounded.
+     * @return Given double rounded to 2 decimals.
+     */
+    public static double round(Double d) {
+        if (d != Double.NaN && d > 0) {
+            return round(d, 2);
+        }
+        return 0;
+    }
+
+    private static double round(Double d, int decimalPlaces) {
+        BigDecimal bd = new BigDecimal(d);
+        bd = bd.setScale(decimalPlaces, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
+    /**
+     * Returns the given double converted into percents with 2 decimals.
      *
      * @param d Double which is converted.
      * @return Given double converted into percents.
      */
-    public static double convertToDecimal(Double d) {
-        StringBuilder sb = new StringBuilder(d.toString());
-        if (sb.length() > 6) {
-            sb.replace(6, d.toString().length(), "");
-        }
-        return Double.parseDouble(sb.toString()) * 100;
+    public static double convertToPercentage(Double d) {
+        return round(round(d, 4) * 100);
     }
 }

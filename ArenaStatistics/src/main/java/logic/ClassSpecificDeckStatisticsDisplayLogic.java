@@ -47,7 +47,7 @@ public class ClassSpecificDeckStatisticsDisplayLogic implements StatisticsDispla
         DeckClass dc = (DeckClass) classChooser.getSelectedItem();
         gui.getClassDeckStatisticsDecksAsClass().setText("" + keeper.getDecksAsClass(dc));
         gui.getClassDeckStatisticsWinsAsClass().setText("" + keeper.getWinsAsClass(dc));
-        gui.getClassDeckStatisticsPlayPerAsClass().setText("" + StatisticsHelper.convertToDecimal(keeper.getPlayRatioAsClass(dc)));
+        gui.getClassDeckStatisticsPlayPerAsClass().setText("" + StatisticsHelper.convertToPercentage(keeper.getPlayRatioAsClass(dc)));
         gui.getClassDeckStatisticsAvgWinsAsClass().setText("" + keeper.getAverageWinsAsClass(dc));
         putValuesToWinAmountLabels(dc);
     }

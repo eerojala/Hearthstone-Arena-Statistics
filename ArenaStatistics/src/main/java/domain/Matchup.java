@@ -74,9 +74,9 @@ public class Matchup {
      * a String representation of any Matchup.
      */
     public static Matchup parseMatchup(String string) {
-        for (Matchup dcp : getMatchupList()) {
-            if (string.equals(dcp.toString())) {
-                return dcp;
+        for (Matchup matchup : getMatchupList()) {
+            if (string.equals(matchup.toString())) {
+                return matchup;
             }
         }
         return null;

@@ -67,24 +67,49 @@ public class StatisticsHelperTest {
         intMap.put(13, 5);
         assertEquals(2, StatisticsHelper.sumMapValueIntegers(intMap));
     }
-    
+
     @Test
     public void convertToPercentage_returns_correct_value1() {
-        assertEquals(12.34, StatisticsHelper.convertToDecimal(0.12345), 0.0);
+        assertEquals(12.35, StatisticsHelper.convertToPercentage(0.12345), 0.0);
     }
-    
+
     @Test
-    public void convertToPercentageReturns_correct_value2() {
-        assertEquals(12.34, StatisticsHelper.convertToDecimal(0.1234), 0.0);
+    public void convertToPercentage_returns_correct_value2() {
+        assertEquals(12.34, StatisticsHelper.convertToPercentage(0.1234), 0.0);
     }
-    
+
     @Test
-    public void convertToPercentageReturns_correct_value3() {
-        assertEquals(12.3, StatisticsHelper.convertToDecimal(0.123), 0.0);
+    public void convertToPercentage_returns_correct_value3() {
+        assertEquals(12.3, StatisticsHelper.convertToPercentage(0.123), 0.0);
     }
-    
+
     @Test
-    public void convertToPercentageReturns_correct_value4() {
-        assertEquals(12.0, StatisticsHelper.convertToDecimal(0.12), 0.0);
+    public void convertToPercentage_returns_correct_value4() {
+        assertEquals(12.0, StatisticsHelper.convertToPercentage(0.12), 0.0);
+    }
+
+    @Test
+    public void convertToPercentage_returns_correct_value5() {
+        assertEquals(12.35, StatisticsHelper.convertToPercentage(0.123456789), 0.0);
+    }
+
+    @Test
+    public void convertToPercentage_returns_correct_value6() {
+        assertEquals(81.48, StatisticsHelper.convertToPercentage((double) 22 / 27), 0.0);
+    }
+
+    @Test
+    public void round_returns_correct_value1() {
+        assertEquals(12.35, StatisticsHelper.round(12.345), 0);
+    }
+
+    @Test
+    public void round_returns_correct_value2() {
+        assertEquals(4444.42, StatisticsHelper.round(4444.42424435235), 0);
+    }
+
+    @Test
+    public void round_returns_correct_value3() {
+        assertEquals(1111.13, StatisticsHelper.round(1111.1345), 0);
     }
 }

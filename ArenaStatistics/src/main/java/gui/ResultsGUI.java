@@ -1,4 +1,3 @@
-
 package gui;
 
 import domain.Card;
@@ -14,7 +13,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
 
     /**
      * Creates a new ResultsGUI object.
-     * 
+     *
      * @param mainGUI The Main GUI of the program.
      * @param deck The finished deck.
      */
@@ -29,7 +28,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
     public void run() {
         initComponents();
     }
-    
+
     private boolean valuesAreValid() {
         JTextField[] textFields = getTextFieldArray();
         for (int i = 0; i < textFields.length; i++) {
@@ -44,7 +43,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
         }
         return true;
     }
-    
+
     private JTextField[] getTextFieldArray() {
         JTextField[] textFields = new JTextField[5];
         textFields[0] = gold;
@@ -54,7 +53,7 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
         textFields[4] = goldCards;
         return textFields;
     }
-    
+
     private void setRewards() {
         deckHandler.setGold(Integer.parseInt(gold.getText()));
         deckHandler.setDust(Integer.parseInt(dust.getText()));
@@ -214,7 +213,9 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         this.setEnabled(false);
         if (valuesAreValid()) {
-            int answer = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to save these rewards? You may not edit them after saving.");
+            int answer = JOptionPane.showConfirmDialog(rootPane,
+                    "Are you sure you want to save these rewards? You may not edit them after saving.",
+                    "Results Confirmation", JOptionPane.YES_NO_OPTION);
             if (answer == JOptionPane.YES_OPTION) {
                 setRewards();
                 this.dispose();
@@ -223,12 +224,12 @@ public class ResultsGUI extends javax.swing.JFrame implements Runnable {
                 mainGUI.saveStatistics();
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "You must only input integers that are 0 or positive as values", 
+            JOptionPane.showMessageDialog(rootPane, "You must only input integers that are 0 or positive as values",
                     "Invalid values", JOptionPane.ERROR_MESSAGE);
         }
         this.setEnabled(true);
+        this.requestFocus();
     }//GEN-LAST:event_confirmActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

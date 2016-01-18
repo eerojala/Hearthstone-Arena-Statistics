@@ -5,7 +5,7 @@ import java.util.Map;
 import util.Mapper;
 
 /**
- * Class containg the HashMaps which store deck reward statistics.
+ * Class containing the HashMaps which store deck reward statistics.
  */
 public class RewardStatistics {
 

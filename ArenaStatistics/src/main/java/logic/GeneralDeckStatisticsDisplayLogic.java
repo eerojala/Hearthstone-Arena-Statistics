@@ -24,49 +24,49 @@ public class GeneralDeckStatisticsDisplayLogic implements StatisticsDisplay {
     @Override
     public void updateStats() {
         if (gui.getGeneralDeckStatisticsWinSlider().getValue() == 13) {
-            updateTotalStats();
+            updateToTotalStats();
             enableAvgWinsDisplay(true);
         } else {
-            updateXWinsStats(gui.getGeneralDeckStatisticsWinSlider().getValue());
+            updateToXWinsStats(gui.getGeneralDeckStatisticsWinSlider().getValue());
             enableAvgWinsDisplay(false);
         }
     }
 
-    private void updateTotalStats() {
+    private void updateToTotalStats() {
         gui.getGeneralDeckStatisticsWins().setText("Total");
         gui.getGeneralDeckStatisticsDecks().setText("" + keeper.getTotalDeckAmount());
         gui.getGeneralDeckStatisticsPerOutOfAllDecks().setText("100.0");
         gui.getGeneralDeckStatisticsDust().setText("" + keeper.getTotalDust());
-        gui.getGeneralDeckStatisticsAvgDust().setText("" + keeper.getTotalDustAverage());
+        gui.getGeneralDeckStatisticsAvgDust().setText("" + StatisticsHelper.round(keeper.getTotalDustAverage()));
         gui.getGeneralDeckStatisticsGold().setText("" + keeper.getTotalGold());
-        gui.getGeneralDeckStatisticsAvgGold().setText("" + keeper.getTotalGoldAverage());
+        gui.getGeneralDeckStatisticsAvgGold().setText("" + StatisticsHelper.round(keeper.getTotalGoldAverage()));
         gui.getGeneralDeckStatisticsExtraPacks().setText("" + keeper.getTotalExtraPacks());
-        gui.getGeneralDeckStatisticsAvgExtraPacks().setText("" + keeper.getTotalExtraPackAverage());
+        gui.getGeneralDeckStatisticsAvgExtraPacks().setText("" + StatisticsHelper.round(keeper.getTotalExtraPackAverage()));
         gui.getGeneralDeckStatisticsRegularCards().setText("" + keeper.getTotalRegularCards());
-        gui.getGeneralDeckStatisticsAvgRegularCards().setText("" + keeper.getTotalRegularCardAverage());
+        gui.getGeneralDeckStatisticsAvgRegularCards().setText("" + StatisticsHelper.round(keeper.getTotalRegularCardAverage()));
         gui.getGeneralDeckStatisticsGoldenCards().setText("" + keeper.getTotalGoldenCards());
-        gui.getGeneralDeckStatisticsAvgGoldenCards().setText("" + keeper.getTotalGoldenCardAverage());
+        gui.getGeneralDeckStatisticsAvgGoldenCards().setText("" + StatisticsHelper.round(keeper.getTotalGoldenCardAverage()));
     }
     
     private void enableAvgWinsDisplay(boolean enable) {
             gui.getGeneralDeckStatisticsAvgWins().setVisible(enable);
             gui.getGeneralDeckStatisticsAvgWinsValue().setVisible(enable);
-            gui.getGeneralDeckStatisticsAvgWinsValue().setText("" + keeper.getTotalWinAverage());
+            gui.getGeneralDeckStatisticsAvgWinsValue().setText("" + StatisticsHelper.round(keeper.getTotalWinAverage()));
     }
 
-    private void updateXWinsStats(int x) {
+    private void updateToXWinsStats(int x) {
         gui.getGeneralDeckStatisticsWins().setText("" + x);
         gui.getGeneralDeckStatisticsDecks().setText("" + keeper.getDecksByWins(x));
-        gui.getGeneralDeckStatisticsPerOutOfAllDecks().setText("" + StatisticsHelper.convertToDecimal(keeper.getPlayRatio(x)));
+        gui.getGeneralDeckStatisticsPerOutOfAllDecks().setText("" + StatisticsHelper.convertToPercentage(keeper.getPlayRatio(x)));
         gui.getGeneralDeckStatisticsDust().setText("" + keeper.getDustByWins(x));
-        gui.getGeneralDeckStatisticsAvgDust().setText("" + keeper.getAverageDustByWins(x));
+        gui.getGeneralDeckStatisticsAvgDust().setText("" + StatisticsHelper.round(keeper.getAverageDustByWins(x)));
         gui.getGeneralDeckStatisticsGold().setText("" + keeper.getGoldByWins(x));
-        gui.getGeneralDeckStatisticsAvgGold().setText("" + keeper.getAverageGoldByWins(x));
+        gui.getGeneralDeckStatisticsAvgGold().setText("" + StatisticsHelper.round(keeper.getAverageGoldByWins(x)));
         gui.getGeneralDeckStatisticsExtraPacks().setText("" + keeper.getExtraPacksByWins(x));
-        gui.getGeneralDeckStatisticsAvgExtraPacks().setText("" + keeper.getAverageExtraPacksByWins(x));
+        gui.getGeneralDeckStatisticsAvgExtraPacks().setText("" + StatisticsHelper.round(keeper.getAverageExtraPacksByWins(x)));
         gui.getGeneralDeckStatisticsRegularCards().setText("" + keeper.getRegularCardsByWins(x));
-        gui.getGeneralDeckStatisticsAvgRegularCards().setText("" + keeper.getAverageRegularCardsByWins(x));
+        gui.getGeneralDeckStatisticsAvgRegularCards().setText("" + StatisticsHelper.round(keeper.getAverageRegularCardsByWins(x)));
         gui.getGeneralDeckStatisticsGoldenCards().setText("" + keeper.getGoldCardsByWins(x));
-        gui.getGeneralDeckStatisticsAvgGoldenCards().setText("" + keeper.getAverageGoldCardsByWins(x));
+        gui.getGeneralDeckStatisticsAvgGoldenCards().setText("" + StatisticsHelper.round(keeper.getAverageGoldCardsByWins(x)));
     }
 }

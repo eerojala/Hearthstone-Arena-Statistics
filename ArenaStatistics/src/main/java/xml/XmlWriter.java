@@ -98,7 +98,7 @@ public abstract class XmlWriter {
         try {
             output.output(doc, new FileWriter(filePath));
         } catch (Exception e) {
-            System.out.println("Writing to file failed");
+            System.out.println("Writing to file in the file path " + filePath +  " failed");
         }
     }
 
